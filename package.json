@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon",
     "build": "tsc",
-    "pdf": "npm run build && rsync -av --delete dest/ ../prod"
+    "pfd": "npm run build && rsync -av --delete dest/ ../prod"
   },
   "repository": {
     "type": "git",
