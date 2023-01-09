@@ -1,4 +1,4 @@
-## Package.json
+## package.json
 
 - `name`
 - `repository.url`
@@ -7,3 +7,7 @@
 ## .env
 
 - `NODE_ENV`
+
+## git
+
+- Change remote
