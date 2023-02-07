@@ -1,5 +1,5 @@
 {
-  "name": "widgets-api-dev",
+  "name": "orion-diglib-api-dev",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,12 +9,12 @@
     "clean_old_prod": "rm -rf prod && cd .. && rm -rf prod",
     "move_new_prod": "mv prod ../",
     "copy_config": "cp {.env,.env-blank,.gitignore,package.json} ../prod",
-    "prod_init": "cd .. && cd prod && git init && git add --all && git commit -m \"Success\" && git branch -M main && git remote add origin git@github.com-vital-widgets:vital-widgets/widgets-api-prod.git && npm install",
+    "prod_init": "cd .. && cd prod && git init && git add --all && git commit -m \"Success\" && git branch -M main && git remote add origin git@github.com-orion-diglib:orion-diglib/app-api-dev.git && npm install",
     "pfd": "npm run clean_old_prod && npm run build && npm run move_new_prod && npm run copy_config && npm run prod_init"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com-vital-widgets:vital-widgets/widgets-api-dev.git"
+    "url": "git@github.com-orion-diglib:orion-diglib/app-api-dev.git"
   },
   "author": "Tuhin Bhuyan (Projckt)",
   "license": "ISC",
