@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../../config";
 
-const model_Document_Name: string = "Document";
+const model_Document_Name: string = "document";
 const model_Document_Attributes: any = {
   id: {
     type: DataTypes.UUID,
