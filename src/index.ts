@@ -1,6 +1,8 @@
 import app from "./app";
 import http from "http";
 import { nodeConfig, sequelize } from "./config";
+import { postgresConfig } from "./config";
+
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -21,15 +23,15 @@ dotenv.config();
   /* ------------------
   CREATE SCHEMA
   -------------------*/
-  await sequelize
-    .createSchema(process.env.POSTGRES_SCHEMA!, {})
-    .then((result) => {
-      console.log("SUCCESS: Schema created");
-    })
-    .catch((err) => {
-      console.log("ERROR: Could not create schema");
-      console.log(err);
-    });
+  // await sequelize
+  //   .createSchema(process.env.POSTGRES_SCHEMA!, {})
+  //   .then((result) => {
+  //     console.log("SUCCESS: Schema created");
+  //   })
+  //   .catch((err) => {
+  //     console.log("ERROR: Could not create schema");
+  //     console.log(err);
+  //   });
 
   /* ------------------
   SYNC MODELS
