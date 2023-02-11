@@ -14,7 +14,7 @@ const model_Gateway_Attributes: any = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  processing_fee_perctage: {
+  fee_percentage: {
     type: DataTypes.NUMBER,
     allowNull: false,
   },
