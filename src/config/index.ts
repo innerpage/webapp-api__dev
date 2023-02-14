@@ -23,7 +23,7 @@ export { postmarkConfig } from "./postmark/postmarkConfig";
 /* ------------
 REDIS CONFIG
 -------------*/
-export { redisConfig } from "./redis/redisConfig";
+export { redisClient } from "./redis/redisConfig";
 
 /* -------------
 SEQUELIZE CONFIG

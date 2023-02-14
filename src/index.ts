@@ -1,7 +1,6 @@
 import app from "./app";
 import http from "http";
 import { nodeConfig, sequelize } from "./config";
-import { postgresConfig } from "./config";
 
 import dotenv from "dotenv";
 dotenv.config();
