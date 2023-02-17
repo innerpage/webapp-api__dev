@@ -4,6 +4,6 @@ dotenv.config();
 export const baseUrlConfig = {
   url:
     process.env.NODE_ENV === "dev"
-      ? `http:localhost:${process.env.NODE_PORT_NUMBER}`
+      ? `http:localhost:${process.env.NODE_PORT}`
       : `https://app.vitalwidgets.com`,
 };
