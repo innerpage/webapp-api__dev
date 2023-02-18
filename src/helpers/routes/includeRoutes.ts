@@ -17,7 +17,6 @@ export const includeRoutesHelper = async () => {
     indexFile = "index.js";
   }
 
-  console.log(`nodeConfig.env: ${nodeConfig.env}`);
   await fs.readdirSync(`${rootDir}/components`).map((componentDir) => {
     let componentDirPath: string = `${rootDir}/components/${componentDir}`;
     new Promise<void>((resolve, reject) => {
