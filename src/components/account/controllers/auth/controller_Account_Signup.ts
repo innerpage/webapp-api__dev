@@ -10,6 +10,5 @@ export const controller_Account_Signup = (req: Request, res: Response) => {
     success: true,
     message: "User is signed up",
   };
-
   res.json(responseObj);
 };

@@ -1,9 +1,7 @@
 import Joi from "joi";
 import { Request, Response, NextFunction } from "express";
 
-const schema_Signup_Inputs = Joi.object({
-  firstName: Joi.string().required(),
-  lastName: Joi.string().required(),
+const schema_Login_Inputs = Joi.object({
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .min(5)
@@ -14,12 +12,12 @@ const schema_Signup_Inputs = Joi.object({
   password: Joi.string().min(8).max(1024).required(),
 });
 
-export const validator_Signup_Inputs = (
+export const validator_Login_Inputs = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let { error } = schema_Signup_Inputs.validate(req.body);
+  let { error } = schema_Login_Inputs.validate(req.body);
 
   if (error) {
     let errorResponse = {

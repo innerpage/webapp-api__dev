@@ -24,7 +24,6 @@ const model_Account_Attributes: any = {
     allowNull: false,
     validate: { isIn: [["individual", "organisation"]] },
   },
-
   is_publisher: { type: DataTypes.BOOLEAN, defaultValue: false },
   is_disabled: { type: DataTypes.BOOLEAN, defaultValue: false },
   is_email_verified: { type: DataTypes.BOOLEAN, defaultValue: false },
