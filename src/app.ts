@@ -2,7 +2,7 @@ import express from "express";
 import session from "express-session";
 import connectRedis from "connect-redis";
 import cors from "cors";
-import { includeRoutesHelper } from "./helpers";
+import { includeRoutesHelper } from "./global/helpers";
 import { corsConfig, redisClient as client, sessionConfig } from "./config";
 
 const app = express();

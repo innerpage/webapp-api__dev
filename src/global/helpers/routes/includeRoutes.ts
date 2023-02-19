@@ -1,5 +1,5 @@
 import fs from "fs";
-import { nodeConfig } from "../../config";
+import { nodeConfig } from "../../../config";
 
 export const includeRoutesHelper = async () => {
   let componentPaths: Array<string> = [];

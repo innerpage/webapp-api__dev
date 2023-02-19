@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
+import { helper_Logout } from "../../helpers";
 
 export const controller_Account_Logout = (req: Request, res: Response) => {
-  res.send("POST on /logout ");
+  helper_Logout(req, res);
 };
