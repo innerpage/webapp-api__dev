@@ -10,11 +10,11 @@ export const helper_Logout = (req: Request, res: Response) => {
       res.clearCookie("isLogged");
       resolve();
 
-      let responseObj_Logout = {
+      let responseObj = {
         success: true,
         message: "User is logged out",
       };
-      res.status(200).json(responseObj_Logout);
+      res.status(200).json(responseObj);
     });
   });
 };
