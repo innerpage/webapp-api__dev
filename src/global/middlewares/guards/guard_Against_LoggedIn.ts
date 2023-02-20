@@ -5,7 +5,7 @@ export const guard_Against_LoggedIn = (
   res: Response,
   next: NextFunction
 ) => {
-  let user_isLogged = !!req.session!.userId;
+  let user_isLogged = !!req.session!.accountId;
   if (user_isLogged) {
     let responseObj = {
       success: false,
