@@ -20,19 +20,6 @@ dotenv.config();
     });
 
   /* ------------------
-  CREATE SCHEMA
-  -------------------*/
-  // await sequelize
-  //   .createSchema(process.env.POSTGRES_SCHEMA!, {})
-  //   .then((result) => {
-  //     console.log("SUCCESS: Schema created");
-  //   })
-  //   .catch((err) => {
-  //     console.log("ERROR: Could not create schema");
-  //     console.log(err);
-  //   });
-
-  /* ------------------
   SYNC MODELS
   -------------------*/
   await sequelize
