@@ -1,7 +1,9 @@
 import { model_Account } from "../../models";
 
-interface LooseObj {
-  [key: string]: any;
+interface ReturnObj {
+  isCreated_Account: boolean;
+  message: string;
+  payload: object;
 }
 
 export const dal_Create_Account = async (
@@ -10,7 +12,7 @@ export const dal_Create_Account = async (
   email: string,
   password: string
 ) => {
-  let responseObj: LooseObj = {};
+  let returnObj: ReturnObj;
 
   await model_Account
     .create({
@@ -20,14 +22,15 @@ export const dal_Create_Account = async (
       password: password,
     })
     .then((newAccount: any) => {
-      responseObj.success = true;
-      responseObj.message = "Account created";
-      responseObj.payload = newAccount;
+      returnObj.isCreated_Account = true;
+      returnObj.message = "Account created";
+      returnObj.payload = newAccount;
+      return returnObj;
     })
     .catch((err) => {
-      responseObj.success = false;
-      responseObj.message = "Could not create account";
+      returnObj.isCreated_Account = false;
+      returnObj.message = "Could not create account";
+      returnObj.payload = err;
+      return returnObj;
     });
-
-  return responseObj;
 };
