@@ -9,6 +9,5 @@ export const dal_GetAccountCount_ByEmail = async (email: string) => {
     limit: 2,
   });
 
-  console.log(`count: ${count}`);
   return count;
 };

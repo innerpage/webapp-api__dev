@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { dal_GetAccountCount_ByEmail } from "../../dals";
+import { dal_GetAccountCount_ByEmail } from "../../../components/account/dals";
 
 export const checker_Account_Existence = async (
   req: Request,
@@ -11,15 +11,14 @@ export const checker_Account_Existence = async (
   email = email.trim();
 
   let count_Accounts_With_Email = await dal_GetAccountCount_ByEmail(email);
-
   if (count_Accounts_With_Email > 0) {
-    let responseObj = {
+    console.log("Account EXISTS");
+    res.status(200).json({
       success: false,
       message: "This email is already registered",
-    };
-
-    res.status(200).json(responseObj);
+    });
   } else {
+    console.log("Account DOES_NOT_EXIST");
     next();
   }
 };

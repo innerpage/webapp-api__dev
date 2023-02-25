@@ -22,12 +22,10 @@ export const validator_Signup_Inputs = (
   let { error } = schema_Signup_Inputs.validate(req.body);
 
   if (error) {
-    let errorResponse = {
-      success: false,
-      message: error.details[0].message,
-    };
-    return res.json(errorResponse);
+    console.log("Signup inputs NOT_VALID");
+    return res.json({ success: false, message: error.details[0].message });
   }
 
+  console.log("Signup inputs VALID");
   next();
 };

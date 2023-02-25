@@ -1,10 +1,10 @@
 import { Router } from "express";
 
-import { guard_Against_LoggedIn } from "../../../../global/middlewares/";
 import {
-  validator_Signup_Inputs,
+  guard_Against_LoggedIn,
   checker_Account_Existence,
-} from "../../middlewares";
+} from "../../../../global/middlewares/";
+import { validator_Signup_Inputs } from "../../middlewares";
 import { controller_Account_Signup } from "../../controllers";
 
 export const route_Account_Signup = Router();
