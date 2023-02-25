@@ -20,11 +20,10 @@ export const validator_Login_Inputs = (
   let { error } = schema_Login_Inputs.validate(req.body);
 
   if (error) {
-    let errorResponse = {
+    return res.status(400).json({
       success: false,
       message: error.details[0].message,
-    };
-    return res.json(errorResponse);
+    });
   }
 
   next();

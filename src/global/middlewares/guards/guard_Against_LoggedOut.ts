@@ -10,10 +10,9 @@ export const guard_Against_LoggedOut = (
   if (user_isLogged) {
     next();
   } else {
-    let responseObj = {
+    return res.status(400).json({
       success: false,
       message: "User is not logged in",
-    };
-    return res.status(400).json(responseObj);
+    });
   }
 };

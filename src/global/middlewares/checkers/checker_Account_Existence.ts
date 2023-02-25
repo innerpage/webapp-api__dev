@@ -13,7 +13,7 @@ export const checker_Account_Existence = async (
   let count_Accounts_With_Email = await dal_GetAccountCount_ByEmail(email);
   if (count_Accounts_With_Email > 0) {
     console.log("Account EXISTS");
-    res.status(200).json({
+    return res.status(200).json({
       success: false,
       message: "This email is already registered",
     });

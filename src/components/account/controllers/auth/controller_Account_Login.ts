@@ -6,9 +6,8 @@ export const controller_Account_Login = (req: Request, res: Response) => {
 
   helper_Login(req, res, accountId);
 
-  let responseObj = {
+  res.status(200).json({
     success: true,
     message: "User is logged in",
-  };
-  res.json(responseObj);
+  });
 };
