@@ -11,7 +11,7 @@ export const guard_Against_LoggedIn = (
     console.log(`${req.session.id_Account} is LOGGED_IN`);
     return res.status(400).json({
       success: false,
-      message: `${req.session.id_Account} is already logged in`,
+      message: "You are already logged in",
     });
   } else {
     console.log("User is NOT_LOGGED_IN");

@@ -19,7 +19,7 @@ export const checker_Account_Password = async (
     console.log(`${email} password IS_NOT_VALID`);
     return res.status(200).json({
       success: false,
-      message: `${email} password is not valid`,
+      message: "Invalid password",
     });
   }
 
