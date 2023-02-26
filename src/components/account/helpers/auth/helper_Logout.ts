@@ -12,7 +12,7 @@ export const helper_Logout = (req: Request, res: Response) => {
 
       res.status(200).json({
         success: true,
-        message: "User is logged out",
+        message: "Logged out",
       });
     });
   });

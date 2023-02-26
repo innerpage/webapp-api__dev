@@ -6,20 +6,22 @@ export const controller_Account_Signup = async (
   req: Request,
   res: Response
 ) => {
-  let hashed_Password: string = await helper_PasswordHasher(req.body.password);
+  let { firstName, lastName, email, password } =
+    res.locals.formatted_Signup_Inputs;
+
+  let hashed_Password: string = await helper_PasswordHasher(password);
   let returnObj: any = await dal_Create_Account(
-    req.body.firstName,
-    req.body.lastName,
-    req.body.email,
+    firstName,
+    lastName,
+    email,
     hashed_Password
   );
 
   let id_NewAccount: string = returnObj.payload;
   helper_Login(req, res, id_NewAccount);
-  console.log("New account logged in");
 
-  return res.status(200).json({
+  res.status(200).json({
     success: true,
-    message: "Account created",
+    message: "Signed up",
   });
 };

@@ -4,7 +4,10 @@ import {
   guard_Against_LoggedIn,
   checker_Account_Existence,
 } from "../../../../global/middlewares/";
-import { validator_Signup_Inputs } from "../../middlewares";
+import {
+  validator_Signup_Inputs,
+  formatter_Signup_Inputs,
+} from "../../middlewares";
 import { controller_Account_Signup } from "../../controllers";
 
 export const route_Account_Signup = Router();
@@ -14,5 +17,6 @@ route_Account_Signup.post(
   guard_Against_LoggedIn,
   validator_Signup_Inputs,
   checker_Account_Existence,
+  formatter_Signup_Inputs,
   controller_Account_Signup
 );

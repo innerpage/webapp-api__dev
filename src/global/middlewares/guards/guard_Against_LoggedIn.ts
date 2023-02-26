@@ -5,12 +5,14 @@ export const guard_Against_LoggedIn = (
   res: Response,
   next: NextFunction
 ) => {
-  let user_isLogged = !!req.session!.accountId;
+  let user_isLogged = !!req.session!.id_Account;
+
   if (user_isLogged) {
-    console.log("User is LOGGED_IN");
-    return res
-      .status(400)
-      .json({ success: false, message: "User is already logged in" });
+    console.log(`${req.session.id_Account} is LOGGED_IN`);
+    return res.status(400).json({
+      success: false,
+      message: `${req.session.id_Account} is already logged in`,
+    });
   } else {
     console.log("User is NOT_LOGGED_IN");
     next();
