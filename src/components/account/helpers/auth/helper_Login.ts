@@ -5,7 +5,7 @@ dotenv.config();
 export const helper_Login = (
   req: Request,
   res: Response,
-  accountId: string
+  id_Account: string
 ) => {
   let sessionTimeout = +process.env.SESSION_TIMEOUT!;
   let cookieOptions_isLogged = {
@@ -13,6 +13,6 @@ export const helper_Login = (
     httpOnly: false,
   };
 
-  req.session!.accountId = accountId;
+  req.session!.id_Account = id_Account;
   res.cookie("isLogged", true, cookieOptions_isLogged);
 };

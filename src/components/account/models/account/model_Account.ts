@@ -21,8 +21,8 @@ const model_Account_Attributes: any = {
   password: { type: DataTypes.STRING, allowNull: false },
   persona: {
     type: DataTypes.STRING,
-    allowNull: false,
-    validate: { isIn: [["individual", "organisation"]] },
+    validate: { isIn: [["individual", "organisation", ""]] },
+    allowNull: true,
   },
   is_publisher: { type: DataTypes.BOOLEAN, defaultValue: false },
   is_disabled: { type: DataTypes.BOOLEAN, defaultValue: false },

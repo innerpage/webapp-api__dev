@@ -1,32 +1,25 @@
 import { Request, Response } from "express";
 import { dal_Create_Account } from "../../dals";
-import { helper_Login } from "../../helpers";
+import { helper_Login, helper_PasswordHasher } from "../../helpers";
 
 export const controller_Account_Signup = async (
   req: Request,
   res: Response
 ) => {
-  let returnObj_Create_Account: any = await dal_Create_Account(
+  let hashed_Password: string = await helper_PasswordHasher(req.body.password);
+  let returnObj: any = await dal_Create_Account(
     req.body.firstName,
     req.body.lastName,
     req.body.email,
-    req.body.password
+    hashed_Password
   );
 
-  // helper_Login(req, res, accountId);
+  let id_NewAccount: string = returnObj.payload;
+  helper_Login(req, res, id_NewAccount);
+  console.log("New account logged in");
 
-  console.log("");
-  console.log("isCreated");
-  console.log(returnObj_Create_Account.isCreated_Account);
-  console.log("Message");
-  console.log(returnObj_Create_Account.message);
-  console.log("Payload");
-  console.log(returnObj_Create_Account.payload);
-  console.log("");
-
-  // let responseObj: LooseObj = {};
-  // if (returnObj_Create_Account.success) {
-  //   console.log();
-  // } else {
-  // }
+  return res.status(200).json({
+    success: true,
+    message: "Account created",
+  });
 };
