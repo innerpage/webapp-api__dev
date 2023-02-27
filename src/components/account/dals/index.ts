@@ -1,6 +1,5 @@
 // Read
-export { dal_GetAccountCount_ByEmail } from "./read/dal_GetAccountCount_ByEmail";
-export { dal_GetAccount_ByEmail } from "./read/dal_GetAccount_ByEmail";
+export { dal_Account_GetByEmail } from "./read/dal_Account_GetByEmail";
 
 // Write
-export { dal_Create_Account } from "./write/dal_Create_Account";
+export { dal_Account_Create } from "./write/dal_Account_Create";

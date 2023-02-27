@@ -1,10 +1,10 @@
 // Checkers
-export { checker_Account_Password } from "./checkers/checker_Account_Password";
+export { middleware_Check_Account_Password } from "./checkers/middleware_Check_Account_Password";
 
 // Formatters
-export { formatter_Login_Inputs } from "./formatters/formatter_Login_inputs";
-export { formatter_Signup_Inputs } from "./formatters/formatter_Signup_Inputs";
+export { middleware_Format_Account_LoginInputs } from "./formatters/middleware_Format_Account_LoginInputs";
+export { middleware_Format_Account_SignupInputs } from "./formatters/middleware_Format_Account_SignupInputs";
 
 // Validators
-export { validator_Signup_Inputs } from "./validators/validator_Signup_Inputs";
-export { validator_Login_Inputs } from "./validators/validator_Login_Inputs";
+export { middleware_Validate_Account_SignupInputs } from "./validators/middleware_Validate_Account_SignupInputs";
+export { middleware_Validate_Account_LoginInputs } from "./validators/middleware_Validate_Account_LoginInputs";

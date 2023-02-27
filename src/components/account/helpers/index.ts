@@ -1,6 +1,6 @@
 // Auth
-export { helper_Login } from "./auth/helper_Login";
-export { helper_Logout } from "./auth/helper_Logout";
+export { helper_Account_Login } from "./auth/helper_Account_Login";
+export { helper_Account_Logout } from "./auth/helper_Account_Logout";
 
 // Hash
-export { helper_PasswordHasher } from "./hasher/helper_PasswordHasher";
+export { helper_Account_HashPassword } from "./hasher/helper_Account_HashPassword";

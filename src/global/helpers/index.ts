@@ -1,1 +1,1 @@
-export { Global_Helper_Include_Routes } from "./routes/Global_Helper_Include_Routes";
+export { Helper_Include_Routes } from "./routes/Helper_Include_Routes";

@@ -14,7 +14,7 @@ const schema_Signup_Inputs = Joi.object({
   password: Joi.string().min(8).max(1024).required(),
 });
 
-export const validator_Signup_Inputs = (
+export const middleware_Validate_Account_SignupInputs = (
   req: Request,
   res: Response,
   next: NextFunction

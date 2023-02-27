@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
-import { dal_Create_Account } from "../../dals";
-import { helper_Login, helper_PasswordHasher } from "../../helpers";
+import { dal_Account_Create } from "../../dals";
+import {
+  helper_Account_Login,
+  helper_Account_HashPassword,
+} from "../../helpers";
 
 export const controller_Account_Signup = async (
   req: Request,
@@ -10,8 +13,8 @@ export const controller_Account_Signup = async (
 
   // Check if account exists
 
-  let hashed_Password: string = await helper_PasswordHasher(password);
-  let returnObj: any = await dal_Create_Account(
+  let hashed_Password: string = await helper_Account_HashPassword(password);
+  let returnObj: any = await dal_Account_Create(
     firstName,
     lastName,
     email,
@@ -19,7 +22,7 @@ export const controller_Account_Signup = async (
   );
 
   let id_NewAccount: string = returnObj.payload;
-  helper_Login(req, res, id_NewAccount);
+  helper_Account_Login(req, res, id_NewAccount);
 
   res.status(200).json({
     success: true,

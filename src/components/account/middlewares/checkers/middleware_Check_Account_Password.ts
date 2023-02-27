@@ -1,15 +1,15 @@
 import { Request, Response, NextFunction } from "express";
-import { dal_GetAccount_ByEmail } from "../../dals";
+import { dal_Account_GetByEmail } from "../../dals";
 import * as argon from "argon2";
 
-export const checker_Account_Password = async (
+export const middleware_Check_Account_Password = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   let { email, password } = res.locals;
 
-  let account = await dal_GetAccount_ByEmail(email);
+  let account = await dal_Account_GetByEmail(email);
 
   let isValid_Password: boolean = await argon.verify(
     account?.dataValues.password,
