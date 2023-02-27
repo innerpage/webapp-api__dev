@@ -7,13 +7,10 @@ export const formatter_Signup_Inputs = async (
 ) => {
   let { firstName, lastName, email, password } = req.body;
 
-  let formatted_Signup_Inputs: any = {
-    firstName: firstName,
-    lastName: lastName,
-    email: email.trim().toLowerCase(),
-    password: password,
-  };
+  res.locals.firstName = firstName;
+  res.locals.lastName = lastName;
+  res.locals.email = email.trim().toLowerCase();
+  res.locals.password = password;
 
-  res.locals.formatted_Signup_Inputs = formatted_Signup_Inputs;
   next();
 };

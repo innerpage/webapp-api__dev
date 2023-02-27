@@ -6,11 +6,9 @@ export const formatter_Login_Inputs = async (
   next: NextFunction
 ) => {
   let { email, password } = req.body;
-  let formatted_Login_Inputs: any = {
-    email: email.trim().toLowerCase(),
-    password: password,
-  };
 
-  res.locals.formatted_Login_Inputs = formatted_Login_Inputs;
+  res.locals.email = email.trim().toLowerCase();
+  res.locals.password = password;
+
   next();
 };

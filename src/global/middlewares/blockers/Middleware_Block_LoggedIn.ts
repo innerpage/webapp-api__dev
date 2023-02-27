@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const Global_Guard_Against_LoggedIn = (
+export const Middleware_Block_LoggedIn = (
   req: Request,
   res: Response,
   next: NextFunction

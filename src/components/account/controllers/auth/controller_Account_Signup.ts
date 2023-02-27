@@ -6,8 +6,7 @@ export const controller_Account_Signup = async (
   req: Request,
   res: Response
 ) => {
-  let { firstName, lastName, email, password } =
-    res.locals.formatted_Signup_Inputs;
+  let { firstName, lastName, email, password } = res.locals;
 
   // Check if account exists
 

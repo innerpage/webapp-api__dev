@@ -1,3 +1,3 @@
-// Guards
-export { Global_Guard_Against_LoggedIn } from "./guards/Global_Guard_Against_LoggedIn";
-export { Global_Guard_Against_LoggedOut } from "./guards/Global_Guard_Against_LoggedOut";
+// Blockers
+export { Middleware_Block_LoggedIn } from "./blockers/Middleware_Block_LoggedIn";
+export { Middleware_Block_LoggedOut } from "./blockers/Middleware_Block_LoggedOut";
