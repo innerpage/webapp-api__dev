@@ -10,7 +10,11 @@ const model_Publisher_Attributes: any = {
     unique: true,
     primaryKey: true,
   },
-  name: { type: DataTypes.STRING, allowNull: false },
+  business_name: { type: DataTypes.STRING, allowNull: false },
+  business_address: { type: DataTypes.STRING, allowNull: false },
+  product_name: { type: DataTypes.STRING, allowNull: false },
+  support_email: { type: DataTypes.STRING, allowNull: false },
+  website: { type: DataTypes.STRING, allowNull: false },
   country: { type: DataTypes.STRING, allowNull: false },
   state: { type: DataTypes.STRING, allowNull: false },
   tax_type: {
