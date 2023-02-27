@@ -1,7 +1,11 @@
 import * as postmark from "postmark";
 import { postmarkConfig } from "../../../../config";
 
-export const mail_Account_EmailVerification = async (
+interface LooseObj {
+  [key: string]: any;
+}
+
+export const helper_Account_MailVerificationLink = async (
   subscriber_FirstName: string,
   subscriber_Email: string,
   link_EmailVerification: string,
@@ -13,6 +17,9 @@ export const mail_Account_EmailVerification = async (
 ) => {
   const client_Postmark = new postmark.Client(postmarkConfig.token);
   let templateId = 30914127;
+  let isSent_VerificationMail: boolean = false;
+  let returnObj: LooseObj = {};
+  let payload: any;
 
   await client_Postmark.sendEmailWithTemplate(
     {
@@ -31,15 +38,26 @@ export const mail_Account_EmailVerification = async (
     },
     (error, success) => {
       if (error) {
-        console.log(`Error while sending email verification mail`);
-        console.log(error);
-        return false;
-      } else if (success) {
-        console.log(`Success while sending email verification mail`);
-        return true;
-      } else {
-        return false;
+        payload = error;
+        isSent_VerificationMail = false;
+      }
+
+      if (success) {
+        payload = success;
+        isSent_VerificationMail = true;
       }
     }
   );
+
+  if (isSent_VerificationMail) {
+    returnObj.success = true;
+    returnObj.message = "Email verification link SENT";
+    returnObj.payload = payload;
+  } else {
+    returnObj.success = false;
+    returnObj.message = "Email verification link NOT_SENT";
+    returnObj.payload = payload;
+  }
+
+  return returnObj;
 };

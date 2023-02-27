@@ -1,4 +1,5 @@
 import { model_Account } from "../../models";
+
 interface LooseObj {
   [key: string]: any;
 }
@@ -11,7 +12,6 @@ export const dal_Account_Create = async (
 ) => {
   let isSuccess_CreateAccount: boolean = false;
   let payload: any;
-  let err: any;
   let returnObj: LooseObj = {};
 
   await model_Account
@@ -20,27 +20,23 @@ export const dal_Account_Create = async (
       last_name: lastName,
       email: email,
       password: password,
-      persona: "",
     })
     .then((newAccount: any) => {
-      console.log("New account CREATED");
       isSuccess_CreateAccount = true;
       payload = newAccount.dataValues.id;
     })
     .catch((err) => {
-      console.log("New account NOT_CREATED");
-      console.log(err);
-      err = err;
+      payload = err;
     });
 
   if (isSuccess_CreateAccount) {
     returnObj.success = true;
-    returnObj.message = "Account created";
+    returnObj.message = "New account CREATED";
     returnObj.payload = payload;
   } else {
     returnObj.success = false;
-    returnObj.message = "Could not create account";
-    returnObj.payload = err;
+    returnObj.message = "New account NOT_CREATED";
+    returnObj.payload = payload;
   }
 
   return returnObj;
