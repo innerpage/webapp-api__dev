@@ -1,7 +1,7 @@
 import fs from "fs";
 import { nodeConfig } from "../../../config";
 
-export const Helper_Include_Routes = async () => {
+export const Helper_Routes_Include = async () => {
   let componentPaths: Array<string> = [];
   let routePaths: Array<string> = [];
   let routeIndexPaths: Array<Object> = [];
