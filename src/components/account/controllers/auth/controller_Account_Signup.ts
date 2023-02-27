@@ -9,6 +9,8 @@ export const controller_Account_Signup = async (
   let { firstName, lastName, email, password } =
     res.locals.formatted_Signup_Inputs;
 
+  // Check if account exists
+
   let hashed_Password: string = await helper_PasswordHasher(password);
   let returnObj: any = await dal_Create_Account(
     firstName,

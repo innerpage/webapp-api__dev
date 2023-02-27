@@ -19,16 +19,13 @@ const model_Account_Attributes: any = {
     validate: { isEmail: true },
   },
   password: { type: DataTypes.STRING, allowNull: false },
-  persona: {
-    type: DataTypes.STRING,
-    validate: { isIn: [["individual", "organisation", ""]] },
-    allowNull: true,
-  },
   is_publisher: { type: DataTypes.BOOLEAN, defaultValue: false },
-  is_disabled: { type: DataTypes.BOOLEAN, defaultValue: false },
   is_email_verified: { type: DataTypes.BOOLEAN, defaultValue: false },
-  email_verification_code: { type: DataTypes.STRING },
-  password_reset_code: { type: DataTypes.STRING },
+  email_verification_code: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+  },
+  is_disabled: { type: DataTypes.BOOLEAN, defaultValue: false },
 };
 const model_Account_Options: any = {};
 

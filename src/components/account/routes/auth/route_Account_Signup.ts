@@ -1,9 +1,6 @@
 import { Router } from "express";
 
-import {
-  guard_Against_LoggedIn,
-  checker_Account_Existence,
-} from "../../../../global/middlewares/";
+import { Global_Guard_Against_LoggedIn } from "../../../../global/middlewares/";
 import {
   validator_Signup_Inputs,
   formatter_Signup_Inputs,
@@ -14,9 +11,8 @@ export const route_Account_Signup = Router();
 
 route_Account_Signup.post(
   "/signup",
-  guard_Against_LoggedIn,
+  Global_Guard_Against_LoggedIn,
   validator_Signup_Inputs,
-  checker_Account_Existence,
   formatter_Signup_Inputs,
   controller_Account_Signup
 );
