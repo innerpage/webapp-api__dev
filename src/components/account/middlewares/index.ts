@@ -8,3 +8,4 @@ export { middleware_Format_Account_SignupInputs } from "./formatters/middleware_
 // Validators
 export { middleware_Validate_Account_SignupInputs } from "./validators/middleware_Validate_Account_SignupInputs";
 export { middleware_Validate_Account_LoginInputs } from "./validators/middleware_Validate_Account_LoginInputs";
+export { middleware_Validate_Account_EmailVerificationCode } from "./validators/middleware_Validate_Account_EmailVerificationCode";
