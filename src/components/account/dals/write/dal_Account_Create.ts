@@ -23,7 +23,12 @@ export const dal_Account_Create = async (
     })
     .then((newAccount: any) => {
       isSuccess_CreateAccount = true;
-      payload = newAccount.dataValues.id;
+      payload = {
+        id: newAccount.dataValues.id,
+        firstName: newAccount.dataValues.first_name,
+        email: newAccount.dataValues.email,
+        email_VerificationCode: newAccount.dataValues.email_verification_code,
+      };
     })
     .catch((err) => {
       payload = err;
