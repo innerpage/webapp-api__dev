@@ -3,8 +3,8 @@ import { dal_Account_Create } from "../../dals";
 import {
   helper_Account_Login,
   helper_Account_HashPassword,
-  helper_Account_MailVerificationLink,
-  helper_Account_GenerateEmailVerificationLink,
+  helper_Account_MailEmailVerificationCode,
+  helper_Account_GenerateEmailVerificationCode,
 } from "../../helpers";
 
 export const controller_Account_Signup = async (
@@ -13,28 +13,27 @@ export const controller_Account_Signup = async (
 ) => {
   let { firstName, lastName, email, password } = res.locals;
 
+  let code_EmailVerification: number =
+    helper_Account_GenerateEmailVerificationCode();
   let hashed_Password: string = await helper_Account_HashPassword(password);
 
   let returnObj_AccountCreate: any = await dal_Account_Create(
     firstName,
     lastName,
     email,
-    hashed_Password
+    hashed_Password,
+    code_EmailVerification
   );
 
   console.log(returnObj_AccountCreate.message);
   console.log(returnObj_AccountCreate.payload);
   helper_Account_Login(req, res, returnObj_AccountCreate.payload.id);
 
-  let link_EmailVerification = helper_Account_GenerateEmailVerificationLink(
-    returnObj_AccountCreate.payload.email_VerificationCode
-  );
-
   let returnObj_MailVerificationLink: any =
-    await helper_Account_MailVerificationLink(
+    await helper_Account_MailEmailVerificationCode(
       returnObj_AccountCreate.payload.firstName,
       returnObj_AccountCreate.payload.email,
-      link_EmailVerification,
+      code_EmailVerification,
       "aitihyatheheritage.in",
       "Aitihya - The Heritage",
       "Aitihya Samstha Foundation",

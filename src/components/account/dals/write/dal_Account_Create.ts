@@ -8,7 +8,8 @@ export const dal_Account_Create = async (
   firstName: string,
   lastName: string,
   email: string,
-  password: string
+  password: string,
+  code_EmailVerification: number
 ) => {
   let isSuccess_CreateAccount: boolean = false;
   let payload: any;
@@ -20,6 +21,7 @@ export const dal_Account_Create = async (
       last_name: lastName,
       email: email,
       password: password,
+      email_verification_code: code_EmailVerification,
     })
     .then((newAccount: any) => {
       isSuccess_CreateAccount = true;

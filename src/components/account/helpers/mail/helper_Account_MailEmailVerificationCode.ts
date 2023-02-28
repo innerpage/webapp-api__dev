@@ -5,10 +5,10 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const helper_Account_MailVerificationLink = async (
+export const helper_Account_MailEmailVerificationCode = async (
   subscriber_FirstName: string,
   subscriber_Email: string,
-  link_EmailVerification: string,
+  code_EmailVerification: number,
   publisher_Website: string,
   publisher_ProductName: string,
   publisher_BusinessName: string,
@@ -27,7 +27,7 @@ export const helper_Account_MailVerificationLink = async (
       TemplateId: templateId,
       To: subscriber_Email,
       TemplateModel: {
-        link_EmailVerification: link_EmailVerification,
+        code_EmailVerification: code_EmailVerification,
         subscriber_FirstName: subscriber_FirstName,
         publisher_Website: publisher_Website,
         publisher_ProductName: publisher_ProductName,
