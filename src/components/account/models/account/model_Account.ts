@@ -22,8 +22,8 @@ const model_Account_Attributes: any = {
   is_publisher: { type: DataTypes.BOOLEAN, defaultValue: false },
   is_email_verified: { type: DataTypes.BOOLEAN, defaultValue: false },
   email_verification_code: {
-    type: DataTypes.UUID,
-    defaultValue: DataTypes.UUIDV4,
+    type: DataTypes.STRING,
+    allowNull: false,
   },
   is_disabled: { type: DataTypes.BOOLEAN, defaultValue: false },
 };
