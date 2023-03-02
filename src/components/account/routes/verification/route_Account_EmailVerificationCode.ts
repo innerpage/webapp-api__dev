@@ -1,14 +1,14 @@
 import { Router } from "express";
 
 import { Middleware_Block_Account_NonExistence } from "../../../../global/middlewares";
-import { middleware_Validate_Account_SignupInputs } from "../../middlewares";
-import { controller_Account_Signup } from "../../controllers";
+import { middleware_Validate_Account_EmailVerificationCode } from "../../middlewares";
+import { controller_Account_EmailVerificationCode } from "../../controllers";
 
-export const route_Account_Signup = Router();
+export const route_Account_EmailVerificationCode = Router();
 
-route_Account_Signup.post(
+route_Account_EmailVerificationCode.post(
   "/verify-email",
-  middleware_Validate_Account_SignupInputs,
+  middleware_Validate_Account_EmailVerificationCode,
   Middleware_Block_Account_NonExistence,
-  controller_Account_Signup
+  controller_Account_EmailVerificationCode
 );
