@@ -24,6 +24,7 @@ const model_Account_Attributes: any = {
   email_verification_code: {
     type: DataTypes.STRING,
   },
+  password_reset_code: { type: DataTypes.STRING, defaultValue: "" },
   is_disabled: { type: DataTypes.BOOLEAN, defaultValue: false },
 };
 const model_Account_Options: any = {};
