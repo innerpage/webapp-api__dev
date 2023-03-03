@@ -13,7 +13,7 @@ export const dal_Account_Create = async (
 ) => {
   let isSuccess_CreateAccount: boolean = false;
   let payload: any;
-  let returnObj: LooseObj = {};
+  let obj_Return: LooseObj = {};
 
   await model_Account
     .create({
@@ -23,13 +23,13 @@ export const dal_Account_Create = async (
       password: password,
       email_verification_code: code_EmailVerification,
     })
-    .then((newAccount: any) => {
+    .then((new_Account: any) => {
       isSuccess_CreateAccount = true;
       payload = {
-        id: newAccount.dataValues.id,
-        firstName: newAccount.dataValues.first_name,
-        email: newAccount.dataValues.email,
-        email_VerificationCode: newAccount.dataValues.email_verification_code,
+        id: new_Account.dataValues.id,
+        firstName: new_Account.dataValues.first_name,
+        email: new_Account.dataValues.email,
+        email_VerificationCode: new_Account.dataValues.email_verification_code,
       };
     })
     .catch((err) => {
@@ -37,14 +37,14 @@ export const dal_Account_Create = async (
     });
 
   if (isSuccess_CreateAccount) {
-    returnObj.success = true;
-    returnObj.message = "New account CREATED";
-    returnObj.payload = payload;
+    obj_Return.success = true;
+    obj_Return.message = "New account CREATED";
+    obj_Return.payload = payload;
   } else {
-    returnObj.success = false;
-    returnObj.message = "New account NOT_CREATED";
-    returnObj.payload = payload;
+    obj_Return.success = false;
+    obj_Return.message = "New account NOT_CREATED";
+    obj_Return.payload = payload;
   }
 
-  return returnObj;
+  return obj_Return;
 };

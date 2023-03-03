@@ -2,7 +2,7 @@ import Joi from "joi";
 import { Request, Response, NextFunction } from "express";
 
 const schema_EmailVerificationCode = Joi.object({
-  code_EmailVerification: Joi.number().required(),
+  code_EmailVerification: Joi.number().required().min(1000).max(9999),
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .min(5)
@@ -25,9 +25,6 @@ export const middleware_Validate_Account_EmailVerificationCode = (
       message: error.details[0].message,
     });
   }
-
-  let { email } = req.body;
-  res.locals.email = email;
 
   next();
 };
