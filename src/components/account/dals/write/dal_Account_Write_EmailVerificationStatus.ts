@@ -4,7 +4,9 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const dal_Account_EmailVerificationStatus = async (email: string) => {
+export const dal_Account_Write_EmailVerificationStatus = async (
+  email: string
+) => {
   let isSuccess_StatusUpdate: boolean = false;
   let payload: any;
   let obj_Return: LooseObj = {};
@@ -19,8 +21,6 @@ export const dal_Account_EmailVerificationStatus = async (email: string) => {
       }
     )
     .then((updated_Account: any) => {
-      console.log("updated_Account");
-      console.log(updated_Account);
       isSuccess_StatusUpdate = true;
       payload = {};
     })

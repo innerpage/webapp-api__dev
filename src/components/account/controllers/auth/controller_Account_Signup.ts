@@ -4,8 +4,9 @@ import {
   helper_Account_Login,
   helper_Account_HashPassword,
   helper_Account_MailEmailVerificationCode,
-  helper_Account_GenerateEmailVerificationCode,
 } from "../../helpers";
+import { Helper_Generate_4DigitCode } from "../../../../global/helpers";
+import { Var_Publisher } from "../../../../global/vars";
 
 export const controller_Account_Signup = async (
   req: Request,
@@ -13,8 +14,7 @@ export const controller_Account_Signup = async (
 ) => {
   let { firstName, lastName, email, password } = res.locals;
 
-  let code_EmailVerification: number =
-    helper_Account_GenerateEmailVerificationCode();
+  let code_EmailVerification: number = Helper_Generate_4DigitCode();
   let hashed_Password: string = await helper_Account_HashPassword(password);
 
   let returnObj_AccountCreate: any = await dal_Account_Create(
@@ -29,19 +29,19 @@ export const controller_Account_Signup = async (
   console.log(returnObj_AccountCreate.payload);
   helper_Account_Login(req, res, returnObj_AccountCreate.payload.id);
 
-  let returnObj_MailVerificationLink: any =
+  let returnObj_MailEmailVerificationCode: any =
     await helper_Account_MailEmailVerificationCode(
       returnObj_AccountCreate.payload.firstName,
       returnObj_AccountCreate.payload.email,
       code_EmailVerification,
-      "aitihyatheheritage.in",
-      "Aitihya - The Heritage",
-      "Aitihya Samstha Foundation",
-      "Dr. P. Goswami, Aitihya Samstha Foundation, Kahilipara Colony, P.O. Binova Nagar, Guwahati-781018, Assam, India",
-      "aitihya.webmaster@gmail.com"
+      Var_Publisher.url_Website,
+      Var_Publisher.name_Product,
+      Var_Publisher.name_Business,
+      Var_Publisher.address_Business,
+      Var_Publisher.email_Support
     );
-  console.log(returnObj_MailVerificationLink.message);
-  console.log(returnObj_MailVerificationLink.payload);
+  console.log(returnObj_MailEmailVerificationCode.message);
+  console.log(returnObj_MailEmailVerificationCode.payload);
 
   res.status(200).json({
     success: true,
