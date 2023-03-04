@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import {
   dal_Account_Write_PasswordResetCode,
-  dal_Account_GetByEmail,
+  dal_Account_Read_ByEmail,
 } from "../../dals";
 import { helper_Account_MailPasswordResetCode } from "../../helpers";
 import { Helper_Generate_4DigitCode } from "../../../../global/helpers";
@@ -11,7 +11,7 @@ export const controller_Account_MailPasswordResetCode = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account_GetByEmail(res.locals.email);
+  let account: any = await dal_Account_Read_ByEmail(res.locals.email);
   let code_PasswordReset: number = await Helper_Generate_4DigitCode();
 
   let returnObj_WritePasswordResetCode: any =

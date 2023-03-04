@@ -4,7 +4,7 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const dal_Account_Create = async (
+export const dal_Account_Write_NewAccount = async (
   firstName: string,
   lastName: string,
   email: string,

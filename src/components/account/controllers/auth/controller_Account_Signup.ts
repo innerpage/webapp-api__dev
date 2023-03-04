@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { dal_Account_Create } from "../../dals";
+import { dal_Account_Write_NewAccount } from "../../dals";
 import {
   helper_Account_Login,
   helper_Account_HashPassword,
@@ -17,7 +17,7 @@ export const controller_Account_Signup = async (
   let code_EmailVerification: number = Helper_Generate_4DigitCode();
   let hashed_Password: string = await helper_Account_HashPassword(password);
 
-  let returnObj_AccountCreate: any = await dal_Account_Create(
+  let returnObj_AccountCreate: any = await dal_Account_Write_NewAccount(
     firstName,
     lastName,
     email,
