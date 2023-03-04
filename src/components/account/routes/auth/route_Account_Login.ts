@@ -7,7 +7,6 @@ import {
 import {
   middleware_Validate_Account_LoginInputs,
   middleware_Format_Account_LoginInputs,
-  middleware_Check_Account_Password,
 } from "../../middlewares";
 import { controller_Account_Login } from "../../controllers";
 
@@ -19,6 +18,5 @@ route_Account_Login.post(
   middleware_Validate_Account_LoginInputs,
   middleware_Format_Account_LoginInputs,
   Middleware_Block_Account_NonExistence,
-  middleware_Check_Account_Password,
   controller_Account_Login
 );
