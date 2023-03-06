@@ -11,7 +11,7 @@ npm run build
 mv prod ../
 
 # Copy configs
-cp {.env,.env-blank,.gitignore,package.json} ../prod
+cp {.env,.env-bak,.gitignore,package.json} ../prod
 
 # Install build modules
 cd ..
