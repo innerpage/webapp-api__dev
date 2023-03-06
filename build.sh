@@ -21,7 +21,7 @@ npm install
 # Initialize Git
 git init
 git add --all
-git commit -m "Pre-deploy"
+git commit -m "Deploy build `date`"
 git remote add origin git@github.com-slim-dl:slim-dl/app-api-prod.git
 
 # Push codebase
