@@ -9,6 +9,7 @@ const app = express();
 const redisStore = connectRedis(session);
 
 app.use(cors(corsConfig));
+
 app.use(express.json());
 app.use(
   session({
