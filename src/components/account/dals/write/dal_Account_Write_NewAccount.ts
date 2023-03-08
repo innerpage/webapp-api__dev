@@ -5,8 +5,8 @@ interface LooseObj {
 }
 
 export const dal_Account_Write_NewAccount = async (
-  firstName: string,
-  lastName: string,
+  name_First: string,
+  name_Last: string,
   email: string,
   password: string,
   code_EmailVerification: number
@@ -17,8 +17,8 @@ export const dal_Account_Write_NewAccount = async (
 
   await model_Account
     .create({
-      first_name: firstName,
-      last_name: lastName,
+      first_name: name_First,
+      last_name: name_Last,
       email: email,
       password: password,
       email_verification_code: code_EmailVerification,
@@ -27,7 +27,7 @@ export const dal_Account_Write_NewAccount = async (
       isSuccess_CreateAccount = true;
       payload = {
         id: new_Account.dataValues.id,
-        firstName: new_Account.dataValues.first_name,
+        name_First: new_Account.dataValues.first_name,
         email: new_Account.dataValues.email,
         email_VerificationCode: new_Account.dataValues.email_verification_code,
       };

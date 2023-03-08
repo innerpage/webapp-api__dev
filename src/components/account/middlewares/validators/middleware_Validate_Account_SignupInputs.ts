@@ -2,8 +2,8 @@ import Joi from "joi";
 import { Request, Response, NextFunction } from "express";
 
 const schema_Signup_Inputs = Joi.object({
-  firstName: Joi.string().required(),
-  lastName: Joi.string().required(),
+  name_First: Joi.string().required(),
+  name_Last: Joi.string().required(),
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .min(5)

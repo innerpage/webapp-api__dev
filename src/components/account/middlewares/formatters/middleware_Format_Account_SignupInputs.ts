@@ -5,10 +5,10 @@ export const middleware_Format_Account_SignupInputs = async (
   res: Response,
   next: NextFunction
 ) => {
-  let { firstName, lastName, email, password } = req.body;
+  let { name_First, name_Last, email, password } = req.body;
 
-  res.locals.firstName = firstName;
-  res.locals.lastName = lastName;
+  res.locals.name_First = name_First;
+  res.locals.name_Last = name_Last;
   res.locals.email = email.trim().toLowerCase();
   res.locals.password = password;
 

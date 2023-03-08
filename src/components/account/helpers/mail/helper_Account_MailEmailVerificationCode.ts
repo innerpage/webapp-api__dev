@@ -6,7 +6,7 @@ interface LooseObj {
 }
 
 export const helper_Account_MailEmailVerificationCode = async (
-  subscriber_FirstName: string,
+  subscriber_Name_First: string,
   subscriber_Email: string,
   code_EmailVerification: number,
   publisher_Website: string,
@@ -28,7 +28,7 @@ export const helper_Account_MailEmailVerificationCode = async (
       To: subscriber_Email,
       TemplateModel: {
         code_EmailVerification: code_EmailVerification,
-        subscriber_FirstName: subscriber_FirstName,
+        subscriber_Name_First: subscriber_Name_First,
         publisher_Website: publisher_Website,
         publisher_ProductName: publisher_ProductName,
         publisher_BusinessName: publisher_BusinessName,

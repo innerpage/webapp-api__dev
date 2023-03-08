@@ -12,14 +12,14 @@ export const controller_Account_Signup = async (
   req: Request,
   res: Response
 ) => {
-  let { firstName, lastName, email, password } = res.locals;
+  let { name_First, name_Last, email, password } = res.locals;
 
   let code_EmailVerification: number = Helper_Generate_4DigitCode();
   let hashed_Password: string = await helper_Account_HashPassword(password);
 
   let returnObj_AccountCreate: any = await dal_Account_Write_NewAccount(
-    firstName,
-    lastName,
+    name_First,
+    name_Last,
     email,
     hashed_Password,
     code_EmailVerification
@@ -31,7 +31,7 @@ export const controller_Account_Signup = async (
 
   let returnObj_MailEmailVerificationCode: any =
     await helper_Account_MailEmailVerificationCode(
-      returnObj_AccountCreate.payload.firstName,
+      returnObj_AccountCreate.payload.name_First,
       returnObj_AccountCreate.payload.email,
       code_EmailVerification,
       Var_Publisher.url_Website,

@@ -6,7 +6,7 @@ interface LooseObj {
 }
 
 export const helper_Account_MailPasswordResetCode = async (
-  subscriber_FirstName: string,
+  subscriber_Name_First: string,
   subscriber_Email: string,
   code_PasswordReset: number,
   publisher_Website: string,
@@ -28,7 +28,7 @@ export const helper_Account_MailPasswordResetCode = async (
       To: subscriber_Email,
       TemplateModel: {
         code_PasswordReset: code_PasswordReset,
-        subscriber_FirstName: subscriber_FirstName,
+        subscriber_Name_First: subscriber_Name_First,
         publisher_Website: publisher_Website,
         publisher_ProductName: publisher_ProductName,
         publisher_BusinessName: publisher_BusinessName,

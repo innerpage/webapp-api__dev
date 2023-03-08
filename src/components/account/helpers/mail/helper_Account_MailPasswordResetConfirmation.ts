@@ -6,7 +6,7 @@ interface LooseObj {
 }
 
 export const helper_Account_MailPasswordResetConfirmation = async (
-  subscriber_FirstName: string,
+  subscriber_Name_First: string,
   subscriber_Email: string,
   publisher_Website: string,
   publisher_ProductName: string,
@@ -26,7 +26,7 @@ export const helper_Account_MailPasswordResetConfirmation = async (
       TemplateId: id_Template,
       To: subscriber_Email,
       TemplateModel: {
-        subscriber_FirstName: subscriber_FirstName,
+        subscriber_Name_First: subscriber_Name_First,
         publisher_Website: publisher_Website,
         publisher_ProductName: publisher_ProductName,
         publisher_BusinessName: publisher_BusinessName,
