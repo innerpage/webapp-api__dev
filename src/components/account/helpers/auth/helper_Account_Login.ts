@@ -10,7 +10,7 @@ export const helper_Account_Login = (
   let sessionTimeout = +process.env.SESSION_TIMEOUT!;
   let cookieOptions_isLogged = {
     expires: new Date(Date.now() + sessionTimeout),
-    httpOnly: false,
+    httpOnly: true,
   };
 
   req.session!.id_Account = id_Account;
