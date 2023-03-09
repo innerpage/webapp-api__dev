@@ -9,11 +9,6 @@ export const helper_Account_Logout = (req: Request, res: Response) => {
       res.clearCookie(process.env.SESSION_NAME!);
       res.clearCookie("isLogged");
       resolve();
-
-      res.status(200).json({
-        success: true,
-        message: "Logged out",
-      });
     });
   });
 };

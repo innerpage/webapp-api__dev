@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { helper_Account_Login } from "../../helpers";
 import { dal_Account_Read_ByEmail } from "../../dals";
 import { helper_Account_VerifyPasswordHash } from "../../helpers";
-import * as argon from "argon2";
 
 export const controller_Account_Login = async (req: Request, res: Response) => {
   let { email, password } = res.locals;
@@ -24,7 +23,7 @@ export const controller_Account_Login = async (req: Request, res: Response) => {
   res.locals.id_Account = account?.dataValues.id;
   helper_Account_Login(req, res, res.locals.id_Account);
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     message: "Logged in",
   });
