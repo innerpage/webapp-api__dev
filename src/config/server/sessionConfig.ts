@@ -10,7 +10,7 @@ export const sessionConfig: SessionOptions = {
   cookie: {
     maxAge: +process.env.SESSION_TIMEOUT!,
     secure: nodeConfig.env === "prod" ? true : false,
-    sameSite: "none",
+    sameSite: process.env.NODE_ENV === "prod" ? "none" : "lax",
     httpOnly: true,
   },
   resave: false,

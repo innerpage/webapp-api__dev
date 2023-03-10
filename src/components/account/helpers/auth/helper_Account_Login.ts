@@ -11,7 +11,8 @@ export const helper_Account_Login = (
   let sessionTimeout = +process.env.SESSION_TIMEOUT!;
   let cookieOptions_isLogged = {
     expires: new Date(Date.now() + sessionTimeout),
-    sameSite: "none" as const,
+    sameSite:
+      process.env.NODE_ENV === "prod" ? ("none" as const) : ("lax" as const),
     secure: nodeConfig.env === "prod" ? true : false,
   };
 
