@@ -13,23 +13,19 @@ import {
 const app = express();
 const redisStore = connectRedis(session);
 
+app.use(cors(corsConfig));
+
 app.use(express.json());
 if (nodeConfig.env === "prod") {
   app.set("trust proxy", 1);
-  console.log();
-  console.log("attempt: 2");
-  console.log();
 }
 
-console.log("sessionConfig");
-console.log(sessionConfig);
 app.use(
   session({
     ...sessionConfig,
     store: new redisStore({ client }),
   })
 );
-app.use(cors(corsConfig));
 
 Helper_Routes_Include().then((pathArr) => {
   pathArr.forEach((path) => {
