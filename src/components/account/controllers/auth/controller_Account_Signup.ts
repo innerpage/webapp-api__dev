@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { dal_Account_Write_NewAccount } from "../../dals";
 import {
-  helper_Account_Login,
   helper_Account_HashPassword,
   helper_Account_MailEmailVerificationCode,
 } from "../../helpers";
@@ -27,7 +26,6 @@ export const controller_Account_Signup = async (
 
   console.log(returnObj_AccountCreate.message);
   console.log(returnObj_AccountCreate.payload);
-  helper_Account_Login(req, res, returnObj_AccountCreate.payload.id);
 
   let returnObj_MailEmailVerificationCode: any =
     await helper_Account_MailEmailVerificationCode(
