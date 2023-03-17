@@ -9,7 +9,6 @@ const schema_ResetPasswordInputs = Joi.object({
     .lowercase()
     .trim()
     .required(),
-  password_Old: Joi.string().trim().min(8).required(),
   password_New: Joi.string().trim().min(8).required(),
   password_New_Repeat: Joi.string()
     .equal(Joi.ref("password_New"))
@@ -18,7 +17,7 @@ const schema_ResetPasswordInputs = Joi.object({
   code_ResetPassword: Joi.number().required().min(1000).max(9999),
 });
 
-export const middleware_Validate_Account_ResetPasswordInputs = (
+export const middleware_Validate_Account_ConfirmPasswordInputs = (
   req: Request,
   res: Response,
   next: NextFunction

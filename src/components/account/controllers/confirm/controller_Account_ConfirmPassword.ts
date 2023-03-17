@@ -10,11 +10,16 @@ import {
 } from "../../helpers";
 import { Var_Publisher } from "../../../../global/vars";
 
-export const controller_Account_ResetPassword = async (
+export const controller_Account_ConfirmPassword = async (
   req: Request,
   res: Response
 ) => {
   let account: any = await dal_Account_Read_ByEmail(res.locals.email);
+
+  console.log(`account.password_reset_code: ${account.password_reset_code}`);
+  console.log(
+    `res.locals.code_ResetPassword: ${res.locals.code_ResetPassword}`
+  );
 
   if (account.password_reset_code != res.locals.code_ResetPassword) {
     console.log(
@@ -25,21 +30,6 @@ export const controller_Account_ResetPassword = async (
       message: "Invalid password reset code",
     });
   }
-
-  let isValid_Password: boolean = await helper_Account_VerifyPasswordHash(
-    account?.dataValues.password,
-    res.locals.password_Old
-  );
-
-  if (!isValid_Password) {
-    console.log(`${res.locals.email} password IS_NOT_VALID`);
-    return res.status(400).json({
-      success: false,
-      message: "Invalid old password",
-    });
-  }
-
-  console.log(`${res.locals.email} password IS_VALID`);
 
   let password_Hashed_New: string = await helper_Account_HashPassword(
     res.locals.password_New
@@ -56,7 +46,7 @@ export const controller_Account_ResetPassword = async (
     console.log(`Password reset failed`);
     return res.status(400).json({
       success: false,
-      message: "Failed to reset password",
+      message: "❌ Failed to reset password",
     });
   }
 
