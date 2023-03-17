@@ -5,6 +5,7 @@ export { controller_Account_Logout } from "./auth/controller_Account_Logout";
 
 // Mail
 export { controller_Account_MailPasswordResetCode } from "./mail/controller_Account_MailPasswordResetCode";
+export { controller_Account_ReSend_EmailVerificationCode } from "./mail/controller_Account_ReSend_EmailVerificationCode";
 
 // Confirm
 export { controller_Account_ConfirmPassword } from "./confirm/controller_Account_ConfirmPassword";
