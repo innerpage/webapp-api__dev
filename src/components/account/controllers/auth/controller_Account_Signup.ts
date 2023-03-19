@@ -43,8 +43,11 @@ export const controller_Account_Signup = async (
   console.log(returnObj_MailEmailVerificationCode.message);
   console.log(returnObj_MailEmailVerificationCode.payload);
 
+  let payload_AccountSignup = { isActive_Session: true };
+
   return res.status(200).json({
     success: true,
     message: "Signed up",
+    payload: payload_AccountSignup,
   });
 };

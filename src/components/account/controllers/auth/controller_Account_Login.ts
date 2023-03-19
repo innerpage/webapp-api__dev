@@ -23,8 +23,11 @@ export const controller_Account_Login = async (req: Request, res: Response) => {
   res.locals.id_Account = account?.dataValues.id;
   helper_Account_Login(req, res.locals.id_Account);
 
+  let payload_AccountLogin = { isActive_Session: true };
+
   return res.status(200).json({
     success: true,
     message: "Logged in",
+    payload: payload_AccountLogin,
   });
 };
