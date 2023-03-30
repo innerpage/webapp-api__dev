@@ -2,7 +2,7 @@ import express from "express";
 import session from "express-session";
 import connectRedis from "connect-redis";
 import cors from "cors";
-import { Helper_Routes_Include } from "./global/helpers";
+import { Helper_Include_Routes } from "./global/helpers";
 import {
   corsConfig,
   nodeConfig,
@@ -27,7 +27,7 @@ app.use(
   })
 );
 
-Helper_Routes_Include().then((pathArr) => {
+Helper_Include_Routes().then((pathArr) => {
   pathArr.forEach((path) => {
     import("./" + path).then((route) => {
       for (const property in route) {

@@ -1,6 +1,7 @@
 import app from "./app";
 import http from "http";
 import { nodeConfig, sequelize } from "./config";
+import { Helper_Include_ModelAssociations } from "./global/helpers";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -18,6 +19,11 @@ dotenv.config();
       console.log("ERROR: Could not authenticate database");
       console.log(err);
     });
+
+  /* ------------------
+  CREATE ASSOCIATIONS
+  -------------------*/
+  Helper_Include_ModelAssociations();
 
   /* ------------------
   SYNC MODELS

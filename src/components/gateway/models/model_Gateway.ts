@@ -15,7 +15,7 @@ const model_Gateway_Attributes: any = {
     allowNull: false,
   },
   fee_percentage: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   prop_1: {

@@ -23,7 +23,7 @@ const model_Publisher_Attributes: any = {
     validate: { isIn: [["gst"]] },
   },
   tax_id: { type: DataTypes.STRING, allowNull: false },
-  tax_value: { type: DataTypes.NUMBER, allowNull: false },
+  tax_value: { type: DataTypes.INTEGER, allowNull: false },
 };
 const model_Publisher_Options: any = {};
 

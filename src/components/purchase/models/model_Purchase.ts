@@ -15,15 +15,15 @@ const model_Purchase_Attributes: any = {
     allowNull: false,
   },
   base_price: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   gateway_fees: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   tax: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   tax_details: {
@@ -31,7 +31,7 @@ const model_Purchase_Attributes: any = {
     allowNull: false,
   },
   total: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
 };

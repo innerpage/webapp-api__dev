@@ -23,7 +23,7 @@ const model_Document_Attributes: any = {
     allowNull: false,
   },
   pages_count: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   path: {
@@ -31,11 +31,11 @@ const model_Document_Attributes: any = {
     allowNull: false,
   },
   price_inr: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   price_usd: {
-    type: DataTypes.NUMBER,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
 };
