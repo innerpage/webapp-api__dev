@@ -14,7 +14,8 @@ const model_Publisher_Attributes: any = {
   business_address: { type: DataTypes.STRING, allowNull: false },
   product_name: { type: DataTypes.STRING, allowNull: false },
   support_email: { type: DataTypes.STRING, allowNull: false },
-  website: { type: DataTypes.STRING, allowNull: false },
+  url_website: { type: DataTypes.STRING, allowNull: false },
+  url_dl: { type: DataTypes.STRING, allowNull: false },
   country: { type: DataTypes.STRING, allowNull: false },
   state: { type: DataTypes.STRING, allowNull: false },
   tax_type: {

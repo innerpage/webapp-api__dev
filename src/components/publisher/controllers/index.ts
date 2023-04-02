@@ -1,2 +1,2 @@
-// Add Publisher
-export { controller_Publisher_Add } from "./add/controller_Publisher_Add";
+// Enroll Publisher
+export { controller_Publisher_Enroll } from "./enroll/controller_Publisher_Enroll";

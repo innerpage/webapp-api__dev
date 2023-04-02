@@ -11,7 +11,7 @@ export const dal_Account_Write_NewAccount = async (
   password: string,
   code_EmailVerification: number
 ) => {
-  let isSuccess_CreateAccount: boolean = false;
+  let isSuccess_NewAccount: boolean = false;
   let payload: any;
   let obj_Return: LooseObj = {};
 
@@ -24,7 +24,7 @@ export const dal_Account_Write_NewAccount = async (
       email_verification_code: code_EmailVerification,
     })
     .then((new_Account: any) => {
-      isSuccess_CreateAccount = true;
+      isSuccess_NewAccount = true;
       payload = {
         id: new_Account.dataValues.id,
         name_First: new_Account.dataValues.first_name,
@@ -36,7 +36,7 @@ export const dal_Account_Write_NewAccount = async (
       payload = err;
     });
 
-  if (isSuccess_CreateAccount) {
+  if (isSuccess_NewAccount) {
     obj_Return.success = true;
     obj_Return.message = "New account CREATED";
     obj_Return.payload = payload;
