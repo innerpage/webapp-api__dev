@@ -14,9 +14,9 @@ import {
 
 import { controller_Publisher_Enroll } from "../../controllers";
 
-export const route_Publisher_Add = Router();
+export const route_Publisher_Enroll = Router();
 
-route_Publisher_Add.post(
+route_Publisher_Enroll.post(
   "/publisher",
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,

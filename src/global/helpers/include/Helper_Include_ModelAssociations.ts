@@ -8,11 +8,7 @@ import { model_Subscriber } from "../../../components/subscriber/models";
 
 export const Helper_Include_ModelAssociations = () => {
   // Account - Publisher Associations
-  model_Account.hasOne(model_Publisher, {
-    foreignKey: {
-      allowNull: false,
-    },
-  });
+  model_Account.hasOne(model_Publisher, { foreignKey: { allowNull: false } });
   model_Publisher.belongsTo(model_Account);
 
   // Account - Purchase Association

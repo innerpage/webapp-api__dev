@@ -6,28 +6,30 @@ export const middleware_Format_Publisher_EnrollInputs = async (
   next: NextFunction
 ) => {
   let {
-    business_name,
-    business_address,
-    product_name,
-    support_email,
-    website,
+    business_Name,
+    business_Address,
+    product_Name,
+    support_Email,
+    url_Website,
+    url_Dl,
     country,
     state,
-    tax_type,
-    tax_id,
-    tax_value,
+    tax_Type,
+    id_Tax,
+    value_Tax,
   } = req.body;
 
-  res.locals.business_name = business_name.trim();
-  res.locals.business_address = business_address.trim();
-  res.locals.product_name = product_name.trim();
-  res.locals.support_email = support_email.trim().toLowerCase();
-  res.locals.website = website.trim();
+  res.locals.business_Name = business_Name.trim();
+  res.locals.business_Address = business_Address.trim();
+  res.locals.product_Name = product_Name.trim();
+  res.locals.support_Email = support_Email.trim().toLowerCase();
+  res.locals.url_Website = url_Website.trim();
+  res.locals.url_Dl = url_Dl.trim();
   res.locals.country = country.trim();
   res.locals.state = state.trim();
-  res.locals.tax_type = tax_type.trim();
-  res.locals.tax_id = tax_id.trim();
-  res.locals.tax_value = tax_value.trim();
+  res.locals.tax_Type = tax_Type.trim();
+  res.locals.id_Tax = id_Tax.trim();
+  res.locals.value_Tax = value_Tax;
 
   next();
 };

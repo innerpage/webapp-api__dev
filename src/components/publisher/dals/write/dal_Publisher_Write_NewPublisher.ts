@@ -5,17 +5,18 @@ interface LooseObj {
 }
 
 export const dal_Publisher_Write_NewPublisher = async (
-  business_name: string,
-  business_address: string,
-  product_name: string,
-  support_email: string,
-  url_website: string,
-  url_dl: string,
+  business_Name: string,
+  business_Address: string,
+  product_Name: string,
+  support_Email: string,
+  url_Website: string,
+  url_Dl: string,
   country: string,
   state: string,
-  tax_type: string,
-  tax_id: string,
-  tax_value: number
+  tax_Type: string,
+  id_Tax: string,
+  value_Tax: number,
+  accountId: string
 ) => {
   let isSuccess_NewPublisher: boolean = false;
   let payload: any;
@@ -23,23 +24,22 @@ export const dal_Publisher_Write_NewPublisher = async (
 
   await model_Publisher
     .create({
-      business_name: business_name,
-      business_address: business_address,
-      product_name: product_name,
-      support_email: support_email,
-      url_website: url_website,
-      url_dl: url_dl,
+      business_name: business_Name,
+      business_address: business_Address,
+      product_name: product_Name,
+      support_email: support_Email,
+      url_website: url_Website,
+      url_dl: url_Dl,
       country: country,
       state: state,
-      tax_type: tax_type,
-      tax_id: tax_id,
-      tax_value: tax_value,
+      tax_type: tax_Type,
+      tax_id: id_Tax,
+      tax_value: value_Tax,
+      accountId: accountId,
     })
     .then((new_Publisher: any) => {
       isSuccess_NewPublisher = true;
-      payload = {
-        id: new_Publisher.dataValues.id,
-      };
+      payload = new_Publisher;
     })
     .catch((err) => {
       payload = err;

@@ -1,23 +1,24 @@
 import Joi from "joi";
 import { Request, Response, NextFunction } from "express";
 
-const schema_Enroll_Inputs = Joi.object({
-  business_name: Joi.string().required(),
-  business_address: Joi.string().required(),
-  product_name: Joi.string().required(),
-  support_email: Joi.string()
+const schema_Publisher_EnrollInputs = Joi.object({
+  business_Name: Joi.string().required(),
+  business_Address: Joi.string().required(),
+  product_Name: Joi.string().required(),
+  support_Email: Joi.string()
     .email({ tlds: { allow: false } })
     .min(5)
     .max(128)
     .lowercase()
     .trim()
     .required(),
-  website: Joi.string().required(),
+  url_Website: Joi.string().required(),
+  url_Dl: Joi.string().required(),
   country: Joi.string().required(),
   state: Joi.string().required(),
-  tax_type: Joi.string().required(),
-  tax_id: Joi.string().required(),
-  tax_value: Joi.string().required(),
+  tax_Type: Joi.string().required(),
+  id_Tax: Joi.string().required(),
+  value_Tax: Joi.number().required(),
 });
 
 export const middleware_Validate_Publisher_EnrollInputs = (
@@ -25,7 +26,7 @@ export const middleware_Validate_Publisher_EnrollInputs = (
   res: Response,
   next: NextFunction
 ) => {
-  let { error } = schema_Enroll_Inputs.validate(req.body);
+  let { error } = schema_Publisher_EnrollInputs.validate(req.body);
 
   if (error) {
     console.log("Publisher enroll inputs NOT_VALID");

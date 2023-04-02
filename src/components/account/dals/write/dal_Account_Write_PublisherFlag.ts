@@ -4,36 +4,36 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const dal_Account_Write_PasswordResetCode = async (
-  email: string,
-  code_PasswordReset: number
+export const dal_Account_Write_PublisherFlag = async (
+  id_Account: string,
+  flag_IsPublisher: boolean
 ) => {
-  let isSuccess_PasswordResetCodeSaved: boolean = false;
+  let isSuccess_PublisherFlag_Saved: boolean = false;
   let payload: any;
   let obj_Return: LooseObj = {};
 
   await model_Account
     .update(
-      { password_reset_code: code_PasswordReset },
+      { is_publisher: flag_IsPublisher },
       {
         where: {
-          email: email,
+          id: id_Account,
         },
       }
     )
     .then((updated_Account: any) => {
-      isSuccess_PasswordResetCodeSaved = true;
+      isSuccess_PublisherFlag_Saved = true;
       payload = updated_Account;
     })
     .catch((err) => (payload = err));
 
-  if (isSuccess_PasswordResetCodeSaved) {
+  if (isSuccess_PublisherFlag_Saved) {
     obj_Return.success = true;
-    obj_Return.message = "Password reset code SAVED";
+    obj_Return.message = "New publisher status SAVED";
     obj_Return.payload = payload;
   } else {
     obj_Return.success = false;
-    obj_Return.message = "Password reset code NOT_SAVED";
+    obj_Return.message = "Publisher status NOT_SAVED";
     obj_Return.payload = payload;
   }
 
