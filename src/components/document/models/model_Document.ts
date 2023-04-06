@@ -26,7 +26,7 @@ const model_Document_Attributes: any = {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  path: {
+  url: {
     type: DataTypes.STRING,
     allowNull: false,
   },

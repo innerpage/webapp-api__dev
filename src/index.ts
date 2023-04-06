@@ -29,7 +29,7 @@ dotenv.config();
   SYNC MODELS
   -------------------*/
   await sequelize
-    .sync()
+    .sync({ alter: true })
     .then((result) => {
       console.log("SUCCESS: Models synced");
     })
