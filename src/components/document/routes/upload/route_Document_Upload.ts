@@ -4,7 +4,7 @@ import {
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,
   Middleware_Block_Account_NonExistence_ByAccountId,
-  Middleware_Block_Account_IfDisabled_ByAccountId,
+  Middleware_Block_Account_IsDisabled_ByAccountId,
 } from "../../../../global/middlewares";
 
 import {
@@ -23,7 +23,7 @@ route_Document_Upload.post(
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,
   Middleware_Block_Account_NonExistence_ByAccountId,
-  Middleware_Block_Account_IfDisabled_ByAccountId,
+  Middleware_Block_Account_IsDisabled_ByAccountId,
   middleware_Validate_Document_UploadInputs,
   middleware_Format_Document_UploadInputs,
   config_MulterUpload.any(),

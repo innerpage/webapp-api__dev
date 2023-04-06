@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { dal_Account_Read_ByAccountId } from "../../../components/account/dals";
 
-export const Middleware_Block_Account_IfDisabled_ByAccountId = async (
+export const Middleware_Block_Account_IsDisabled_ByAccountId = async (
   req: Request,
   res: Response,
   next: NextFunction
