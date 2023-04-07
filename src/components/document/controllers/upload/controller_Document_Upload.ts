@@ -1,19 +1,54 @@
 import { Request, Response } from "express";
+
+import { dal_Document_Write_NewDocument } from "../../dals";
+import { dal_Account_Read_ByAccountId } from "../../../account/dals";
+
 import { Helper_Upload_ToCloudinary } from "../../../../global/helpers";
+
+interface LooseObj {
+  [key: string]: any;
+}
 
 export const controller_Document_Upload = async (
   req: Request,
   res: Response
 ) => {
-  // Init
+  let account: any = await dal_Account_Read_ByAccountId(res.locals.id_Account);
+  let publisher: any = await account.getPublisher();
+
   const files: any = req.files;
 
-  // Save files to Cloudinary
   let result: any = await Helper_Upload_ToCloudinary(
     files[0],
-    res.locals.title
+    publisher.business_name,
+    publisher.product_name
   );
-  let url_Doc: string = result.secure_url;
 
-  res.status(200).send("POST on /upload ");
+  let url: string = result.secure_url;
+
+  let returnObj_NewDocument: LooseObj = await dal_Document_Write_NewDocument(
+    res.locals.title,
+    res.locals.sub_title,
+    res.locals.description,
+    url,
+    res.locals.price_inr,
+    res.locals.price_usd,
+    publisher.id
+  );
+  console.log(returnObj_NewDocument.message);
+
+  if (!returnObj_NewDocument.success) {
+    console.log(`Failed to upload new document`);
+    console.log(returnObj_NewDocument.payload);
+    return res.status(400).json({
+      success: false,
+      message: "❌ Failed to upload new document",
+      payload: returnObj_NewDocument.payload,
+    });
+  }
+
+  res.status(200).json({
+    success: true,
+    message: "Document uploaded",
+  });
 };

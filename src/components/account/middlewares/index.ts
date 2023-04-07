@@ -1,6 +1,3 @@
-// Blockers
-export { middleware_Block_Account_IsPublisher_ByAccountId } from "./blockers/middleware_Block_Account_IsPublisher_ByAccountId";
-
 // Formatters
 export { middleware_Format_Account_LoginInputs } from "./formatters/middleware_Format_Account_LoginInputs";
 export { middleware_Format_Account_SignupInputs } from "./formatters/middleware_Format_Account_SignupInputs";

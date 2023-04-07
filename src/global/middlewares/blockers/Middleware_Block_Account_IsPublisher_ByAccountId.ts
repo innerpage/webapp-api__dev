@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import { dal_Account_Read_ByAccountId } from "../../dals";
+import { dal_Account_Read_ByAccountId } from "../../../components/account/dals";
 
-export const middleware_Block_Account_IsPublisher_ByAccountId = async (
+export const Middleware_Block_Account_IsPublisher_ByAccountId = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -16,6 +16,6 @@ export const middleware_Block_Account_IsPublisher_ByAccountId = async (
     });
   }
 
-  console.log(`${res.locals.id_Account} is already a publisher`);
+  console.log(`${res.locals.id_Account} is not a publisher`);
   next();
 };

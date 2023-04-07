@@ -22,10 +22,6 @@ const model_Document_Attributes: any = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  pages_count: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
   url: {
     type: DataTypes.STRING,
     allowNull: false,
