@@ -26,11 +26,11 @@ const model_Document_Attributes: any = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  price_inr: {
+  price_domestic: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  price_usd: {
+  price_international: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },

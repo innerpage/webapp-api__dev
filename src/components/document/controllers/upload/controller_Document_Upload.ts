@@ -33,8 +33,8 @@ export const controller_Document_Upload = async (
     res.locals.sub_title,
     res.locals.description,
     url,
-    res.locals.price_inr,
-    res.locals.price_usd,
+    res.locals.price_domestic,
+    res.locals.price_international,
     publisher.id
   );
   console.log(returnObj_NewDocument.message);
