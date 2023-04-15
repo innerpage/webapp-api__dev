@@ -11,5 +11,8 @@ export { Middleware_Block_Account_IsNotPublisher_ByAccountId } from "./blockers/
 // Extractors
 export { Middleware_Extract_AccountId } from "./extractors/Middleware_Extract_AccountId";
 
+// Handlers
+export { Middleware_Handle_Errors } from "./handlers/Middleware_Handle_Errors";
+
 // Validators
 export { Middleware_Validate_Email } from "./validators/Middleware_Validate_Email";
