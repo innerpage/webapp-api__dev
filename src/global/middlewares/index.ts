@@ -10,6 +10,7 @@ export { Middleware_Block_Account_IsNotPublisher_ByAccountId } from "./blockers/
 
 // Extractors
 export { Middleware_Extract_AccountId } from "./extractors/Middleware_Extract_AccountId";
+export { Middleware_Extract_Origin } from "./extractors/Middleware_Extract_Origin";
 
 // Handlers
 export { Middleware_Handle_Errors } from "./handlers/Middleware_Handle_Errors";
