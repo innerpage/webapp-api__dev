@@ -14,6 +14,8 @@ export const controller_Account_GetDetails = async (
     isPublisher: account.is_publisher,
     isVerified_Email: account.is_email_verified,
     isActive_Session: true,
+    host: req.header("Host"),
+    origin: req.header("Origin"),
   };
 
   res.status(200).json({

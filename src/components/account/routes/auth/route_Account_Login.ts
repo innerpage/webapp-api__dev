@@ -19,9 +19,9 @@ export const route_Account_Login = Router();
 route_Account_Login.post(
   "/login",
   Middleware_Block_Account_LoggedIn,
-  Middleware_Extract_AccountId,
-  Middleware_Block_Account_NonExistence_ByAccountId,
-  Middleware_Block_Account_IsDisabled_ByAccountId,
+  // Middleware_Extract_AccountId,
+  // Middleware_Block_Account_NonExistence_ByAccountId,
+  // Middleware_Block_Account_IsDisabled_ByAccountId,
   middleware_Validate_Account_LoginInputs,
   middleware_Format_Account_LoginInputs,
   controller_Account_Login
