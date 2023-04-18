@@ -14,15 +14,7 @@ const model_Document_Attributes: any = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  sub_title: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  description: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  url: {
+  url_doc: {
     type: DataTypes.STRING,
     allowNull: false,
   },
