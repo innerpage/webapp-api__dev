@@ -44,7 +44,7 @@ export const controller_Document_GetAll_By_PublisherDl = async (
     payload.push(obj);
   });
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     message: "Document fetched",
     payload: payload,

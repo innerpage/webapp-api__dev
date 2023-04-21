@@ -35,7 +35,7 @@ export const controller_Publication_Create = async (
     });
   }
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     message: "Publication created",
   });

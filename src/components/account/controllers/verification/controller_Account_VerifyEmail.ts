@@ -26,7 +26,7 @@ export const controller_Account_VerifyEmail = async (
   console.log(returnObj_UpdateEmailVerification.message);
   console.log(returnObj_UpdateEmailVerification.payload);
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     message: "Email verified",
   });

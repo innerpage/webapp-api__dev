@@ -57,7 +57,7 @@ export const controller_Publisher_Enroll = async (
     });
   }
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     message: "Publisher enrolled",
   });

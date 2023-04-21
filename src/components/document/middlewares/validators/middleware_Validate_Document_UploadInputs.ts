@@ -3,10 +3,9 @@ import { Request, Response, NextFunction } from "express";
 
 const schema_Document_UploadInputs = Joi.object({
   title: Joi.string().required(),
-  url_doc: Joi.string().required(),
-  price_inr: Joi.number().required(),
-  price_usd: Joi.number().required(),
-  id_publication: Joi.string().required(),
+  price_Inr: Joi.number().required(),
+  price_Usd: Joi.number().required(),
+  id_Publication: Joi.string().required(),
 });
 
 export const middleware_Validate_Document_UploadInputs = (

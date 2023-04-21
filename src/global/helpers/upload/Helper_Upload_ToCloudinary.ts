@@ -4,16 +4,17 @@ import { config_Cloudinary } from "../../../config";
 
 export const Helper_Upload_ToCloudinary = (
   file: any,
-  title: string,
-  sub_Title: string,
   name_PublisherBusiness: string,
-  name_PublisherProduct: string
+  name_PublisherProduct: string,
+  title_Publication: string,
+  subTitle_Publication: string,
+  title_Document: string
 ) => {
   // Init
   cloudinary.config(config_Cloudinary);
   let options: any = {
-    folder: `uploads/${name_PublisherBusiness}/${name_PublisherProduct}`,
-    public_id: `${title} - ${sub_Title}`,
+    folder: `uploads/${name_PublisherBusiness}/${name_PublisherProduct}/${title_Publication} - ${subTitle_Publication}`,
+    public_id: title_Document,
   };
 
   // Upload

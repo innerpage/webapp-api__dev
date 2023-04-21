@@ -63,7 +63,7 @@ export const controller_Account_ConfirmPassword = async (
   console.log(returnObj_MailPasswordResetConfirmation.message);
   console.log(returnObj_MailPasswordResetConfirmation.payload);
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     message: "Password has been reset",
   });

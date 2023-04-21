@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 
 import { dal_Document_Write_NewDocument } from "../../dals";
 import { dal_Account_Read_ByAccountId } from "../../../account/dals";
+import { dal_Publication_Read_By_Id } from "../../../publication/dals";
 
 import { Helper_Upload_ToCloudinary } from "../../../../global/helpers";
 
@@ -16,10 +17,15 @@ export const controller_Document_Upload = async (
   let account: any = await dal_Account_Read_ByAccountId(res.locals.id_Account);
   let publisher: any = await account.getPublisher();
 
-  if (!publisher) {
+  let publication: any = await dal_Publication_Read_By_Id(
+    res.locals.id_Publication
+  );
+
+  if (!publication) {
+    console.log("Could not find publication");
     return res.status(400).json({
       success: false,
-      message: "❌ You are not a publisher",
+      message: "❌ Could not find publication",
     });
   }
 
@@ -27,20 +33,21 @@ export const controller_Document_Upload = async (
 
   let result: any = await Helper_Upload_ToCloudinary(
     files[0],
-    res.locals.title,
-    res.locals.sub_title,
     publisher.business_name,
-    publisher.product_name
+    publisher.product_name,
+    publication.title,
+    publication.sub_title,
+    res.locals.title
   );
 
-  let url_doc: string = result.secure_url;
+  let url_Doc: string = result.secure_url;
 
   let returnObj_NewDocument: LooseObj = await dal_Document_Write_NewDocument(
     res.locals.title,
-    url_doc,
-    res.locals.price_inr,
-    res.locals.price_usd,
-    res.locals.id_publication
+    url_Doc,
+    res.locals.price_Inr,
+    res.locals.price_Usd,
+    res.locals.id_Publication
   );
   console.log(returnObj_NewDocument.message);
 
@@ -54,7 +61,7 @@ export const controller_Document_Upload = async (
     });
   }
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     message: "Document uploaded",
   });

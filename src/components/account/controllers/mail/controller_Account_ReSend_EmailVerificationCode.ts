@@ -43,7 +43,7 @@ export const controller_Account_ReSend_EmailVerificationCode = async (
   console.log(returnObj_MailEmailVerificationCode.message);
   console.log(returnObj_MailEmailVerificationCode.payload);
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     message: "Email verification code sent",
     payload: {},

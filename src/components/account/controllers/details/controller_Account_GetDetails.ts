@@ -18,7 +18,7 @@ export const controller_Account_GetDetails = async (
     origin: req.header("Origin"),
   };
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     message: "Fetched account details",
     payload: payload_AccountDetails,
