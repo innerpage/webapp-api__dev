@@ -6,6 +6,7 @@ const schema_Document_UploadInputs = Joi.object({
   url_doc: Joi.string().required(),
   price_inr: Joi.number().required(),
   price_usd: Joi.number().required(),
+  id_publication: Joi.string().required(),
 });
 
 export const middleware_Validate_Document_UploadInputs = (

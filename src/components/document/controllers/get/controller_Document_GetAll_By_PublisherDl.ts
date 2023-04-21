@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import requestCountry from "request-country";
 
-import { dal_Publisher_Read_By_DlUrl } from "../../../publisher/dals";
+import { dal_Publisher_Read_By_Origin } from "../../../publisher/dals";
 
 interface LooseObj {
   [key: string]: any;
@@ -11,7 +11,7 @@ export const controller_Document_GetAll_By_PublisherDl = async (
   req: Request,
   res: Response
 ) => {
-  let publisher: any = await dal_Publisher_Read_By_DlUrl(res.locals.origin);
+  let publisher: any = await dal_Publisher_Read_By_Origin(res.locals.origin);
 
   if (!publisher) {
     return res.status(400).json({
@@ -19,9 +19,6 @@ export const controller_Document_GetAll_By_PublisherDl = async (
       message: "❌ Could not fetch publisher",
     });
   }
-
-  console.log("Publisher");
-  console.log(publisher);
 
   let documents: any = await publisher.getDocuments();
 

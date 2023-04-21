@@ -17,9 +17,9 @@ import { controller_Document_Upload } from "../../controllers";
 
 import { config_MulterUpload } from "../../../../config";
 
-export const route_Document_Upload = Router();
+export const route_Document_Create = Router();
 
-route_Document_Upload.post(
+route_Document_Create.post(
   "/document",
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,

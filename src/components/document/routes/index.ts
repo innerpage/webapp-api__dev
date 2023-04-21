@@ -1,5 +1,5 @@
 // Get
-export { route_Document_GetAll_By_PublisherDl } from "./get/route_Document_GetAll_By_PublisherDl";
+export { route_Document_ReadAll } from "./crud/route_Document_ReadAll";
 
 // Upload
-export { route_Document_Upload } from "./upload/route_Document_Upload";
+export { route_Document_Create } from "./crud/route_Document_Create";

@@ -3,11 +3,11 @@ import { Request, Response, NextFunction } from "express";
 
 const schema_Publication_CreateInputs = Joi.object({
   title: Joi.string().required(),
-  sub_title: Joi.string().required(),
+  sub_Title: Joi.string().required(),
   description: Joi.string().required(),
-  url_sample: Joi.string().required(),
-  url_toc: Joi.string().required(),
-  url_cover: Joi.string().required(),
+  url_Sample: Joi.string().required(),
+  url_Toc: Joi.string().required(),
+  url_Cover: Joi.string().required(),
 });
 
 export const middleware_Validate_Publication_CreateInputs = (

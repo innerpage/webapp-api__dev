@@ -16,6 +16,13 @@ export const controller_Document_Upload = async (
   let account: any = await dal_Account_Read_ByAccountId(res.locals.id_Account);
   let publisher: any = await account.getPublisher();
 
+  if (!publisher) {
+    return res.status(400).json({
+      success: false,
+      message: "❌ You are not a publisher",
+    });
+  }
+
   const files: any = req.files;
 
   let result: any = await Helper_Upload_ToCloudinary(
@@ -26,16 +33,14 @@ export const controller_Document_Upload = async (
     publisher.product_name
   );
 
-  let url: string = result.secure_url;
+  let url_doc: string = result.secure_url;
 
   let returnObj_NewDocument: LooseObj = await dal_Document_Write_NewDocument(
     res.locals.title,
-    res.locals.sub_title,
-    res.locals.description,
-    url,
+    url_doc,
     res.locals.price_inr,
     res.locals.price_usd,
-    publisher.id
+    res.locals.id_publication
   );
   console.log(returnObj_NewDocument.message);
 
