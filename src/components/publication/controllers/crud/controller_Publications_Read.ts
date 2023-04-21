@@ -34,10 +34,10 @@ export const controller_Publications_Read = async (
       title: publication.title,
       sub_Title: publication.sub_title,
       description: publication.description,
-      url_Sample: publication.url_Sample,
-      url_Toc: publication.url_Toc,
-      url_Cover: publication.url_Cover,
-      is_Published: publication.is_Published,
+      url_Sample: publication.url_sample,
+      url_Toc: publication.url_toc,
+      url_Cover: publication.url_cover,
+      is_Published: publication.is_published,
     };
     payload.push(obj);
   });
