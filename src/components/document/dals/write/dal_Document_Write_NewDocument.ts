@@ -9,6 +9,8 @@ export const dal_Document_Write_NewDocument = async (
   url_Doc: string,
   price_Inr: number,
   price_Usd: number,
+  sl_no: number,
+  is_FullDocument: boolean,
   id_Publication: string
 ) => {
   let isSuccess_NewDocument: boolean = false;
@@ -21,6 +23,8 @@ export const dal_Document_Write_NewDocument = async (
       url_doc: url_Doc,
       price_inr: price_Inr,
       price_usd: price_Usd,
+      sl_no: sl_no,
+      is_full_document: is_FullDocument,
       publicationId: id_Publication,
     })
     .then((new_Document: any) => {

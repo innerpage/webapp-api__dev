@@ -22,7 +22,7 @@ export const controller_Documents_Read_By_PublicationId = async (
     console.log("❌ Could not find documents");
     return res.status(400).json({
       success: false,
-      message: "❌ Could not find publications",
+      message: "❌ Could not find documents",
     });
   }
 

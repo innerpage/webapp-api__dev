@@ -29,6 +29,15 @@ export const controller_Document_Upload = async (
     });
   }
 
+  let documents: any = await publication.getDocuments();
+  let no_Sl: number = 0;
+
+  if (documents) {
+    no_Sl = documents.length + 1;
+  } else {
+    no_Sl = 1;
+  }
+
   const files: any = req.files;
 
   let result: any = await Helper_Upload_ToCloudinary(
@@ -47,6 +56,8 @@ export const controller_Document_Upload = async (
     url_Doc,
     res.locals.price_Inr,
     res.locals.price_Usd,
+    no_Sl,
+    res.locals.is_FullDocument,
     res.locals.id_Publication
   );
   console.log(returnObj_NewDocument.message);
