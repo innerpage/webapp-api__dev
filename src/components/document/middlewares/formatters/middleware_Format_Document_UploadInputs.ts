@@ -11,7 +11,6 @@ export const middleware_Format_Document_UploadInputs = async (
   res.locals.title = title.trim();
   res.locals.price_Inr = parseFloat(price_Inr);
   res.locals.price_Usd = parseFloat(price_Usd);
-  res.locals.is_FullDocument = is_FullDocument;
   res.locals.id_Publication = id_Publication.trim();
 
   next();

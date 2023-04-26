@@ -57,7 +57,6 @@ export const controller_Document_Upload = async (
     res.locals.price_Inr,
     res.locals.price_Usd,
     no_Sl,
-    res.locals.is_FullDocument,
     res.locals.id_Publication
   );
   console.log(returnObj_NewDocument.message);

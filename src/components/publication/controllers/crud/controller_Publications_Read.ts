@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 
 import { dal_Publisher_Read_By_Origin } from "../../../publisher/dals/";
+import { dal_Publications_Documents_Read_By_PublisherId } from "../../dals/";
 
 export const controller_Publications_Read = async (
   req: Request,
@@ -15,33 +16,20 @@ export const controller_Publications_Read = async (
     });
   }
 
-  const publications: any = await publisher.getPublications();
-  if (!publications) {
-    console.log("❌ Could not find publications");
+  const publications_And_Documents: any =
+    await dal_Publications_Documents_Read_By_PublisherId(publisher.id);
+
+  if (!publications_And_Documents) {
+    console.log("❌ Could not fetch publications & documents");
     return res.status(400).json({
       success: false,
-      message: "❌ Could not find publications",
+      message: "❌ Could not fetch publications & documents",
     });
   }
 
-  let payload: any = [];
-  publications.map((publication: any) => {
-    let obj: any = {
-      id: publication.id,
-      title: publication.title,
-      sub_Title: publication.sub_title,
-      description: publication.description,
-      url_Sample: publication.url_sample,
-      url_Toc: publication.url_toc,
-      url_Cover: publication.url_cover,
-      is_Published: publication.is_published,
-    };
-    payload.push(obj);
-  });
-
   return res.status(200).json({
     success: true,
-    message: "Publications fetched",
-    payload: payload,
+    message: "Publications and documents fetched",
+    payload: publications_And_Documents,
   });
 };

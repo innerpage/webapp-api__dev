@@ -30,10 +30,6 @@ const model_Document_Attributes: any = {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  is_full_document: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-  },
 };
 const model_Document_Options: any = {};
 
