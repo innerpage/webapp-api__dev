@@ -5,7 +5,7 @@ export const middleware_Format_Inputs_For_Document_Read = async (
   res: Response,
   next: NextFunction
 ) => {
-  let { id_Document } = req.body;
+  let id_Document: any = req.query.id_Document;
 
   res.locals.id_Document = id_Document.trim();
 

@@ -5,8 +5,7 @@ export const middleware_Format_Document_UploadInputs = async (
   res: Response,
   next: NextFunction
 ) => {
-  let { title, price_Inr, price_Usd, is_FullDocument, id_Publication } =
-    req.body;
+  let { title, price_Inr, price_Usd, id_Publication } = req.body;
 
   res.locals.title = title.trim();
   res.locals.price_Inr = parseFloat(price_Inr);

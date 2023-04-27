@@ -10,7 +10,7 @@ export const middleware_Validate_Inputs_For_Document_Read = (
   res: Response,
   next: NextFunction
 ) => {
-  let { error } = schema_Inputs_For_Document_Read.validate(req.body);
+  let { error } = schema_Inputs_For_Document_Read.validate(req.query);
 
   if (error) {
     console.log("Document read inputs NOT_VALID");

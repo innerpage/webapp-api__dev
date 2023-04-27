@@ -6,16 +6,16 @@ import {
   Middleware_Block_Account_NonExistence_ByAccountId,
   Middleware_Block_Account_IsDisabled_ByAccountId,
   Middleware_Block_Account_IsNotPublisher_ByAccountId,
-} from "../../../../global/middlewares";
+} from "../../../../../global/middlewares";
 
 import {
   middleware_Validate_Document_UploadInputs,
   middleware_Format_Document_UploadInputs,
-} from "../../middlewares";
+} from "../../../middlewares";
 
-import { controller_Document_Upload } from "../../controllers";
+import { controller_Document_Upload } from "../../../controllers";
 
-import { config_MulterUpload } from "../../../../config";
+import { config_MulterUpload } from "../../../../../config";
 
 export const route_Document_Create = Router();
 
