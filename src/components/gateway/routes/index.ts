@@ -1,2 +1,5 @@
-// Add Gateway
-export { route_Gateway_Add } from "./add/route_Gateway_Add";
+// Create gateway
+export { route_Gateway_Create } from "./crud/route_Gateway_Create";
+
+// Read gateway
+export { route_Gateway_Read } from "./crud/route_Gateway_Read";

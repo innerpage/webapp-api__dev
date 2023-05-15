@@ -18,15 +18,15 @@ const model_Gateway_Attributes: any = {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  prop_1: {
+  public_key: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  prop_2: {
+  secrey_key: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  prop_3: {
+  webhook_secret: {
     type: DataTypes.STRING,
     allowNull: false,
   },
