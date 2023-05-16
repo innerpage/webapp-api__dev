@@ -22,7 +22,7 @@ const model_Gateway_Attributes: any = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  secrey_key: {
+  secret_key: {
     type: DataTypes.STRING,
     allowNull: false,
   },

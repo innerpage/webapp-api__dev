@@ -5,7 +5,7 @@ const schema_Gateway_CreateInputs = Joi.object({
   name: Joi.string().required(),
   fee_percentage: Joi.number().required(),
   public_key: Joi.string().required(),
-  secrey_key: Joi.string().required(),
+  secret_key: Joi.string().required(),
   webhook_secret: Joi.string().required(),
 });
 
