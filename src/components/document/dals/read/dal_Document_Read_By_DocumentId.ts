@@ -17,6 +17,7 @@ export const dal_Document_Read_By_DocumentId = async (id_Document: string) => {
         "url_sample",
         "url_toc",
         "url_cover",
+        "publisherId",
       ],
     },
   });

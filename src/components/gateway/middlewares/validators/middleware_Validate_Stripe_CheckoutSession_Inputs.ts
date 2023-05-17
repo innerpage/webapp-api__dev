@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from "express";
 
 const schema_Stripe_CheckoutSession_Inputs = Joi.object({
   id_Document: Joi.string().required(),
+  currency: Joi.string().required(),
 });
 
 export const middleware_Validate_Stripe_CheckoutSession_Inputs = (

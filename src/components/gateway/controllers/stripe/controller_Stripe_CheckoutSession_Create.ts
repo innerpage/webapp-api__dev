@@ -43,21 +43,29 @@ export const controller_Stripe_CheckoutSession_Create = async (
     });
   }
 
-  console.log(document);
-
   const stripe = new Stripe(gateway.secret_key, {
     apiVersion: "2022-11-15",
   });
+
+  let price: number = 0;
+  if (res.locals.currency === "inr") {
+    price = document.dataValues.price_inr;
+  } else if (res.locals.currency === "usd") {
+    price = document.dataValues.price_usd;
+  }
+
+  console.log(`currency: ${res.locals.currency}`);
+  console.log(`price: ${price}`);
 
   const checkoutSession: Stripe.Checkout.Session =
     await stripe.checkout.sessions.create({
       line_items: [
         {
           price_data: {
-            currency: "inr",
-            unit_amount: 1000,
+            currency: res.locals.currency,
+            unit_amount: price * 100,
             product_data: {
-              name: "T-shirt",
+              name: document.dataValues.title,
             },
           },
           quantity: 1,

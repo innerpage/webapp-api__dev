@@ -21,7 +21,7 @@ export const Helper_Include_ModelAssociations = () => {
   model_Publication.belongsTo(model_Publisher);
 
   // Publisher - Gateway Associations
-  model_Publisher.hasMany(model_Gateway);
+  model_Publisher.hasOne(model_Gateway);
   model_Gateway.belongsTo(model_Publisher);
 
   // Publisher - Subscriber Associations
