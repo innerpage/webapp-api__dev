@@ -8,6 +8,11 @@ import {
   Middleware_Block_Account_IsDisabled_ByAccountId,
 } from "../../../../global/middlewares";
 
+import {
+  middleware_Validate_Stripe_CheckoutSession_Inputs,
+  middleware_Format_Stripe_CheckoutSession_Inputs,
+} from "../../middlewares";
+
 import { controller_Stripe_CheckoutSession_Create } from "../../controllers";
 
 export const route_Stripe_CheckoutSession_Create = Router();
@@ -19,5 +24,7 @@ route_Stripe_CheckoutSession_Create.post(
   Middleware_Block_Account_NonExistence_ByAccountId,
   Middleware_Block_Account_IsDisabled_ByAccountId,
   Middleware_Extract_Origin,
+  middleware_Validate_Stripe_CheckoutSession_Inputs,
+  middleware_Format_Stripe_CheckoutSession_Inputs,
   controller_Stripe_CheckoutSession_Create
 );

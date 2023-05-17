@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 
 import { dal_Publisher_Read_By_Origin } from "../../../publisher/dals/";
+import { dal_Document_Read_By_DocumentId } from "../../../document/dals";
 import { dal_Gateway_Read_Backend } from "../../dals";
 
 import Stripe from "stripe";
@@ -30,6 +31,19 @@ export const controller_Stripe_CheckoutSession_Create = async (
       message: "❌ Could not fetch gateway",
     });
   }
+
+  const document: any = await dal_Document_Read_By_DocumentId(
+    res.locals.id_Document
+  );
+  if (!document) {
+    console.log("❌ Could not fetch document");
+    return res.status(400).json({
+      success: false,
+      message: "❌ Could not fetch document",
+    });
+  }
+
+  console.log(document);
 
   const stripe = new Stripe(gateway.secret_key, {
     apiVersion: "2022-11-15",
