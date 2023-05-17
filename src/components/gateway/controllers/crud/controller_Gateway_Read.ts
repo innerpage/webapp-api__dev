@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { dal_Publisher_Read_By_Origin } from "../../../publisher/dals/";
+import { dal_Publisher_Read_By_Origin } from "../../../publisher/dals";
 import { dal_Gateway_Read } from "../../dals";
 
 export const controller_Gateway_Read = async (req: Request, res: Response) => {
