@@ -54,9 +54,6 @@ export const controller_Stripe_CheckoutSession_Create = async (
     price = document.dataValues.price_usd;
   }
 
-  console.log(`currency: ${res.locals.currency}`);
-  console.log(`price: ${price}`);
-
   const checkoutSession: Stripe.Checkout.Session =
     await stripe.checkout.sessions.create({
       line_items: [
