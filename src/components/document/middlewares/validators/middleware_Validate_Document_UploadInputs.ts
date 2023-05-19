@@ -3,8 +3,7 @@ import { Request, Response, NextFunction } from "express";
 
 const schema_Document_UploadInputs = Joi.object({
   title: Joi.string().required(),
-  price_Inr: Joi.number().required(),
-  price_Usd: Joi.number().required(),
+  id_Price: Joi.string().required(),
   id_Publication: Joi.string().required(),
 });
 

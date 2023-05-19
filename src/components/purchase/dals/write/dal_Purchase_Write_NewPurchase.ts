@@ -12,33 +12,35 @@ export const dal_Purchase_Write_NewPurchase = async (
   tax_amount: number,
   total: number
 ) => {
-  //   let isSuccess_NewDocument: boolean = false;
-  //   let payload: any;
-  //   let obj_Return: LooseObj = {};
-  //   await model_Document
-  //     .create({
-  //       title: title,
-  //       url_doc: url_Doc,
-  //       price_inr: price_Inr,
-  //       price_usd: price_Usd,
-  //       sl_no: sl_no,
-  //       publicationId: id_Publication,
-  //     })
-  //     .then((new_Document: any) => {
-  //       isSuccess_NewDocument = true;
-  //       payload = new_Document;
-  //     })
-  //     .catch((err) => {
-  //       payload = err;
-  //     });
-  //   if (isSuccess_NewDocument) {
-  //     obj_Return.success = true;
-  //     obj_Return.message = "New document CREATED";
-  //     obj_Return.payload = payload;
-  //   } else {
-  //     obj_Return.success = false;
-  //     obj_Return.message = "New document NOT_CREATED";
-  //     obj_Return.payload = payload;
-  //   }
-  //   return obj_Return;
+  let isSuccess_NewPurchase: boolean = false;
+  let payload: any;
+  let obj_Return: LooseObj = {};
+
+  await model_Purchase
+    .create({
+      id_Document: id_Document,
+      id_Purchase_Session: id_Purchase_Session,
+      base_price: base_price,
+      gateway_fees: gateway_fees,
+      tax_amount: tax_amount,
+      total: total,
+    })
+    .then((new_Purchase: any) => {
+      isSuccess_NewPurchase = true;
+      payload = new_Purchase;
+    })
+    .catch((err) => {
+      payload = err;
+    });
+
+  if (isSuccess_NewPurchase) {
+    obj_Return.success = true;
+    obj_Return.message = "New purchase CREATED";
+    obj_Return.payload = payload;
+  } else {
+    obj_Return.success = false;
+    obj_Return.message = "New purchase NOT_CREATED";
+    obj_Return.payload = payload;
+  }
+  return obj_Return;
 };

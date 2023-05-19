@@ -18,12 +18,8 @@ const model_Document_Attributes: any = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  price_inr: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  price_usd: {
-    type: DataTypes.INTEGER,
+  price_id: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
   sl_no: {
