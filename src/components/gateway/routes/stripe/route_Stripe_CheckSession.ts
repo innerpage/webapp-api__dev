@@ -8,6 +8,13 @@ import {
   Middleware_Block_Account_IsDisabled_ByAccountId,
 } from "../../../../global/middlewares";
 
+import {
+  middleware_Validate_Stripe_CheckSession_Inputs,
+  middleware_Format_Stripe_CheckSession_Inputs,
+} from "../../middlewares";
+
+import { controller_Stripe_CheckSession } from "../../controllers";
+
 export const route_Stripe_CheckoutSession = Router();
 
 route_Stripe_CheckoutSession.post(
@@ -17,7 +24,7 @@ route_Stripe_CheckoutSession.post(
   Middleware_Extract_Origin,
   Middleware_Block_Account_NonExistence_ByAccountId,
   Middleware_Block_Account_IsDisabled_ByAccountId,
-  async (req, res) => {
-    res.send("HIT on /stripe-check-session");
-  }
+  middleware_Validate_Stripe_CheckSession_Inputs,
+  middleware_Format_Stripe_CheckSession_Inputs,
+  controller_Stripe_CheckSession
 );

@@ -10,9 +10,18 @@ const model_Purchase_Attributes: any = {
     unique: true,
     primaryKey: true,
   },
-  name: {
+  id_Document: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  id_Purchase_Session: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  is_Paid: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
   },
   base_price: {
     type: DataTypes.INTEGER,
@@ -22,12 +31,8 @@ const model_Purchase_Attributes: any = {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  tax: {
+  tax_amount: {
     type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  tax_details: {
-    type: DataTypes.JSON,
     allowNull: false,
   },
   total: {

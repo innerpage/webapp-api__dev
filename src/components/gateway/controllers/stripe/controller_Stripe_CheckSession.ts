@@ -1,0 +1,51 @@
+import { Request, Response } from "express";
+
+import { dal_Publisher_Read_By_Origin } from "../../../publisher/dals/";
+import { dal_Gateway_Read_Backend } from "../../dals";
+
+import Stripe from "stripe";
+
+export const controller_Stripe_CheckSession = async (
+  req: Request,
+  res: Response
+) => {
+  const publisher: any = await dal_Publisher_Read_By_Origin(res.locals.origin);
+  if (!publisher) {
+    console.log("❌ Could not find publisher");
+    return res.status(400).json({
+      success: false,
+      message: "❌ Could not find publisher",
+    });
+  }
+
+  const gateway: any = await dal_Gateway_Read_Backend(publisher.id);
+  if (!gateway) {
+    console.log("❌ Could not fetch gateway");
+    return res.status(400).json({
+      success: false,
+      message: "❌ Could not fetch gateway",
+    });
+  }
+
+  const stripe = new Stripe(gateway.secret_key, {
+    apiVersion: "2022-11-15",
+  });
+
+  await stripe.checkout.sessions
+    .retrieve(res.locals.id_Session)
+    .then((session) => {
+      console.log(session);
+      return res.status(200).json({
+        success: false,
+        message: "Fetched session",
+        payload: session,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(400).json({
+        success: false,
+        message: "❌ Could not session details",
+      });
+    });
+};
