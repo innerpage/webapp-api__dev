@@ -43,7 +43,6 @@ export const controller_Document_Upload = async (
   let result: any = await Helper_Upload_ToCloudinary(
     files[0],
     publisher.business_name,
-    publisher.product_name,
     publication.title,
     publication.sub_title,
     res.locals.title

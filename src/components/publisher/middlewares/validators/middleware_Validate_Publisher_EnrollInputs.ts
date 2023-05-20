@@ -4,7 +4,6 @@ import { Request, Response, NextFunction } from "express";
 const schema_Publisher_EnrollInputs = Joi.object({
   business_Name: Joi.string().required(),
   business_Address: Joi.string().required(),
-  product_Name: Joi.string().required(),
   support_Email: Joi.string()
     .email({ tlds: { allow: false } })
     .min(5)
@@ -18,7 +17,6 @@ const schema_Publisher_EnrollInputs = Joi.object({
   state: Joi.string().required(),
   tax_Type: Joi.string().required(),
   id_Tax: Joi.string().required(),
-  value_Tax: Joi.number().required(),
 });
 
 export const middleware_Validate_Publisher_EnrollInputs = (

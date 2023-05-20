@@ -7,7 +7,6 @@ interface LooseObj {
 export const dal_Publisher_Write_NewPublisher = async (
   business_Name: string,
   business_Address: string,
-  product_Name: string,
   support_Email: string,
   url_Website: string,
   url_Dl: string,
@@ -15,7 +14,6 @@ export const dal_Publisher_Write_NewPublisher = async (
   state: string,
   tax_Type: string,
   id_Tax: string,
-  value_Tax: number,
   accountId: string
 ) => {
   let isSuccess_NewPublisher: boolean = false;
@@ -26,7 +24,6 @@ export const dal_Publisher_Write_NewPublisher = async (
     .create({
       business_name: business_Name,
       business_address: business_Address,
-      product_name: product_Name,
       support_email: support_Email,
       url_website: url_Website,
       url_dl: url_Dl,
@@ -34,7 +31,6 @@ export const dal_Publisher_Write_NewPublisher = async (
       state: state,
       tax_type: tax_Type,
       tax_id: id_Tax,
-      tax_value: value_Tax,
       accountId: accountId,
     })
     .then((new_Publisher: any) => {

@@ -12,7 +12,6 @@ const model_Publisher_Attributes: any = {
   },
   business_name: { type: DataTypes.STRING, allowNull: false },
   business_address: { type: DataTypes.STRING, allowNull: false },
-  product_name: { type: DataTypes.STRING, allowNull: false },
   support_email: { type: DataTypes.STRING, allowNull: false },
   url_website: { type: DataTypes.STRING, allowNull: false },
   url_dl: { type: DataTypes.STRING, allowNull: false },
@@ -24,7 +23,6 @@ const model_Publisher_Attributes: any = {
     validate: { isIn: [["gst"]] },
   },
   tax_id: { type: DataTypes.STRING, allowNull: false },
-  tax_value: { type: DataTypes.INTEGER, allowNull: false },
 };
 const model_Publisher_Options: any = {};
 

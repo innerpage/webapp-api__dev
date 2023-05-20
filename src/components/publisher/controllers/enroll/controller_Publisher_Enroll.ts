@@ -19,7 +19,6 @@ export const controller_Publisher_Enroll = async (
   let returnObj_NewPublisher: any = await dal_Publisher_Write_NewPublisher(
     res.locals.business_Name,
     res.locals.business_Address,
-    res.locals.product_Name,
     res.locals.support_Email,
     res.locals.url_Website,
     res.locals.url_Dl,
@@ -27,7 +26,6 @@ export const controller_Publisher_Enroll = async (
     res.locals.state,
     res.locals.tax_Type,
     res.locals.id_Tax,
-    res.locals.value_Tax,
     res.locals.id_Account
   );
   console.log(returnObj_NewPublisher.message);

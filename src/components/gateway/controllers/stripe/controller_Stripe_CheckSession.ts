@@ -11,10 +11,10 @@ export const controller_Stripe_CheckSession = async (
 ) => {
   const publisher: any = await dal_Publisher_Read_By_Origin(res.locals.origin);
   if (!publisher) {
-    console.log("❌ Could not find publisher");
+    console.log("❌There are no publications yet");
     return res.status(400).json({
       success: false,
-      message: "❌ Could not find publisher",
+      message: "❌There are no publications yet",
     });
   }
 
