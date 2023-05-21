@@ -31,8 +31,6 @@ export const controller_Documents_Read_By_PublicationId = async (
     let obj: any = {
       id: document.id,
       title: document.title,
-      price_Inr: document.price_inr,
-      price_Usd: document.price_usd,
     };
     payload.push(obj);
   });

@@ -28,12 +28,8 @@ export const controller_Document_Read_By_DocumentId = async (
   let payload = {
     name_Publication: document.publication.title,
     name_Document: document.title,
-    price_inr: document.price_inr,
-    price_usd: document.price_usd,
     stripe_Key_Public: gateway.name === "stripe" ? gateway.public_key : "",
   };
-
-  console.log(payload);
 
   return res.status(200).json({
     success: true,

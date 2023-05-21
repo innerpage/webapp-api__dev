@@ -7,8 +7,7 @@ interface LooseObj {
 export const dal_Document_Write_NewDocument = async (
   title: string,
   url_Doc: string,
-  price_Inr: number,
-  price_Usd: number,
+  id_Price: string,
   sl_no: number,
   id_Publication: string
 ) => {
@@ -20,8 +19,7 @@ export const dal_Document_Write_NewDocument = async (
     .create({
       title: title,
       url_doc: url_Doc,
-      price_inr: price_Inr,
-      price_usd: price_Usd,
+      price_id: id_Price,
       sl_no: sl_no,
       publicationId: id_Publication,
     })

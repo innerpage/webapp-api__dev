@@ -20,7 +20,7 @@ export const dal_Publications_Documents_Read_By_PublisherId = async (
     order: [["createdAt", "DESC"]],
     include: {
       model: model_Document,
-      attributes: ["id", "title", "price_inr", "price_usd", "sl_no"],
+      attributes: ["id", "title", "sl_no"],
       order: [["createdAt", "INCR"]],
     },
   });

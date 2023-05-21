@@ -3,7 +3,7 @@ import { model_Document } from "../../models";
 
 export const dal_Document_Read_By_DocumentId = async (id_Document: string) => {
   const publications_And_Documents = await model_Document.findOne({
-    attributes: ["id", "title", "price_inr", "price_usd"],
+    attributes: ["id", "title"],
     where: {
       id: id_Document,
     },

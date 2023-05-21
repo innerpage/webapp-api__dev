@@ -51,10 +51,9 @@ export const controller_Document_Upload = async (
   let url_Doc: string = result.secure_url;
 
   let returnObj_NewDocument: LooseObj = await dal_Document_Write_NewDocument(
-    res.locals.title,
+    `${res.locals.title} (${publication.title} - ${publication.edition})`,
     url_Doc,
-    res.locals.price_Inr,
-    res.locals.price_Usd,
+    res.locals.id_Price,
     no_Sl,
     res.locals.id_Publication
   );
