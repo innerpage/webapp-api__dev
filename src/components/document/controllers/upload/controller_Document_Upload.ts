@@ -60,11 +60,11 @@ export const controller_Document_Upload = async (
   console.log(returnObj_NewDocument.message);
 
   if (!returnObj_NewDocument.success) {
-    console.log(`Failed to upload new document`);
+    console.log(`Failed to save new document`);
     console.log(returnObj_NewDocument.payload);
     return res.status(400).json({
       success: false,
-      message: "❌ Failed to upload new document",
+      message: "❌ Failed to save new document",
       payload: returnObj_NewDocument.payload,
     });
   }

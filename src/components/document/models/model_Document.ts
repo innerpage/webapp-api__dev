@@ -11,11 +11,11 @@ const model_Document_Attributes: any = {
     primaryKey: true,
   },
   title: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false,
   },
   url_doc: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: false,
   },
   price_id: {
