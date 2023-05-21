@@ -16,7 +16,7 @@ export const controller_Publication_Create = async (
 
   let returnObj_NewPublication: LooseObj = await dal_Publication_Write(
     res.locals.title,
-    res.locals.sub_Title,
+    res.locals.edition,
     res.locals.description,
     res.locals.url_Sample,
     res.locals.url_Toc,

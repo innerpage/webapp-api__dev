@@ -44,7 +44,7 @@ export const controller_Document_Upload = async (
     files[0],
     publisher.business_name,
     publication.title,
-    publication.sub_title,
+    publication.edition,
     res.locals.title
   );
 

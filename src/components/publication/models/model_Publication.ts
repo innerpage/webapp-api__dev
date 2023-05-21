@@ -14,7 +14,7 @@ const model_Publication_Attributes: any = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  sub_title: {
+  edition: {
     type: DataTypes.STRING,
     allowNull: false,
   },

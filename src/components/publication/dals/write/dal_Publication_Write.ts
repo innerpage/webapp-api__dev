@@ -6,7 +6,7 @@ interface LooseObj {
 
 export const dal_Publication_Write = async (
   title: string,
-  sub_title: string,
+  edition: string,
   description: string,
   url_sample: string,
   url_toc: string,
@@ -20,7 +20,7 @@ export const dal_Publication_Write = async (
   await model_Publication
     .create({
       title: title,
-      sub_title: sub_title,
+      edition: edition,
       description: description,
       url_sample: url_sample,
       url_toc: url_toc,

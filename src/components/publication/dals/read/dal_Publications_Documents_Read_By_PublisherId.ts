@@ -8,7 +8,7 @@ export const dal_Publications_Documents_Read_By_PublisherId = async (
     attributes: [
       "id",
       "title",
-      "sub_title",
+      "edition",
       "description",
       "url_sample",
       "url_toc",

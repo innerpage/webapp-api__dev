@@ -12,7 +12,7 @@ export const dal_Document_Read_By_DocumentId = async (id_Document: string) => {
       attributes: [
         "id",
         "title",
-        "sub_title",
+        "edition",
         "description",
         "url_sample",
         "url_toc",

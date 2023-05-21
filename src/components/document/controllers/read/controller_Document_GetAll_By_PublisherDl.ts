@@ -36,7 +36,7 @@ export const controller_Document_GetAll_By_PublisherDl = async (
     let obj: any = {
       id: document.id,
       title: document.title,
-      sub_Title: document.sub_title,
+      edition: document.edition,
       description: document.description,
       currency: code_Country === "IN" ? "₹" : "$",
       price: code_Country === "IN" ? document.price_inr : document.price_usd,

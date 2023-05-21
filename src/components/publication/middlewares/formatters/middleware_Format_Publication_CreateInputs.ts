@@ -5,11 +5,11 @@ export const middleware_Format_Publication_CreateInputs = async (
   res: Response,
   next: NextFunction
 ) => {
-  let { title, sub_Title, description, url_Sample, url_Toc, url_Cover } =
+  let { title, edition, description, url_Sample, url_Toc, url_Cover } =
     req.body;
 
   res.locals.title = title.trim();
-  res.locals.sub_Title = sub_Title.trim();
+  res.locals.edition = edition.trim();
   res.locals.description = description.trim();
   res.locals.url_Sample = url_Sample.trim();
   res.locals.url_Toc = url_Toc.trim();
