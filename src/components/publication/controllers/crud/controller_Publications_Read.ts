@@ -108,6 +108,10 @@ export const controller_Publications_Read = async (
       new_Documents_Publications.push(obj_Document);
     });
 
+    new_Documents_Publications.sort((a: any, b: any) => {
+      return a.slNo - b.slNo;
+    });
+
     let obj_Publication: any = {
       id: id_Publication,
       title: title_Publication,
