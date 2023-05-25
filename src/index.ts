@@ -28,8 +28,17 @@ dotenv.config();
   /* ------------------
   SYNC MODELS
   -------------------*/
+  // await sequelize
+  //   .sync({ alter: true })
+  //   .then((result) => {
+  //     console.log("SUCCESS: Models synced");
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     console.log("ERROR: Could not sync models");
+  //   });
   await sequelize
-    .sync({ alter: true })
+    .sync()
     .then((result) => {
       console.log("SUCCESS: Models synced");
     })

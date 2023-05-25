@@ -1,12 +1,9 @@
 import { Request, Response } from "express";
-
 import { dal_Publisher_Read_By_Origin } from "../../../publisher/dals/";
 import { dal_Publications_Documents_Read_By_PublisherId } from "../../dals/";
 import { dal_Gateway_Read_Backend } from "../../../gateway/dals";
-
 import { nodeConfig } from "../../../../config";
 import geoip from "geoip-lite";
-
 import Stripe from "stripe";
 
 export const controller_Publications_Read = async (
