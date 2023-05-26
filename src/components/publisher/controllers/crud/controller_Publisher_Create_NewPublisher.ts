@@ -10,7 +10,7 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const controller_Publisher_Enroll = async (
+export const controller_Publisher_Create_NewPublisher = async (
   req: Request,
   res: Response
 ) => {
@@ -26,6 +26,7 @@ export const controller_Publisher_Enroll = async (
     res.locals.state,
     res.locals.tax_Type,
     res.locals.id_Tax,
+    res.locals.tax_Percentage,
     res.locals.id_Account
   );
   console.log(returnObj_NewPublisher.message);

@@ -13,11 +13,11 @@ import {
   middleware_Format_Publisher_EnrollInputs,
 } from "../../middlewares";
 
-import { controller_Publisher_Enroll } from "../../controllers";
+import { controller_Publisher_Create_NewPublisher } from "../../controllers";
 
-export const route_Publisher_Enroll = Router();
+export const route_Publisher_Create_NewPublisher = Router();
 
-route_Publisher_Enroll.post(
+route_Publisher_Create_NewPublisher.post(
   "/publisher",
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,
@@ -26,5 +26,5 @@ route_Publisher_Enroll.post(
   Middleware_Block_Account_IsPublisher_ByAccountId,
   middleware_Validate_Publisher_EnrollInputs,
   middleware_Format_Publisher_EnrollInputs,
-  controller_Publisher_Enroll
+  controller_Publisher_Create_NewPublisher
 );

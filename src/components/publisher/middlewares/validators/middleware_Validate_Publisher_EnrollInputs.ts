@@ -16,6 +16,7 @@ const schema_Publisher_EnrollInputs = Joi.object({
   country: Joi.string().required(),
   state: Joi.string().required(),
   tax_Type: Joi.string().required(),
+  tax_Percentage: Joi.string().required(),
   id_Tax: Joi.string().required(),
 });
 

@@ -1,14 +1,12 @@
 import { Request, Response } from "express";
 
 import { dal_Publisher_Read_By_Origin } from "../../../publisher/dals/";
-import { dal_Document_Read_By_DocumentId } from "../../../document/dals";
+import { dal_Document_Read_By_Id } from "../../../document/dals";
 import { dal_Gateway_Read_Backend } from "../../dals";
 
+import { nodeConfig } from "../../../../config";
+import geoip from "geoip-lite";
 import Stripe from "stripe";
-
-interface LooseObj {
-  [key: string]: any;
-}
 
 export const controller_Stripe_CheckoutSession_Create = async (
   req: Request,
@@ -32,9 +30,7 @@ export const controller_Stripe_CheckoutSession_Create = async (
     });
   }
 
-  const document: any = await dal_Document_Read_By_DocumentId(
-    res.locals.id_Document
-  );
+  const document: any = await dal_Document_Read_By_Id(res.locals.id_Document);
   if (!document) {
     console.log("❌ Could not fetch document");
     return res.status(400).json({
@@ -43,40 +39,40 @@ export const controller_Stripe_CheckoutSession_Create = async (
     });
   }
 
+  let client_Ip: any =
+    req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+
+  if (nodeConfig.env === "dev") {
+    client_Ip = "117.96.233.173"; // Indian IP
+    // client_Ip = "207.97.227.239"; // American IP
+  }
+
+  let client_Geo: any = geoip.lookup(client_Ip);
+  let client_Country: string = client_Geo.country;
+
   const stripe = new Stripe(gateway.secret_key, {
     apiVersion: "2022-11-15",
   });
 
-  let price: number = 0;
-  if (res.locals.currency === "inr") {
-    price = document.dataValues.price_inr;
-  } else if (res.locals.currency === "usd") {
-    price = document.dataValues.price_usd;
-  }
+  const checkoutSession = await stripe.checkout.sessions.create({
+    success_url: `${res.locals.origin}/payment-handle/{CHECKOUT_SESSION_ID}`,
+    cancel_url: `${res.locals.origin}/payment-cancel/{CHECKOUT_SESSION_ID}`,
+    line_items: [{ price: document.price_id, quantity: 1 }],
+    mode: "payment",
+    currency: client_Country === "IN" ? "INR" : "USD",
+  });
 
-  const checkoutSession: Stripe.Checkout.Session =
-    await stripe.checkout.sessions.create({
-      line_items: [
-        {
-          price_data: {
-            currency: res.locals.currency,
-            unit_amount: price * 100,
-            product_data: {
-              name: document.dataValues.title,
-            },
-          },
-          quantity: 1,
-        },
-      ],
-      success_url: `${res.locals.origin}/payment-handle/{CHECKOUT_SESSION_ID}`,
-      cancel_url: `${res.locals.origin}/payment-cancel/{CHECKOUT_SESSION_ID}`,
-      payment_method_types: ["card"],
-      mode: "payment",
+  if (!checkoutSession.id) {
+    console.log("❌ Could not create Stripe checkout session");
+    return res.status(400).json({
+      success: false,
+      message: "❌ Could not create Stripe checkout session",
     });
+  }
 
   return res.status(200).json({
     success: true,
-    message: "Stripe session created",
+    message: "Stripe checkout session created",
     payload: checkoutSession.id,
   });
 };

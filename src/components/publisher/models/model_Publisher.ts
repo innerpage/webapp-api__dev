@@ -23,6 +23,11 @@ const model_Publisher_Attributes: any = {
     validate: { isIn: [["gst"]] },
   },
   tax_id: { type: DataTypes.STRING, allowNull: false },
+  tax_percentage: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
+  },
 };
 const model_Publisher_Options: any = {};
 

@@ -10,24 +10,23 @@ const model_Purchase_Attributes: any = {
     unique: true,
     primaryKey: true,
   },
-  id_Document: {
+  document_id: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  id_Purchase_Session: {
+  session_id: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  is_Paid: {
-    type: DataTypes.BOOLEAN,
+  currency: {
+    type: DataTypes.STRING,
     allowNull: false,
-    defaultValue: false,
   },
-  base_price: {
+  price_item: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  gateway_fees: {
+  gateway_fee: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
@@ -35,9 +34,14 @@ const model_Purchase_Attributes: any = {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  total: {
+  price_total: {
     type: DataTypes.INTEGER,
     allowNull: false,
+  },
+  is_success: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
   },
 };
 const model_Purchase_Options: any = {};

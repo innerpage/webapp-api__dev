@@ -14,6 +14,7 @@ export const middleware_Format_Publisher_EnrollInputs = async (
     country,
     state,
     tax_Type,
+    tax_Percentage,
     id_Tax,
   } = req.body;
 
@@ -25,6 +26,7 @@ export const middleware_Format_Publisher_EnrollInputs = async (
   res.locals.country = country.trim();
   res.locals.state = state.trim();
   res.locals.tax_Type = tax_Type.trim();
+  res.locals.tax_Percentage = tax_Percentage.trim();
   res.locals.id_Tax = id_Tax.trim();
 
   next();

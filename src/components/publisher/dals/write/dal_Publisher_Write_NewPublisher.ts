@@ -14,6 +14,7 @@ export const dal_Publisher_Write_NewPublisher = async (
   state: string,
   tax_Type: string,
   id_Tax: string,
+  tax_Percentage: string,
   accountId: string
 ) => {
   let isSuccess_NewPublisher: boolean = false;
@@ -31,6 +32,7 @@ export const dal_Publisher_Write_NewPublisher = async (
       state: state,
       tax_type: tax_Type,
       tax_id: id_Tax,
+      tax_percentage: tax_Percentage,
       accountId: accountId,
     })
     .then((new_Publisher: any) => {
