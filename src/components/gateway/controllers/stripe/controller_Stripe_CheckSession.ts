@@ -35,7 +35,6 @@ export const controller_Stripe_CheckSession = async (
   await stripe.checkout.sessions
     .retrieve(res.locals.id_Session)
     .then(async (session) => {
-      console.log(session);
       if (session.payment_status != "paid") {
         return res.status(200).json({
           success: false,
