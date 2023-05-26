@@ -13,11 +13,11 @@ import {
   middleware_Format_Stripe_CheckoutSession_Inputs,
 } from "../../middlewares";
 
-import { controller_Stripe_CheckoutSession_Create } from "../../controllers";
+import { controller_Stripe_Create_CheckoutSession } from "../../controllers";
 
-export const route_Stripe_CheckoutSession_Create = Router();
+export const route_Stripe_Create_CheckoutSession = Router();
 
-route_Stripe_CheckoutSession_Create.post(
+route_Stripe_Create_CheckoutSession.post(
   "/stripe-create-checkout-session",
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,
@@ -26,5 +26,5 @@ route_Stripe_CheckoutSession_Create.post(
   Middleware_Extract_Origin,
   middleware_Validate_Stripe_CheckoutSession_Inputs,
   middleware_Format_Stripe_CheckoutSession_Inputs,
-  controller_Stripe_CheckoutSession_Create
+  controller_Stripe_Create_CheckoutSession
 );

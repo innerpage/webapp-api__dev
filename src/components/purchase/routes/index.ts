@@ -1,2 +1,2 @@
 // Get Purchase
-export { route_Purchase_Get } from "./get/route_Purchase_Get";
+export { route_Purchase_Get_AllPurchases } from "./crud/route_Purchase_Get_AllPurchases";

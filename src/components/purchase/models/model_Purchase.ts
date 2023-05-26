@@ -22,19 +22,7 @@ const model_Purchase_Attributes: any = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  price_item: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  gateway_fee: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  tax_amount: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  price_total: {
+  amount_paid: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },

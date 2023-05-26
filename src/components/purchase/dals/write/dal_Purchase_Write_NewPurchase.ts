@@ -6,11 +6,10 @@ interface LooseObj {
 
 export const dal_Purchase_Write_NewPurchase = async (
   id_Document: string,
-  id_Purchase_Session: string,
-  base_price: number,
-  gateway_fees: number,
-  tax_amount: number,
-  total: number
+  id_Session: string,
+  currency: string,
+  paid_Amount: number,
+  id_Account: string
 ) => {
   let isSuccess_NewPurchase: boolean = false;
   let payload: any;
@@ -18,12 +17,11 @@ export const dal_Purchase_Write_NewPurchase = async (
 
   await model_Purchase
     .create({
-      id_Document: id_Document,
-      id_Purchase_Session: id_Purchase_Session,
-      base_price: base_price,
-      gateway_fees: gateway_fees,
-      tax_amount: tax_amount,
-      total: total,
+      document_id: id_Document,
+      session_id: id_Session,
+      currency: currency,
+      amount_paid: paid_Amount,
+      accountId: id_Account,
     })
     .then((new_Purchase: any) => {
       isSuccess_NewPurchase = true;
