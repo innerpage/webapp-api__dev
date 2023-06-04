@@ -24,9 +24,7 @@ export const controller_Reading_Get_By_Id = async (
     });
   }
 
-  let returnObj = {
-    url_Doc: reading.url_doc,
-  };
+  let returnObj = {};
 
   return res.status(200).json({
     success: true,

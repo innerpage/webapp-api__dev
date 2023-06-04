@@ -32,6 +32,7 @@ const model_Purchase_Attributes: any = {
     defaultValue: false,
   },
 };
+
 const model_Purchase_Options: any = {};
 
 export const model_Purchase = sequelize.define(

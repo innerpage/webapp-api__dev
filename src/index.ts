@@ -28,17 +28,8 @@ dotenv.config();
   /* ------------------
   SYNC MODELS
   -------------------*/
-  // await sequelize
-  //   .sync({ alter: true })
-  //   .then((result) => {
-  //     console.log("SUCCESS: Models synced");
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //     console.log("ERROR: Could not sync models");
-  //   });
   await sequelize
-    .sync()
+    .sync({ alter: true })
     .then((result) => {
       console.log("SUCCESS: Models synced");
     })
@@ -46,6 +37,15 @@ dotenv.config();
       console.log(err);
       console.log("ERROR: Could not sync models");
     });
+  // await sequelize
+  //   .sync()
+  //   .then((result) => {
+  //     console.log("SUCCESS: Models synced");
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     console.log("ERROR: Could not sync models");
+  //   });
 
   /* --------------
   START SERVER

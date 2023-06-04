@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import fs from "fs";
 
 import { dal_Document_Write_NewDocument } from "../../dals";
 import { dal_Account_Read_ByAccountId } from "../../../account/dals";
@@ -48,11 +49,8 @@ export const controller_Document_Upload = async (
     res.locals.title
   );
 
-  let url_Doc: string = result.secure_url;
-
   let returnObj_NewDocument: LooseObj = await dal_Document_Write_NewDocument(
     res.locals.title,
-    url_Doc,
     res.locals.id_Price,
     no_Sl,
     res.locals.id_Publication

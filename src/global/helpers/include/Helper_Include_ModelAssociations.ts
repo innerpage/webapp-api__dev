@@ -5,6 +5,7 @@ import { model_Gateway } from "../../../components/gateway/models";
 import { model_Publisher } from "../../../components/publisher/models";
 import { model_Purchase } from "../../../components/purchase/models";
 import { model_Publication } from "../../../components/publication/models";
+import { model_Page } from "../../../components/pages/models";
 
 export const Helper_Include_ModelAssociations = () => {
   // Account - Publisher Associations
@@ -26,4 +27,8 @@ export const Helper_Include_ModelAssociations = () => {
   // Publication - Document Associations
   model_Publication.hasMany(model_Document);
   model_Document.belongsTo(model_Publication);
+
+  // Document - Page Associations
+  model_Document.hasMany(model_Page);
+  model_Page.belongsTo(model_Document);
 };
