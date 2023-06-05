@@ -1,11 +1,15 @@
 import { Request, Response } from "express";
-import fs from "fs";
 
 import { dal_Document_Write_NewDocument } from "../../dals";
 import { dal_Account_Read_ByAccountId } from "../../../account/dals";
 import { dal_Publication_Read_By_Id } from "../../../publication/dals";
+import { dal_Page_Write_All } from "../../../pages/dals";
 
-import { Helper_Upload_ToCloudinary } from "../../../../global/helpers";
+import {
+  helper_Document_Split_Pdf,
+  helper_Document_Upload_To_Cloudinary,
+  helper_Document_Clean_Upload,
+} from "../../helpers";
 
 interface LooseObj {
   [key: string]: any;
@@ -39,16 +43,6 @@ export const controller_Document_Upload = async (
     no_Sl = 1;
   }
 
-  const files: any = req.files;
-
-  let result: any = await Helper_Upload_ToCloudinary(
-    files[0],
-    publisher.business_name,
-    publication.title,
-    publication.edition,
-    res.locals.title
-  );
-
   let returnObj_NewDocument: LooseObj = await dal_Document_Write_NewDocument(
     res.locals.title,
     res.locals.id_Price,
@@ -66,6 +60,48 @@ export const controller_Document_Upload = async (
       payload: returnObj_NewDocument.payload,
     });
   }
+
+  const files: any = req.files;
+  const array_Page_Paths: any = await helper_Document_Split_Pdf(
+    files[0],
+    returnObj_NewDocument.payload.dataValues.id
+  );
+
+  let array_Pages_And_Urls: any = [];
+  for (const page of array_Page_Paths) {
+    const result: any = await helper_Document_Upload_To_Cloudinary(
+      page.path,
+      publisher.business_name,
+      publication.title,
+      publication.edition,
+      res.locals.title
+    );
+    let obj_Page: any = {
+      url_page: result.secure_url,
+      no: page.no,
+      documentId: returnObj_NewDocument.payload.dataValues.id,
+    };
+    array_Pages_And_Urls.push(obj_Page);
+  }
+
+  let returnObj_NewPages: LooseObj = await dal_Page_Write_All(
+    array_Pages_And_Urls
+  );
+  console.log(returnObj_NewPages.message);
+
+  if (!returnObj_NewPages.success) {
+    console.log(`Failed to create new pages`);
+    console.log(returnObj_NewPages.payload);
+    return res.status(400).json({
+      success: false,
+      message: "❌ Failed to create new pages",
+      payload: returnObj_NewPages.payload,
+    });
+  }
+
+  await helper_Document_Clean_Upload(
+    returnObj_NewDocument.payload.dataValues.id
+  );
 
   return res.status(200).json({
     success: true,

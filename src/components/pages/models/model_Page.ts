@@ -14,7 +14,7 @@ const model_Page_Attributes: any = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  sl_no: {
+  no: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
