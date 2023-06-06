@@ -1,1 +1,1 @@
-export { route_Page_Read_By_SlNo } from "./crud/route_Page_Read_By_SlNo";
+export { route_Page_Read_By_No } from "./crud/route_Page_Read_By_No";
