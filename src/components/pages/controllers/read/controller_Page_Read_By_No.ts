@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 
 import { dal_Page_Read_All } from "../../dals";
 import { dal_Purchase_Read_By_AccountId_DocumentId } from "../../../purchase/dals";
+import { dal_Document_Read_By_DocumentId } from "../../../document/dals";
 
 export const controller_Page_Read_By_No = async (
   req: Request,
@@ -30,9 +31,15 @@ export const controller_Page_Read_By_No = async (
     });
   }
 
+  const document: any = await dal_Document_Read_By_DocumentId(
+    res.locals.id_Document
+  );
+
   const page: any = pages[res.locals.no_Page - 1];
   const payload = {
     url_Page: page.url_page,
+    name_Publication: document.publication.title,
+    edition_Publication: document.publication.edition,
   };
 
   return res.status(200).json({
