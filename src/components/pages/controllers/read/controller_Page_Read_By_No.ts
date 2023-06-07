@@ -22,14 +22,6 @@ export const controller_Page_Read_By_No = async (
 
   const pages: any = await dal_Page_Read_All(res.locals.id_Document);
 
-  if (pages.length < 1) {
-    console.log(`pages does not EXIST`);
-    return res.status(400).json({
-      success: false,
-      message: "pages does not EXIST",
-    });
-  }
-
   if (res.locals.no_Page > pages.length) {
     console.log(`page number OUT_OF_BOUND`);
     return res.status(400).json({
@@ -38,9 +30,14 @@ export const controller_Page_Read_By_No = async (
     });
   }
 
+  const page: any = pages[res.locals.no_Page - 1];
+  const payload = {
+    url_Page: page.url_page,
+  };
+
   return res.status(200).json({
     success: true,
     message: "Page fetched",
-    payload: purchase,
+    payload: payload,
   });
 };
