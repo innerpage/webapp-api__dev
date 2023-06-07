@@ -25,7 +25,7 @@ git commit -m "Deploy build `date`"
 git remote add origin git@github.com-slim-dl:slim-dl/app-api-prod.git
 
 # Push codebase
-git push origin main --force
+git push -u origin main
 
 # Restore
 cd ..
