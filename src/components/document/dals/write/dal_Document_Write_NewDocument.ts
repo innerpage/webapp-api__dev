@@ -6,8 +6,9 @@ interface LooseObj {
 
 export const dal_Document_Write_NewDocument = async (
   title: string,
+  url_Doc: string,
   id_Price: string,
-  sl_no: number,
+  sl_No: number,
   id_Publication: string
 ) => {
   let isSuccess_NewDocument: boolean = false;
@@ -17,8 +18,9 @@ export const dal_Document_Write_NewDocument = async (
   await model_Document
     .create({
       title: title,
+      url_doc: url_Doc,
       price_id: id_Price,
-      sl_no: sl_no,
+      sl_no: sl_No,
       publicationId: id_Publication,
     })
     .then((new_Document: any) => {

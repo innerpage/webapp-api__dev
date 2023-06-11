@@ -18,6 +18,10 @@ const model_Document_Attributes: any = {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  url: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   sl_no: {
     type: DataTypes.INTEGER,
     allowNull: false,
