@@ -6,3 +6,4 @@ export { dal_Document_Read_By_Ids } from "./read/dal_Document_Read_By_Ids";
 
 // Write
 export { dal_Document_Write_NewDocument } from "./write/dal_Document_Write_NewDocument";
+export { dal_Document_Write_NewToc } from "./write/dal_Document_Write_NewToc";

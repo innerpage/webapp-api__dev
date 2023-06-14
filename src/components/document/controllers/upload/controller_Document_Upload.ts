@@ -1,10 +1,15 @@
 import { Request, Response } from "express";
 
-import { dal_Document_Write_NewDocument } from "../../dals";
+import {
+  dal_Document_Write_NewDocument,
+  dal_Document_Write_NewToc,
+} from "../../dals";
 import { dal_Account_Read_ByAccountId } from "../../../account/dals";
 import { dal_Publication_Read_By_Id } from "../../../publication/dals";
 
 import { helper_Document_Upload_To_Cloudinary } from "../../helpers";
+
+import csv from "csvtojson";
 
 interface LooseObj {
   [key: string]: any;
@@ -39,9 +44,18 @@ export const controller_Document_Upload = async (
   }
 
   const files: any = req.files;
+  let file_Doc: any;
+  let file_Toc: any;
+  files.forEach((file: any) => {
+    if (file.fieldname === "file_Doc") {
+      file_Doc = file;
+    } else if (file.fieldname === "file_Toc") {
+      file_Toc = file;
+    }
+  });
 
   const upload_Doc: any = await helper_Document_Upload_To_Cloudinary(
-    files[0],
+    file_Doc,
     publisher.business_name,
     publication.title,
     publication.edition,
@@ -56,7 +70,6 @@ export const controller_Document_Upload = async (
     no_Sl,
     res.locals.id_Publication
   );
-  console.log(returnObj_NewDocument.message);
 
   if (!returnObj_NewDocument.success) {
     console.log(`Failed to save new document`);
@@ -66,6 +79,29 @@ export const controller_Document_Upload = async (
       message: "❌ Failed to save new document",
       payload: returnObj_NewDocument.payload,
     });
+  }
+
+  let data_Toc: any;
+  let id_Document: string = returnObj_NewDocument.payload.dataValues.id;
+  if (file_Toc) {
+    await csv()
+      .fromString(file_Toc.buffer.toString())
+      .then((userCsvRow) => {
+        data_Toc = userCsvRow;
+      });
+    let returnObj_NewToc: LooseObj = await dal_Document_Write_NewToc(
+      data_Toc,
+      id_Document
+    );
+    if (!returnObj_NewToc.success) {
+      console.log(`Failed to save new toc`);
+      console.log(returnObj_NewToc.payload);
+      return res.status(400).json({
+        success: false,
+        message: "❌ Failed to save new toc",
+        payload: returnObj_NewToc.payload,
+      });
+    }
   }
 
   return res.status(200).json({

@@ -18,8 +18,8 @@ export const dal_Document_Write_NewDocument = async (
   await model_Document
     .create({
       title: title,
-      url_doc: url_Doc,
       price_id: id_Price,
+      url: url_Doc,
       sl_no: sl_No,
       publicationId: id_Publication,
     })
