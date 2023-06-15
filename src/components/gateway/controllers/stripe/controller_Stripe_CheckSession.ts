@@ -3,6 +3,8 @@ import { Request, Response } from "express";
 import { dal_Publisher_Read_By_Origin } from "../../../publisher/dals/";
 import { dal_Purchase_Update_Status } from "../../../purchase/dals";
 import { dal_Gateway_Read_Backend } from "../../dals";
+import { dal_Purchase_Read_By_SessionId } from "../../../purchase/dals";
+import { dal_Document_Read_With_Publication_By_Id } from "../../../document/dals";
 
 import Stripe from "stripe";
 
@@ -39,7 +41,7 @@ export const controller_Stripe_CheckSession = async (
         return res.status(200).json({
           success: false,
           message: "❌ Payment unsuccessful",
-          payload: session,
+          payload: {},
         });
       }
 
@@ -51,14 +53,29 @@ export const controller_Stripe_CheckSession = async (
         return res.status(200).json({
           success: false,
           message: "❌ Payment status update failed",
-          payload: session,
+          payload: {},
         });
       }
+
+      const purchase: any = await dal_Purchase_Read_By_SessionId(
+        res.locals.id_Session
+      );
+
+      const documentAndPublication: any =
+        await dal_Document_Read_With_Publication_By_Id(
+          purchase.payload.dataValues.document_id
+        );
+      const details_Document = documentAndPublication.dataValues;
+      const details_Publication = documentAndPublication.publication.dataValues;
+
+      let title_Purchase: string = `${details_Publication.title}, ${details_Publication.edition} (${details_Document.title})`;
 
       return res.status(200).json({
         success: true,
         message: "Fetched session details",
-        payload: session,
+        payload: {
+          title_Purchase: title_Purchase,
+        },
       });
     })
     .catch((err) => {
