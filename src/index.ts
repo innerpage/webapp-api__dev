@@ -2,6 +2,7 @@ import app from "./app";
 import http from "http";
 import { nodeConfig, sequelize } from "./config";
 import { Helper_Include_ModelAssociations } from "./global/helpers";
+import { Server, Socket } from "socket.io";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -37,6 +38,7 @@ dotenv.config();
   //     console.log(err);
   //     console.log("ERROR: Could not sync models");
   //   });
+
   await sequelize
     .sync()
     .then((result) => {
@@ -51,6 +53,20 @@ dotenv.config();
   START SERVER
   ---------------*/
   const httpServer = http.createServer(app);
+
+  /* --------
+  INIT SOCKET
+  ---------*/
+  const io = new Server(httpServer, {
+    cors: {
+      origin: "*",
+    },
+  });
+  io.on("connection", (socket: Socket) => {
+    console.log("Client connected");
+    console.log(socket);
+  });
+
   httpServer.listen(nodeConfig.port, () => {
     console.log(`Server is running on port: ${nodeConfig.port}`);
   });
