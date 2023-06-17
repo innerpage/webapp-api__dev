@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../../config";
 
-const model_Publication_Name: string = "publication";
-const model_Publication_Attributes: any = {
+const model_Name: string = "publication";
+const model_Attributes: any = {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
@@ -39,10 +39,10 @@ const model_Publication_Attributes: any = {
     allowNull: false,
   },
 };
-const model_Publication_Options: any = {};
+const model_Options: any = {};
 
 export const model_Publication = sequelize.define(
-  model_Publication_Name,
-  model_Publication_Attributes,
-  model_Publication_Options
+  model_Name,
+  model_Attributes,
+  model_Options
 );

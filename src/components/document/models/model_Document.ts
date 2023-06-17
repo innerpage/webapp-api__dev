@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../../config";
 
-const model_Document_Name: string = "document";
-const model_Document_Attributes: any = {
+const model_Name: string = "document";
+const model_Attributes: any = {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
@@ -27,10 +27,10 @@ const model_Document_Attributes: any = {
     allowNull: false,
   },
 };
-const model_Document_Options: any = {};
+const model_Options: any = {};
 
 export const model_Document = sequelize.define(
-  model_Document_Name,
-  model_Document_Attributes,
-  model_Document_Options
+  model_Name,
+  model_Attributes,
+  model_Options
 );

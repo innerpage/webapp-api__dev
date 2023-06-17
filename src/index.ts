@@ -4,6 +4,11 @@ import { nodeConfig, sequelize } from "./config";
 import { Helper_Include_ModelAssociations } from "./global/helpers";
 import { Server, Socket } from "socket.io";
 
+import {
+  dal_Visit_Write_NewVisit,
+  dal_Visit_Update_ActiveStatus,
+} from "./components/visit/dals";
+
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -29,18 +34,8 @@ dotenv.config();
   /* ------------------
   SYNC MODELS
   -------------------*/
-  // await sequelize
-  //   .sync({ alter: true })
-  //   .then((result) => {
-  //     console.log("SUCCESS: Models synced");
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //     console.log("ERROR: Could not sync models");
-  //   });
-
   await sequelize
-    .sync()
+    .sync({ alter: true })
     .then((result) => {
       console.log("SUCCESS: Models synced");
     })
@@ -48,6 +43,16 @@ dotenv.config();
       console.log(err);
       console.log("ERROR: Could not sync models");
     });
+
+  // await sequelize
+  //   .sync()
+  //   .then((result) => {
+  //     console.log("SUCCESS: Models synced");
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     console.log("ERROR: Could not sync models");
+  //   });
 
   /* --------------
   START SERVER
@@ -63,11 +68,15 @@ dotenv.config();
     },
   });
 
-  io.sockets.on("connection", (socket: Socket) => {
-    console.log(`Client connected: ${socket.id}`);
+  io.on("connection", (socket: Socket) => {
+    const email: any = socket.handshake.query.email;
+
+    console.log(`${email} connected via ${socket.id}`);
+    dal_Visit_Write_NewVisit(email, socket.id);
 
     socket.on("disconnect", () => {
       console.log(`Client disconnected: ${socket.id}`);
+      dal_Visit_Update_ActiveStatus(socket.id);
     });
   });
 

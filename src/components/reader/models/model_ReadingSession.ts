@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../../config";
 
-const model_ReadingSession_Name: string = "reading_session";
-const model_ReadingSession_Attributes: any = {
+const model_Name: string = "reading_session";
+const model_Attributes: any = {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
@@ -20,10 +20,10 @@ const model_ReadingSession_Attributes: any = {
     allowNull: false,
   },
 };
-const model_ReadingSession_Options: any = {};
+const model_Options: any = {};
 
 export const model_ReadingSession = sequelize.define(
-  model_ReadingSession_Name,
-  model_ReadingSession_Attributes,
-  model_ReadingSession_Options
+  model_Name,
+  model_Attributes,
+  model_Options
 );
