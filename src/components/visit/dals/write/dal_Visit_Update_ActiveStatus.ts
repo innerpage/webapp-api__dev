@@ -10,16 +10,11 @@ export const dal_Visit_Update_ActiveStatus = async (id_Socket: string) => {
         },
       }
     )
-    .then((updated_Visit: any) => {
-      console.log();
+    .then(() => {
       console.log(`Connection active status UPDATED: ${id_Socket}`);
-      console.log(updated_Visit.dataValues);
-      console.log();
     })
     .catch((err) => {
-      console.log();
       console.log(`Connection active status NOT_UPDATED: ${id_Socket}`);
       console.log(err);
-      console.log();
     });
 };
