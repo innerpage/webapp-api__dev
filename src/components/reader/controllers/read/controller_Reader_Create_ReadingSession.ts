@@ -13,7 +13,6 @@ export const controller_Reader_Create_ReadingSession = async (
 ) => {
   const documentAndPublication: any =
     await dal_Document_Read_With_Publication_By_Id(res.locals.id_Document);
-
   if (!documentAndPublication) {
     console.log("❌ Could not find document");
     return res.status(400).json({
@@ -21,21 +20,17 @@ export const controller_Reader_Create_ReadingSession = async (
       message: "❌ Could not find document",
     });
   }
-
   const data_Toc: any = await documentAndPublication.getToc();
   const url_Doc: string = documentAndPublication.url;
-
   let file_As_Bytes: any = await helper_Reader_Get_Document_From_FS(
     res.locals.id_Document
   );
-
   if (!file_As_Bytes) {
     await helper_Reader_Download_Document(res.locals.id_Document, url_Doc);
     file_As_Bytes = await helper_Reader_Get_Document_From_FS(
       res.locals.id_Document
     );
   }
-
   const file = await PDFDocument.load(file_As_Bytes);
   const page_New = await PDFDocument.create();
   const [page_Copied] = await page_New.copyPages(file, [
@@ -43,7 +38,6 @@ export const controller_Reader_Create_ReadingSession = async (
   ]);
   page_New.addPage(page_Copied);
   const base64Str_Page = await page_New.saveAsBase64();
-
   let obj_Return: any = {
     title_Publication: documentAndPublication.publication.title,
     edition_Publication: documentAndPublication.publication.edition,
@@ -51,7 +45,6 @@ export const controller_Reader_Create_ReadingSession = async (
     toc: data_Toc ? data_Toc.toc : [],
     base64Str_Page: base64Str_Page,
   };
-
   return res.status(200).json({
     success: true,
     message: "Document details fetched",
