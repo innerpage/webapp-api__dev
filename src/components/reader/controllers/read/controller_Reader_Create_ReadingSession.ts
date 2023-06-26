@@ -32,6 +32,8 @@ export const controller_Reader_Create_ReadingSession = async (
     );
   }
   const file = await PDFDocument.load(file_As_Bytes);
+  const pages = file.getPages();
+  const count_Pages = pages.length;
   const page_New = await PDFDocument.create();
   const [page_Copied] = await page_New.copyPages(file, [
     res.locals.no_Page - 1,
@@ -42,6 +44,7 @@ export const controller_Reader_Create_ReadingSession = async (
     title_Publication: documentAndPublication.publication.title,
     edition_Publication: documentAndPublication.publication.edition,
     title_Document: documentAndPublication.title,
+    count_Pages: count_Pages,
     toc: data_Toc ? data_Toc.toc : [],
     base64Str_Page: base64Str_Page,
   };
