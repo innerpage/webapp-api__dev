@@ -28,6 +28,6 @@ export const controller_Account_VerifyEmail = async (
 
   return res.status(200).json({
     success: true,
-    message: "Email verified",
+    message: "✅ Email verified",
   });
 };
