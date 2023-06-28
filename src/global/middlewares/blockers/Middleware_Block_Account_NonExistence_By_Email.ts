@@ -12,7 +12,7 @@ export const Middleware_Block_Account_NonExistence_By_Email = async (
     console.log(`Account not registered`);
     return res.status(400).json({
       success: false,
-      message: "You are not registered",
+      message: "❌ You are not registered",
     });
   }
 

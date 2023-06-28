@@ -12,7 +12,7 @@ export const Middleware_Block_Account_NonExistence_ByAccountId = async (
     console.log(`${res.locals.id_Account} is not registered`);
     return res.status(200).json({
       success: false,
-      message: "You are not registered",
+      message: "❌ You are not registered",
     });
   }
 

@@ -12,7 +12,7 @@ export const Middleware_Block_Account_LoggedOut = (
   } else {
     return res.status(400).json({
       success: false,
-      message: "You are not logged in",
+      message: "❌ You are not logged in",
     });
   }
 };
