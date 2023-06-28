@@ -28,7 +28,10 @@ export const dal_Account_Write_NewAccount = async (
       payload = {
         id: new_Account.dataValues.id,
         name_First: new_Account.dataValues.first_name,
+        name_Last: new_Account.dataValues.last_name,
         email: new_Account.dataValues.email,
+        isPublisher: new_Account.dataValues.is_publisher,
+        isVerified_Email: new_Account.dataValues.is_email_verified,
         email_VerificationCode: new_Account.dataValues.email_verification_code,
       };
     })
