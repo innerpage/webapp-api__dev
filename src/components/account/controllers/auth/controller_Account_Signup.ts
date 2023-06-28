@@ -54,7 +54,7 @@ export const controller_Account_Signup = async (
 
   return res.status(200).json({
     success: true,
-    message: "Signed up",
+    message: "✅ Signed up",
     payload: payload_AccountSignup,
   });
 };

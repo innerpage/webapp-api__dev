@@ -12,7 +12,7 @@ export const Middleware_Block_Account_Existence = async (
     console.log(`${res.locals.email} is  registered`);
     return res.status(200).json({
       success: false,
-      message: "You are already registered",
+      message: "❌ You are already registered",
     });
   }
 

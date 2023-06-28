@@ -20,7 +20,7 @@ export const middleware_Validate_Gateway_CreateInputs = (
     console.log("Gateway creation inputs NOT_VALID");
     return res
       .status(400)
-      .json({ success: false, message: error.details[0].message });
+      .json({ success: false, message: `❌ ${error.details[0].message}` });
   }
 
   console.log("Gateway creation inputs VALID");

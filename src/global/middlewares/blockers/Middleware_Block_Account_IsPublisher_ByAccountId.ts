@@ -12,7 +12,7 @@ export const Middleware_Block_Account_IsPublisher_ByAccountId = async (
     console.log(`${res.locals.id_Account} is already a publisher`);
     return res.status(400).json({
       success: false,
-      message: "Your account is already a publisher",
+      message: "❌ Your account is already a publisher",
     });
   }
 

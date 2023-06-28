@@ -16,7 +16,7 @@ export const middleware_Validate_Inputs_For_Document_Price = (
     console.log("Document price inputs NOT_VALID");
     return res
       .status(400)
-      .json({ success: false, message: error.details[0].message });
+      .json({ success: false, message: `❌ ${error.details[0].message}` });
   }
 
   console.log("Document price inputs VALID");

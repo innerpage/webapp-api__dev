@@ -58,6 +58,6 @@ export const controller_Publisher_Create_NewPublisher = async (
 
   return res.status(200).json({
     success: true,
-    message: "Publisher enrolled",
+    message: "✅ Publisher enrolled",
   });
 };

@@ -14,7 +14,7 @@ export const helper_Account_Logout = (req: Request, res: Response) => {
 
       return res.status(200).json({
         success: true,
-        message: "Logged out",
+        message: "✅ Logged out",
         payload: payload_AccountLogout,
       });
     });

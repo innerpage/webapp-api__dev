@@ -30,10 +30,10 @@ export const controller_Document_Price_By_DocumentId = async (
 
   const publisher: any = await dal_Publisher_Read_By_Origin(res.locals.origin);
   if (!publisher) {
-    console.log("❌There are no publications yet");
+    console.log("❌ There are no publications yet");
     return res.status(400).json({
       success: false,
-      message: "❌There are no publications yet",
+      message: "❌ There are no publications yet",
     });
   }
 
@@ -93,7 +93,7 @@ export const controller_Document_Price_By_DocumentId = async (
 
   return res.status(200).json({
     success: true,
-    message: "Document price fetched",
+    message: "✅ Document price fetched",
     payload: obj_Document,
   });
 };

@@ -25,7 +25,7 @@ export const controller_Account_ReSend_EmailVerificationCode = async (
   if (!returnObj_Write_EmailVerificationCode.success) {
     return res.status(400).json({
       success: false,
-      message: "Could not save email verification code",
+      message: "❌ Could not save email verification code",
     });
   }
 

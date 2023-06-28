@@ -24,7 +24,7 @@ export const controller_Gateway_Read = async (req: Request, res: Response) => {
 
   return res.status(200).json({
     success: true,
-    message: "Gateway fetched",
+    message: "✅ Gateway fetched",
     payload: gateway,
   });
 };

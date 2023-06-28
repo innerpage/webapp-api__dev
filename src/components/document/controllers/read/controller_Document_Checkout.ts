@@ -32,10 +32,10 @@ export const controller_Document_Checkout = async (
 
   const publisher: any = await dal_Publisher_Read_By_Origin(res.locals.origin);
   if (!publisher) {
-    console.log("❌There is no such publisher");
+    console.log("❌ There is no such publisher");
     return res.status(400).json({
       success: false,
-      message: "❌Thereis no such publisher",
+      message: "❌ There is no such publisher",
     });
   }
 
@@ -104,7 +104,7 @@ export const controller_Document_Checkout = async (
 
   return res.status(200).json({
     success: true,
-    message: "Document checkout",
+    message: "✅ Document checkout",
     payload: obj_Document,
   });
 };

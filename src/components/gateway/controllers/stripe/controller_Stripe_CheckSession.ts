@@ -72,7 +72,7 @@ export const controller_Stripe_CheckSession = async (
 
       return res.status(200).json({
         success: true,
-        message: "Fetched session details",
+        message: "✅ Fetched session details",
         payload: {
           title_Purchase: title_Purchase,
         },

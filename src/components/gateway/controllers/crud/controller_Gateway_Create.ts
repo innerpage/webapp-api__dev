@@ -36,6 +36,6 @@ export const controller_Gateway_Create = async (
 
   return res.status(200).json({
     success: true,
-    message: "Gateway created",
+    message: "✅ Gateway created",
   });
 };

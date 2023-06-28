@@ -125,7 +125,7 @@ export const controller_Publications_Read = async (
 
   return res.status(200).json({
     success: true,
-    message: "Publications and documents fetched",
+    message: "✅ Publications and documents fetched",
     payload: final_Publications_And_Documents,
   });
 };

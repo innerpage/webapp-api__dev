@@ -27,7 +27,7 @@ export const controller_Account_ConfirmPassword = async (
     );
     return res.status(400).json({
       success: false,
-      message: "Invalid password reset code",
+      message: "❌ Invalid password reset code",
     });
   }
 
@@ -65,6 +65,6 @@ export const controller_Account_ConfirmPassword = async (
 
   return res.status(200).json({
     success: true,
-    message: "Password has been reset",
+    message: "✅ Password has been reset",
   });
 };

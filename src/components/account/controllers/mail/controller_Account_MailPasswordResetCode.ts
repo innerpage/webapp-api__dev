@@ -25,7 +25,7 @@ export const controller_Account_MailPasswordResetCode = async (
   if (!returnObj_WritePasswordResetCode.success) {
     return res.status(400).json({
       success: false,
-      message: "Could not save password reset code",
+      message: "❌ Could not save password reset code",
     });
   }
 
@@ -45,6 +45,6 @@ export const controller_Account_MailPasswordResetCode = async (
 
   return res.status(200).json({
     success: true,
-    message: "Password reset code sent",
+    message: "✅ Password reset code sent",
   });
 };

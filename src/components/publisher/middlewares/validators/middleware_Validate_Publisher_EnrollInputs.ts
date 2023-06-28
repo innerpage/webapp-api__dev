@@ -31,7 +31,7 @@ export const middleware_Validate_Publisher_EnrollInputs = (
     console.log("Publisher enroll inputs NOT_VALID");
     return res
       .status(400)
-      .json({ success: false, message: error.details[0].message });
+      .json({ success: false, message: `❌ ${error.details[0].message}` });
   }
 
   console.log("Publisher enroll inputs VALID");

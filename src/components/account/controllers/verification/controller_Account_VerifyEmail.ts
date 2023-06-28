@@ -17,7 +17,7 @@ export const controller_Account_VerifyEmail = async (
     );
     return res.status(400).json({
       success: false,
-      message: "Invalid email verification code",
+      message: "❌ Invalid email verification code",
     });
   }
 

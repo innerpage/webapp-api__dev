@@ -21,7 +21,7 @@ export const middleware_Validate_Account_ReSend_EmailVerificationCode_Inputs = (
   if (error) {
     return res.status(400).json({
       success: false,
-      message: error.details[0].message,
+      message: `❌ ${error.details[0].message}`,
     });
   }
 

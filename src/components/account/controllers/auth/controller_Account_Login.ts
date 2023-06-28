@@ -16,7 +16,7 @@ export const controller_Account_Login = async (req: Request, res: Response) => {
     console.log(`${email} password IS_NOT_VALID`);
     return res.status(400).json({
       success: false,
-      message: "Invalid password",
+      message: "❌ Invalid password",
     });
   }
   console.log(`${email} password IS_VALID`);
@@ -34,7 +34,7 @@ export const controller_Account_Login = async (req: Request, res: Response) => {
 
   return res.status(200).json({
     success: true,
-    message: "Logged in",
+    message: "✅ Logged in",
     payload: payload_AccountLogin,
   });
 };
