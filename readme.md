@@ -21,3 +21,11 @@
 ## BUILD.SH
 
 - Add git remote
+
+## SRC/GLOBAL/VARS/APP/VAR_APP.ts
+
+- Make necessary changes
+
+## SRC/CONFIG/SERVER/CORSCONFIG.ts
+
+- Change `corsConfig.origin` (if required)
