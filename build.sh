@@ -22,7 +22,7 @@ npm install
 git init
 git add --all
 git commit -m "Deploy build `date`"
-git remote add origin git@github.com-projckt:projckt/starter_webapp-api-dev.git
+git remote add origin git@github.com-projckt:projckt/starter_webapp-api-prod.git
 
 # Push codebase
 git push -f origin main
