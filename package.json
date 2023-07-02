@@ -1,5 +1,5 @@
 {
-  "name": "orion-diglib-api-dev",
+  "name": "starter_webapp-api-dev",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com-orion-diglib:orion-diglib/app-api-dev.git"
+    "url": "git@github.com-projckt:projckt/starter_webapp-api-dev.git"
   },
   "author": "Tuhin Bhuyan (Projckt)",
   "license": "ISC",
