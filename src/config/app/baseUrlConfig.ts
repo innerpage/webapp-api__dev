@@ -1,9 +1,10 @@
 import dotenv from "dotenv";
+import { Var_App } from "../../global/vars";
 dotenv.config();
 
 export const baseUrlConfig = {
   url:
     process.env.NODE_ENV === "dev"
       ? `http:localhost:${process.env.NODE_PORT}`
-      : `https://app.vitalwidgets.com`,
+      : `https://${Var_App.url_App_Product}`,
 };
