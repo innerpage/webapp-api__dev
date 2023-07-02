@@ -1,31 +1,41 @@
-## PACKAGE.JSON
+## package.json
 
 - Change `name`
 - Change `repository.url`
 
-## .ENV
+---
 
-- Add env values for Cloudinary `(cloud_name, api_key, api_secret)`
-- Add env values for Frontend `(port)`
-- Add env values for Node `(env, port)`
-- Add env values for Postgres `(host, port, database, user, password)`
-- Add env values for Postmark `(token)`
-- Add env values for Redis `(host, port)`
-- Add env values for Session `(name, secret, timeout)`
-- Add env values for Stripe `(api version)`
+## .env
 
-## GIT
+- Add env values for Cloudinary <br/> `cloud_name, api_key, api_secret`
+- Add env values for Frontend <br/> `port`
+- Add env values for Node <br/> `env, port`
+- Add env values for Postgres <br/> `host, port, database, user, password`
+- Add env values for Postmark <br/> `token`
+- Add env values for Redis <br/> `host, port`
+- Add env values for Session <br/> `name, secret, timeout`
+- Add env values for Stripe <br/> `api version`
+
+---
+
+## git
 
 - Change remotes
 
-## BUILD.SH
+---
+
+## build.sh
 
 - Add git remote
 
-## SRC/GLOBAL/VARS/APP/VAR_APP.ts
+---
+
+## /src/global/vars/app/Var_app.ts
 
 - Make necessary changes
 
-## SRC/CONFIG/SERVER/CORSCONFIG.ts
+---
+
+## /src/config/server/corsConfig.ts
 
 - Change `corsConfig.origin` (if required)
