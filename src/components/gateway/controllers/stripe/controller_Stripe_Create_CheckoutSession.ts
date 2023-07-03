@@ -5,7 +5,7 @@ import { dal_Document_Read_By_Id } from "../../../document/dals";
 import { dal_Gateway_Read_Backend } from "../../dals";
 import { dal_Purchase_Write_NewPurchase } from "../../../purchase/dals";
 
-import { nodeConfig } from "../../../../config";
+import { config_Node } from "../../../../config";
 import geoip from "geoip-lite";
 import Stripe from "stripe";
 
@@ -43,7 +43,7 @@ export const controller_Stripe_Create_CheckoutSession = async (
   let client_Ip: any =
     req.headers["x-forwarded-for"] || req.connection.remoteAddress;
 
-  if (nodeConfig.env === "dev") {
+  if (config_Node.env === "dev") {
     client_Ip = "117.96.233.173"; // Indian IP
     // client_Ip = "207.97.227.239"; // American IP
   }

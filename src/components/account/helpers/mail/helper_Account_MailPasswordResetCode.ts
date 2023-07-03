@@ -1,5 +1,5 @@
 import * as postmark from "postmark";
-import { postmarkConfig } from "../../../../config";
+import { config_Postmark } from "../../../../config";
 
 interface LooseObj {
   [key: string]: any;
@@ -15,7 +15,7 @@ export const helper_Account_MailPasswordResetCode = async (
   publisher_BusinessAddress: string,
   publisher_SupportEmail: string
 ) => {
-  const client_Postmark = new postmark.Client(postmarkConfig.token);
+  const client_Postmark = new postmark.Client(config_Postmark.token);
   let templateId = 30958891;
   let isSent_PasswordResetCode: boolean = false;
   let returnObj: LooseObj = {};

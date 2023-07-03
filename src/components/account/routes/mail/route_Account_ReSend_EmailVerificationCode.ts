@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {
-  Middleware_Block_Account_NonExistence_ByAccountId,
+  Middleware_Block_Account_NonExistence_By_AccountId,
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,
 } from "../../../../global/middlewares";
@@ -16,7 +16,7 @@ route_Account_ReSend_EmailVerificationCode.post(
   "/resend-email-verification-code",
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,
-  Middleware_Block_Account_NonExistence_ByAccountId,
+  Middleware_Block_Account_NonExistence_By_AccountId,
   middleware_Validate_Account_ReSend_EmailVerificationCode_Inputs,
   middleware_Format_Account_ReSend_EmailVerificationCode,
   controller_Account_ReSend_EmailVerificationCode

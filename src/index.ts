@@ -1,6 +1,6 @@
 import app from "./app";
 import http from "http";
-import { nodeConfig, sequelize } from "./config";
+import { config_Node, sequelize } from "./config";
 import { Helper_Include_ModelAssociations } from "./global/helpers";
 import { Server, Socket } from "socket.io";
 
@@ -80,7 +80,7 @@ dotenv.config();
     });
   });
 
-  httpServer.listen(nodeConfig.port, () => {
-    console.log(`Server is running on port: ${nodeConfig.port}`);
+  httpServer.listen(config_Node.port, () => {
+    console.log(`Server is running on port: ${config_Node.port}`);
   });
 })();

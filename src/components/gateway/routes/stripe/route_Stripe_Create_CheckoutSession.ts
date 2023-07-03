@@ -4,8 +4,8 @@ import {
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,
   Middleware_Extract_Origin,
-  Middleware_Block_Account_NonExistence_ByAccountId,
-  Middleware_Block_Account_IsDisabled_ByAccountId,
+  Middleware_Block_Account_NonExistence_By_AccountId,
+  Middleware_Block_Account_IsDisabled_By_AccountId,
 } from "../../../../global/middlewares";
 
 import {
@@ -21,8 +21,8 @@ route_Stripe_Create_CheckoutSession.post(
   "/stripe-create-checkout-session",
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,
-  Middleware_Block_Account_NonExistence_ByAccountId,
-  Middleware_Block_Account_IsDisabled_ByAccountId,
+  Middleware_Block_Account_NonExistence_By_AccountId,
+  Middleware_Block_Account_IsDisabled_By_AccountId,
   Middleware_Extract_Origin,
   middleware_Validate_Stripe_CheckoutSession_Inputs,
   middleware_Format_Stripe_CheckoutSession_Inputs,

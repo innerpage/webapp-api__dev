@@ -10,7 +10,7 @@ const model_Attributes: any = {
     unique: true,
     primaryKey: true,
   },
-  document_id: {
+  value_id: {
     type: DataTypes.STRING,
     allowNull: false,
   },

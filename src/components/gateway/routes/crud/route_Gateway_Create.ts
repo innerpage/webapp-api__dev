@@ -3,9 +3,8 @@ import { Router } from "express";
 import {
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,
-  Middleware_Block_Account_NonExistence_ByAccountId,
-  Middleware_Block_Account_IsDisabled_ByAccountId,
-  Middleware_Block_Account_IsNotPublisher_ByAccountId,
+  Middleware_Block_Account_NonExistence_By_AccountId,
+  Middleware_Block_Account_IsDisabled_By_AccountId,
 } from "../../../../global/middlewares";
 
 // Local middlewares
@@ -22,9 +21,8 @@ route_Gateway_Create.post(
   "/gateway",
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,
-  Middleware_Block_Account_NonExistence_ByAccountId,
-  Middleware_Block_Account_IsDisabled_ByAccountId,
-  Middleware_Block_Account_IsNotPublisher_ByAccountId,
+  Middleware_Block_Account_NonExistence_By_AccountId,
+  Middleware_Block_Account_IsDisabled_By_AccountId,
   middleware_Validate_Gateway_CreateInputs,
   middleware_Format_Gateway_CreateInputs,
   controller_Gateway_Create

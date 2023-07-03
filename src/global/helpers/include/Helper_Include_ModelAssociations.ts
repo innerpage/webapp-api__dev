@@ -8,7 +8,7 @@ export const Helper_Include_ModelAssociations = () => {
   model_Account.hasMany(model_Purchase);
   model_Purchase.belongsTo(model_Account);
 
-  // Publisher - Gateway Associations
+  // Account - Gateway Associations
   model_Account.hasOne(model_Gateway);
   model_Gateway.belongsTo(model_Account);
 };

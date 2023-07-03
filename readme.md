@@ -36,6 +36,6 @@
 
 ---
 
-## /src/config/server/corsConfig.ts
+## /src/config/server/config_Cors.ts
 
-- Change `corsConfig.origin` (if required)
+- Change `config_Cors.origin` (if required)
