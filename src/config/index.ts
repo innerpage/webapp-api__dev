@@ -1,7 +1,7 @@
 /* -------------
 APP CONFIG
 ------------- */
-export { config_BaseUrl } from "./app/config_BaseUrl";
+export { config_App } from "./app/config_App";
 
 /* ---------------
 CLOUDINARY CONFIG
@@ -19,6 +19,11 @@ SERVER CONFIG
 export { config_Node } from "./server/config_Node";
 export { config_Cors } from "./server/config_Cors";
 export { config_Session } from "./server/config_Session";
+
+/* -------------
+STRIPE CONFIG
+------------- */
+export { config_Stripe } from "./stripe/config_Stripe"
 
 /* -------------
 POSTGRES CONFIG

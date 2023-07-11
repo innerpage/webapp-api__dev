@@ -8,7 +8,7 @@ import {
   helper_Account_HashPassword,
   helper_Account_MailPasswordResetConfirmation,
 } from "../../helpers";
-import { Var_Publisher } from "../../../../global/vars";
+import { config_App } from "../../../../config";
 
 export const controller_Account_ConfirmPassword = async (
   req: Request,
@@ -54,11 +54,11 @@ export const controller_Account_ConfirmPassword = async (
     await helper_Account_MailPasswordResetConfirmation(
       account.first_name,
       res.locals.email,
-      Var_Publisher.url_Website,
-      Var_Publisher.name_Product,
-      Var_Publisher.name_Business,
-      Var_Publisher.address_Business,
-      Var_Publisher.email_Support
+      config_App.url_Website_Product,
+      config_App.name_Product,
+      config_App.name_Business,
+      config_App.address_Business,
+      config_App.email_Product,
     );
   console.log(returnObj_MailPasswordResetConfirmation.message);
   console.log(returnObj_MailPasswordResetConfirmation.payload);

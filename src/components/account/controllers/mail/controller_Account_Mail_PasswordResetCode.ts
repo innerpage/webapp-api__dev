@@ -5,9 +5,9 @@ import {
 } from "../../dals";
 import { helper_Account_MailPasswordResetCode } from "../../helpers";
 import { Helper_Generate_4DigitCode } from "../../../../global/helpers";
-import { Var_Publisher } from "../../../../global/vars";
+import { config_App } from "../../../../config";
 
-export const controller_Account_MailPasswordResetCode = async (
+export const controller_Account_Mail_PasswordResetCode = async (
   req: Request,
   res: Response
 ) => {
@@ -34,11 +34,11 @@ export const controller_Account_MailPasswordResetCode = async (
       account.first_name,
       res.locals.email,
       code_PasswordReset,
-      Var_Publisher.url_Website,
-      Var_Publisher.name_Product,
-      Var_Publisher.name_Business,
-      Var_Publisher.address_Business,
-      Var_Publisher.email_Support
+      config_App.url_Website_Product,
+      config_App.name_Product,
+      config_App.name_Business,
+      config_App.address_Business,
+      config_App.email_Product,
     );
   console.log(returnObj_MailEmailVerificationCode.message);
   console.log(returnObj_MailEmailVerificationCode.payload);

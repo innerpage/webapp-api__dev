@@ -4,7 +4,7 @@ import {
   middleware_Validate_Account_MailPasswordResetInputs,
   middleware_Format_Account_MailPasswordResetInputs,
 } from "../../middlewares";
-import { controller_Account_MailPasswordResetCode } from "../../controllers";
+import { controller_Account_Mail_PasswordResetCode } from "../../controllers";
 
 export const route_Account_MailPasswordResetCode = Router();
 
@@ -13,5 +13,5 @@ route_Account_MailPasswordResetCode.post(
   middleware_Validate_Account_MailPasswordResetInputs,
   middleware_Format_Account_MailPasswordResetInputs,
   Middleware_Block_Account_NonExistence,
-  controller_Account_MailPasswordResetCode
+  controller_Account_Mail_PasswordResetCode
 );

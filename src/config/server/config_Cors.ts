@@ -1,6 +1,6 @@
-import { config_BaseUrl } from "..";
+import { config_App } from "..";
 
 export const config_Cors = {
-  origin: [`${config_BaseUrl}`],
+  origin: [`${config_App}`],
   credentials: true,
 };
