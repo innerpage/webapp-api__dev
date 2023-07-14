@@ -15,7 +15,11 @@ import { Middleware_Handle_Errors } from "./global/middlewares";
 const app = express();
 const redisStore = connectRedis(session);
 
-app.use(cors(config_Cors));
+if (config_Node.env === "dev") {
+  app.use(cors());
+} else {
+  app.use(cors(config_Cors));
+}
 
 app.use(express.json());
 if (config_Node.env === "prod") {
