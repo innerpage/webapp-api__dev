@@ -34,11 +34,11 @@ export const controller_Account_ReSend_EmailVerificationCode = async (
       account.first_name,
       account.email,
       code_EmailVerification,
-      config_App.url_Website_Product,
-      config_App.name_Product,
+      config_App.url_Website_App,
+      config_App.name_App,
       config_App.name_Business,
       config_App.address_Business,
-      config_App.email_Product,
+      config_App.email_App
     );
   console.log(returnObj_MailEmailVerificationCode.message);
   console.log(returnObj_MailEmailVerificationCode.payload);

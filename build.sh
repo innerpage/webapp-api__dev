@@ -1,5 +1,4 @@
 # Cleanup previous prod
-rm -rf prod
 cd ..
 rm -rf prod
 

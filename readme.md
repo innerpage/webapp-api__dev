@@ -1,40 +1,25 @@
+## Git
+
+- Change project remote
+
 ## package.json
 
 - Change `name`
 - Change `repository.url`
 
----
+## Copy .env-bak to .env, then add following values
 
-## .env
-
-- Add env values for Cloudinary <br/> `cloud_name, api_key, api_secret`
-- Add env values for Frontend <br/> `port`
-- Add env values for Node <br/> `env, port`
-- Add env values for Postgres <br/> `host, port, database, user, password`
-- Add env values for Postmark <br/> `token`
-- Add env values for Redis <br/> `host, port`
-- Add env values for Session <br/> `name, secret, timeout`
-- Add env values for Stripe <br/> `api version`
-
----
-
-## git
-
-- Change remotes
-
----
+- Add env values for Node <br/> `NODE_ENV` <br/>`NODE_PORT`
+- Add env values for Postgres <br/> `POSTGRES_HOST`<br/> `POSTGRES_PORT`<br/> `POSTGRES_DATABASE`<br/> `POSTGRES_USER`<br/> `POSTGRES_PASSWORD`
+- Add env values for Postmark <br/> `POSTMARK_TOKEN`
+- Add env values for Redis <br/> `REDIS_HOST`<br/> `REDIS_PORT`
+- Add env values for Session <br/> `SESSION_NAME`<br/> `SESSION_SECRET`<br/> `SESSION_TIMEOUT`
+- Add env values for Stripe <br/> `PUBLIC_KEY`<br/> `SECRET_KEY`<br/> `WEBHOOK_SECRET` `PROCESSING_FEE`
+- Add env values for App<br/> `APP_PORT`<br/> `APP_NAME`<br/> `APP_WEBSITE_URL`<br/> `APP_URL` `APP_EMAIL`<br/> `BUSINESS_NAME`<br/> `BUSINESS_WEBSITE_URL`<br/> `BUSINESS_ADDRESS`<br/> `BUSINESS_EMAIL`
 
 ## build.sh
 
-- Add git remote
-
----
-
-## /src/global/vars/app/Var_app.ts
-
-- Make necessary changes
-
----
+- Change remote to prod_repo
 
 ## /src/config/server/config_Cors.ts
 
