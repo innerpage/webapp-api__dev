@@ -18,7 +18,7 @@ import { controller_Stripe_Create_CheckoutSession } from "../../controllers";
 export const route_Stripe_Create_CheckoutSession = Router();
 
 route_Stripe_Create_CheckoutSession.post(
-  "/stripe-create-checkout-session",
+  "/stripe-create-session",
   Middleware_Block_Account_LoggedOut,
   Middleware_Extract_AccountId,
   Middleware_Block_Account_NonExistence_By_AccountId,

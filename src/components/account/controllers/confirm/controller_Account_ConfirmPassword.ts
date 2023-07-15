@@ -16,11 +16,6 @@ export const controller_Account_ConfirmPassword = async (
 ) => {
   let account: any = await dal_Account_Read_ByEmail(res.locals.email);
 
-  console.log(`account.password_reset_code: ${account.password_reset_code}`);
-  console.log(
-    `res.locals.code_ResetPassword: ${res.locals.code_ResetPassword}`
-  );
-
   if (account.password_reset_code != res.locals.code_ResetPassword) {
     console.log(
       `${res.locals.code_ResetPassword} is not a valid verification code for ${res.locals.email}`

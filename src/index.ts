@@ -13,9 +13,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 (async () => {
-  /* ------------------
-  AUTHENTICATE DATABASE
-  -------------------*/
   await sequelize
     .authenticate()
     .then((result) => {
@@ -26,23 +23,7 @@ dotenv.config();
       console.log(err);
     });
 
-  /* ------------------
-  CREATE ASSOCIATIONS
-  -------------------*/
   Helper_Include_ModelAssociations();
-
-  /* ------------------
-  SYNC MODELS
-  -------------------*/
-  await sequelize
-    .sync({ alter: true })
-    .then((result) => {
-      console.log("SUCCESS: Models synced");
-    })
-    .catch((err) => {
-      console.log(err);
-      console.log("ERROR: Could not sync models");
-    });
 
   // await sequelize
   //   .sync()
@@ -54,14 +35,19 @@ dotenv.config();
   //     console.log("ERROR: Could not sync models");
   //   });
 
-  /* --------------
-  START SERVER
-  ---------------*/
+  // alters table
+  await sequelize
+    .sync({ alter: true })
+    .then((result) => {
+      console.log("SUCCESS: Models synced");
+    })
+    .catch((err) => {
+      console.log(err);
+      console.log("ERROR: Could not sync models");
+    });
+
   const httpServer = http.createServer(app);
 
-  /* --------
-  INIT SOCKET
-  ---------*/
   const io = new Server(httpServer, {
     cors: {
       origin: "*",
