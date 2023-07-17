@@ -34,7 +34,7 @@ export const controller_Account_Signup = async (
       returnObj_AccountCreate.payload.name_First,
       returnObj_AccountCreate.payload.email,
       code_EmailVerification,
-      config_App.url_Website_App,
+      config_App.url_App_Website,
       config_App.name_App,
       config_App.name_Business,
       config_App.address_Business,
