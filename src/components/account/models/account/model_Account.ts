@@ -19,7 +19,6 @@ const model_Attributes: any = {
     validate: { isEmail: true },
   },
   password: { type: DataTypes.STRING, allowNull: false },
-  is_publisher: { type: DataTypes.BOOLEAN, defaultValue: false },
   is_email_verified: { type: DataTypes.BOOLEAN, defaultValue: false },
   email_verification_code: {
     type: DataTypes.STRING,
