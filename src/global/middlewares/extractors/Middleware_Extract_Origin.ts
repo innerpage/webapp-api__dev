@@ -6,11 +6,7 @@ export const Middleware_Extract_Origin = (
   res: Response,
   next: NextFunction
 ) => {
-  if (config_Node.env === "dev") {
-    res.locals.origin = "http://localhost:3333";
-  } else {
-    res.locals.origin = req.header("Origin");
-  }
-
+  res.locals.origin = req.header("Origin");
+  console.log(`Client origin: ${res.locals.origin}`);
   next();
 };

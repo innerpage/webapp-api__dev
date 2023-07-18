@@ -15,6 +15,6 @@ export const Middleware_Block_Request_Not_From_Origin = async (
     }
   }
 
-  console.log(`${res.locals.origin} is authorised`);
+  console.log(`${res.locals.origin} is authorised for access`);
   next();
 };

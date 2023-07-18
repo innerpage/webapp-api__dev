@@ -14,7 +14,7 @@ export const Middleware_Extract_IP_From_Origin = async (
       message: "❌ Un-authorised access",
     });
   }
-
   res.locals.ip_Client = ip;
+  console.log(`Client IP: ${res.locals.ip_Client}`);
   next();
 };

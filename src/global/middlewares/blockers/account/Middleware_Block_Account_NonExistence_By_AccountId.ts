@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { dal_Account_Read_ByAccountId } from "../../../components/account/dals";
+import { dal_Account_Read_ByAccountId } from "../../../../components/account/dals";
 
 export const Middleware_Block_Account_NonExistence_By_AccountId = async (
   req: Request,

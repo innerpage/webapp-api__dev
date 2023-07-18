@@ -14,5 +14,6 @@ export const Middleware_Extract_Country_From_IP = async (
   }
 
   res.locals.country_Client = country_Client;
+  console.log(`Client location: ${res.locals.country_Client}`);
   next();
 };
