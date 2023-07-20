@@ -3,7 +3,7 @@ import {
   dal_Account__Write__Code_PasswordReset,
   dal_Account__Read__By_Email,
 } from "../../dals";
-import { helper_Account_MailPasswordResetCode } from "../../helpers";
+import { helper_Account__Mail__Code_PasswordReset } from "../../helpers";
 import { Helper__Generate__4DigitCode } from "../../../../global/helpers";
 import { config__App } from "../../../../config";
 
@@ -30,7 +30,7 @@ export const controller_Account__Mail__Code_PasswordReset = async (
   }
 
   let returnObj_MailEmailVerificationCode: any =
-    await helper_Account_MailPasswordResetCode(
+    await helper_Account__Mail__Code_PasswordReset(
       account.first_name,
       res.locals.email,
       code_PasswordReset,

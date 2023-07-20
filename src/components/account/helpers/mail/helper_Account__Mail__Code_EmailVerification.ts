@@ -5,7 +5,7 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const helper_Account_MailEmailVerificationCode = async (
+export const helper_Account__Mail__Code_EmailVerification = async (
   subscriber_Name_First: string,
   subscriber_Email: string,
   code_EmailVerification: number,

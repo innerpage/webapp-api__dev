@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { helper_Account_Login } from "../../helpers";
+import { helper_Account__Login } from "../../helpers";
 import { dal_Account__Read__By_Email } from "../../dals";
-import { helper_Account_VerifyPasswordHash } from "../../helpers";
+import { helper_Account__Verify__PasswordHash } from "../../helpers";
 
 export const controller_Account__Login = async (
   req: Request,
@@ -10,7 +10,7 @@ export const controller_Account__Login = async (
   let { email, password } = res.locals;
   let account: any = await dal_Account__Read__By_Email(email);
 
-  let isValid_Password: boolean = await helper_Account_VerifyPasswordHash(
+  let isValid_Password: boolean = await helper_Account__Verify__PasswordHash(
     account?.dataValues.password,
     password
   );
@@ -24,7 +24,7 @@ export const controller_Account__Login = async (
   }
   console.log(`${email} password IS_VALID`);
   res.locals.id_Account = account?.dataValues.id;
-  helper_Account_Login(req, res.locals.id_Account);
+  helper_Account__Login(req, res.locals.id_Account);
 
   let payload_AccountLogin = {
     name_First: account.first_name,

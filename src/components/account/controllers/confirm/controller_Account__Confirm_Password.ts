@@ -4,9 +4,9 @@ import {
   dal_Account__Write__New_Password,
 } from "../../dals";
 import {
-  helper_Account_VerifyPasswordHash,
-  helper_Account_HashPassword,
-  helper_Account_MailPasswordResetConfirmation,
+  helper_Account__Verify__PasswordHash,
+  helper_Account__Hash__Password,
+  helper_Account__Mail__Confirm_PasswordReset,
 } from "../../helpers";
 import { config__App } from "../../../../config";
 
@@ -26,7 +26,7 @@ export const controller_Account__Confirm_Password = async (
     });
   }
 
-  let password_Hashed_New: string = await helper_Account_HashPassword(
+  let password_Hashed_New: string = await helper_Account__Hash__Password(
     res.locals.password_New
   );
 
@@ -46,7 +46,7 @@ export const controller_Account__Confirm_Password = async (
   }
 
   let returnObj_MailPasswordResetConfirmation: any =
-    await helper_Account_MailPasswordResetConfirmation(
+    await helper_Account__Mail__Confirm_PasswordReset(
       account.first_name,
       res.locals.email,
       config__App.url_App_Website,
