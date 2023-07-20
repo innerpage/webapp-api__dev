@@ -5,7 +5,7 @@ const schema_Stripe_CheckSession_Inputs = Joi.object({
   id_Session: Joi.string().required(),
 });
 
-export const middleware_Validate_Stripe_CheckSession_Inputs = (
+export const middleware_Gateway__Validate__Inputs_For__Stripe_CheckSession = (
   req: Request,
   res: Response,
   next: NextFunction

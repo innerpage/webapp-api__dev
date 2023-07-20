@@ -1,2 +1,2 @@
-export { route_Stripe_Create_CheckoutSession } from "./stripe/route_Stripe_Create_CheckoutSession";
-export { route_Stripe_CheckoutSession } from "./stripe/route_Stripe_CheckSession";
+export { route_Gateway__Stripe__Create_Session } from "./stripe/route_Gateway__Stripe__Create_Session";
+export { route_Gateway__Stripe__Check_Session } from "./stripe/route_Gateway__Stripe__Check_Session";

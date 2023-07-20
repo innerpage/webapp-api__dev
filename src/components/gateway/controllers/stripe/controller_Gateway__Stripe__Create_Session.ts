@@ -4,7 +4,7 @@ import Stripe from "stripe";
 import { dal_Purchase_Write_NewPurchase } from "../../../purchase/dals";
 import { config__Stripe } from "../../../../config";
 
-export const controller_Stripe_Create_CheckoutSession = async (
+export const controller_Gateway__Stripe__Create_Session = async (
   req: Request,
   res: Response
 ) => {
