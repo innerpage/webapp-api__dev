@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-export const config_App = {
+export const config__App = {
   name_App: process.env.APP_NAME || "",
   url_App_Website: process.env.APP_WEBSITE_URL || "",
   url_App: process.env.APP_URL || "",

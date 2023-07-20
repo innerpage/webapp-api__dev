@@ -8,4 +8,4 @@ const obj_RedisOptions: RedisOptions = {
   port: +process.env.REDIS_PORT!,
 };
 
-export const config_Redis = new Redis(obj_RedisOptions);
+export const config__Redis = new Redis(obj_RedisOptions);

@@ -1,7 +1,7 @@
 import fs from "fs";
-import { config_Node } from "../../../config";
+import { config__Node } from "../../../config";
 
-export const Helper_Include_Routes = async () => {
+export const Helper__Include__Routes = async () => {
   let componentPaths: Array<string> = [];
   let routePaths: Array<string> = [];
   let routeIndexPaths: Array<Object> = [];
@@ -9,10 +9,10 @@ export const Helper_Include_Routes = async () => {
   let rootDir: string = "";
   let indexFile: string = "";
 
-  if (config_Node.env === "dev") {
+  if (config__Node.env === "dev") {
     rootDir = "src";
     indexFile = "index.ts";
-  } else if (config_Node.env === "prod") {
+  } else if (config__Node.env === "prod") {
     rootDir = ".";
     indexFile = "index.js";
   }

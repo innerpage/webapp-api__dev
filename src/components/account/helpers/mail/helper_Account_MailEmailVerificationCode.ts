@@ -1,5 +1,5 @@
 import * as postmark from "postmark";
-import { config_Postmark } from "../../../../config";
+import { config__Postmark } from "../../../../config";
 
 interface LooseObj {
   [key: string]: any;
@@ -15,7 +15,7 @@ export const helper_Account_MailEmailVerificationCode = async (
   publisher_BusinessAddress: string,
   publisher_SupportEmail: string
 ) => {
-  const client_Postmark = new postmark.Client(config_Postmark.token);
+  const client_Postmark = new postmark.Client(config__Postmark.token);
   let templateId = 30914127;
   let isSent_VerificationMail: boolean = false;
   let returnObj: LooseObj = {};

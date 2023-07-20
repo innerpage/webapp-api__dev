@@ -2,18 +2,16 @@ import { Request, Response } from "express";
 
 import Stripe from "stripe";
 import { dal_Purchase_Write_NewPurchase } from "../../../purchase/dals";
-import { config_Stripe } from "../../../../config";
-
+import { config__Stripe } from "../../../../config";
 
 export const controller_Stripe_Create_CheckoutSession = async (
   req: Request,
   res: Response
 ) => {
+  let id_Tier: string = "";
+  let priceId_Tier: string = "";
 
-  let id_Tier:string = "";
-  let priceId_Tier:string = ""
-
-  const stripe = new Stripe(config_Stripe.key_Secret, {
+  const stripe = new Stripe(config__Stripe.key_Secret, {
     apiVersion: "2022-11-15",
   });
 

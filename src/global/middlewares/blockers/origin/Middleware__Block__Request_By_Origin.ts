@@ -1,13 +1,13 @@
 import { Request, Response, NextFunction } from "express";
-import { config_App, config_Node } from "../../../../config";
+import { config__App, config__Node } from "../../../../config";
 
 export const Middleware__Block__Request_By_Origin = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  if (config_Node.env === "prod") {
-    if (res.locals.origin != config_App.url_App) {
+  if (config__Node.env === "prod") {
+    if (res.locals.origin != config__App.url_App) {
       return res.status(200).json({
         success: false,
         message: "❌ You are not authorised to make this request",
