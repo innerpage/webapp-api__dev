@@ -1,4 +1,4 @@
-import { model_Account } from "../../models";
+import { model__Account } from "../../models";
 
 interface LooseObj {
   [key: string]: any;
@@ -11,7 +11,7 @@ export const dal_Account_Write_EmailVerificationStatus = async (
   let payload: any;
   let obj_Return: LooseObj = {};
 
-  await model_Account
+  await model__Account
     .update(
       { is_email_verified: true, email_verification_code: "" },
       {

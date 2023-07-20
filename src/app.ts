@@ -13,7 +13,7 @@ import {
 import { Middleware__Handle__Errors } from "./global/middlewares";
 
 const app = express();
-const redisStore = connectRedis(session);
+const store_Redis = connectRedis(session);
 
 if (config__Node.env === "dev") {
   app.use(cors());
@@ -29,12 +29,12 @@ if (config__Node.env === "prod") {
 app.use(
   session({
     ...config__Session,
-    store: new redisStore({ client }),
+    store: new store_Redis({ client }),
   })
 );
 
-Helper__Include__Routes().then((pathArr) => {
-  pathArr.forEach((path) => {
+Helper__Include__Routes().then((paths__RouteIndexes) => {
+  paths__RouteIndexes.forEach((path) => {
     import("./" + path).then((route) => {
       for (const property in route) {
         app.use(route[property]);

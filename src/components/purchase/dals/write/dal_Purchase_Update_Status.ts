@@ -1,4 +1,4 @@
-import { model_Purchase } from "../../models";
+import { model__Purchase } from "../../models";
 
 interface LooseObj {
   [key: string]: any;
@@ -9,7 +9,7 @@ export const dal_Purchase_Update_Status = async (id_Session: string) => {
   let payload: any;
   let obj_Return: LooseObj = {};
 
-  await model_Purchase
+  await model__Purchase
     .update(
       { is_success: true },
       {

@@ -1,4 +1,4 @@
-import { model_Account } from "../../models";
+import { model__Account } from "../../models";
 
 interface LooseObj {
   [key: string]: any;
@@ -12,7 +12,7 @@ export const dal_Account_Write_PasswordResetCode = async (
   let payload: any;
   let obj_Return: LooseObj = {};
 
-  await model_Account
+  await model__Account
     .update(
       { password_reset_code: code_PasswordReset },
       {
