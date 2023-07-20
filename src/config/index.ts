@@ -6,7 +6,7 @@ export { config__Redis } from "./caching/config__Redis";
 
 // Database
 export { config__Postgres } from "./database/postgres/config__Postgres";
-export { sequelize } from "./database/sequelize/config__Sequelize";
+export { config__Sequelize } from "./database/sequelize/config__Sequelize";
 
 // Mail
 export { config__Postmark } from "./mail/postmark/config__Postmark";
