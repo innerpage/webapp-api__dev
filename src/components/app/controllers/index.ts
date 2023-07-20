@@ -1,1 +1,1 @@
-export { controller_App_Get_AppDetails } from "./details/controller_App_Get_AppDetails";
+export { controller_App__Get__AppDetails } from "./details/controller_App__Get__AppDetails";

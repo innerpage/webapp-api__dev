@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { config__App } from "../../../../config/";
+import { config__App } from "../../../../config";
 
-export const controller_App_Get_AppDetails = async (
+export const controller_App__Get__AppDetails = async (
   req: Request,
   res: Response
 ) => {
