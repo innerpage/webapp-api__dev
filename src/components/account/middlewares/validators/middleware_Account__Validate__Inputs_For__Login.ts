@@ -1,7 +1,7 @@
 import Joi from "joi";
 import { Request, Response, NextFunction } from "express";
 
-const schema_Resend_EmailVerificationCode_Inputs = Joi.object({
+const schema_LoginInputs = Joi.object({
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .min(5)
@@ -9,14 +9,15 @@ const schema_Resend_EmailVerificationCode_Inputs = Joi.object({
     .lowercase()
     .trim()
     .required(),
+  password: Joi.string().min(8).max(1024).required(),
 });
 
-export const middleware_Validate_Account_ReSend_EmailVerificationCode_Inputs = (
+export const middleware_Account__Validate__Inputs_For__Login = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let { error } = schema_Resend_EmailVerificationCode_Inputs.validate(req.body);
+  let { error } = schema_LoginInputs.validate(req.body);
 
   if (error) {
     return res.status(400).json({

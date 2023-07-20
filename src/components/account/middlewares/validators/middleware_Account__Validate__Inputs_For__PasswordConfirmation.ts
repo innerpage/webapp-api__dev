@@ -17,7 +17,7 @@ const schema_ResetPasswordInputs = Joi.object({
   code_ResetPassword: Joi.number().required().min(1000).max(9999),
 });
 
-export const middleware_Validate_Account_ConfirmPasswordInputs = (
+export const middleware_Account__Validate__Inputs_For__PasswordConfirmation = (
   req: Request,
   res: Response,
   next: NextFunction

@@ -4,17 +4,17 @@ import {
   Middleware__Block__AccountNonExistence_By_Email,
 } from "../../../../global/middlewares";
 import {
-  middleware_Validate_Account_EmailVerificationInputs,
-  middleware_Format_Account_EmailVerificationInputs,
+  middleware_Account__Validate__Inputs_For__EmailVerification,
+  middleware_Account__Format__Inputs_For__EmailVerification,
 } from "../../middlewares";
 import { controller_Account__Verify__Email } from "../../controllers";
 
-export const route_Account_VerifyEmail = Router();
+export const route_Account__Verify__Email = Router();
 
-route_Account_VerifyEmail.post(
+route_Account__Verify__Email.post(
   "/verify-email",
-  middleware_Validate_Account_EmailVerificationInputs,
-  middleware_Format_Account_EmailVerificationInputs,
+  middleware_Account__Validate__Inputs_For__EmailVerification,
+  middleware_Account__Format__Inputs_For__EmailVerification,
   Middleware__Block__AccountNonExistence_By_Email,
   Middleware__Block__Account_LoggedOut,
   controller_Account__Verify__Email

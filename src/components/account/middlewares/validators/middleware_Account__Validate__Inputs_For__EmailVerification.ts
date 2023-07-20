@@ -12,7 +12,7 @@ const schema_EmailVerificationInputs = Joi.object({
     .required(),
 });
 
-export const middleware_Validate_Account_EmailVerificationInputs = (
+export const middleware_Account__Validate__Inputs_For__EmailVerification = (
   req: Request,
   res: Response,
   next: NextFunction

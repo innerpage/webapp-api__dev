@@ -10,7 +10,7 @@ import {
 } from "../../helpers";
 import { config__App } from "../../../../config";
 
-export const controller_Account__Confirm_Password = async (
+export const controller_Account__Confirm__Password = async (
   req: Request,
   res: Response
 ) => {
