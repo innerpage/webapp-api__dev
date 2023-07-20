@@ -11,7 +11,7 @@ const schema_Email = Joi.object({
     .required(),
 });
 
-export const Middleware_Validate_Email = async (
+export const Middleware__Validate__Email = async (
   req: Request,
   res: Response,
   next: NextFunction

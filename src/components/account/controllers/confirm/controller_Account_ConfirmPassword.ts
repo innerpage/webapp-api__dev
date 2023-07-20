@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import {
-  dal_Account_Read_ByEmail,
+  dal_Account_Read_By_Email,
   dal_Account_Write_NewPassword,
 } from "../../dals";
 import {
@@ -14,7 +14,7 @@ export const controller_Account_ConfirmPassword = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account_Read_ByEmail(res.locals.email);
+  let account: any = await dal_Account_Read_By_Email(res.locals.email);
 
   if (account.password_reset_code != res.locals.code_ResetPassword) {
     console.log(

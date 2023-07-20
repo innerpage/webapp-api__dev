@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { dal_Account_Read_ByAccountId } from "../../dals";
+import { dal_Account_Read_By_AccountId } from "../../dals";
 import { config_App } from "../../../../config/";
 
 export const controller_Account_GetDetails = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account_Read_ByAccountId(res.locals.id_Account);
+  let account: any = await dal_Account_Read_By_AccountId(res.locals.id_Account);
 
   let payload_AccountDetails: any = {
     name_First: account.first_name,
@@ -31,7 +31,7 @@ export const controller_Account_GetDetails = async (
     url_Website_Business: config_App.url_Website_Business,
     address_Business: config_App.address_Business,
     email_Business: config_App.email_Business,
-    country_Client: res.locals.country_Client || "IN",
+    country_Client: res.locals.country_Client,
   };
 
   return res.status(200).json({

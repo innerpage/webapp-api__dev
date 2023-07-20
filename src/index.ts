@@ -48,23 +48,23 @@ dotenv.config();
 
   const httpServer = http.createServer(app);
 
-  const io = new Server(httpServer, {
-    cors: {
-      origin: "*",
-    },
-  });
+  // const io = new Server(httpServer, {
+  //   cors: {
+  //     origin: "*",
+  //   },
+  // });
 
-  io.on("connection", (socket: Socket) => {
-    const email: any = socket.handshake.query.email;
+  // io.on("connection", (socket: Socket) => {
+  //   const email: any = socket.handshake.query.email;
 
-    console.log(`${email} connected via ${socket.id}`);
-    dal_Visit_Write_NewVisit(email, socket.id);
+  //   console.log(`${email} connected via ${socket.id}`);
+  //   dal_Visit_Write_NewVisit(email, socket.id);
 
-    socket.on("disconnect", () => {
-      console.log(`Client disconnected: ${socket.id}`);
-      dal_Visit_Update_ActiveStatus(socket.id);
-    });
-  });
+  //   socket.on("disconnect", () => {
+  //     console.log(`Client disconnected: ${socket.id}`);
+  //     dal_Visit_Update_ActiveStatus(socket.id);
+  //   });
+  // });
 
   httpServer.listen(config_Node.port, () => {
     console.log(`Server is running on port: ${config_Node.port}`);

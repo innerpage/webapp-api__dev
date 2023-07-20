@@ -9,9 +9,8 @@ const schema_Signup_Inputs = Joi.object({
     .min(5)
     .max(128)
     .lowercase()
-    .trim()
     .required(),
-  password: Joi.string().min(8).max(1024).required(),
+  password: Joi.string().min(8).max(1024).trim().required(),
 });
 
 export const middleware_Validate_Account_SignupInputs = (

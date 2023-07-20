@@ -1,9 +1,9 @@
 import { model_Account } from "../../models";
 
-export const dal_Account_Read_ByEmail = async (email: string) => {
+export const dal_Account_Read_By_AccountId = async (id_Account: string) => {
   const account = await model_Account.findOne({
     where: {
-      email: email,
+      id: id_Account,
     },
   });
 

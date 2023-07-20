@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import {
-  dal_Account_Read_ByEmail,
+  dal_Account_Read_By_Email,
   dal_Account_Write_EmailVerificationStatus,
 } from "../../dals";
 
@@ -8,7 +8,7 @@ export const controller_Account_VerifyEmail = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account_Read_ByEmail(res.locals.email);
+  let account: any = await dal_Account_Read_By_Email(res.locals.email);
 
   let code_EmailVerification: number = account.email_verification_code;
   if (code_EmailVerification != res.locals.code_EmailVerification) {
