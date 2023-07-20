@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
 import Stripe from "stripe";
-import { dal_Purchase_Write_NewPurchase } from "../../../purchase/dals";
+import { dal_Purchase__Write__New_Purchase } from "../../../purchase/dals";
 import { config__Stripe } from "../../../../config";
 
 export const controller_Gateway__Stripe__Create_Session = async (
@@ -31,7 +31,7 @@ export const controller_Gateway__Stripe__Create_Session = async (
     });
   }
 
-  const purchase = await dal_Purchase_Write_NewPurchase(
+  const purchase = await dal_Purchase__Write__New_Purchase(
     id_Tier,
     session.id,
     session.currency,

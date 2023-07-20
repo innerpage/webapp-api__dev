@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
 import Stripe from "stripe";
-import { dal_Purchase_Update_Status } from "../../../purchase/dals";
+import { dal_Purchase__Write__Status_Purchase } from "../../../purchase/dals";
 import { config__Stripe } from "../../../../config";
 
 export const controller_Gateway__Stripe__Check_Session = async (
@@ -24,7 +24,7 @@ export const controller_Gateway__Stripe__Check_Session = async (
         });
       }
 
-      const updated_Purchase = await dal_Purchase_Update_Status(
+      const updated_Purchase = await dal_Purchase__Write__Status_Purchase(
         res.locals.id_Session
       );
 

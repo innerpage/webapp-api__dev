@@ -4,7 +4,7 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const dal_Purchase_Write_NewPurchase = async (
+export const dal_Purchase__Write__New_Purchase = async (
   id_Document: string,
   id_Session: string,
   currency: string,

@@ -4,14 +4,14 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const dal_Purchase_Read_By_Id = async (id_Document: string) => {
+export const dal_Purchase__Read__By_SessionId = async (id_Session: string) => {
   let payload: any;
   let obj_Return: LooseObj = {};
 
   await model__Purchase
     .findOne({
       where: {
-        document_id: id_Document,
+        session_id: id_Session,
       },
     })
     .then((purchase: any) => {

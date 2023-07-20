@@ -4,7 +4,9 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const dal_Purchase_Update_Status = async (id_Session: string) => {
+export const dal_Purchase__Write__Status_Purchase = async (
+  id_Session: string
+) => {
   let isSuccess_Updated_PurchaseStatus: boolean = false;
   let payload: any;
   let obj_Return: LooseObj = {};
