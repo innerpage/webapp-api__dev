@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import { config__Sequelize } from "../../../config";
 
-const model_Name: string = "visit";
-const model_Attributes: any = {
+const model__Name: string = "visit";
+const model__Attributes: any = {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
@@ -22,10 +22,10 @@ const model_Attributes: any = {
   is_active: { type: DataTypes.BOOLEAN, defaultValue: true },
 };
 
-const model_Options: any = {};
+const model__Options: any = {};
 
-export const model_Visit = config__Sequelize.define(
-  model_Name,
-  model_Attributes,
-  model_Options
+export const model__Visit = config__Sequelize.define(
+  model__Name,
+  model__Attributes,
+  model__Options
 );

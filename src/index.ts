@@ -5,8 +5,8 @@ import { Helper__Include__ModelAssociations } from "./global/helpers";
 import { Server, Socket } from "socket.io";
 
 import {
-  dal_Visit_Write_NewVisit,
-  dal_Visit_Update_ActiveStatus,
+  dal_Visit__Write__New_Visit,
+  dal_Visit__Write__Status_Activity,
 } from "./components/visit/dals";
 
 import dotenv from "dotenv";
@@ -58,11 +58,11 @@ dotenv.config();
   //   const email: any = socket.handshake.query.email;
 
   //   console.log(`${email} connected via ${socket.id}`);
-  //   dal_Visit_Write_NewVisit(email, socket.id);
+  //   dal_Visit__Write__New_Visit(email, socket.id);
 
   //   socket.on("disconnect", () => {
   //     console.log(`Client disconnected: ${socket.id}`);
-  //     dal_Visit_Update_ActiveStatus(socket.id);
+  //     dal_Visit__Write__Status_Activity(socket.id);
   //   });
   // });
 

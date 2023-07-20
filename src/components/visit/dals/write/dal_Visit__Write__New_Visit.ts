@@ -1,10 +1,10 @@
-import { model_Visit } from "../../models";
+import { model__Visit } from "../../models";
 
-export const dal_Visit_Write_NewVisit = async (
+export const dal_Visit__Write__New_Visit = async (
   email: string,
   id_Socket: string
 ) => {
-  await model_Visit
+  await model__Visit
     .create({
       email: email,
       socket_id: id_Socket,
