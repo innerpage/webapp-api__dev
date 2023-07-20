@@ -5,4 +5,3 @@ export { dal_Account_Write_EmailVerificationStatus } from "./write/dal_Account_W
 export { dal_Account_Write_PasswordResetCode } from "./write/dal_Account_Write_PasswordResetCode";
 export { dal_Account_Write_NewPassword } from "./write/dal_Account_Write_NewPassword";
 export { dal_Account_Write_EmailVerification_Code } from "./write/dal_Account_Write_EmailVerification_Code";
-export { dal_Account_Write_PublisherFlag } from "./write/dal_Account_Write_PublisherFlag";

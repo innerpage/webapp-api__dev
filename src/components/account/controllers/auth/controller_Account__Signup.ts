@@ -8,7 +8,7 @@ import {
 import { Helper__Generate__4DigitCode } from "../../../../global/helpers";
 import { config__App } from "../../../../config";
 
-export const controller_Account_Signup = async (
+export const controller_Account__Signup = async (
   req: Request,
   res: Response
 ) => {

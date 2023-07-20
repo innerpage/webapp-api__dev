@@ -4,7 +4,7 @@ import {
   dal_Account_Write_EmailVerificationStatus,
 } from "../../dals";
 
-export const controller_Account_VerifyEmail = async (
+export const controller_Account__Verify__Email = async (
   req: Request,
   res: Response
 ) => {

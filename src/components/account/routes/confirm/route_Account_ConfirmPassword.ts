@@ -4,7 +4,7 @@ import {
   middleware_Validate_Account_ConfirmPasswordInputs,
   middleware_Format_Account_ConfirmPasswordInputs,
 } from "../../middlewares";
-import { controller_Account_ConfirmPassword } from "../../controllers";
+import { controller_Account__Confirm_Password } from "../../controllers";
 
 export const route_Account_ConfirmPassword = Router();
 
@@ -13,5 +13,5 @@ route_Account_ConfirmPassword.post(
   middleware_Validate_Account_ConfirmPasswordInputs,
   middleware_Format_Account_ConfirmPasswordInputs,
   Middleware__Block__AccountNonExistence_By_Email,
-  controller_Account_ConfirmPassword
+  controller_Account__Confirm_Password
 );

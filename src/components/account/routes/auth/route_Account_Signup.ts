@@ -12,7 +12,7 @@ import {
   middleware_Validate_Account_SignupInputs,
   middleware_Format_Account_SignupInputs,
 } from "../../middlewares";
-import { controller_Account_Signup } from "../../controllers";
+import { controller_Account__Signup } from "../../controllers";
 
 export const route_Account_Signup = Router();
 
@@ -26,5 +26,5 @@ route_Account_Signup.post(
   middleware_Validate_Account_SignupInputs,
   middleware_Format_Account_SignupInputs,
   Middleware__Block__AccountExistence_By_Email,
-  controller_Account_Signup
+  controller_Account__Signup
 );

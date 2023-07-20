@@ -7,7 +7,7 @@ import { helper_Account_MailPasswordResetCode } from "../../helpers";
 import { Helper__Generate__4DigitCode } from "../../../../global/helpers";
 import { config__App } from "../../../../config";
 
-export const controller_Account_Mail_PasswordResetCode = async (
+export const controller_Account__Mail__PasswordResetCode = async (
   req: Request,
   res: Response
 ) => {

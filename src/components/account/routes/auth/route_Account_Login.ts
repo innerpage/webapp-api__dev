@@ -10,7 +10,7 @@ import {
   middleware_Format_Account_LoginInputs,
 } from "../../middlewares";
 
-import { controller_Account_Login } from "../../controllers";
+import { controller_Account__Login } from "../../controllers";
 
 export const route_Account_Login = Router();
 
@@ -20,5 +20,5 @@ route_Account_Login.post(
   middleware_Validate_Account_LoginInputs,
   middleware_Format_Account_LoginInputs,
   Middleware__Block__AccountNonExistence_By_Email,
-  controller_Account_Login
+  controller_Account__Login
 );

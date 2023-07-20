@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { dal_Account_Read_By_AccountId } from "../../dals";
-import { config__App } from "../../../../config/";
+import { config__App } from "../../../../config";
 
-export const controller_Account_GetDetails = async (
+export const controller_Account__Get_Details = async (
   req: Request,
   res: Response
 ) => {
