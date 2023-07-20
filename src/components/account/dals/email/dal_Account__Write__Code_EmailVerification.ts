@@ -4,7 +4,7 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const dal_Account_Write_EmailVerification_Code = async (
+export const dal_Account__Write__Code_EmailVerification = async (
   id_Account: string,
   code_EmailVerification: number
 ) => {

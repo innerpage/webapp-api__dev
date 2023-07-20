@@ -1,7 +1,12 @@
-export { dal_Account_Read_By_Email } from "./read/dal_Account_Read_By_Email";
-export { dal_Account_Read_By_AccountId } from "./read/dal_Account_Read_By_AccountId";
-export { dal_Account_Write_NewAccount } from "./write/dal_Account_Write_NewAccount";
-export { dal_Account_Write_EmailVerificationStatus } from "./write/dal_Account_Write_EmailVerificationStatus";
-export { dal_Account_Write_PasswordResetCode } from "./write/dal_Account_Write_PasswordResetCode";
-export { dal_Account_Write_NewPassword } from "./write/dal_Account_Write_NewPassword";
-export { dal_Account_Write_EmailVerification_Code } from "./write/dal_Account_Write_EmailVerification_Code";
+// Account
+export { dal_Account__Read__By_AccountId } from "./account/dal_Account__Read__By_AccountId";
+export { dal_Account__Read__By_Email } from "./account/dal_Account__Read__By_Email";
+export { dal_Account__Write__New_Account } from "./account/dal_Account__Write__New_Account";
+
+// Email
+export { dal_Account__Write__Code_EmailVerification } from "./email/dal_Account__Write__Code_EmailVerification";
+export { dal_Account__Write__Status_EmailVerification } from "./email/dal_Account__Write__Status_EmailVerification";
+
+// Password
+export { dal_Account__Write__Code_PasswordReset } from "./password/dal_Account__Write__Code_PasswordReset";
+export { dal_Account__Write__New_Password } from "./password/dal_Account__Write__New_Password";

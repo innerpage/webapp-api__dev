@@ -4,9 +4,9 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const dal_Account_Write_PasswordResetCode = async (
+export const dal_Account__Write__New_Password = async (
   email: string,
-  code_PasswordReset: number
+  password_Hashed_New: string
 ) => {
   let isSuccess_PasswordResetCodeSaved: boolean = false;
   let payload: any;
@@ -14,7 +14,7 @@ export const dal_Account_Write_PasswordResetCode = async (
 
   await model__Account
     .update(
-      { password_reset_code: code_PasswordReset },
+      { password: password_Hashed_New, password_reset_code: "" },
       {
         where: {
           email: email,
@@ -23,17 +23,17 @@ export const dal_Account_Write_PasswordResetCode = async (
     )
     .then((updated_Account: any) => {
       isSuccess_PasswordResetCodeSaved = true;
-      payload = updated_Account;
+      payload = {};
     })
     .catch((err) => (payload = err));
 
   if (isSuccess_PasswordResetCodeSaved) {
     obj_Return.success = true;
-    obj_Return.message = "Password reset code SAVED";
+    obj_Return.message = "New password SAVED";
     obj_Return.payload = payload;
   } else {
     obj_Return.success = false;
-    obj_Return.message = "Password reset code NOT_SAVED";
+    obj_Return.message = "New password NOT_SAVED";
     obj_Return.payload = payload;
   }
 

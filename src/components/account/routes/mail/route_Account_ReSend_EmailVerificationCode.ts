@@ -4,7 +4,7 @@ import {
   Middleware__Block__Account_LoggedOut,
   Middleware__Extract__AccountId_From_Request,
 } from "../../../../global/middlewares";
-import { controller_Account__Mail__EmailVerificationCode } from "../../controllers";
+import { controller_Account__Mail__Code_EmailVerification } from "../../controllers";
 import {
   middleware_Validate_Account_ReSend_EmailVerificationCode_Inputs,
   middleware_Format_Account_ReSend_EmailVerificationCode,
@@ -19,5 +19,5 @@ route_Account_ReSend_EmailVerificationCode.post(
   Middleware__Block__AccountNonExistence_By_AccountId,
   middleware_Validate_Account_ReSend_EmailVerificationCode_Inputs,
   middleware_Format_Account_ReSend_EmailVerificationCode,
-  controller_Account__Mail__EmailVerificationCode
+  controller_Account__Mail__Code_EmailVerification
 );
