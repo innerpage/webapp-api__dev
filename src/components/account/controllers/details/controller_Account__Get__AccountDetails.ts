@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { dal_Account__Read__By_AccountId } from "../../dals";
+import { dal_Account__Read__By__AccountId } from "../../dals";
 import { config__App } from "../../../../config";
 
 export const controller_Account__Get__AccountDetails = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account__Read__By_AccountId(
+  let account: any = await dal_Account__Read__By__AccountId(
     res.locals.id__Account
   );
 

@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from "express";
-import { dal_Account__Read__By_Email } from "../../../../components/account/dals";
+import { dal_Account__Read__By__Email } from "../../../../components/account/dals";
 
-export const Middleware__Block__AccountNonExistence_By_Email = async (
+export const Middleware__Block__Account_Non_Existence__By__Email = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let account: any = await dal_Account__Read__By_Email(res.locals.email);
+  let account: any = await dal_Account__Read__By__Email(res.locals.email);
 
   if (!account) {
     console.log(`${res.locals.email} is not registered`);

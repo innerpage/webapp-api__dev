@@ -2,19 +2,19 @@ import { Router } from "express";
 import { controller_App__Get__AppDetails } from "../../controllers";
 
 import {
-  Middleware__Extract__Origin_From_Request,
-  Middleware__Block__Request_By_Origin,
-  Middleware__Extract__IP_From_Origin,
-  Middleware__Extract__Country_From_IP,
+  Middleware__Extract__Origin__From__Request,
+  Middleware__Block__Request__By__Origin,
+  Middleware__Extract__IP__From__Origin,
+  Middleware__Extract__Country__From__IP,
 } from "../../../../global/middlewares";
 
 export const route_App__Get__AppDetails = Router();
 
 route_App__Get__AppDetails.get(
   "/app",
-  Middleware__Extract__Origin_From_Request,
-  Middleware__Block__Request_By_Origin,
-  Middleware__Extract__IP_From_Origin,
-  Middleware__Extract__Country_From_IP,
+  Middleware__Extract__Origin__From__Request,
+  Middleware__Block__Request__By__Origin,
+  Middleware__Extract__IP__From__Origin,
+  Middleware__Extract__Country__From__IP,
   controller_App__Get__AppDetails
 );

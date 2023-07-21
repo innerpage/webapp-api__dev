@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Middleware__Block__AccountNonExistence_By_Email } from "../../../../global/middlewares";
+import { Middleware__Block__Account_Non_Existence__By__Email } from "../../../../global/middlewares";
 import {
   middleware_Account__Validate__Inputs_For__Mail_PasswordReset,
   middleware_Account__Format__Inputs_For__Mail_PasswordReset,
@@ -12,6 +12,6 @@ route_Account__Mail__Code_PasswordReset.post(
   "/send-password-reset-code",
   middleware_Account__Validate__Inputs_For__Mail_PasswordReset,
   middleware_Account__Format__Inputs_For__Mail_PasswordReset,
-  Middleware__Block__AccountNonExistence_By_Email,
+  Middleware__Block__Account_Non_Existence__By__Email,
   controller_Account__Mail__Code_PasswordReset
 );

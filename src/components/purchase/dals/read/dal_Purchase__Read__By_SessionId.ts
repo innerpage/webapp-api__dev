@@ -4,7 +4,7 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const dal_Purchase__Read__By_SessionId = async (id_Session: string) => {
+export const dal_Purchase__Read__By__SessionId = async (id_Session: string) => {
   let payload: any;
   let obj_Return: LooseObj = {};
 

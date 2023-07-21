@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { config__App, config__Node } from "../../../../config";
 
-export const Middleware__Block__Request_By_Origin = async (
+export const Middleware__Block__Request__By__Origin = async (
   req: Request,
   res: Response,
   next: NextFunction

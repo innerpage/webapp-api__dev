@@ -1,6 +1,6 @@
 // Read
-export { dal_Account__Read__By_AccountId } from "./read/dal_Account__Read__By_AccountId";
-export { dal_Account__Read__By_Email } from "./read/dal_Account__Read__By_Email";
+export { dal_Account__Read__By__AccountId } from "./read/dal_Account__Read__By__AccountId";
+export { dal_Account__Read__By__Email } from "./read/dal_Account__Read__By__Email";
 
 // Write
 export { dal_Account__Write__Code_EmailVerification } from "./write/dal_Account__Write__Code_EmailVerification";

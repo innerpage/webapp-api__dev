@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const Middleware__Extract__IP_From_Origin = async (
+export const Middleware__Extract__IP__From__Origin = async (
   req: Request,
   res: Response,
   next: NextFunction
