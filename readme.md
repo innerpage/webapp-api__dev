@@ -1,20 +1,66 @@
-## Git
+## Project initialization
 
-- Change project remote
+- `npm install` inside the project directory
+- Change **git remote** of the project directory
 
-## package.json
+## Changes in <u>package.json</u>
 
-- Change `name`
-- Change `repository.url`
+- Change **name**
+- Change **repository.url**
 
-## Copy .env-bak to .env, then add following values
+## Prepare <u>.env</u>
 
-- Add env values for Postgres <br/> `POSTGRES_DATABASE` <br/> `POSTGRES_USER` <br/> `POSTGRES_PASSWORD`
-- Add env values for Postmark <br/> `POSTMARK_TOKEN`
-- Add env values for Session <br/> `EXPRESS_SESSION_SECRET`
-- Add env values for Stripe <br/> `STRIPE_PUBLIC_KEY` <br/> `STRIPE_SECRET_KEY` <br/> `STRIPE_WEBHOOK_SECRET` <br/> `STRIPE_PROCESSING_FEE`
-- Add env values for App <br/> `APP_NAME` <br/> `APP_WEBSITE_URL` <br/> `APP_URL` <br/> `APP_EMAIL` <br/> `BUSINESS_NAME` <br/> `BUSINESS_WEBSITE_URL` <br/> `BUSINESS_ADDRESS` <br/> `BUSINESS_EMAIL`
+- Copy **.env-bak** to **.env**
+- Add values to **.env**<br/>
+  **App**
+  `APP_NAME`
+  `APP_WEBSITE_URL`
+  `APP_URL`
+  `APP_EMAIL`
+  `APP_SUPPORT_URL`
+  `APP_TOS_URL`
+  `APP_PRIVACYPOLICY_URL` `APP_CANCELLATIONANDREFUND_URL`
+  `APP_SESSIONKEY_NAME`
+  `BUSINESS_NAME`
+  `BUSINESS_WEBSITE_URL`
+  `BUSINESS_ADDRESS`
+  `BUSINESS_EMAIL`
+  <hr/>
 
-## build.sh
+  **Express Session**
+  `EXPRESS_SESSION_NAME`
+  `EXPRESS_SESSION_SECRET`
+  `EXPRESS_SESSION_TIMEOUT`
+  <hr/>
+
+  **Node**
+  `NODE_ENV`
+  `NODE_PORT`
+  <hr/>
+
+  **Postgres**
+  `POSTGRES_HOST`
+  `POSTGRES_PORT`
+  `POSTGRES_DATABASE`
+  `POSTGRES_USER`
+  `POSTGRES_PASSWORD`
+  <hr/>
+
+  **Postmark**
+  `POSTMARK_TOKEN`
+  <hr/>
+
+  **Redis**
+  `REDIS_HOST`
+  `REDIS_PORT`
+   <hr/>
+
+  **Stripe**
+  `STRIPE_PUBLIC_KEY`
+  `STRIPE_SECRET_KEY`
+  `STRIPE_WEBHOOK_SECRET`
+  `STRIPE_PROCESSING_FEE`
+
+## Changes in <u>build.sh</u>
 
 - Change remote to prod_repo

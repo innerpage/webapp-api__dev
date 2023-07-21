@@ -1,31 +1,27 @@
-# Cleanup previous prod
+# Delete previous /prod
 cd ..
 rm -rf prod
 
-# Build
+# Build the codebase
 cd dev
 npm run build
 
-# Copy build
+# Move /prod out of /dev
 mv prod ../
 
-# Copy configs
+# Copy configs to /prod
 cp {.env,.env-bak,.gitignore,package.json} ../prod
 
-# Install build modules
+# Install npm dependencies in /prod
 cd ..
 cd prod
 npm install
 
-# Initialize Git
+# Initialize git in /prod
 git init
 git add --all
-git commit -m "Deploy build `date`"
+git commit -m "Prod build - `date`"
 git remote add origin git@github.com-projckt:projckt/starter_webapp-api-prod.git
 
-# Push codebase
+# Push codebase to remote
 git push -f origin main
-
-# Restore
-cd ..
-cd dev
