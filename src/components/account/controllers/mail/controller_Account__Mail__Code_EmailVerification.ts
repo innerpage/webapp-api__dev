@@ -12,13 +12,13 @@ export const controller_Account__Mail__Code_EmailVerification = async (
   res: Response
 ) => {
   let account: any = await dal_Account__Read__By__AccountId(
-    res.locals.id__Account
+    res.locals.id_Account
   );
   let code_EmailVerification: number = await Helper__Generate__4DigitCode();
 
   let returnObj_Write_EmailVerificationCode: any =
     await dal_Account__Write__Code_EmailVerification(
-      res.locals.id__Account,
+      res.locals.id_Account,
       code_EmailVerification
     );
   console.log(returnObj_Write_EmailVerificationCode.message);

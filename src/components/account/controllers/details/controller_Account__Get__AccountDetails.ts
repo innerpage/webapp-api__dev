@@ -7,7 +7,7 @@ export const controller_Account__Get__AccountDetails = async (
   res: Response
 ) => {
   let account: any = await dal_Account__Read__By__AccountId(
-    res.locals.id__Account
+    res.locals.id_Account
   );
 
   let payload_AccountDetails: any = {

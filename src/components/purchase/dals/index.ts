@@ -1,5 +1,5 @@
 // Read
-export { dal_Purchase__Read__By__SessionId } from "./read/dal_Purchase__Read__By__SessionId";
+export { dal_Purchase__Read__By__Id_Session } from "./read/dal_Purchase__Read__By__Id_Session";
 
 // Write
 export { dal_Purchase__Write__New_Purchase } from "./write/dal_Purchase__Write__New_Purchase";

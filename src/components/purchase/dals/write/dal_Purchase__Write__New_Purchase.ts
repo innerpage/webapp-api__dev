@@ -9,7 +9,7 @@ export const dal_Purchase__Write__New_Purchase = async (
   id_Session: string,
   currency: string,
   paid_Amount: number,
-  id__Account: string
+  id_Account: string
 ) => {
   let isSuccess_NewPurchase: boolean = false;
   let payload: any;
@@ -21,7 +21,7 @@ export const dal_Purchase__Write__New_Purchase = async (
       session_id: id_Session,
       currency: currency,
       amount_paid: paid_Amount,
-      accountId: id__Account,
+      accountId: id_Account,
     })
     .then((new_Purchase: any) => {
       isSuccess_NewPurchase = true;

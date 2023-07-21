@@ -5,7 +5,7 @@ export const Middleware__Block__Account__Logged_Out = (
   res: Response,
   next: NextFunction
 ) => {
-  let user__isLogged = !!req.session!.id__Account;
+  let user__isLogged = !!req.session!.id_Account;
 
   if (user__isLogged) {
     next();

@@ -6,16 +6,16 @@ export const Middleware__Block__Account_Non_Existence__By__Account_Id = async (
   res: Response,
   next: NextFunction
 ) => {
-  let account = await dal_Account__Read__By__AccountId(res.locals.id__Account);
+  let account = await dal_Account__Read__By__AccountId(res.locals.id_Account);
 
   if (!account) {
-    console.log(`${res.locals.id__Account} is not registered`);
+    console.log(`${res.locals.id_Account} is not registered`);
     return res.status(200).json({
       success: false,
       message: "❌ You are not registered",
     });
   }
 
-  console.log(`${res.locals.id__Account} is registered`);
+  console.log(`${res.locals.id_Account} is registered`);
   next();
 };
