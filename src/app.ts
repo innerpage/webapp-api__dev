@@ -7,7 +7,7 @@ import {
   config__Cors,
   config__Node,
   config__Redis as client,
-  config__Session,
+  config__Express_Session,
 } from "./config";
 
 import { Middleware__Handle__Errors } from "./global/middlewares";
@@ -28,7 +28,7 @@ if (config__Node.env === "prod") {
 
 app.use(
   session({
-    ...config__Session,
+    ...config__Express_Session,
     store: new store_Redis({ client }),
   })
 );

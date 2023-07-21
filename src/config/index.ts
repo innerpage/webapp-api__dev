@@ -14,7 +14,7 @@ export { config__Postmark } from "./mail/postmark/config__Postmark";
 // Node (Server)
 export { config__Node } from "./node/config__Node";
 export { config__Cors } from "./node/config__Cors";
-export { config__Session } from "./node/config__Session";
+export { config__Express_Session } from "./node/config__Express_Session";
 
 // Payment
 export { config__Stripe } from "./payment/stripe/config__Stripe";
