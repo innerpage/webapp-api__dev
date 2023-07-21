@@ -12,49 +12,48 @@ export const controller_Account__Signup = async (
   req: Request,
   res: Response
 ) => {
-  let { name_First, name_Last, email, password } = res.locals;
+  let { name__First, name__Last, email, password } = res.locals;
 
-  let code_EmailVerification: number = Helper__Generate__4DigitCode();
-  let hashed_Password: string = await helper_Account__Hash__Password(password);
+  let code__Email_Verification: number = Helper__Generate__4DigitCode();
+  let hashed__Password: string = await helper_Account__Hash__Password(password);
 
-  let returnObj_AccountCreate: any = await dal_Account__Write__New_Account(
-    name_First,
-    name_Last,
+  let returnObj__New_Account: any = await dal_Account__Write__New_Account(
+    name__First,
+    name__Last,
     email,
-    hashed_Password,
-    code_EmailVerification
+    hashed__Password,
+    code__Email_Verification
   );
 
-  console.log(returnObj_AccountCreate.message);
-  console.log(returnObj_AccountCreate.payload);
-  helper_Account__Login(req, returnObj_AccountCreate.payload.id);
+  console.log(returnObj__New_Account.message);
+  console.log(returnObj__New_Account.payload);
+  helper_Account__Login(req, returnObj__New_Account.payload.id);
 
-  let returnObj_MailEmailVerificationCode: any =
+  let returnObj__Mail__Code__Email_Verification: any =
     await helper_Account__Mail__Code_EmailVerification(
-      returnObj_AccountCreate.payload.name_First,
-      returnObj_AccountCreate.payload.email,
-      code_EmailVerification,
-      config__App.url_App_Website,
-      config__App.name_App,
-      config__App.name_Business,
-      config__App.address_Business,
-      config__App.email_App
+      returnObj__New_Account.payload.name__First,
+      returnObj__New_Account.payload.email,
+      code__Email_Verification,
+      config__App.url__App__Website,
+      config__App.name__App,
+      config__App.name__Business,
+      config__App.address__Business,
+      config__App.email__App
     );
-  console.log(returnObj_MailEmailVerificationCode.message);
-  console.log(returnObj_MailEmailVerificationCode.payload);
+  console.log(returnObj__Mail__Code__Email_Verification.message);
+  console.log(returnObj__Mail__Code__Email_Verification.payload);
 
-  let payload_AccountSignup = {
-    name_First: returnObj_AccountCreate.payload.name_First,
-    name_Last: returnObj_AccountCreate.payload.name_Last,
-    email: returnObj_AccountCreate.payload.email,
-    isPublisher: returnObj_AccountCreate.payload.isPublisher,
-    isVerified_Email: returnObj_AccountCreate.payload.isVerified_Email,
-    isActive_Session: true,
+  let payload__AccountSignup = {
+    name__First: returnObj__New_Account.payload.name__First,
+    name__Last: returnObj__New_Account.payload.name__Last,
+    email: returnObj__New_Account.payload.email,
+    is_Verified__Email: returnObj__New_Account.payload.is_Verified__Email,
+    is_Active__Session: true,
   };
 
   return res.status(200).json({
     success: true,
     message: "✅ Signed up",
-    payload: payload_AccountSignup,
+    payload: payload__AccountSignup,
   });
 };

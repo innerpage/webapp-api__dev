@@ -7,7 +7,7 @@ export const Middleware__Block__Request_By_Origin = async (
   next: NextFunction
 ) => {
   if (config__Node.env === "prod") {
-    if (res.locals.origin != config__App.url_App) {
+    if (res.locals.origin != config__App.url__App) {
       return res.status(200).json({
         success: false,
         message: "❌ You are not authorised to make this request",

@@ -7,7 +7,7 @@ export const controller_Account__Get__AccountDetails = async (
   res: Response
 ) => {
   let account: any = await dal_Account__Read__By_AccountId(
-    res.locals.id_Account
+    res.locals.id__Account
   );
 
   let payload_AccountDetails: any = {
@@ -19,20 +19,20 @@ export const controller_Account__Get__AccountDetails = async (
   };
 
   let payload_AppDetails: any = {
-    name_App: config__App.name_App,
-    url_App_Website: config__App.url_App_Website,
-    url_App: config__App.url_App,
-    email_App: config__App.email_App,
-    url_App_Support: config__App.url_App_Support,
-    url_App_Tos: config__App.url_App_Tos,
-    url_App_PrivacyPolicy: config__App.url_App_PrivacyPolicy,
-    url_App_CancellationRefundPolicy:
-      config__App.url_App_CancellationRefundPolicy,
-    name_App_SessionKey: config__App.name_App_SessionKey,
-    name_Business: config__App.name_Business,
-    url_Website_Business: config__App.url_Website_Business,
-    address_Business: config__App.address_Business,
-    email_Business: config__App.email_Business,
+    name__App: config__App.name__App,
+    url__App__Website: config__App.url__App__Website,
+    url__App: config__App.url__App,
+    email__App: config__App.email__App,
+    url__App__Support: config__App.url__App__Support,
+    url__App__Tos: config__App.url__App__Tos,
+    url__App__Privacy_Policy: config__App.url__App__Privacy_Policy,
+    url__App__Cancellation_And_Refund_Policy:
+      config__App.url__App__Cancellation_And_Refund_Policy,
+    name__App__Session_Key: config__App.name__App__Session_Key,
+    name__Business: config__App.name__Business,
+    url__Website__Business: config__App.url__Website__Business,
+    address__Business: config__App.address__Business,
+    email__Business: config__App.email__Business,
     country_Client: res.locals.country_Client,
   };
 

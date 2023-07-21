@@ -5,7 +5,7 @@ interface LooseObj {
 }
 
 export const dal_Account__Write__Code_EmailVerification = async (
-  id_Account: string,
+  id__Account: string,
   code_EmailVerification: number
 ) => {
   let isSuccess_EmailVerificationCode_Saved: boolean = false;
@@ -17,7 +17,7 @@ export const dal_Account__Write__Code_EmailVerification = async (
       { email_verification_code: code_EmailVerification },
       {
         where: {
-          id: id_Account,
+          id: id__Account,
         },
       }
     )

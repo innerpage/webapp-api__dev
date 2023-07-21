@@ -5,9 +5,9 @@ export const Middleware__Extract__AccountId_From_Request = (
   res: Response,
   next: NextFunction
 ) => {
-  let id_Account: string = req.session!.id_Account!;
+  let id__Account: string = req.session!.id__Account!;
 
-  if (!id_Account) {
+  if (!id__Account) {
     console.log("Un-authorised access");
     return res.status(400).json({
       success: false,
@@ -15,6 +15,6 @@ export const Middleware__Extract__AccountId_From_Request = (
     });
   }
 
-  res.locals.id_Account = id_Account;
+  res.locals.id__Account = id__Account;
   next();
 };

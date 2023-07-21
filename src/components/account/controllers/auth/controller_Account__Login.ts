@@ -10,12 +10,12 @@ export const controller_Account__Login = async (
   let { email, password } = res.locals;
   let account: any = await dal_Account__Read__By_Email(email);
 
-  let isValid_Password: boolean = await helper_Account__Verify__PasswordHash(
+  let is_Valid__Password: boolean = await helper_Account__Verify__PasswordHash(
     account?.dataValues.password,
     password
   );
 
-  if (!isValid_Password) {
+  if (!is_Valid__Password) {
     console.log(`${email} password IS_NOT_VALID`);
     return res.status(400).json({
       success: false,
@@ -23,21 +23,20 @@ export const controller_Account__Login = async (
     });
   }
   console.log(`${email} password IS_VALID`);
-  res.locals.id_Account = account?.dataValues.id;
-  helper_Account__Login(req, res.locals.id_Account);
+  res.locals.id__Account = account?.dataValues.id;
+  helper_Account__Login(req, res.locals.id__Account);
 
-  let payload_AccountLogin = {
-    name_First: account.first_name,
-    name_Last: account.last_name,
+  let payload__Account_Login = {
+    name__First: account.first_name,
+    name__Last: account.last_name,
     email: account.email,
-    isPublisher: account.is_publisher,
-    isVerified_Email: account.is_email_verified,
-    isActive_Session: true,
+    is_Verified__Email: account.is_email_verified,
+    is_Active__Session: true,
   };
 
   return res.status(200).json({
     success: true,
     message: "✅ Logged in",
-    payload: payload_AccountLogin,
+    payload: payload__Account_Login,
   });
 };
