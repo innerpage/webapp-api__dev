@@ -1,7 +1,7 @@
 import app from "./app";
 import http from "http";
 import { config__Node, config__Sequelize } from "./config";
-import { Helper__Include__ModelAssociations } from "./global/helpers";
+import { Helper__Include__Model_Associations } from "./global/helpers";
 import { Server, Socket } from "socket.io";
 
 import {
@@ -16,34 +16,34 @@ dotenv.config();
   await config__Sequelize
     .authenticate()
     .then((result) => {
-      console.log("SUCCESS: Database authenticated");
+      console.log("✅ Database authenticated");
     })
     .catch((err) => {
-      console.log("ERROR: Could not authenticate database");
+      console.log("❌ Could not authenticate database");
       console.log(err);
     });
 
-  Helper__Include__ModelAssociations();
+  Helper__Include__Model_Associations();
 
   // await config__Sequelize
   //   .sync()
   //   .then((result) => {
-  //     console.log("SUCCESS: Models synced");
+  //     console.log("✅ Models synced");
   //   })
   //   .catch((err) => {
   //     console.log(err);
-  //     console.log("ERROR: Could not sync models");
+  //     console.log("❌ Could not sync models");
   //   });
 
   // alters table
   await config__Sequelize
     .sync({ alter: true })
     .then((result) => {
-      console.log("SUCCESS: Models synced");
+      console.log("✅ Models synced");
     })
     .catch((err) => {
       console.log(err);
-      console.log("ERROR: Could not sync models");
+      console.log("❌ Could not sync models");
     });
 
   const server__Node = http.createServer(app);
@@ -67,6 +67,6 @@ dotenv.config();
   // });
 
   server__Node.listen(config__Node.port, () => {
-    console.log(`Server is running on port: ${config__Node.port}`);
+    console.log(`✅ Server is running on port: ${config__Node.port}`);
   });
 })();

@@ -33,7 +33,7 @@ export const controller_Account__Get__AccountDetails = async (
     url__Website__Business: config__App.url__Website__Business,
     address__Business: config__App.address__Business,
     email__Business: config__App.email__Business,
-    country_Client: res.locals.country_Client,
+    country__Client: res.locals.country__Client,
   };
 
   return res.status(200).json({

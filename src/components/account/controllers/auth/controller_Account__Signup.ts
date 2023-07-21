@@ -5,7 +5,7 @@ import {
   helper_Account__Mail__Code_EmailVerification,
   helper_Account__Login,
 } from "../../helpers";
-import { Helper__Generate__4DigitCode } from "../../../../global/helpers";
+import { Helper__Generate__4_Digit_Code } from "../../../../global/helpers";
 import { config__App } from "../../../../config";
 
 export const controller_Account__Signup = async (
@@ -14,7 +14,7 @@ export const controller_Account__Signup = async (
 ) => {
   let { name__First, name__Last, email, password } = res.locals;
 
-  let code__Email_Verification: number = Helper__Generate__4DigitCode();
+  let code__Email_Verification: number = Helper__Generate__4_Digit_Code();
   let hashed__Password: string = await helper_Account__Hash__Password(password);
 
   let returnObj__New_Account: any = await dal_Account__Write__New_Account(

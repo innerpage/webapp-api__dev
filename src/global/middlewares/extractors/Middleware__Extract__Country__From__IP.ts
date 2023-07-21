@@ -6,14 +6,14 @@ export const Middleware__Extract__Country__From__IP = async (
   res: Response,
   next: NextFunction
 ) => {
-  let country_Client: any = geoip.lookup(res.locals.ip_Client);
+  let country__Client: any = geoip.lookup(res.locals.ip__Client);
 
-  if (!country_Client) {
-    console.log("Unable to ascertain country. Defaulting to 'IN'");
-    country_Client = "IN";
+  if (!country__Client) {
+    console.log("⚠️ Unable to ascertain country. Defaulting to 'IN'");
+    country__Client = "IN";
   }
 
-  res.locals.country_Client = country_Client;
-  console.log(`Client location: ${res.locals.country_Client}`);
+  res.locals.country__Client = country__Client;
+  console.log(`Client location: ${res.locals.country__Client}`);
   next();
 };

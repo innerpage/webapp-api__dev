@@ -5,9 +5,9 @@ export const Middleware__Block__Account__Logged_In = (
   res: Response,
   next: NextFunction
 ) => {
-  let user__isLogged = !!req.session!.id_Account;
+  let user__is_Logged = !!req.session!.id_Account;
 
-  if (user__isLogged) {
+  if (user__is_Logged) {
     console.log(`${req.session.id_Account} is LOGGED_IN`);
     return res.status(400).json({
       success: false,

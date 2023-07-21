@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from "express";
-import { dal_Account__Read__By__AccountId } from "../../../../components/account/dals";
+import { dal_Account__Read__By__Account_Id } from "../../../../components/account/dals";
 
-export const Middleware__Block__Account_Disabled__By__AccountId = async (
+export const Middleware__Block__Account_Disabled__By__Id_Account = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let account: any = await dal_Account__Read__By__AccountId(
+  let account: any = await dal_Account__Read__By__Account_Id(
     res.locals.id_Account
   );
 

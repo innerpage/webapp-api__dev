@@ -6,6 +6,6 @@ export const Middleware__Handle__Errors: ErrorRequestHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  console.log(err.stack);
-  res.status(500).send("An error occured");
+  console.log(`❌ ${err.stack}`);
+  res.status(500).send("❌ An error occured");
 };

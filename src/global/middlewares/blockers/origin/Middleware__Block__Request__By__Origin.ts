@@ -15,6 +15,6 @@ export const Middleware__Block__Request__By__Origin = async (
     }
   }
 
-  console.log(`${res.locals.origin} is authorised for access`);
+  console.log(`✅ ${res.locals.origin} is authorised for access`);
   next();
 };

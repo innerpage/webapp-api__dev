@@ -8,14 +8,14 @@ export const Middleware__Extract__IP__From__Origin = async (
   let ip: any = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
 
   if (!ip) {
-    console.log("Request has no IP");
+    console.log("❌ Request has no IP");
     return res.status(400).json({
       success: false,
       message: "❌ Un-authorised access",
     });
   }
 
-  res.locals.ip_Client = ip;
-  console.log(`Client IP: ${res.locals.ip_Client}`);
+  res.locals.ip__Client = ip;
+  console.log(`Client IP: ${res.locals.ip__Client}`);
   next();
 };
