@@ -63,4 +63,4 @@
 
 ## Changes in <u>build.sh</u>
 
-- Change remote to prod_repo
+- Change **git remote** for <u>prod repo</u>
