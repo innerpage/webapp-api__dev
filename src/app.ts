@@ -4,10 +4,10 @@ import connectRedis from "connect-redis";
 import cors from "cors";
 import { Helper__Include__Routes } from "./global/helpers";
 import {
-  config_Cors,
-  config_Node,
-  config_Redis as client,
-  config_ExpressSession,
+  Cors_Config,
+  Node_Config,
+  Redis_Config as client,
+  ExpressSession_Config,
 } from "./config";
 
 import { Middleware__Handle__Errors } from "./global/middlewares";
@@ -15,21 +15,21 @@ import { Middleware__Handle__Errors } from "./global/middlewares";
 const app = express();
 const store_Redis = connectRedis(session);
 
-if (config_Node.env === "dev") {
+if (Node_Config.env === "dev") {
   app.use(cors());
 } else {
-  app.use(cors(config_Cors));
+  app.use(cors(Cors_Config));
 }
 
 app.use(express.json());
 
-if (config_Node.env === "prod") {
+if (Node_Config.env === "prod") {
   app.set("trust proxy", 1);
 }
 
 app.use(
   session({
-    ...config_ExpressSession,
+    ...ExpressSession_Config,
     store: new store_Redis({ client }),
   })
 );

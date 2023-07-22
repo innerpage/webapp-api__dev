@@ -2,13 +2,13 @@ import { Request, Response } from "express";
 
 import Stripe from "stripe";
 import { dal_Purchase__Write__Status_Purchase } from "../../../purchase/dals";
-import { config_Stripe } from "../../../../config";
+import { Stripe_Config } from "../../../../config";
 
 export const controller_Gateway__Stripe_CheckSession = async (
   req: Request,
   res: Response
 ) => {
-  const stripe = new Stripe(config_Stripe.key_Secret, {
+  const stripe = new Stripe(Stripe_Config.key_Secret, {
     apiVersion: "2022-11-15",
   });
 

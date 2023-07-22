@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-export const config_Stripe = {
+export const Stripe_Config = {
   key_Public: process.env.Stripe_PublicKey || "",
   key_Secret: process.env.Stripe_SecretKey || "",
   secret_Webhook: process.env.Stripe_WebhookSecret || "",

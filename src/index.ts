@@ -1,6 +1,6 @@
 import app from "./app";
 import http from "http";
-import { config_Node, config_Sequelize } from "./config";
+import { Node_Config, Sequelize_Config } from "./config";
 import { Helper__Include__Model_Associations } from "./global/helpers";
 import { Server, Socket } from "socket.io";
 
@@ -13,8 +13,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 (async () => {
-  await config_Sequelize
-    .authenticate()
+  await Sequelize_Config.authenticate()
     .then((result) => {
       console.log("✅ Database authenticated");
     })
@@ -25,7 +24,7 @@ dotenv.config();
 
   Helper__Include__Model_Associations();
 
-  // await config_Sequelize
+  // await Sequelize_Config
   //   .sync()
   //   .then((result) => {
   //     console.log("✅ Models synced");
@@ -36,8 +35,7 @@ dotenv.config();
   //   });
 
   // alters table
-  await config_Sequelize
-    .sync({ alter: true })
+  await Sequelize_Config.sync({ alter: true })
     .then((result) => {
       console.log("✅ Models synced");
     })
@@ -66,7 +64,7 @@ dotenv.config();
   //   });
   // });
 
-  server_Node.listen(config_Node.port, () => {
-    console.log(`✅ Server is running on port: ${config_Node.port}`);
+  server_Node.listen(Node_Config.port, () => {
+    console.log(`✅ Server is running on port: ${Node_Config.port}`);
   });
 })();

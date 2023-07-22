@@ -9,7 +9,7 @@ interface obj_Postgres_Config {
   password?: string;
 }
 
-export const config_Postgres: obj_Postgres_Config = {
+export const Postgres_Config: obj_Postgres_Config = {
   host: process.env.Postgres_Host,
   port: process.env.Postgres_Port,
   database: process.env.Postgres_Database,

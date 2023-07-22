@@ -1,25 +1,24 @@
 import { Request, Response } from "express";
-import { config_App } from "../../../../config";
+import { App_Config } from "../../../../config";
 
 export const controller_App__Get__App_Details = async (
   req: Request,
   res: Response
 ) => {
   let payload_App_Details: any = {
-    App_Name: config_App.App_Name,
-    App_Website_Url: config_App.App_Website_Url,
-    App_Url: config_App.App_Url,
-    App_Email: config_App.App_Email,
-    App_Support_Url: config_App.App_Support_Url,
-    App_Tos_Url: config_App.App_Tos_Url,
-    App_PrivacyPolicy_Url: config_App.App_PrivacyPolicy_Url,
-    url_App_CancellationAndRefundPolicy:
-      config_App.url_App_CancellationAndRefundPolicy,
-    name_App_Name_SessionKey: config_App.name_App_Name_SessionKey,
-    name_Business: config_App.name_Business,
-    url_Website_Business: config_App.url_Website_Business,
-    address_Business: config_App.address_Business,
-    email_Business: config_App.email_Business,
+    App_Name: App_Config.App_Name,
+    App_Website_Url: App_Config.App_Website_Url,
+    App_Url: App_Config.App_Url,
+    App_Email: App_Config.App_Email,
+    App_Support_Url: App_Config.App_Support_Url,
+    App_Tos_Url: App_Config.App_Tos_Url,
+    App_PrivacyPolicy_Url: App_Config.App_PrivacyPolicy_Url,
+    App_CancellationAndRefund_Url: App_Config.App_CancellationAndRefund_Url,
+    App_SessionKey_Name: App_Config.App_SessionKey_Name,
+    App_Business_Name: App_Config.App_Business_Name,
+    App_Business_Website_Url: App_Config.App_Business_Website_Url,
+    App_Business_Address: App_Config.App_Business_Address,
+    App_Business_Email: App_Config.App_Business_Email,
     country__Client: res.locals.country__Client,
   };
 

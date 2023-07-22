@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-export const config_Postmark = {
+export const Postmark_Config = {
   token: process.env.Postmark_Token!,
   template: {
     mail_Verify_Email: {
