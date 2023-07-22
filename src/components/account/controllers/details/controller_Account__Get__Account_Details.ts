@@ -19,13 +19,13 @@ export const controller_Account__Get__Account_Details = async (
   };
 
   let payload_AppDetails: any = {
-    name_App: config_App.name_App,
-    url_App_Website: config_App.url_App_Website,
-    url_App: config_App.url_App,
-    email_App: config_App.email_App,
-    url_App_Support: config_App.url_App_Support,
-    url_App_Tos: config_App.url_App_Tos,
-    url_App_PrivacyPolicy: config_App.url_App_PrivacyPolicy,
+    App_Name: config_App.App_Name,
+    App_Website_Url: config_App.App_Website_Url,
+    App_Url: config_App.App_Url,
+    App_Email: config_App.App_Email,
+    App_Support_Url: config_App.App_Support_Url,
+    App_Tos_Url: config_App.App_Tos_Url,
+    App_PrivacyPolicy_Url: config_App.App_PrivacyPolicy_Url,
     url_App_CancellationAndRefundPolicy:
       config_App.url_App_CancellationAndRefundPolicy,
     name_App_Name_SessionKey: config_App.name_App_Name_SessionKey,

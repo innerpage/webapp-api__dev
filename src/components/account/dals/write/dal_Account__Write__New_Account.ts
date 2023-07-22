@@ -30,7 +30,7 @@ export const dal_Account__Write__New_Account = async (
         name__First: new_Account.dataValues.first_name,
         name__Last: new_Account.dataValues.last_name,
         email: new_Account.dataValues.email,
-        is_Verified__Email: new_Account.dataValues.is_email_verified,
+        isVerified__Email: new_Account.dataValues.is_email_verified,
         code__Email_Verification:
           new_Account.dataValues.email_verification_code,
       };

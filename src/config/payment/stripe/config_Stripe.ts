@@ -2,8 +2,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const config_Stripe = {
-  key_Public: process.env.STRIPE_PUBLIC_KEY || "",
-  key_Secret: process.env.STRIPE_SECRET_KEY || "",
-  secret_Webhook: process.env.STRIPE_WEBHOOK_SECRET || "",
-  fee_Processing: process.env.STRIPE_PROCESSING_FEE || "",
+  key_Public: process.env.Stripe_PublicKey || "",
+  key_Secret: process.env.Stripe_SecretKey || "",
+  secret_Webhook: process.env.Stripe_WebhookSecret || "",
+  fee_Processing: process.env.Stripe_ProcessingFee || "",
 };

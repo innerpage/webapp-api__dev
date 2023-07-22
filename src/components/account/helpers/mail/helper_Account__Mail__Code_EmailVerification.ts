@@ -16,7 +16,7 @@ export const helper_Account__Mail__Code_EmailVerification = async (
   publisher_SupportEmail: string
 ) => {
   const client_Postmark = new postmark.Client(config_Postmark.token);
-  let templateId = 30914127;
+  let id_Template = 30914127;
   let isSent_VerificationMail: boolean = false;
   let returnObj: obj_Loose = {};
   let payload: any;
@@ -24,7 +24,7 @@ export const helper_Account__Mail__Code_EmailVerification = async (
   await client_Postmark.sendEmailWithTemplate(
     {
       From: `${publisher_ProductName} no-reply@${publisher_Website}`,
-      TemplateId: templateId,
+      TemplateId: id_Template,
       To: subscriber_Email,
       TemplateModel: {
         code_EmailVerification: code_EmailVerification,

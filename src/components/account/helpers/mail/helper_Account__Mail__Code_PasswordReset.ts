@@ -16,7 +16,7 @@ export const helper_Account__Mail__Code_PasswordReset = async (
   publisher_SupportEmail: string
 ) => {
   const client_Postmark = new postmark.Client(config_Postmark.token);
-  let templateId = 30958891;
+  let id_Template = 30958891;
   let isSent_PasswordResetCode: boolean = false;
   let returnObj: obj_Loose = {};
   let payload: any;
@@ -24,7 +24,7 @@ export const helper_Account__Mail__Code_PasswordReset = async (
   await client_Postmark.sendEmailWithTemplate(
     {
       From: `${publisher_ProductName} no-reply@${publisher_Website}`,
-      TemplateId: templateId,
+      TemplateId: id_Template,
       To: subscriber_Email,
       TemplateModel: {
         code_PasswordReset: code_PasswordReset,

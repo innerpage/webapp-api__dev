@@ -2,6 +2,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const config_Node = {
-  env: process.env.NODE_ENV,
-  port: process.env.NODE_PORT,
+  env: process.env.Node_Env,
+  port: process.env.Node_Port,
 };

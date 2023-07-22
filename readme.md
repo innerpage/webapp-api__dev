@@ -13,53 +13,53 @@
 - Copy **.env-bak** to **.env**
 - Add values to **.env**<br/>
   **App**
-  `APP_NAME`
-  `APP_WEBSITE_URL`
-  `APP_URL`
-  `APP_EMAIL`
-  `APP_SUPPORT_URL`
-  `APP_TOS_URL`
-  `APP_PRIVACYPOLICY_URL` `APP_CANCELLATIONANDREFUND_URL`
-  `APP_SESSIONKEY_NAME`
-  `BUSINESS_NAME`
-  `BUSINESS_WEBSITE_URL`
-  `BUSINESS_ADDRESS`
-  `BUSINESS_EMAIL`
+  `App_Name`
+  `App_Website_Url`
+  `App_Url`
+  `App_Email`
+  `App_Support_Url`
+  `App_Tos_Url`
+  `App_PrivacyPolicy_Url` `App_CancellationAndRefund_Url`
+  `App_SessionKey_Name`
+  `App_Business_Name`
+  `App_Business_Website_Url`
+  `App_Business_Address`
+  `App_Business_Email`
   <hr/>
 
   **Express Session**
-  `EXPRESS_SESSION_NAME`
-  `EXPRESS_SESSION_SECRET`
-  `EXPRESS_SESSION_TIMEOUT`
+  `ExpressSession_Name`
+  `ExpressSession_Secret`
+  `ExpressSession_TImeout`
   <hr/>
 
   **Node**
-  `NODE_ENV`
-  `NODE_PORT`
+  `Node_Env`
+  `Node_Port`
   <hr/>
 
   **Postgres**
-  `POSTGRES_HOST`
-  `POSTGRES_PORT`
-  `POSTGRES_DATABASE`
-  `POSTGRES_USER`
-  `POSTGRES_PASSWORD`
+  `Postgres_Host`
+  `Postgres_Port`
+  `Postgres_Database`
+  `Postgres_User`
+  `Postgres_Password`
   <hr/>
 
   **Postmark**
-  `POSTMARK_TOKEN`
+  `Postmark_Token`
   <hr/>
 
   **Redis**
-  `REDIS_HOST`
-  `REDIS_PORT`
+  `Redis_Host`
+  `Redis_Port`
    <hr/>
 
   **Stripe**
-  `STRIPE_PUBLIC_KEY`
-  `STRIPE_SECRET_KEY`
-  `STRIPE_WEBHOOK_SECRET`
-  `STRIPE_PROCESSING_FEE`
+  `Stripe_PublicKey`
+  `Stripe_SecretKey`
+  `Stripe_WebhookSecret`
+  `Stripe_ProcessingFee`
 
 ## Changes in <u>build.sh</u>
 

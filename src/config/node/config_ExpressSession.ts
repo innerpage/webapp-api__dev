@@ -4,10 +4,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const config_ExpressSession: SessionOptions = {
-  secret: process.env.EXPRESS_SESSION_SECRET!,
-  name: process.env.EXPRESS_SESSION_NAME,
+  secret: process.env.ExpressSession_Secret!,
+  name: process.env.ExpressSession_Name,
   cookie: {
-    maxAge: +process.env.EXPRESS_SESSION_TIMEOUT!,
+    maxAge: +process.env.ExpressSession_TImeout!,
     secure: config_Node.env === "prod" ? true : false,
     sameSite: config_Node.env === "prod" ? "none" : "lax",
     httpOnly: true,

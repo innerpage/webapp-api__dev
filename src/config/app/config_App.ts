@@ -2,18 +2,18 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const config_App = {
-  name_App: process.env.APP_NAME || "",
-  url_App_Website: process.env.APP_WEBSITE_URL || "",
-  url_App: process.env.APP_URL || "",
-  email_App: process.env.APP_EMAIL || "",
-  url_App_Support: process.env.APP_SUPPORT_URL || "",
-  url_App_Tos: process.env.APP_TOS_URL || "",
-  url_App_PrivacyPolicy: process.env.APP_PRIVACYPOLICY_URL || "",
+  App_Name: process.env.App_Name || "",
+  App_Website_Url: process.env.App_Website_Url || "",
+  App_Url: process.env.App_Url || "",
+  App_Email: process.env.App_Email || "",
+  App_Support_Url: process.env.App_Support_Url || "",
+  App_Tos_Url: process.env.App_Tos_Url || "",
+  App_PrivacyPolicy_Url: process.env.App_PrivacyPolicy_Url || "",
   url_App_CancellationAndRefundPolicy:
-    process.env.APP_CANCELLATIONANDREFUND_URL || "",
-  name_App_Name_SessionKey: process.env.APP_SESSIONKEY_NAME || "",
-  name_Business: process.env.BUSINESS_NAME || "",
-  url_Website_Business: process.env.BUSINESS_WEBSITE_URL,
-  address_Business: process.env.BUSINESS_ADDRESS || "",
-  email_Business: process.env.BUSINESS_EMAIL,
+    process.env.App_CancellationAndRefund_Url || "",
+  name_App_Name_SessionKey: process.env.App_SessionKey_Name || "",
+  name_Business: process.env.App_Business_Name || "",
+  url_Website_Business: process.env.App_Business_Website_Url,
+  address_Business: process.env.App_Business_Address || "",
+  email_Business: process.env.App_Business_Email,
 };

@@ -49,11 +49,11 @@ export const controller_Account__Confirm__Password = async (
     await helper_Account__Mail__Confirm__Reset__Password(
       account.first_name,
       res.locals.email,
-      config_App.url_App_Website,
-      config_App.name_App,
+      config_App.App_Website_Url,
+      config_App.App_Name,
       config_App.name_Business,
       config_App.address_Business,
-      config_App.email_App
+      config_App.App_Email
     );
   console.log(returnObj_MailPasswordResetConfirmation.message);
   console.log(returnObj_MailPasswordResetConfirmation.payload);
