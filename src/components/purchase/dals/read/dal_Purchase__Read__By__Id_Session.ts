@@ -1,6 +1,6 @@
 import { model_Purchase } from "../../models";
 
-interface LooseObj {
+interface obj_Loose {
   [key: string]: any;
 }
 
@@ -8,7 +8,7 @@ export const dal_Purchase__Read__By__Id_Session = async (
   id_Session: string
 ) => {
   let payload: any;
-  let obj_Return: LooseObj = {};
+  let obj_Return: obj_Loose = {};
 
   await model_Purchase
     .findOne({

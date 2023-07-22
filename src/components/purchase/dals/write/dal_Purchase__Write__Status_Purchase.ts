@@ -1,6 +1,6 @@
 import { model_Purchase } from "../../models";
 
-interface LooseObj {
+interface obj_Loose {
   [key: string]: any;
 }
 
@@ -9,7 +9,7 @@ export const dal_Purchase__Write__Status_Purchase = async (
 ) => {
   let isSuccess_Updated_PurchaseStatus: boolean = false;
   let payload: any;
-  let obj_Return: LooseObj = {};
+  let obj_Return: obj_Loose = {};
 
   await model_Purchase
     .update(
