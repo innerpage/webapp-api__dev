@@ -1,1 +1,1 @@
-export { model__Visit } from "./model__Visit";
+export { model_Visit } from "./model_Visit";

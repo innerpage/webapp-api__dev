@@ -1,4 +1,4 @@
-import { model__Purchase } from "../../models";
+import { model_Purchase } from "../../models";
 
 interface LooseObj {
   [key: string]: any;
@@ -15,7 +15,7 @@ export const dal_Purchase__Write__New_Purchase = async (
   let payload: any;
   let obj_Return: LooseObj = {};
 
-  await model__Purchase
+  await model_Purchase
     .create({
       document_id: id_Document,
       session_id: id_Session,

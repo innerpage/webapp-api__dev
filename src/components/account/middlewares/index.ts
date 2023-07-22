@@ -1,15 +1,15 @@
 // Formatters
-export { middleware_Account__Format__Inputs_For__EmailVerification } from "./formatters/middleware_Account__Format__Inputs_For__EmailVerification";
+export { middleware_Account__Format__Inputs_For__Verify__Email } from "./formatters/middleware_Account__Format__Inputs_For__Verify__Email";
 export { middleware_Account__Format__Inputs_For__Login } from "./formatters/middleware_Account__Format__Inputs_For__Login";
-export { middleware_Account__Format__Inputs_For__Mail_Code_EmailVerification } from "./formatters/middleware_Account__Format__Inputs_For__Mail_Code_EmailVerification";
-export { middleware_Account__Format__Inputs_For__Mail_PasswordReset } from "./formatters/middleware_Account__Format__Inputs_For__Mail_PasswordReset";
-export { middleware_Account__Format__Inputs_For__PasswordConfirmation } from "./formatters/middleware_Account__Format__Inputs_For__PasswordConfirmation";
+export { middleware_Account__Format__Inputs_For__Mail__Code_EmailVerification } from "./formatters/middleware_Account__Format__Inputs_For__Mail__Code_EmailVerification";
+export { middleware_Account__Format__Inputs_For__Mail__Reset__Password } from "./formatters/middleware_Account__Format__Inputs_For__Mail__Reset__Password";
+export { middleware_Account__Format__Inputs_For__Confirm__Password } from "./formatters/middleware_Account__Format__Inputs_For__Confirm__Password";
 export { middleware_Account__Format__Inputs_For__Signup } from "./formatters/middleware_Account__Format__Inputs_For__Signup";
 
 // Validators
-export { middleware_Account__Validate__Inputs_For__EmailVerification } from "./validators/middleware_Account__Validate__Inputs_For__EmailVerification";
+export { middleware_Account__Validate__Inputs_For__Verify__Email } from "./validators/middleware_Account__Validate__Inputs_For__Verify__Email";
 export { middleware_Account__Validate__Inputs_For__Login } from "./validators/middleware_Account__Validate__Inputs_For__Login";
-export { middleware_Account__Validate__Inputs_For__Mail_Code_EmailVerification } from "./validators/middleware_Account__Validate__Inputs_For__Mail_Code_EmailVerification";
-export { middleware_Account__Validate__Inputs_For__Mail_PasswordReset } from "./validators/middleware_Account__Validate__Inputs_For__Mail_PasswordReset";
-export { middleware_Account__Validate__Inputs_For__PasswordConfirmation } from "./validators/middleware_Account__Validate__Inputs_For__PasswordConfirmation";
+export { middleware_Account__Validate__Inputs_For__Mail__Code_EmailVerification } from "./validators/middleware_Account__Validate__Inputs_For__Mail__Code_EmailVerification";
+export { middleware_Account__Validate__Inputs_For__Mail__Reset__Password } from "./validators/middleware_Account__Validate__Inputs_For__Mail__Reset__Password";
+export { middleware_Account__Validate__Inputs_For__Confirm__Password } from "./validators/middleware_Account__Validate__Inputs_For__Confirm__Password";
 export { middleware_Account__Validate__Inputs_For__Signup } from "./validators/middleware_Account__Validate__Inputs_For__Signup";

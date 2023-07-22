@@ -8,7 +8,7 @@ export { helper_Account__Hash__Password } from "./hasher/helper_Account__Hash__P
 // Mail
 export { helper_Account__Mail__Code_EmailVerification } from "./mail/helper_Account__Mail__Code_EmailVerification";
 export { helper_Account__Mail__Code_PasswordReset } from "./mail/helper_Account__Mail__Code_PasswordReset";
-export { helper_Account__Mail__Confirm_PasswordReset } from "./mail/helper_Account__Mail__Confirm_PasswordReset";
+export { helper_Account__Mail__Confirm__Reset__Password } from "./mail/helper_Account__Mail__Confirm__Reset__Password";
 
 // Verification
-export { helper_Account__Verify__PasswordHash } from "./verification/helper_Account__Verify__PasswordHash";
+export { helper_Account__Verify__Password_Hash } from "./verification/helper_Account__Verify__Password_Hash";

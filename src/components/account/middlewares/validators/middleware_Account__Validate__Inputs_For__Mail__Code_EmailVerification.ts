@@ -11,7 +11,7 @@ const schema_Resend_EmailVerificationCode_Inputs = Joi.object({
     .required(),
 });
 
-export const middleware_Account__Validate__Inputs_For__Mail_Code_EmailVerification =
+export const middleware_Account__Validate__Inputs_For__Mail__Code_EmailVerification =
   (req: Request, res: Response, next: NextFunction) => {
     let { error } = schema_Resend_EmailVerificationCode_Inputs.validate(
       req.body

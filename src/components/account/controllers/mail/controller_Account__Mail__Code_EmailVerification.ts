@@ -7,7 +7,7 @@ import { helper_Account__Mail__Code_EmailVerification } from "../../helpers";
 import { Helper__Generate__Code_4Digits } from "../../../../global/helpers";
 import { config_App } from "../../../../config";
 
-export const controller_Account__Mail__Code__Email_Verification = async (
+export const controller_Account__Mail__Code_EmailVerification = async (
   req: Request,
   res: Response
 ) => {

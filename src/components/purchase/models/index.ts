@@ -1,1 +1,1 @@
-export { model__Purchase } from "./model__Purchase";
+export { model_Purchase } from "./model_Purchase";

@@ -5,7 +5,7 @@ interface LooseObj {
   [key: string]: any;
 }
 
-export const helper_Account__Mail__Confirm_PasswordReset = async (
+export const helper_Account__Mail__Confirm__Reset__Password = async (
   subscriber_Name_First: string,
   subscriber_Email: string,
   publisher_Website: string,

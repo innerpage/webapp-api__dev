@@ -4,9 +4,9 @@ import {
   dal_Account__Write__New_Password,
 } from "../../dals";
 import {
-  helper_Account__Verify__PasswordHash,
+  helper_Account__Verify__Password_Hash,
   helper_Account__Hash__Password,
-  helper_Account__Mail__Confirm_PasswordReset,
+  helper_Account__Mail__Confirm__Reset__Password,
 } from "../../helpers";
 import { config_App } from "../../../../config";
 
@@ -46,7 +46,7 @@ export const controller_Account__Confirm__Password = async (
   }
 
   let returnObj_MailPasswordResetConfirmation: any =
-    await helper_Account__Mail__Confirm_PasswordReset(
+    await helper_Account__Mail__Confirm__Reset__Password(
       account.first_name,
       res.locals.email,
       config_App.url__App__Website,

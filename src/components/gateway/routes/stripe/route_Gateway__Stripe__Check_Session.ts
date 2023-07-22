@@ -13,7 +13,7 @@ import {
   middleware_Gateway__Format__Inputs_For__Stripe_CheckSession,
 } from "../../middlewares";
 
-import { controller_Gateway__Stripe__Check_Session } from "../../controllers";
+import { controller_Gateway__Stripe_CheckSession } from "../../controllers";
 
 export const route_Gateway__Stripe__Check_Session = Router();
 
@@ -26,5 +26,5 @@ route_Gateway__Stripe__Check_Session.post(
   Middleware__Block__Account_Disabled__By__Id_Account,
   middleware_Gateway__Validate__Inputs_For__Stripe_CheckSession,
   middleware_Gateway__Format__Inputs_For__Stripe_CheckSession,
-  controller_Gateway__Stripe__Check_Session
+  controller_Gateway__Stripe_CheckSession
 );

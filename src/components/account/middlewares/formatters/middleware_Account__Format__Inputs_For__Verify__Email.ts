@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const middleware_Account__Format__Inputs_For__EmailVerification = async (
+export const middleware_Account__Format__Inputs_For__Verify__Email = async (
   req: Request,
   res: Response,
   next: NextFunction

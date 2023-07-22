@@ -1,4 +1,4 @@
-import { model__Account } from "../../models";
+import { model_Account } from "../../models";
 
 interface LooseObj {
   [key: string]: any;
@@ -15,7 +15,7 @@ export const dal_Account__Write__New_Account = async (
   let payload: any;
   let obj_Return: LooseObj = {};
 
-  await model__Account
+  await model_Account
     .create({
       first_name: name__First,
       last_name: name__Last,

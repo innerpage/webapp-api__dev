@@ -4,7 +4,7 @@ import Stripe from "stripe";
 import { dal_Purchase__Write__Status_Purchase } from "../../../purchase/dals";
 import { config_Stripe } from "../../../../config";
 
-export const controller_Gateway__Stripe__Check_Session = async (
+export const controller_Gateway__Stripe_CheckSession = async (
   req: Request,
   res: Response
 ) => {

@@ -1,1 +1,1 @@
-export { route_Purchase_Get_AllPurchases } from "./details/route_Purchase__Get__Purchases";
+export { route_Purchase__Get__Purchases } from "./details/route_Purchase__Get__Purchases";

@@ -1,10 +1,10 @@
-import { model__Visit } from "../../models";
+import { model_Visit } from "../../models";
 
 export const dal_Visit__Write__New_Visit = async (
   email: string,
   id_Socket: string
 ) => {
-  await model__Visit
+  await model_Visit
     .create({
       email: email,
       socket_id: id_Socket,
@@ -15,7 +15,7 @@ export const dal_Visit__Write__New_Visit = async (
       console.log(new_Visit.dataValues);
       console.log();
     })
-    .catch((err) => {
+    .catch((err: any) => {
       console.log();
       console.log(`Connection NOT_SAVED: ${email} (${id_Socket})`);
       console.log(err);
