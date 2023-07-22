@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {
-  Middleware__Block__Account__Logged_Out,
+  Middleware__Block__Account_LoggedOut,
   Middleware__Block__AccountNonExistence__By__Email,
 } from "../../../../global/middlewares";
 import {
@@ -16,6 +16,6 @@ route_Account__Verify__Email.post(
   middleware_Account__Validate__Inputs_For__EmailVerification,
   middleware_Account__Format__Inputs_For__EmailVerification,
   Middleware__Block__AccountNonExistence__By__Email,
-  Middleware__Block__Account__Logged_Out,
+  Middleware__Block__Account_LoggedOut,
   controller_Account__Verify__Email
 );

@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import {
-  Middleware__Block__Account__Logged_Out,
+  Middleware__Block__Account_LoggedOut,
   Middleware__Extract__AccountId__From__Request,
   Middleware__Block__AccountNonExistence__By__AccountId,
   Middleware__Block__AccountDisabled__By__AccountId,
@@ -13,7 +13,7 @@ export const route_Account__Get__AccountDetails = Router();
 
 route_Account__Get__AccountDetails.get(
   "/account",
-  Middleware__Block__Account__Logged_Out,
+  Middleware__Block__Account_LoggedOut,
   Middleware__Extract__AccountId__From__Request,
   Middleware__Block__AccountNonExistence__By__AccountId,
   Middleware__Block__AccountDisabled__By__AccountId,

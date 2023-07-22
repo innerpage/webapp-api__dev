@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const Middleware__Block__Account__Logged_Out = (
+export const Middleware__Block__Account_LoggedOut = (
   req: Request,
   res: Response,
   next: NextFunction
