@@ -4,7 +4,7 @@ dotenv.config();
 export const config_App = {
   name__App: process.env.APP_NAME || "",
   url__App__Website: process.env.APP_WEBSITE_URL || "",
-  url__App: process.env.APP_URL || "",
+  url_App: process.env.APP_URL || "",
   email__App: process.env.APP_EMAIL || "",
   url__App__Support: process.env.APP_SUPPORT_URL || "",
   url__App__Tos: process.env.APP_TOS_URL || "",

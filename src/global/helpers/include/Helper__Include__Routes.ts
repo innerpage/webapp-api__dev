@@ -2,56 +2,54 @@ import fs from "fs";
 import { config_Node } from "../../../config";
 
 export const Helper__Include__Routes = async () => {
-  let paths__Components: Array<string> = [];
-  let paths__Routes: Array<string> = [];
-  let paths__Route_Indexes: Array<Object> = [];
+  let paths_Components: Array<string> = [];
+  let paths_Routes: Array<string> = [];
+  let paths_Route_Indexes: Array<Object> = [];
 
-  let dir__Root: string = "";
-  let file__Index: string = "";
+  let dir_Root: string = "";
+  let file_Index: string = "";
 
   if (config_Node.env === "dev") {
-    dir__Root = "src";
-    file__Index = "index.ts";
+    dir_Root = "src";
+    file_Index = "index.ts";
   } else if (config_Node.env === "prod") {
-    dir__Root = ".";
-    file__Index = "index.js";
+    dir_Root = ".";
+    file_Index = "index.js";
   }
 
-  await fs.readdirSync(`${dir__Root}/components`).map((dir__Component) => {
-    let path__Dir__Component: string = `${dir__Root}/components/${dir__Component}`;
+  await fs.readdirSync(`${dir_Root}/components`).map((dir_Component) => {
+    let path_dirComponent: string = `${dir_Root}/components/${dir_Component}`;
     new Promise<void>((resolve, reject) => {
-      let is_Directory: boolean = fs
-        .lstatSync(path__Dir__Component)
-        .isDirectory();
+      let isDirectory: boolean = fs.lstatSync(path_dirComponent).isDirectory();
       resolve();
-      if (is_Directory) paths__Components.push(`components/${dir__Component}`);
+      if (isDirectory) paths_Components.push(`components/${dir_Component}`);
     });
   });
 
-  await paths__Components.forEach((path__Component) => {
-    let is_Empty__Dir: boolean = true;
-    let is_Available__Dir__Route: boolean = false;
-    let length__Dir: number = fs.readdirSync(
-      `${dir__Root}/` + path__Component
+  await paths_Components.forEach((path_Component) => {
+    let isEmpty_Dir: boolean = true;
+    let isAvailable_Dir_Route: boolean = false;
+    let length_Dir: number = fs.readdirSync(
+      `${dir_Root}/` + path_Component
     ).length;
-    if (length__Dir > 0) {
-      is_Empty__Dir = false;
+    if (length_Dir > 0) {
+      isEmpty_Dir = false;
     }
 
-    fs.readdirSync(`${dir__Root}/` + path__Component).map((name__Item) => {
-      if (name__Item === "routes") is_Available__Dir__Route = true;
+    fs.readdirSync(`${dir_Root}/` + path_Component).map((name_Item) => {
+      if (name_Item === "routes") isAvailable_Dir_Route = true;
     });
 
-    if (!is_Empty__Dir && is_Available__Dir__Route) {
-      paths__Routes.push(path__Component + "/routes");
+    if (!isEmpty_Dir && isAvailable_Dir_Route) {
+      paths_Routes.push(path_Component + "/routes");
     }
   });
 
-  await paths__Routes.forEach((path__Route) => {
-    let path__Route__Index = "";
-    path__Route__Index = `${path__Route}/${file__Index}`;
-    paths__Route_Indexes.push(path__Route__Index);
+  await paths_Routes.forEach((path_Route) => {
+    let path_Route_Index = "";
+    path_Route_Index = `${path_Route}/${file_Index}`;
+    paths_Route_Indexes.push(path_Route_Index);
   });
 
-  return paths__Route_Indexes;
+  return paths_Route_Indexes;
 };

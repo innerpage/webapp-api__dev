@@ -21,7 +21,7 @@ export const controller_Account__Get__Account_Details = async (
   let payload_AppDetails: any = {
     name__App: config_App.name__App,
     url__App__Website: config_App.url__App__Website,
-    url__App: config_App.url__App,
+    url_App: config_App.url_App,
     email__App: config_App.email__App,
     url__App__Support: config_App.url__App__Support,
     url__App__Tos: config_App.url__App__Tos,

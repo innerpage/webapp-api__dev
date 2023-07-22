@@ -9,13 +9,13 @@ export const Middleware__Block__Account_Existence__By__Email = async (
   let account = await dal_Account__Read__By__Email(res.locals.email);
 
   if (account) {
-    console.log(`✅ ${res.locals.email} is  registered`);
+    console.log(`❌ ${res.locals.email} already exists`);
     return res.status(200).json({
       success: false,
       message: "❌ You are already registered",
     });
   }
 
-  console.log(`${res.locals.email} is not registered`);
+  console.log(`✅ ${res.locals.email} does not exist`);
   next();
 };

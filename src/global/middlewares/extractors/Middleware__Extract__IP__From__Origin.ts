@@ -15,7 +15,7 @@ export const Middleware__Extract__IP__From__Origin = async (
     });
   }
 
-  res.locals.ip__Client = ip;
-  console.log(`Client IP: ${res.locals.ip__Client}`);
+  res.locals.ip_Client = ip;
+  console.log(`Client IP: ${res.locals.ip_Client}`);
   next();
 };

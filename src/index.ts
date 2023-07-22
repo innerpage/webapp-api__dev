@@ -46,9 +46,9 @@ dotenv.config();
       console.log("❌ Could not sync models");
     });
 
-  const server__Node = http.createServer(app);
+  const server_Node = http.createServer(app);
 
-  // const io = new Server(server__Node, {
+  // const io = new Server(server_Node, {
   //   cors: {
   //     origin: "*",
   //   },
@@ -66,7 +66,7 @@ dotenv.config();
   //   });
   // });
 
-  server__Node.listen(config_Node.port, () => {
+  server_Node.listen(config_Node.port, () => {
     console.log(`✅ Server is running on port: ${config_Node.port}`);
   });
 })();

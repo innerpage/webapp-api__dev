@@ -11,13 +11,13 @@ export const Middleware__Block__Account_Disabled__By__Id_Account = async (
   );
 
   if (account.is_disabled) {
-    console.log(`${res.locals.id_Account} is disabled`);
+    console.log(`❌ ${res.locals.id_Account} is disabled`);
     return res.status(200).json({
       success: false,
       message: "❌ Your account is disabled",
     });
   }
 
-  console.log(`${res.locals.id_Account} is not disabled`);
+  console.log(`✅ ${res.locals.id_Account} is not disabled`);
   next();
 };
