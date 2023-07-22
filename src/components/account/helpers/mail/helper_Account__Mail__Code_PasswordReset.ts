@@ -5,7 +5,7 @@ interface obj_Loose {
   [key: string]: any;
 }
 
-export const helper_Account__Mail__Code_PasswordReset = async (
+export const helper_Account_Mail_Code_PasswordReset = async (
   subscriber_Name_First: string,
   subscriber_Email: string,
   code_PasswordReset: number,

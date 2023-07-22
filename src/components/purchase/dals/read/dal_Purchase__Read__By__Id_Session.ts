@@ -4,9 +4,7 @@ interface obj_Loose {
   [key: string]: any;
 }
 
-export const dal_Purchase__Read__By__Id_Session = async (
-  id_Session: string
-) => {
+export const dal_Purchase_Read_By_Id_Session = async (id_Session: string) => {
   let payload: any;
   let obj_Return: obj_Loose = {};
 

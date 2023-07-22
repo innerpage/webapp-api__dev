@@ -1,24 +1,24 @@
 import { Router } from "express";
 
 import {
-  Middleware__Block__Account_LoggedIn,
-  Middleware__Block__Account_NonExistence__By__Email,
+  Middleware_Block_Account_LoggedIn,
+  Middleware_Block_Account_NonExistence_By_Email,
 } from "../../../../global/middlewares";
 
 import {
-  middleware_Account__Validate__Inputs_For__Login,
-  middleware_Account__Format__Inputs_For__Login,
+  middleware_Account_Validate_Inputs_For_Login,
+  middleware_Account_Format_Inputs_For_Login,
 } from "../../middlewares";
 
-import { controller_Account__Login } from "../../controllers";
+import { controller_Account_Login } from "../../controllers";
 
-export const route_Account__Login = Router();
+export const route_Account_Login = Router();
 
-route_Account__Login.post(
+route_Account_Login.post(
   "/login",
-  Middleware__Block__Account_LoggedIn,
-  middleware_Account__Validate__Inputs_For__Login,
-  middleware_Account__Format__Inputs_For__Login,
-  Middleware__Block__Account_NonExistence__By__Email,
-  controller_Account__Login
+  Middleware_Block_Account_LoggedIn,
+  middleware_Account_Validate_Inputs_For_Login,
+  middleware_Account_Format_Inputs_For_Login,
+  Middleware_Block_Account_NonExistence_By_Email,
+  controller_Account_Login
 );

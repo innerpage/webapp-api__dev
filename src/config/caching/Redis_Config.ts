@@ -3,9 +3,9 @@ import Redis from "ioredis";
 import dotenv from "dotenv";
 dotenv.config();
 
-const obj_Redis_Options: RedisOptions = {
+const redis_Options: RedisOptions = {
   host: process.env.Redis_Host,
   port: +process.env.Redis_Port!,
 };
 
-export const Redis_Config = new Redis(obj_Redis_Options);
+export const Redis_Config = new Redis(redis_Options);

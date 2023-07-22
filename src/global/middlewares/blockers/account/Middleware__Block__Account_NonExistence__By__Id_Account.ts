@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from "express";
-import { dal_Account__Read__By__Id_Account } from "../../../../components/account/dals";
+import { dal_Account_Read_By_Id_Account } from "../../../../components/account/dals";
 
-export const Middleware__Block__Account_NonExistence__By__Id_Account = async (
+export const Middleware_Block_Account_NonExistence_By_Id_Account = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let account = await dal_Account__Read__By__Id_Account(res.locals.id_Account);
+  let account = await dal_Account_Read_By_Id_Account(res.locals.id_Account);
 
   if (!account) {
     console.log(`❌ ${res.locals.id_Account} is not registered`);

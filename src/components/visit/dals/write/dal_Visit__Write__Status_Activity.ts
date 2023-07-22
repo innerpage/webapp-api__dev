@@ -1,6 +1,6 @@
 import { model_Visit } from "../../models";
 
-export const dal_Visit__Write__Status_Activity = async (id_Socket: string) => {
+export const dal_Visit_Write_Status_Activity = async (id_Socket: string) => {
   await model_Visit
     .update(
       { is_active: false },

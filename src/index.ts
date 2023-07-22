@@ -1,12 +1,12 @@
 import app from "./app";
 import http from "http";
 import { Node_Config, Sequelize_Config } from "./config";
-import { Helper__Include__Model_Associations } from "./global/helpers";
+import { Helper_Include_Model_Associations } from "./global/helpers";
 import { Server, Socket } from "socket.io";
 
 import {
-  dal_Visit__Write__New_Visit,
-  dal_Visit__Write__Status_Activity,
+  dal_Visit_Write_New_Visit,
+  dal_Visit_Write_Status_Activity,
 } from "./components/visit/dals";
 
 import dotenv from "dotenv";
@@ -22,7 +22,7 @@ dotenv.config();
       console.log(err);
     });
 
-  Helper__Include__Model_Associations();
+  Helper_Include_Model_Associations();
 
   // await Sequelize_Config
   //   .sync()
@@ -56,11 +56,11 @@ dotenv.config();
   //   const email: any = socket.handshake.query.email;
 
   //   console.log(`${email} connected via ${socket.id}`);
-  //   dal_Visit__Write__New_Visit(email, socket.id);
+  //   dal_Visit_Write_New_Visit(email, socket.id);
 
   //   socket.on("disconnect", () => {
   //     console.log(`Client disconnected: ${socket.id}`);
-  //     dal_Visit__Write__Status_Activity(socket.id);
+  //     dal_Visit_Write_Status_Activity(socket.id);
   //   });
   // });
 

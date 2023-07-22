@@ -1,17 +1,17 @@
 // Auth
-export { controller_Account__Signup } from "./auth/controller_Account__Signup";
-export { controller_Account__Login } from "./auth/controller_Account__Login";
-export { controller_Account__Logout } from "./auth/controller_Account__Logout";
+export { controller_Account_Signup } from "./auth/controller_Account_Signup";
+export { controller_Account_Login } from "./auth/controller_Account_Login";
+export { controller_Account_Logout } from "./auth/controller_Account_Logout";
 
 // Confirm
-export { controller_Account__Confirm__Password } from "./confirm/controller_Account__Confirm__Password";
+export { controller_Account_Confirm_Password } from "./confirm/controller_Account_Confirm_Password";
 
 // Details
-export { controller_Account__Get__Account_Details } from "./details/controller_Account__Get__Account_Details";
+export { controller_Account_Get_Account_Details } from "./details/controller_Account_Get_Account_Details";
 
 // Mail
-export { controller_Account__Mail__Code_PasswordReset } from "./mail/controller_Account__Mail__Code_PasswordReset";
-export { controller_Account__Mail__Code_EmailVerification } from "./mail/controller_Account__Mail__Code_EmailVerification";
+export { controller_Account_Mail_Code_PasswordReset } from "./mail/controller_Account_Mail_Code_PasswordReset";
+export { controller_Account_Mail_Code_EmailVerification } from "./mail/controller_Account_Mail_Code_EmailVerification";
 
 // Verify
-export { controller_Account__Verify__Email } from "./verification/controller_Account__Verify__Email";
+export { controller_Account_Verify_Email } from "./verification/controller_Account_Verify_Email";

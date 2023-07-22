@@ -4,7 +4,7 @@ interface obj_Loose {
   [key: string]: any;
 }
 
-export const dal_Account__Write__Status_EmailVerification = async (
+export const dal_Account_Write_Status_EmailVerification = async (
   email: string
 ) => {
   let isSuccess_StatusUpdate: boolean = false;

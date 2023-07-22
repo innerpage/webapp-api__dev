@@ -8,10 +8,10 @@ export const App_Config = {
   App_Email: process.env.App_Email || "",
   App_Support_Url: process.env.App_Support_Url || "",
   App_Tos_Url: process.env.App_Tos_Url || "",
-  App_PrivacyPolicy_Url: process.env.App_PrivacyPolicy_Url || "",
-  App_CancellationAndRefund_Url:
-    process.env.App_CancellationAndRefund_Url || "",
-  App_SessionKey_Name: process.env.App_SessionKey_Name || "",
+  App_Privacy_Policy_Url: process.env.App_Privacy_Policy_Url || "",
+  App_Cancellation_And_Refund_Url:
+    process.env.App_Cancellation_And_Refund_Url || "",
+  App_Session_Key_Name: process.env.App_Session_Key_Name || "",
   App_Business_Name: process.env.App_Business_Name || "",
   App_Business_Website_Url: process.env.App_Business_Website_Url,
   App_Business_Address: process.env.App_Business_Address || "",

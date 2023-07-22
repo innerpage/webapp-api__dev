@@ -4,7 +4,7 @@ interface obj_Loose {
   [key: string]: any;
 }
 
-export const dal_Account__Write__Code_PasswordReset = async (
+export const dal_Account_Write_Code_PasswordReset = async (
   email: string,
   code_PasswordReset: number
 ) => {

@@ -1,6 +1,6 @@
 import { model_Visit } from "../../models";
 
-export const dal_Visit__Write__New_Visit = async (
+export const dal_Visit_Write_New_Visit = async (
   email: string,
   id_Socket: string
 ) => {

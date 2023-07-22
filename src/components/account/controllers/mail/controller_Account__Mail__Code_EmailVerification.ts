@@ -1,23 +1,23 @@
 import { Request, Response } from "express";
 import {
-  dal_Account__Write__Code_EmailVerification,
-  dal_Account__Read__By__Id_Account,
+  dal_Account_Write_Code_EmailVerification,
+  dal_Account_Read_By_Id_Account,
 } from "../../dals";
-import { helper_Account__Mail__Code_EmailVerification } from "../../helpers";
-import { Helper__Generate__Code_4Digits } from "../../../../global/helpers";
+import { helper_Account_Mail_Code_EmailVerification } from "../../helpers";
+import { Helper_Generate_Code_4Digits } from "../../../../global/helpers";
 import { App_Config } from "../../../../config";
 
-export const controller_Account__Mail__Code_EmailVerification = async (
+export const controller_Account_Mail_Code_EmailVerification = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account__Read__By__Id_Account(
+  let account: any = await dal_Account_Read_By_Id_Account(
     res.locals.id_Account
   );
-  let code_EmailVerification: number = await Helper__Generate__Code_4Digits();
+  let code_EmailVerification: number = await Helper_Generate_Code_4Digits();
 
   let returnObj_Write_EmailVerificationCode: any =
-    await dal_Account__Write__Code_EmailVerification(
+    await dal_Account_Write_Code_EmailVerification(
       res.locals.id_Account,
       code_EmailVerification
     );
@@ -32,7 +32,7 @@ export const controller_Account__Mail__Code_EmailVerification = async (
   }
 
   let returnObj_MailEmailVerificationCode: any =
-    await helper_Account__Mail__Code_EmailVerification(
+    await helper_Account_Mail_Code_EmailVerification(
       account.first_name,
       account.email,
       code_EmailVerification,

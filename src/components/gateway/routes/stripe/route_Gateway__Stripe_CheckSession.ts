@@ -1,30 +1,30 @@
 import { Router } from "express";
 
 import {
-  Middleware__Block__Account_LoggedOut,
-  Middleware__Extract__Id_Account__From__Request,
-  Middleware__Extract__Origin__From__Request,
-  Middleware__Block__Account_NonExistence__By__Id_Account,
-  Middleware__Block__Account_Disabled__By__Id_Account,
+  Middleware_Block_Account_LoggedOut,
+  Middleware_Extract_Id_Account_From_Request,
+  Middleware_Extract_Origin_From_Request,
+  Middleware_Block_Account_NonExistence_By_Id_Account,
+  Middleware_Block_Account_Disabled_By_Id_Account,
 } from "../../../../global/middlewares";
 
 import {
-  middleware_Gateway__Validate__Inputs_For__Stripe_CheckSession,
-  middleware_Gateway__Format__Inputs_For__Stripe_CheckSession,
+  middleware_Gateway_Validate_Inputs_For_Stripe_CheckSession,
+  middleware_Gateway_Format_Inputs_For_Stripe_CheckSession,
 } from "../../middlewares";
 
-import { controller_Gateway__Stripe_CheckSession } from "../../controllers";
+import { controller_Gateway_Stripe_CheckSession } from "../../controllers";
 
-export const route_Gateway__Stripe_CheckSession = Router();
+export const route_Gateway_Stripe_CheckSession = Router();
 
-route_Gateway__Stripe_CheckSession.post(
+route_Gateway_Stripe_CheckSession.post(
   "/stripe-check-session",
-  Middleware__Block__Account_LoggedOut,
-  Middleware__Extract__Id_Account__From__Request,
-  Middleware__Extract__Origin__From__Request,
-  Middleware__Block__Account_NonExistence__By__Id_Account,
-  Middleware__Block__Account_Disabled__By__Id_Account,
-  middleware_Gateway__Validate__Inputs_For__Stripe_CheckSession,
-  middleware_Gateway__Format__Inputs_For__Stripe_CheckSession,
-  controller_Gateway__Stripe_CheckSession
+  Middleware_Block_Account_LoggedOut,
+  Middleware_Extract_Id_Account_From_Request,
+  Middleware_Extract_Origin_From_Request,
+  Middleware_Block_Account_NonExistence_By_Id_Account,
+  Middleware_Block_Account_Disabled_By_Id_Account,
+  middleware_Gateway_Validate_Inputs_For_Stripe_CheckSession,
+  middleware_Gateway_Format_Inputs_For_Stripe_CheckSession,
+  controller_Gateway_Stripe_CheckSession
 );

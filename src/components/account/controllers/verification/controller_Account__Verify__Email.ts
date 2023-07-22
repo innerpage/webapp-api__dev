@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import {
-  dal_Account__Read__By__Email,
-  dal_Account__Write__Status_EmailVerification,
+  dal_Account_Read_By_Email,
+  dal_Account_Write_Status_EmailVerification,
 } from "../../dals";
 
-export const controller_Account__Verify__Email = async (
+export const controller_Account_Verify_Email = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account__Read__By__Email(res.locals.email);
+  let account: any = await dal_Account_Read_By_Email(res.locals.email);
 
   let code_EmailVerification: number = account.email_verification_code;
   if (code_EmailVerification != res.locals.code_EmailVerification) {
@@ -22,7 +22,7 @@ export const controller_Account__Verify__Email = async (
   }
 
   let returnObj_UpdateEmailVerification: any =
-    await dal_Account__Write__Status_EmailVerification(res.locals.email);
+    await dal_Account_Write_Status_EmailVerification(res.locals.email);
   console.log(returnObj_UpdateEmailVerification.message);
   console.log(returnObj_UpdateEmailVerification.payload);
 

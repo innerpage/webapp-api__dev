@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 
 import Stripe from "stripe";
-import { dal_Purchase__Write__Status_Purchase } from "../../../purchase/dals";
+import { dal_Purchase_Write_Status_Purchase } from "../../../purchase/dals";
 import { Stripe_Config } from "../../../../config";
 
-export const controller_Gateway__Stripe_CheckSession = async (
+export const controller_Gateway_Stripe_CheckSession = async (
   req: Request,
   res: Response
 ) => {
-  const stripe = new Stripe(Stripe_Config.key_Secret, {
+  const stripe = new Stripe(Stripe_Config.secretKey, {
     apiVersion: "2022-11-15",
   });
 
@@ -23,7 +23,7 @@ export const controller_Gateway__Stripe_CheckSession = async (
         });
       }
 
-      const updated_Purchase = await dal_Purchase__Write__Status_Purchase(
+      const updated_Purchase = await dal_Purchase_Write_Status_Purchase(
         res.locals.id_Session
       );
 

@@ -1,18 +1,18 @@
 // Blockers
-export { Middleware__Block__Account_LoggedIn } from "./blockers/account/Middleware__Block__Account_LoggedIn";
-export { Middleware__Block__Account_LoggedOut } from "./blockers/account/Middleware__Block__Account_LoggedOut";
-export { Middleware__Block__Account_Existence__By__Email } from "./blockers/account/Middleware__Block__Account_Existence__By__Email";
-export { Middleware__Block__Account_NonExistence__By__Id_Account } from "./blockers/account/Middleware__Block__Account_NonExistence__By__Id_Account";
-export { Middleware__Block__Account_Disabled__By__Id_Account } from "./blockers/account/Middleware__Block__Account_Disabled__By__Id_Account";
-export { Middleware__Block__Account_NonExistence__By__Email } from "./blockers/account/Middleware__Block__Account_NonExistence__By__Email";
-export { Middleware__Block__Request__By__Origin } from "./blockers/origin/Middleware__Block__Request__By__Origin";
+export { Middleware_Block_Account_LoggedIn } from "./blockers/account/Middleware_Block_Account_LoggedIn";
+export { Middleware_Block_Account_LoggedOut } from "./blockers/account/Middleware_Block_Account_LoggedOut";
+export { Middleware_Block_Account_Existence_By_Email } from "./blockers/account/Middleware_Block_Account_Existence_By_Email";
+export { Middleware_Block_Account_NonExistence_By_Id_Account } from "./blockers/account/Middleware_Block_Account_NonExistence_By_Id_Account";
+export { Middleware_Block_Account_Disabled_By_Id_Account } from "./blockers/account/Middleware_Block_Account_Disabled_By_Id_Account";
+export { Middleware_Block_Account_NonExistence_By_Email } from "./blockers/account/Middleware_Block_Account_NonExistence_By_Email";
+export { Middleware_Block_Request_By_Origin } from "./blockers/origin/Middleware_Block_Request_By_Origin";
 
 // Extractors
-export { Middleware__Extract__Id_Account__From__Request } from "./extractors/Middleware__Extract__Id_Account__From__Request";
-export { Middleware__Extract__Origin__From__Request } from "./extractors/Middleware__Extract__Origin__From__Request";
-export { Middleware__Extract__IP__From__Origin } from "./extractors/Middleware__Extract__IP__From__Origin";
-export { Middleware__Extract__Country__From__IP } from "./extractors/Middleware__Extract__Country__From__IP";
+export { Middleware_Extract_Id_Account_From_Request } from "./extractors/Middleware_Extract_Id_Account_From_Request";
+export { Middleware_Extract_Origin_From_Request } from "./extractors/Middleware_Extract_Origin_From_Request";
+export { Middleware_Extract_IP_From_Origin } from "./extractors/Middleware_Extract_IP_From_Origin";
+export { Middleware_Extract_Country_From_IP } from "./extractors/Middleware_Extract_Country_From_IP";
 
 // Others
-export { Middleware__Handle__Errors } from "./handlers/Middleware__Handle__Errors";
-export { Middleware__Validate__Email } from "./validators/Middleware__Validate__Email";
+export { Middleware_Handle_Errors } from "./handlers/Middleware_Handle_Errors";
+export { Middleware_Validate_Email } from "./validators/Middleware_Validate_Email";

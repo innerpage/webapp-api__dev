@@ -1,20 +1,20 @@
 import { Request, Response } from "express";
 import {
-  dal_Account__Read__By__Email,
-  dal_Account__Write__New_Password,
+  dal_Account_Read_By_Email,
+  dal_Account_Write_New_Password,
 } from "../../dals";
 import {
-  helper_Account__Verify__Password_Hash,
-  helper_Account__Hash__Password,
-  helper_Account__Mail__Confirm__Reset__Password,
+  helper_Account_Verify_Password_Hash,
+  helper_Account_Hash_Password,
+  helper_Account_Mail_Confirm_Reset_Password,
 } from "../../helpers";
 import { App_Config } from "../../../../config";
 
-export const controller_Account__Confirm__Password = async (
+export const controller_Account_Confirm_Password = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account__Read__By__Email(res.locals.email);
+  let account: any = await dal_Account_Read_By_Email(res.locals.email);
 
   if (account.password_reset_code != res.locals.code_ResetPassword) {
     console.log(
@@ -26,11 +26,11 @@ export const controller_Account__Confirm__Password = async (
     });
   }
 
-  let password_Hashed_New: string = await helper_Account__Hash__Password(
+  let password_Hashed_New: string = await helper_Account_Hash_Password(
     res.locals.password_New
   );
 
-  let returnObj_NewPassword: any = await dal_Account__Write__New_Password(
+  let returnObj_NewPassword: any = await dal_Account_Write_New_Password(
     res.locals.email,
     password_Hashed_New
   );
@@ -46,7 +46,7 @@ export const controller_Account__Confirm__Password = async (
   }
 
   let returnObj_MailPasswordResetConfirmation: any =
-    await helper_Account__Mail__Confirm__Reset__Password(
+    await helper_Account_Mail_Confirm_Reset_Password(
       account.first_name,
       res.locals.email,
       App_Config.App_Website_Url,

@@ -12,7 +12,7 @@ const schema_LoginInputs = Joi.object({
   password: Joi.string().min(8).max(1024).required(),
 });
 
-export const middleware_Account__Validate__Inputs_For__Login = (
+export const middleware_Account_Validate_Inputs_For_Login = (
   req: Request,
   res: Response,
   next: NextFunction

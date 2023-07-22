@@ -11,7 +11,7 @@ const schema_MailPasswordResetInputs = Joi.object({
     .required(),
 });
 
-export const middleware_Account__Validate__Inputs_For__Mail__Reset__Password = (
+export const middleware_Account_Validate_Inputs_For_Mail_Reset_Password = (
   req: Request,
   res: Response,
   next: NextFunction

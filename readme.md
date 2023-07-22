@@ -19,8 +19,8 @@
   `App_Email`
   `App_Support_Url`
   `App_Tos_Url`
-  `App_PrivacyPolicy_Url` `App_CancellationAndRefund_Url`
-  `App_SessionKey_Name`
+  `App_Privacy_Policy_Url` `App_Cancellation_And_Refund_Url`
+  `App_Session_Key_Name`
   `App_Business_Name`
   `App_Business_Website_Url`
   `App_Business_Address`
@@ -28,9 +28,9 @@
   <hr/>
 
   **Express Session**
-  `ExpressSession_Name`
-  `ExpressSession_Secret`
-  `ExpressSession_TImeout`
+  `Express_Session_Name`
+  `Express_Session_Secret`
+  `ExpressSession_Timeout`
   <hr/>
 
   **Node**
@@ -56,10 +56,10 @@
    <hr/>
 
   **Stripe**
-  `Stripe_PublicKey`
-  `Stripe_SecretKey`
-  `Stripe_WebhookSecret`
-  `Stripe_ProcessingFee`
+  `Stripe_Public_Key`
+  `Stripe_Secret_Key`
+  `Stripe_Webhook_Secret`
+  `Stripe_Processing_Fee`
 
 ## Changes in <u>build.sh</u>
 

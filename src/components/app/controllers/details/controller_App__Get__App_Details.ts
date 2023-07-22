@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { App_Config } from "../../../../config";
 
-export const controller_App__Get__App_Details = async (
+export const controller_App_Get_App_Details = async (
   req: Request,
   res: Response
 ) => {
@@ -12,14 +12,14 @@ export const controller_App__Get__App_Details = async (
     App_Email: App_Config.App_Email,
     App_Support_Url: App_Config.App_Support_Url,
     App_Tos_Url: App_Config.App_Tos_Url,
-    App_PrivacyPolicy_Url: App_Config.App_PrivacyPolicy_Url,
-    App_CancellationAndRefund_Url: App_Config.App_CancellationAndRefund_Url,
-    App_SessionKey_Name: App_Config.App_SessionKey_Name,
+    App_Privacy_Policy_Url: App_Config.App_Privacy_Policy_Url,
+    App_Cancellation_And_Refund_Url: App_Config.App_Cancellation_And_Refund_Url,
+    App_Session_Key_Name: App_Config.App_Session_Key_Name,
     App_Business_Name: App_Config.App_Business_Name,
     App_Business_Website_Url: App_Config.App_Business_Website_Url,
     App_Business_Address: App_Config.App_Business_Address,
     App_Business_Email: App_Config.App_Business_Email,
-    country__Client: res.locals.country__Client,
+    country_Client: res.locals.country_Client,
   };
 
   return res.status(200).json({

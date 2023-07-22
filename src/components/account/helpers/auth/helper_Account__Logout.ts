@@ -2,11 +2,11 @@ import { Request, Response } from "express";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const helper_Account__Logout = (req: Request, res: Response) => {
+export const helper_Account_Logout = (req: Request, res: Response) => {
   new Promise<void>((resolve, reject) => {
     req.session!.destroy((err: Error) => {
       if (err) reject(err);
-      res.clearCookie(process.env.ExpressSession_Name!);
+      res.clearCookie(process.env.Express_Session_Name!);
       res.clearCookie("isLogged");
       resolve();
 

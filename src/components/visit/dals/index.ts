@@ -1,2 +1,2 @@
-export { dal_Visit__Write__New_Visit } from "./write/dal_Visit__Write__New_Visit";
-export { dal_Visit__Write__Status_Activity } from "./write/dal_Visit__Write__Status_Activity";
+export { dal_Visit_Write_New_Visit } from "./write/dal_Visit_Write_New_Visit";
+export { dal_Visit_Write_Status_Activity } from "./write/dal_Visit_Write_Status_Activity";

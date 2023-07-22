@@ -4,7 +4,7 @@ interface obj_Loose {
   [key: string]: any;
 }
 
-export const dal_Purchase__Write__Status_Purchase = async (
+export const dal_Purchase_Write_Status_Purchase = async (
   id_Session: string
 ) => {
   let isSuccess_Updated_PurchaseStatus: boolean = false;

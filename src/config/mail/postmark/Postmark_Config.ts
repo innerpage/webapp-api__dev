@@ -4,14 +4,14 @@ dotenv.config();
 export const Postmark_Config = {
   token: process.env.Postmark_Token!,
   template: {
-    mail_Verify_Email: {
-      id: process.env.Postmark_TemplateId_For_EmailVerificationCode_Mail,
+    Email_Verification_Code: {
+      id: process.env.Postmark_Template_Email_Verification_Code,
     },
-    mail_Reset_Password: {
-      id: process.env.Postmark_TemplateId_For_PasswordResetCode_Mail,
+    Password_Reset_Code: {
+      id: process.env.Postmark_Template_Password_Reset_Code,
     },
-    mail_Confirm_PasswordReset: {
-      id: process.env.Postmark_TemplateId_For_ConfirmPasswordReset_Mail,
+    Password_Reset_Confirmation: {
+      id: process.env.Postmark_Template_Confirm_Password_Reset,
     },
   },
 };

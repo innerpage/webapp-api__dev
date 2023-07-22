@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const middleware_Account__Format__Inputs_For__Login = async (
+export const middleware_Account_Format_Inputs_For_Login = async (
   req: Request,
   res: Response,
   next: NextFunction

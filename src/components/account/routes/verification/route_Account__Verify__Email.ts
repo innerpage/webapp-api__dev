@@ -1,21 +1,21 @@
 import { Router } from "express";
 import {
-  Middleware__Block__Account_LoggedOut,
-  Middleware__Block__Account_NonExistence__By__Email,
+  Middleware_Block_Account_LoggedOut,
+  Middleware_Block_Account_NonExistence_By_Email,
 } from "../../../../global/middlewares";
 import {
-  middleware_Account__Validate__Inputs_For__Verify__Email,
-  middleware_Account__Format__Inputs_For__Verify__Email,
+  middleware_Account_Validate_Inputs_For_Verify_Email,
+  middleware_Account_Format_Inputs_For_Verify_Email,
 } from "../../middlewares";
-import { controller_Account__Verify__Email } from "../../controllers";
+import { controller_Account_Verify_Email } from "../../controllers";
 
-export const route_Account__Verify__Email = Router();
+export const route_Account_Verify_Email = Router();
 
-route_Account__Verify__Email.post(
+route_Account_Verify_Email.post(
   "/verify-email",
-  middleware_Account__Validate__Inputs_For__Verify__Email,
-  middleware_Account__Format__Inputs_For__Verify__Email,
-  Middleware__Block__Account_NonExistence__By__Email,
-  Middleware__Block__Account_LoggedOut,
-  controller_Account__Verify__Email
+  middleware_Account_Validate_Inputs_For_Verify_Email,
+  middleware_Account_Format_Inputs_For_Verify_Email,
+  Middleware_Block_Account_NonExistence_By_Email,
+  Middleware_Block_Account_LoggedOut,
+  controller_Account_Verify_Email
 );

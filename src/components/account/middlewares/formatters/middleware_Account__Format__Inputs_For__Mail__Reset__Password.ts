@@ -1,10 +1,13 @@
 import { Request, Response, NextFunction } from "express";
 
-export const middleware_Account__Format__Inputs_For__Mail__Reset__Password =
-  async (req: Request, res: Response, next: NextFunction) => {
-    let { email } = req.body;
+export const middleware_Account_Format_Inputs_For_Mail_Reset_Password = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  let { email } = req.body;
 
-    res.locals.email = email.trim().toLowerCase();
+  res.locals.email = email.trim().toLowerCase();
 
-    next();
-  };
+  next();
+};

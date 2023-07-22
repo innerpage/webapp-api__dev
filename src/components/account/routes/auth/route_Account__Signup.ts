@@ -1,30 +1,30 @@
 import { Router } from "express";
 
 import {
-  Middleware__Extract__Origin__From__Request,
-  Middleware__Block__Request__By__Origin,
-  Middleware__Extract__IP__From__Origin,
-  Middleware__Extract__Country__From__IP,
-  Middleware__Block__Account_LoggedIn,
-  Middleware__Block__Account_Existence__By__Email,
+  Middleware_Extract_Origin_From_Request,
+  Middleware_Block_Request_By_Origin,
+  Middleware_Extract_IP_From_Origin,
+  Middleware_Extract_Country_From_IP,
+  Middleware_Block_Account_LoggedIn,
+  Middleware_Block_Account_Existence_By_Email,
 } from "../../../../global/middlewares";
 import {
-  middleware_Account__Validate__Inputs_For__Signup,
-  middleware_Account__Format__Inputs_For__Signup,
+  middleware_Account_Validate_Inputs_For_Signup,
+  middleware_Account_Format_Inputs_For_Signup,
 } from "../../middlewares";
-import { controller_Account__Signup } from "../../controllers";
+import { controller_Account_Signup } from "../../controllers";
 
-export const route_Account__Signup = Router();
+export const route_Account_Signup = Router();
 
-route_Account__Signup.post(
+route_Account_Signup.post(
   "/signup",
-  Middleware__Extract__Origin__From__Request,
-  Middleware__Block__Request__By__Origin,
-  Middleware__Extract__IP__From__Origin,
-  Middleware__Extract__Country__From__IP,
-  Middleware__Block__Account_LoggedIn,
-  middleware_Account__Validate__Inputs_For__Signup,
-  middleware_Account__Format__Inputs_For__Signup,
-  Middleware__Block__Account_Existence__By__Email,
-  controller_Account__Signup
+  Middleware_Extract_Origin_From_Request,
+  Middleware_Block_Request_By_Origin,
+  Middleware_Extract_IP_From_Origin,
+  Middleware_Extract_Country_From_IP,
+  Middleware_Block_Account_LoggedIn,
+  middleware_Account_Validate_Inputs_For_Signup,
+  middleware_Account_Format_Inputs_For_Signup,
+  Middleware_Block_Account_Existence_By_Email,
+  controller_Account_Signup
 );
