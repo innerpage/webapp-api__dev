@@ -5,8 +5,8 @@ import {
   helper_Account__Mail__Code_EmailVerification,
   helper_Account__Login,
 } from "../../helpers";
-import { Helper__Generate__4_Digit_Code } from "../../../../global/helpers";
-import { config__App } from "../../../../config";
+import { Helper__Generate__Code_4Digits } from "../../../../global/helpers";
+import { config_App } from "../../../../config";
 
 export const controller_Account__Signup = async (
   req: Request,
@@ -14,7 +14,7 @@ export const controller_Account__Signup = async (
 ) => {
   let { name__First, name__Last, email, password } = res.locals;
 
-  let code__Email_Verification: number = Helper__Generate__4_Digit_Code();
+  let code__Email_Verification: number = Helper__Generate__Code_4Digits();
   let hashed__Password: string = await helper_Account__Hash__Password(password);
 
   let returnObj__New_Account: any = await dal_Account__Write__New_Account(
@@ -34,11 +34,11 @@ export const controller_Account__Signup = async (
       returnObj__New_Account.payload.name__First,
       returnObj__New_Account.payload.email,
       code__Email_Verification,
-      config__App.url__App__Website,
-      config__App.name__App,
-      config__App.name__Business,
-      config__App.address__Business,
-      config__App.email__App
+      config_App.url__App__Website,
+      config_App.name__App,
+      config_App.name__Business,
+      config_App.address__Business,
+      config_App.email__App
     );
   console.log(returnObj__Mail__Code__Email_Verification.message);
   console.log(returnObj__Mail__Code__Email_Verification.payload);

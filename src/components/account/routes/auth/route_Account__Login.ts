@@ -2,7 +2,7 @@ import { Router } from "express";
 
 import {
   Middleware__Block__Account_LoggedIn,
-  Middleware__Block__AccountNonExistence__By__Email,
+  Middleware__Block__Account_NonExistence__By__Email,
 } from "../../../../global/middlewares";
 
 import {
@@ -19,6 +19,6 @@ route_Account__Login.post(
   Middleware__Block__Account_LoggedIn,
   middleware_Account__Validate__Inputs_For__Login,
   middleware_Account__Format__Inputs_For__Login,
-  Middleware__Block__AccountNonExistence__By__Email,
+  Middleware__Block__Account_NonExistence__By__Email,
   controller_Account__Login
 );

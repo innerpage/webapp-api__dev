@@ -4,15 +4,15 @@ import {
   dal_Account__Read__By__Email,
 } from "../../dals";
 import { helper_Account__Mail__Code_PasswordReset } from "../../helpers";
-import { Helper__Generate__4_Digit_Code } from "../../../../global/helpers";
-import { config__App } from "../../../../config";
+import { Helper__Generate__Code_4Digits } from "../../../../global/helpers";
+import { config_App } from "../../../../config";
 
 export const controller_Account__Mail__Code__Password_Reset = async (
   req: Request,
   res: Response
 ) => {
   let account: any = await dal_Account__Read__By__Email(res.locals.email);
-  let code_PasswordReset: number = await Helper__Generate__4_Digit_Code();
+  let code_PasswordReset: number = await Helper__Generate__Code_4Digits();
 
   let returnObj_WritePasswordResetCode: any =
     await dal_Account__Write__Code_PasswordReset(
@@ -34,11 +34,11 @@ export const controller_Account__Mail__Code__Password_Reset = async (
       account.first_name,
       res.locals.email,
       code_PasswordReset,
-      config__App.url__App__Website,
-      config__App.name__App,
-      config__App.name__Business,
-      config__App.address__Business,
-      config__App.email__App
+      config_App.url__App__Website,
+      config_App.name__App,
+      config_App.name__Business,
+      config_App.address__Business,
+      config_App.email__App
     );
   console.log(returnObj_MailEmailVerificationCode.message);
   console.log(returnObj_MailEmailVerificationCode.payload);

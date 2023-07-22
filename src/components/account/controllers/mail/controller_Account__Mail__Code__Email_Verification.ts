@@ -4,8 +4,8 @@ import {
   dal_Account__Read__By__Id_Account,
 } from "../../dals";
 import { helper_Account__Mail__Code_EmailVerification } from "../../helpers";
-import { Helper__Generate__4_Digit_Code } from "../../../../global/helpers";
-import { config__App } from "../../../../config";
+import { Helper__Generate__Code_4Digits } from "../../../../global/helpers";
+import { config_App } from "../../../../config";
 
 export const controller_Account__Mail__Code__Email_Verification = async (
   req: Request,
@@ -14,7 +14,7 @@ export const controller_Account__Mail__Code__Email_Verification = async (
   let account: any = await dal_Account__Read__By__Id_Account(
     res.locals.id_Account
   );
-  let code_EmailVerification: number = await Helper__Generate__4_Digit_Code();
+  let code_EmailVerification: number = await Helper__Generate__Code_4Digits();
 
   let returnObj_Write_EmailVerificationCode: any =
     await dal_Account__Write__Code_EmailVerification(
@@ -36,11 +36,11 @@ export const controller_Account__Mail__Code__Email_Verification = async (
       account.first_name,
       account.email,
       code_EmailVerification,
-      config__App.url__App__Website,
-      config__App.name__App,
-      config__App.name__Business,
-      config__App.address__Business,
-      config__App.email__App
+      config_App.url__App__Website,
+      config_App.name__App,
+      config_App.name__Business,
+      config_App.address__Business,
+      config_App.email__App
     );
   console.log(returnObj_MailEmailVerificationCode.message);
   console.log(returnObj_MailEmailVerificationCode.payload);

@@ -6,7 +6,7 @@ import {
   Middleware__Extract__IP__From__Origin,
   Middleware__Extract__Country__From__IP,
   Middleware__Block__Account_LoggedIn,
-  Middleware__Block__AccountExistence__By__Email,
+  Middleware__Block__Account_Existence__By__Email,
 } from "../../../../global/middlewares";
 import {
   middleware_Account__Validate__Inputs_For__Signup,
@@ -25,6 +25,6 @@ route_Account__Signup.post(
   Middleware__Block__Account_LoggedIn,
   middleware_Account__Validate__Inputs_For__Signup,
   middleware_Account__Format__Inputs_For__Signup,
-  Middleware__Block__AccountExistence__By__Email,
+  Middleware__Block__Account_Existence__By__Email,
   controller_Account__Signup
 );

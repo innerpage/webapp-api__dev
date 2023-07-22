@@ -1,5 +1,5 @@
 import fs from "fs";
-import { config__Node } from "../../../config";
+import { config_Node } from "../../../config";
 
 export const Helper__Include__Routes = async () => {
   let paths__Components: Array<string> = [];
@@ -9,10 +9,10 @@ export const Helper__Include__Routes = async () => {
   let dir__Root: string = "";
   let file__Index: string = "";
 
-  if (config__Node.env === "dev") {
+  if (config_Node.env === "dev") {
     dir__Root = "src";
     file__Index = "index.ts";
-  } else if (config__Node.env === "prod") {
+  } else if (config_Node.env === "prod") {
     dir__Root = ".";
     file__Index = "index.js";
   }

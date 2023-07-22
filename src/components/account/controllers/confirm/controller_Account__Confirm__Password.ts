@@ -8,7 +8,7 @@ import {
   helper_Account__Hash__Password,
   helper_Account__Mail__Confirm_PasswordReset,
 } from "../../helpers";
-import { config__App } from "../../../../config";
+import { config_App } from "../../../../config";
 
 export const controller_Account__Confirm__Password = async (
   req: Request,
@@ -49,11 +49,11 @@ export const controller_Account__Confirm__Password = async (
     await helper_Account__Mail__Confirm_PasswordReset(
       account.first_name,
       res.locals.email,
-      config__App.url__App__Website,
-      config__App.name__App,
-      config__App.name__Business,
-      config__App.address__Business,
-      config__App.email__App
+      config_App.url__App__Website,
+      config_App.name__App,
+      config_App.name__Business,
+      config_App.address__Business,
+      config_App.email__App
     );
   console.log(returnObj_MailPasswordResetConfirmation.message);
   console.log(returnObj_MailPasswordResetConfirmation.payload);

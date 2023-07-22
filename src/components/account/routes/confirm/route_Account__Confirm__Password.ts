@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Middleware__Block__AccountNonExistence__By__Email } from "../../../../global/middlewares";
+import { Middleware__Block__Account_NonExistence__By__Email } from "../../../../global/middlewares";
 import {
   middleware_Account__Validate__Inputs_For__PasswordConfirmation,
   middleware_Account__Format__Inputs_For__PasswordConfirmation,
@@ -12,6 +12,6 @@ route_Account__Confirm__Password.post(
   "/password",
   middleware_Account__Validate__Inputs_For__PasswordConfirmation,
   middleware_Account__Format__Inputs_For__PasswordConfirmation,
-  Middleware__Block__AccountNonExistence__By__Email,
+  Middleware__Block__Account_NonExistence__By__Email,
   controller_Account__Confirm__Password
 );
