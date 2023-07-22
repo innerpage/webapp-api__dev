@@ -10,15 +10,11 @@ export const dal_Visit__Write__New_Visit = async (
       socket_id: id_Socket,
     })
     .then((new_Visit: any) => {
-      console.log();
-      console.log(`Connection SAVED: ${email} (${id_Socket})`);
+      console.log(`✅ Connection SAVED: ${email} (${id_Socket})`);
       console.log(new_Visit.dataValues);
-      console.log();
     })
     .catch((err: any) => {
-      console.log();
-      console.log(`Connection NOT_SAVED: ${email} (${id_Socket})`);
+      console.log(`❌ Connection NOT_SAVED: ${email} (${id_Socket})`);
       console.log(err);
-      console.log();
     });
 };

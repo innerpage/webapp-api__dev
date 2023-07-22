@@ -20,6 +20,7 @@ const model_Attributes: any = {
     allowNull: false,
   },
   is_active: { type: DataTypes.BOOLEAN, defaultValue: true },
+  ip_address: { type: DataTypes.STRING },
 };
 
 const model_Options: any = {};
