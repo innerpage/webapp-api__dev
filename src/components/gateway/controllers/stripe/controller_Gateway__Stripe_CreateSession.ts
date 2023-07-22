@@ -11,7 +11,7 @@ export const controller_Gateway__Stripe_CreateSession = async (
   let id_Tier: string = "";
   let priceId_Tier: string = "";
 
-  const stripe = new Stripe(config_Stripe.key__Secret, {
+  const stripe = new Stripe(config_Stripe.key_Secret, {
     apiVersion: "2022-11-15",
   });
 

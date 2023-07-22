@@ -34,11 +34,11 @@ export const controller_Account__Signup = async (
       returnObj__New_Account.payload.name__First,
       returnObj__New_Account.payload.email,
       code__Email_Verification,
-      config_App.url__App__Website,
-      config_App.name__App,
-      config_App.name__Business,
-      config_App.address__Business,
-      config_App.email__App
+      config_App.url_App_Website,
+      config_App.name_App,
+      config_App.name_Business,
+      config_App.address_Business,
+      config_App.email_App
     );
   console.log(returnObj__Mail__Code__Email_Verification.message);
   console.log(returnObj__Mail__Code__Email_Verification.payload);

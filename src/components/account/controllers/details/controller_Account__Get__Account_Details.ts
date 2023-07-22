@@ -19,20 +19,20 @@ export const controller_Account__Get__Account_Details = async (
   };
 
   let payload_AppDetails: any = {
-    name__App: config_App.name__App,
-    url__App__Website: config_App.url__App__Website,
+    name_App: config_App.name_App,
+    url_App_Website: config_App.url_App_Website,
     url_App: config_App.url_App,
-    email__App: config_App.email__App,
-    url__App__Support: config_App.url__App__Support,
-    url__App__Tos: config_App.url__App__Tos,
-    url__App__Privacy_Policy: config_App.url__App__Privacy_Policy,
-    url__App__Cancellation_And_Refund_Policy:
-      config_App.url__App__Cancellation_And_Refund_Policy,
-    name__App__Session_Key: config_App.name__App__Session_Key,
-    name__Business: config_App.name__Business,
-    url__Website__Business: config_App.url__Website__Business,
-    address__Business: config_App.address__Business,
-    email__Business: config_App.email__Business,
+    email_App: config_App.email_App,
+    url_App_Support: config_App.url_App_Support,
+    url_App_Tos: config_App.url_App_Tos,
+    url_App_PrivacyPolicy: config_App.url_App_PrivacyPolicy,
+    url_App_CancellationAndRefundPolicy:
+      config_App.url_App_CancellationAndRefundPolicy,
+    name_App_Name_SessionKey: config_App.name_App_Name_SessionKey,
+    name_Business: config_App.name_Business,
+    url_Website_Business: config_App.url_Website_Business,
+    address_Business: config_App.address_Business,
+    email_Business: config_App.email_Business,
     country__Client: res.locals.country__Client,
   };
 

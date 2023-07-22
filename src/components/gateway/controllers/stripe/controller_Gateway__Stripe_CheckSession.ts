@@ -9,7 +9,7 @@ export const controller_Gateway__Stripe_CheckSession = async (
   res: Response
 ) => {
   config_Stripe;
-  const stripe = new Stripe(config_Stripe.key__Secret, {
+  const stripe = new Stripe(config_Stripe.key_Secret, {
     apiVersion: "2022-11-15",
   });
 
