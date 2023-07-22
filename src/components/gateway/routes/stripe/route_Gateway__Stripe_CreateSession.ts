@@ -15,9 +15,9 @@ import {
 
 import { controller_Gateway__Stripe_CreateSession } from "../../controllers";
 
-export const route_Gateway__Stripe__Create_Session = Router();
+export const route_Gateway__Stripe_CreateSession = Router();
 
-route_Gateway__Stripe__Create_Session.post(
+route_Gateway__Stripe_CreateSession.post(
   "/stripe-create-session",
   Middleware__Block__Account_LoggedOut,
   Middleware__Extract__Id_Account__From__Request,

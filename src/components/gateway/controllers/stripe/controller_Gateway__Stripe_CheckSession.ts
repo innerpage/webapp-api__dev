@@ -8,7 +8,6 @@ export const controller_Gateway__Stripe_CheckSession = async (
   req: Request,
   res: Response
 ) => {
-  config_Stripe;
   const stripe = new Stripe(config_Stripe.key_Secret, {
     apiVersion: "2022-11-15",
   });
@@ -45,7 +44,7 @@ export const controller_Gateway__Stripe_CheckSession = async (
       console.log(err);
       return res.status(400).json({
         success: false,
-        message: "❌ Could not session details",
+        message: "❌ Could not check session details",
       });
     });
 };

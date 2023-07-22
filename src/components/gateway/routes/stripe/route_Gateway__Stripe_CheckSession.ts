@@ -15,9 +15,9 @@ import {
 
 import { controller_Gateway__Stripe_CheckSession } from "../../controllers";
 
-export const route_Gateway__Stripe__Check_Session = Router();
+export const route_Gateway__Stripe_CheckSession = Router();
 
-route_Gateway__Stripe__Check_Session.post(
+route_Gateway__Stripe_CheckSession.post(
   "/stripe-check-session",
   Middleware__Block__Account_LoggedOut,
   Middleware__Extract__Id_Account__From__Request,

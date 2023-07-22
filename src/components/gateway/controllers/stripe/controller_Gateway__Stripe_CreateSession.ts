@@ -9,7 +9,7 @@ export const controller_Gateway__Stripe_CreateSession = async (
   res: Response
 ) => {
   let id_Tier: string = "";
-  let priceId_Tier: string = "";
+  let id_Price_Tier: string = "";
 
   const stripe = new Stripe(config_Stripe.key_Secret, {
     apiVersion: "2022-11-15",
@@ -18,7 +18,7 @@ export const controller_Gateway__Stripe_CreateSession = async (
   const session: any = await stripe.checkout.sessions.create({
     success_url: `${res.locals.origin}/payment-handle/{CHECKOUT_SESSION_ID}`,
     cancel_url: `${res.locals.origin}/payment-cancel/{CHECKOUT_SESSION_ID}`,
-    line_items: [{ price: priceId_Tier, quantity: 1 }],
+    line_items: [{ price: id_Price_Tier, quantity: 1 }],
     mode: "payment",
     currency: "USD",
   });
@@ -31,7 +31,7 @@ export const controller_Gateway__Stripe_CreateSession = async (
     });
   }
 
-  const purchase = await dal_Purchase__Write__New_Purchase(
+  const new_Purchase = await dal_Purchase__Write__New_Purchase(
     id_Tier,
     session.id,
     session.currency,
@@ -39,7 +39,7 @@ export const controller_Gateway__Stripe_CreateSession = async (
     res.locals.id_Account
   );
 
-  if (!purchase.success) {
+  if (!new_Purchase.success) {
     console.log("❌ Could not save purchase");
     return res.status(400).json({
       success: false,
