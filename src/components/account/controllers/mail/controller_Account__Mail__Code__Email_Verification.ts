@@ -1,17 +1,17 @@
 import { Request, Response } from "express";
 import {
   dal_Account__Write__Code_EmailVerification,
-  dal_Account__Read__By__Account_Id,
+  dal_Account__Read__By__Id_Account,
 } from "../../dals";
 import { helper_Account__Mail__Code_EmailVerification } from "../../helpers";
 import { Helper__Generate__4_Digit_Code } from "../../../../global/helpers";
 import { config__App } from "../../../../config";
 
-export const controller_Account__Mail__Code_EmailVerification = async (
+export const controller_Account__Mail__Code__Email_Verification = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account__Read__By__Account_Id(
+  let account: any = await dal_Account__Read__By__Id_Account(
     res.locals.id_Account
   );
   let code_EmailVerification: number = await Helper__Generate__4_Digit_Code();
