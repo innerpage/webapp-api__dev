@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { controller_App_Get_App_Details } from "../../controllers";
+import { getAppDetailsController } from "../../controllers";
 
 import {
   ExtractOriginFromRequest,
@@ -8,13 +8,13 @@ import {
   ExtractCountryFromIPAddress,
 } from "../../../../global/middlewares";
 
-export const route_App_Get_App_Details = Router();
+export const getAppDetailsRoute = Router();
 
-route_App_Get_App_Details.get(
+getAppDetailsRoute.get(
   "/app",
   ExtractOriginFromRequest,
   BlockRequestByOrigin,
   ExtractIPAddressFromOrigin,
   ExtractCountryFromIPAddress,
-  controller_App_Get_App_Details
+  getAppDetailsController
 );
