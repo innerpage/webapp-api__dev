@@ -30,7 +30,7 @@
   **Express Session**
   `EXPRESS_SESSION_NAME`
   `EXPRESS_SESSION_SECRET`
-  `ExpressSession_Timeout`
+  `EXPRESS_SESSION_TIMEOUT`
   <hr/>
 
   **Node**

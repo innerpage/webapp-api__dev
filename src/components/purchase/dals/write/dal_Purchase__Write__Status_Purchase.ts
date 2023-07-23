@@ -1,4 +1,4 @@
-import { model_Purchase } from "../../models";
+import { purchaseModel } from "../../models";
 
 interface obj_Loose {
   [key: string]: any;
@@ -11,7 +11,7 @@ export const dal_Purchase_Write_Status_Purchase = async (
   let payload: any;
   let obj_Return: obj_Loose = {};
 
-  await model_Purchase
+  await purchaseModel
     .update(
       { is_success: true },
       {

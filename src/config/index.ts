@@ -12,7 +12,7 @@ export { Sequelize_Config } from "./database/sequelize/Sequelize_Config";
 export { Postmark_Config } from "./mail/postmark/Postmark_Config";
 
 // Node (Server)
-export { Node_Config } from "./node/Node_Config";
+export { NodeConfig } from "./node/NodeConfig";
 export { Cors_Config } from "./node/Cors_Config";
 export { ExpressSession_Config } from "./node/ExpressSession_Config";
 

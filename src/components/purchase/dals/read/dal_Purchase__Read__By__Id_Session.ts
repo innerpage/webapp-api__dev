@@ -1,4 +1,4 @@
-import { model_Purchase } from "../../models";
+import { purchaseModel } from "../../models";
 
 interface obj_Loose {
   [key: string]: any;
@@ -8,7 +8,7 @@ export const dal_Purchase_Read_By_Id_Session = async (id_Session: string) => {
   let payload: any;
   let obj_Return: obj_Loose = {};
 
-  await model_Purchase
+  await purchaseModel
     .findOne({
       where: {
         session_id: id_Session,

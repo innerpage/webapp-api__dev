@@ -4,7 +4,7 @@ import {
   dal_Account_Read_By_Email,
 } from "../../dals";
 import { helper_Account_Mail_Code_PasswordReset } from "../../helpers";
-import { Helper_Generate_Code_4Digits } from "../../../../global/helpers";
+import { GenerateFourDigitCode } from "../../../../global/helpers";
 import { App_Config } from "../../../../config";
 
 export const controller_Account_Mail_Code_PasswordReset = async (
@@ -12,7 +12,7 @@ export const controller_Account_Mail_Code_PasswordReset = async (
   res: Response
 ) => {
   let account: any = await dal_Account_Read_By_Email(res.locals.email);
-  let code_PasswordReset: number = await Helper_Generate_Code_4Digits();
+  let code_PasswordReset: number = await GenerateFourDigitCode();
 
   let returnObj_WritePasswordResetCode: any =
     await dal_Account_Write_Code_PasswordReset(

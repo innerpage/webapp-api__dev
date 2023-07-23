@@ -1,4 +1,4 @@
-import { model_Account } from "../../models";
+import { accountModel } from "../../models";
 
 interface obj_Loose {
   [key: string]: any;
@@ -12,7 +12,7 @@ export const dal_Account_Write_Code_EmailVerification = async (
   let payload: any;
   let obj_Return: obj_Loose = {};
 
-  await model_Account
+  await accountModel
     .update(
       { email_verification_code: code_EmailVerification },
       {

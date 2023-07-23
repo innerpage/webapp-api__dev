@@ -4,7 +4,7 @@ import {
   dal_Account_Read_By_Id_Account,
 } from "../../dals";
 import { helper_Account_Mail_Code_EmailVerification } from "../../helpers";
-import { Helper_Generate_Code_4Digits } from "../../../../global/helpers";
+import { GenerateFourDigitCode } from "../../../../global/helpers";
 import { App_Config } from "../../../../config";
 
 export const controller_Account_Mail_Code_EmailVerification = async (
@@ -14,7 +14,7 @@ export const controller_Account_Mail_Code_EmailVerification = async (
   let account: any = await dal_Account_Read_By_Id_Account(
     res.locals.id_Account
   );
-  let code_EmailVerification: number = await Helper_Generate_Code_4Digits();
+  let code_EmailVerification: number = await GenerateFourDigitCode();
 
   let returnObj_Write_EmailVerificationCode: any =
     await dal_Account_Write_Code_EmailVerification(

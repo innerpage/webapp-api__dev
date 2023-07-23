@@ -28,7 +28,7 @@ const model_Attributes: any = {
 };
 const model_Options: any = {};
 
-export const model_Account = Sequelize_Config.define(
+export const accountModel = Sequelize_Config.define(
   model_Name,
   model_Attributes,
   model_Options

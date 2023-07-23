@@ -35,7 +35,7 @@ const model_Attributes: any = {
 
 const model_Options: any = {};
 
-export const model_Purchase = Sequelize_Config.define(
+export const purchaseModel = Sequelize_Config.define(
   model_Name,
   model_Attributes,
   model_Options

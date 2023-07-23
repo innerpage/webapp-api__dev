@@ -1,7 +1,7 @@
 import app from "./app";
 import http from "http";
-import { Node_Config, Sequelize_Config } from "./config";
-import { Helper_Include_Model_Associations } from "./global/helpers";
+import { NodeConfig, Sequelize_Config } from "./config";
+import { IncludeModelAssociations } from "./global/helpers";
 import { Server, Socket } from "socket.io";
 
 import {
@@ -22,7 +22,7 @@ dotenv.config();
       console.log(err);
     });
 
-  Helper_Include_Model_Associations();
+  IncludeModelAssociations();
 
   // await Sequelize_Config
   //   .sync()
@@ -64,7 +64,7 @@ dotenv.config();
   //   });
   // });
 
-  server_Node.listen(Node_Config.port, () => {
-    console.log(`✅ Server is running on port: ${Node_Config.port}`);
+  server_Node.listen(NodeConfig.port, () => {
+    console.log(`✅ Server is running on port: ${NodeConfig.port}`);
   });
 })();
