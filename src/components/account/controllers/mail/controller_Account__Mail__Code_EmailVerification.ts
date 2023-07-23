@@ -5,7 +5,7 @@ import {
 } from "../../dals";
 import { helper_Account_Mail_Code_EmailVerification } from "../../helpers";
 import { GenerateFourDigitCode } from "../../../../global/helpers";
-import { App_Config } from "../../../../config";
+import { AppConfig } from "../../../../config";
 
 export const controller_Account_Mail_Code_EmailVerification = async (
   req: Request,
@@ -36,11 +36,11 @@ export const controller_Account_Mail_Code_EmailVerification = async (
       account.first_name,
       account.email,
       code_EmailVerification,
-      App_Config.APP_WEBSITE,
-      App_Config.APP_NAME,
-      App_Config.BUSINESS_NAME,
-      App_Config.BUSINESS_ADDRESS,
-      App_Config.APP_EMAIL
+      AppConfig.appWebsiteUrl,
+      AppConfig.appName,
+      AppConfig.businessName,
+      AppConfig.businessAddress,
+      AppConfig.appEmail
     );
   console.log(returnObj_MailEmailVerificationCode.message);
   console.log(returnObj_MailEmailVerificationCode.payload);

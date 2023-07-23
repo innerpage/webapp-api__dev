@@ -1,16 +1,16 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-export const Postmark_Config = {
+export const PostmarkConfig = {
   token: process.env.POSTMARK_TOKEN!,
   template: {
-    Email_Verification_Code: {
+    emailVerificationCode: {
       id: process.env.POSTMARK_TEMPLATE_EMAIL_VERIFICATION_CODE,
     },
-    Password_Reset_Code: {
+    passwordResetCode: {
       id: process.env.POSTMARK_TEMPLATE_PASSWORD_RESET_CODE,
     },
-    Password_Reset_Confirmation: {
+    passwordResetConfirmation: {
       id: process.env.POSTMARK_TEMPLATE_CONFIRM_PASSWORD_RESET,
     },
   },

@@ -6,7 +6,7 @@ import {
   helper_Account_Login,
 } from "../../helpers";
 import { GenerateFourDigitCode } from "../../../../global/helpers";
-import { App_Config } from "../../../../config";
+import { AppConfig } from "../../../../config";
 
 export const controller_Account_Signup = async (
   req: Request,
@@ -34,11 +34,11 @@ export const controller_Account_Signup = async (
       returnObj_NewAccount.payload.name_First,
       returnObj_NewAccount.payload.email,
       code_EmailVerification,
-      App_Config.APP_WEBSITE,
-      App_Config.APP_NAME,
-      App_Config.BUSINESS_NAME,
-      App_Config.BUSINESS_ADDRESS,
-      App_Config.APP_EMAIL
+      AppConfig.appWebsiteUrl,
+      AppConfig.appName,
+      AppConfig.businessName,
+      AppConfig.businessAddress,
+      AppConfig.appEmail
     );
   console.log(returnObj_Mail_Code_EmailVerification.message);
   console.log(returnObj_Mail_Code_EmailVerification.payload);

@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-interface Postgres_Config_Obj {
+interface PostgresConfigObject {
   host?: string;
   port?: string;
   database?: string;
@@ -9,7 +9,7 @@ interface Postgres_Config_Obj {
   password?: string;
 }
 
-export const Postgres_Config: Postgres_Config_Obj = {
+export const PostgresConfig: PostgresConfigObject = {
   host: process.env.POSTGRES_HOST,
   port: process.env.POSTGRES_PORT,
   database: process.env.POSTGRES_DATABASE,

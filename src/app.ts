@@ -4,10 +4,10 @@ import connectRedis from "connect-redis";
 import cors from "cors";
 import { IncludeRoutes } from "./global/helpers";
 import {
-  Cors_Config,
+  CorsConfig,
   NodeConfig,
-  Redis_Config as client,
-  ExpressSession_Config,
+  RedisConfig as client,
+  ExpressSessionConfig,
 } from "./config";
 
 import { Middleware_Handle_Errors } from "./global/middlewares";
@@ -18,7 +18,7 @@ const store_Redis = connectRedis(session);
 if (NodeConfig.env === "dev") {
   app.use(cors());
 } else {
-  app.use(cors(Cors_Config));
+  app.use(cors(CorsConfig));
 }
 
 app.use(express.json());
@@ -29,7 +29,7 @@ if (NodeConfig.env === "prod") {
 
 app.use(
   session({
-    ...ExpressSession_Config,
+    ...ExpressSessionConfig,
     store: new store_Redis({ client }),
   })
 );

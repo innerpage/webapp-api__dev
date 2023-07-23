@@ -1,5 +1,5 @@
 import * as postmark from "postmark";
-import { Postmark_Config } from "../../../../config";
+import { PostmarkConfig } from "../../../../config";
 
 interface obj_Loose {
   [key: string]: any;
@@ -15,7 +15,7 @@ export const helper_Account_Mail_Code_EmailVerification = async (
   publisher_BusinessAddress: string,
   publisher_SupportEmail: string
 ) => {
-  const client_Postmark = new postmark.Client(Postmark_Config.token);
+  const client_Postmark = new postmark.Client(PostmarkConfig.token);
   let id_Template = 30914127;
   let isSent_VerificationMail: boolean = false;
   let returnObj: obj_Loose = {};

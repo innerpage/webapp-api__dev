@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { dal_Account_Read_By_Id_Account } from "../../dals";
-import { App_Config } from "../../../../config";
+import { AppConfig } from "../../../../config";
 
 export const controller_Account_Get_Account_Details = async (
   req: Request,
@@ -19,19 +19,19 @@ export const controller_Account_Get_Account_Details = async (
   };
 
   let payload_AppDetails: any = {
-    APP_NAME: App_Config.APP_NAME,
-    APP_WEBSITE: App_Config.APP_WEBSITE,
-    APP_URL: App_Config.APP_URL,
-    APP_EMAIL: App_Config.APP_EMAIL,
-    APP_SUPPORT_URL: App_Config.APP_SUPPORT_URL,
-    APP_TOS: App_Config.APP_TOS,
-    APP_PRIVACY_POLICY: App_Config.APP_PRIVACY_POLICY,
-    APP_CANCELLATION_AND_REFUND: App_Config.APP_CANCELLATION_AND_REFUND,
-    APP_SESSION_KEY: App_Config.APP_SESSION_KEY,
-    BUSINESS_NAME: App_Config.BUSINESS_NAME,
-    BUSINESS_WEBSITE: App_Config.BUSINESS_WEBSITE,
-    BUSINESS_ADDRESS: App_Config.BUSINESS_ADDRESS,
-    BUSINESS_EMAIL: App_Config.BUSINESS_EMAIL,
+    APP_NAME: AppConfig.appName,
+    APP_WEBSITE: AppConfig.appWebsiteUrl,
+    APP_URL: AppConfig.appUrl,
+    APP_EMAIL: AppConfig.appEmail,
+    APP_SUPPORT_URL: AppConfig.appSupportUrl,
+    APP_TOS: AppConfig.appTosUrl,
+    APP_PRIVACY_POLICY: AppConfig.appPrivacyPolicyUrl,
+    APP_CANCELLATION_AND_REFUND: AppConfig.appCancellationAndRefundUrl,
+    APP_SESSION_KEY: AppConfig.appSessionKey,
+    BUSINESS_NAME: AppConfig.businessName,
+    BUSINESS_WEBSITE: AppConfig.businessWebsite,
+    BUSINESS_ADDRESS: AppConfig.businessAddress,
+    BUSINESS_EMAIL: AppConfig.businessEmail,
     country_Client: res.locals.country_Client,
   };
 

@@ -3,7 +3,7 @@ import { NodeConfig } from "..";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const ExpressSession_Config: SessionOptions = {
+export const ExpressSessionConfig: SessionOptions = {
   secret: process.env.EXPRESS_SESSION_SECRET!,
   name: process.env.EXPRESS_SESSION_NAME,
   cookie: {

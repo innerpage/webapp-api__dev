@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { Sequelize_Config } from "../../../config";
+import { SequelizeConfig } from "../../../config";
 
 const model_Name: string = "purchase";
 const model_Attributes: any = {
@@ -35,7 +35,7 @@ const model_Attributes: any = {
 
 const model_Options: any = {};
 
-export const purchaseModel = Sequelize_Config.define(
+export const purchaseModel = SequelizeConfig.define(
   model_Name,
   model_Attributes,
   model_Options

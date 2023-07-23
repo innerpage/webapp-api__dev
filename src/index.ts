@@ -1,6 +1,6 @@
 import app from "./app";
 import http from "http";
-import { NodeConfig, Sequelize_Config } from "./config";
+import { NodeConfig, SequelizeConfig } from "./config";
 import { IncludeModelAssociations } from "./global/helpers";
 import { Server, Socket } from "socket.io";
 
@@ -13,7 +13,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 (async () => {
-  await Sequelize_Config.authenticate()
+  await SequelizeConfig.authenticate()
     .then((result) => {
       console.log("✅ Database authenticated");
     })
@@ -24,7 +24,7 @@ dotenv.config();
 
   IncludeModelAssociations();
 
-  // await Sequelize_Config
+  // await SequelizeConfig
   //   .sync()
   //   .then((result) => {
   //     console.log("✅ Models synced");
@@ -35,7 +35,7 @@ dotenv.config();
   //   });
 
   // alters table
-  await Sequelize_Config.sync({ alter: true })
+  await SequelizeConfig.sync({ alter: true })
     .then((result) => {
       console.log("✅ Models synced");
     })

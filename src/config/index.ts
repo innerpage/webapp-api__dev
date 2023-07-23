@@ -1,20 +1,20 @@
 // App
-export { App_Config } from "./app/App_Config";
+export { AppConfig } from "./app/AppConfig";
 
 // Caching
-export { Redis_Config } from "./caching/Redis_Config";
+export { RedisConfig } from "./caching/RedisConfig";
 
 // Database
-export { Postgres_Config } from "./database/postgres/Postgres_Config";
-export { Sequelize_Config } from "./database/sequelize/Sequelize_Config";
+export { PostgresConfig } from "./database/postgres/PostgresConfig";
+export { SequelizeConfig } from "./database/sequelize/SequelizeConfig";
 
 // Mail
-export { Postmark_Config } from "./mail/postmark/Postmark_Config";
+export { PostmarkConfig } from "./mail/postmark/PostmarkConfig";
 
 // Node (Server)
 export { NodeConfig } from "./node/NodeConfig";
-export { Cors_Config } from "./node/Cors_Config";
-export { ExpressSession_Config } from "./node/ExpressSession_Config";
+export { CorsConfig } from "./node/CorsConfig";
+export { ExpressSessionConfig } from "./node/ExpressSessionConfig";
 
 // Payment
-export { Stripe_Config } from "./payment/stripe/Stripe_Config";
+export { StripeConfig } from "./payment/stripe/StripeConfig";
