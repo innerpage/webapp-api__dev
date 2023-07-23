@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const Middleware_Extract_IP_From_Origin = async (
+export const ExtractIPAddressFromOrigin = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -15,7 +15,7 @@ export const Middleware_Extract_IP_From_Origin = async (
     });
   }
 
-  res.locals.ip_Client = ip;
-  console.log(`Client IP: ${res.locals.ip_Client}`);
+  res.locals.clientIPAddress = ip;
+  console.log(`Client IP: ${res.locals.clientIPAddress}`);
   next();
 };

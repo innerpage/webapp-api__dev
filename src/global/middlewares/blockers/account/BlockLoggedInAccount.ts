@@ -1,20 +1,20 @@
 import { Request, Response, NextFunction } from "express";
 
-export const Middleware_Block_Account_LoggedIn = (
+export const BlockLoggedInAccount = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let user_isLogged = !!req.session!.id_Account;
+  let isUserLoggedIn = !!req.session!.accountId;
 
-  if (user_isLogged) {
-    console.log(`❌ ${req.session.id_Account} is LOGGED_IN`);
+  if (isUserLoggedIn) {
+    console.log(`❌ ${req.session.accountId} is logged in`);
     return res.status(400).json({
       success: false,
       message: "❌ You are already logged in",
     });
   } else {
-    console.log("✅ User is NOT_LOGGED_IN");
+    console.log("✅ User is not logged in");
     next();
   }
 };

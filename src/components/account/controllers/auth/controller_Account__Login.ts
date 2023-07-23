@@ -20,8 +20,8 @@ export const controller_Account_Login = async (req: Request, res: Response) => {
     });
   }
   console.log(`${email} password IS_VALID`);
-  res.locals.id_Account = account?.dataValues.id;
-  helper_Account_Login(req, res.locals.id_Account);
+  res.locals.accountId = account?.dataValues.id;
+  helper_Account_Login(req, res.locals.accountId);
 
   let payload_Account_Login = {
     name_First: account.first_name,

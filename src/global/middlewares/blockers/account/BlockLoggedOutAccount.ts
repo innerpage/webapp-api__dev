@@ -1,17 +1,17 @@
 import { Request, Response, NextFunction } from "express";
 
-export const Middleware_Block_Account_LoggedOut = (
+export const BlockLoggedOutAccount = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let user_isLogged = !!req.session!.id_Account;
+  let isUserLoggedIn = !!req.session!.accountId;
 
-  if (user_isLogged) {
-    console.log(`✅ ${req.session.id_Account} is LOGGED_IN`);
+  if (isUserLoggedIn) {
+    console.log(`✅ ${req.session.accountId} is logged in`);
     next();
   } else {
-    console.log(`❌ ${req.session.id_Account} is NOT_LOGGED_IN`);
+    console.log(`❌ ${req.session.accountId} is not logged in`);
     return res.status(400).json({
       success: false,
       message: "❌ You are not logged in",

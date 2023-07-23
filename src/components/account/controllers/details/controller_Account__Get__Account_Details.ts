@@ -6,9 +6,7 @@ export const controller_Account_Get_Account_Details = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account_Read_By_Id_Account(
-    res.locals.id_Account
-  );
+  let account: any = await dal_Account_Read_By_Id_Account(res.locals.accountId);
 
   let payload_AccountDetails: any = {
     name_First: account.first_name,
@@ -32,7 +30,7 @@ export const controller_Account_Get_Account_Details = async (
     BUSINESS_WEBSITE: AppConfig.businessWebsite,
     BUSINESS_ADDRESS: AppConfig.businessAddress,
     BUSINESS_EMAIL: AppConfig.businessEmail,
-    country_Client: res.locals.country_Client,
+    clientCountry: res.locals.clientCountry,
   };
 
   return res.status(200).json({

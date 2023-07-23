@@ -19,7 +19,7 @@ export const controller_App_Get_App_Details = async (
     BUSINESS_WEBSITE: AppConfig.businessWebsite,
     BUSINESS_ADDRESS: AppConfig.businessAddress,
     BUSINESS_EMAIL: AppConfig.businessEmail,
-    country_Client: res.locals.country_Client,
+    clientCountry: res.locals.clientCountry,
   };
 
   return res.status(200).json({

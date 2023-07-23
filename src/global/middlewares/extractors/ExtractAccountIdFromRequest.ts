@@ -1,13 +1,13 @@
 import { Request, Response, NextFunction } from "express";
 
-export const Middleware_Extract_Id_Account_From_Request = (
+export const ExtractAccountIdFromRequest = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let id_Account: string = req.session!.id_Account!;
+  let accountId: string = req.session!.accountId!;
 
-  if (!id_Account) {
+  if (!accountId) {
     console.log("❌ Un-authorised access");
     return res.status(400).json({
       success: false,
@@ -15,6 +15,6 @@ export const Middleware_Extract_Id_Account_From_Request = (
     });
   }
 
-  res.locals.id_Account = id_Account;
+  res.locals.accountId = accountId;
   next();
 };

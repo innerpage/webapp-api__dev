@@ -10,7 +10,7 @@ import {
   ExpressSessionConfig,
 } from "./config";
 
-import { Middleware_Handle_Errors } from "./global/middlewares";
+import { HandleErrors } from "./global/middlewares";
 
 const app = express();
 const store_Redis = connectRedis(session);
@@ -44,6 +44,6 @@ IncludeRoutes().then((routeIndexPaths: any) => {
   });
 });
 
-app.use(Middleware_Handle_Errors);
+app.use(HandleErrors);
 
 export default app;

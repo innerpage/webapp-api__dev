@@ -1,20 +1,20 @@
 import { Request, Response, NextFunction } from "express";
 import { AppConfig, NodeConfig } from "../../../../config";
 
-export const Middleware_Block_Request_By_Origin = async (
+export const BlockRequestByOrigin = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   if (NodeConfig.env === "prod") {
     if (res.locals.origin != AppConfig.appUrl) {
-      console.log(`❌ ${res.locals.origin} is NOT_AUTHORISED for access`);
+      console.log(`❌ ${res.locals.origin} is not authorized for access`);
       return res.status(200).json({
         success: false,
-        message: "❌ You are NOT AUTHORISED to make this request",
+        message: "❌ You are not authorized to make this request",
       });
     }
   }
-  console.log(`✅ ${res.locals.origin} is AUTHORISED for access`);
+  console.log(`✅ ${res.locals.origin} is authorized for access`);
   next();
 };

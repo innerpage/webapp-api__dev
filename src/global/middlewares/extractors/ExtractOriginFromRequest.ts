@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const Middleware_Extract_Origin_From_Request = (
+export const ExtractOriginFromRequest = (
   req: Request,
   res: Response,
   next: NextFunction

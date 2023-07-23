@@ -1,8 +1,8 @@
 import { Router } from "express";
 
 import {
-  Middleware_Block_Account_LoggedIn,
-  Middleware_Block_Account_NonExistence_By_Email,
+  BlockLoggedInAccount,
+  BlockNonExistentAccountByEmail,
 } from "../../../../global/middlewares";
 
 import {
@@ -16,9 +16,9 @@ export const route_Account_Login = Router();
 
 route_Account_Login.post(
   "/login",
-  Middleware_Block_Account_LoggedIn,
+  BlockLoggedInAccount,
   middleware_Account_Validate_Inputs_For_Login,
   middleware_Account_Format_Inputs_For_Login,
-  Middleware_Block_Account_NonExistence_By_Email,
+  BlockNonExistentAccountByEmail,
   controller_Account_Login
 );
