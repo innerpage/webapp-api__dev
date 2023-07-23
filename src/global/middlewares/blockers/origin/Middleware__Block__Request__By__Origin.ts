@@ -7,7 +7,7 @@ export const Middleware_Block_Request_By_Origin = async (
   next: NextFunction
 ) => {
   if (Node_Config.env === "prod") {
-    if (res.locals.origin != App_Config.App_Url) {
+    if (res.locals.origin != App_Config.APP_URL) {
       console.log(`❌ ${res.locals.origin} is NOT_AUTHORISED for access`);
       return res.status(200).json({
         success: false,

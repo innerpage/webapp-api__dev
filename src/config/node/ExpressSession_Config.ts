@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const ExpressSession_Config: SessionOptions = {
-  secret: process.env.Express_Session_Secret!,
-  name: process.env.Express_Session_Name,
+  secret: process.env.EXPRESS_SESSION_SECRET!,
+  name: process.env.EXPRESS_SESSION_NAME,
   cookie: {
     maxAge: +process.env.ExpressSession_Timeout!,
     secure: Node_Config.env === "prod" ? true : false,

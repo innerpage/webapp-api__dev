@@ -34,11 +34,11 @@ export const controller_Account_Mail_Code_PasswordReset = async (
       account.first_name,
       res.locals.email,
       code_PasswordReset,
-      App_Config.App_Website_Url,
-      App_Config.App_Name,
-      App_Config.App_Business_Name,
-      App_Config.App_Business_Address,
-      App_Config.App_Email
+      App_Config.APP_WEBSITE,
+      App_Config.APP_NAME,
+      App_Config.BUSINESS_NAME,
+      App_Config.BUSINESS_ADDRESS,
+      App_Config.APP_EMAIL
     );
   console.log(returnObj_MailEmailVerificationCode.message);
   console.log(returnObj_MailEmailVerificationCode.payload);
