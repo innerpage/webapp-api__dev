@@ -4,7 +4,7 @@ import Stripe from "stripe";
 import { writePurchaseStatus } from "../../../purchase/dals";
 import { StripeConfig } from "../../../../config";
 
-export const controller_Gateway_Stripe_CheckSession = async (
+export const stripeCheckSessionController = async (
   req: Request,
   res: Response
 ) => {
@@ -13,7 +13,7 @@ export const controller_Gateway_Stripe_CheckSession = async (
   });
 
   await stripe.checkout.sessions
-    .retrieve(res.locals.id_Session)
+    .retrieve(res.locals.sessionId)
     .then(async (session) => {
       if (session.payment_status != "paid") {
         return res.status(200).json({
@@ -23,9 +23,11 @@ export const controller_Gateway_Stripe_CheckSession = async (
         });
       }
 
-      const updated_Purchase = await writePurchaseStatus(res.locals.id_Session);
+      const updatedPurchaseObject = await writePurchaseStatus(
+        res.locals.sessionId
+      );
 
-      if (!updated_Purchase.success) {
+      if (!updatedPurchaseObject.success) {
         return res.status(200).json({
           success: false,
           message: "❌ Payment status update failed",

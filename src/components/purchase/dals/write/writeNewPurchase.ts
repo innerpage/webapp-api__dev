@@ -5,8 +5,8 @@ interface obj_Loose {
 }
 
 export const writeNewPurchase = async (
-  id_Document: string,
-  id_Session: string,
+  documentId: string,
+  sessionId: string,
   currency: string,
   paid_Amount: number,
   accountId: string
@@ -17,8 +17,8 @@ export const writeNewPurchase = async (
 
   await purchaseModel
     .create({
-      document_id: id_Document,
-      session_id: id_Session,
+      document_id: documentId,
+      session_id: sessionId,
       currency: currency,
       amount_paid: paid_Amount,
       accountId: accountId,

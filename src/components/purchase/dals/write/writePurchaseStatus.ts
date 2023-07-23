@@ -4,7 +4,7 @@ interface obj_Loose {
   [key: string]: any;
 }
 
-export const writePurchaseStatus = async (id_Session: string) => {
+export const writePurchaseStatus = async (sessionId: string) => {
   let isSuccess_Updated_PurchaseStatus: boolean = false;
   let payload: any;
   let returnObject: obj_Loose = {};
@@ -14,7 +14,7 @@ export const writePurchaseStatus = async (id_Session: string) => {
       { is_success: true },
       {
         where: {
-          session_id: id_Session,
+          session_id: sessionId,
         },
       }
     )

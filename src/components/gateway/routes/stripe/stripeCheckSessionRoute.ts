@@ -9,22 +9,22 @@ import {
 } from "../../../../global/middlewares";
 
 import {
-  middleware_Gateway_Validate_Inputs_For_Stripe_CheckSession,
-  middleware_Gateway_Format_Inputs_For_Stripe_CheckSession,
+  validateInputsForStripeCheckSession,
+  formatInputsForStripeCheckSession,
 } from "../../middlewares";
 
-import { controller_Gateway_Stripe_CheckSession } from "../../controllers";
+import { stripeCheckSessionController } from "../../controllers";
 
-export const route_Gateway_Stripe_CheckSession = Router();
+export const stripeCheckSessionRoute = Router();
 
-route_Gateway_Stripe_CheckSession.post(
+stripeCheckSessionRoute.post(
   "/stripe-check-session",
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   ExtractOriginFromRequest,
   BlockNonExistentAccountByAccountId,
   BlockDisabledAccountByAccountId,
-  middleware_Gateway_Validate_Inputs_For_Stripe_CheckSession,
-  middleware_Gateway_Format_Inputs_For_Stripe_CheckSession,
-  controller_Gateway_Stripe_CheckSession
+  validateInputsForStripeCheckSession,
+  formatInputsForStripeCheckSession,
+  stripeCheckSessionController
 );
