@@ -10,7 +10,7 @@ export const dal_Account_Write_Code_PasswordReset = async (
 ) => {
   let isSuccess_PasswordResetCodeSaved: boolean = false;
   let payload: any;
-  let obj_Return: obj_Loose = {};
+  let returnObject: obj_Loose = {};
 
   await accountModel
     .update(
@@ -28,14 +28,14 @@ export const dal_Account_Write_Code_PasswordReset = async (
     .catch((err) => (payload = err));
 
   if (isSuccess_PasswordResetCodeSaved) {
-    obj_Return.success = true;
-    obj_Return.message = "Password reset code SAVED";
-    obj_Return.payload = payload;
+    returnObject.success = true;
+    returnObject.message = "Password reset code SAVED";
+    returnObject.payload = payload;
   } else {
-    obj_Return.success = false;
-    obj_Return.message = "Password reset code NOT_SAVED";
-    obj_Return.payload = payload;
+    returnObject.success = false;
+    returnObject.message = "Password reset code NOT_SAVED";
+    returnObject.payload = payload;
   }
 
-  return obj_Return;
+  return returnObject;
 };

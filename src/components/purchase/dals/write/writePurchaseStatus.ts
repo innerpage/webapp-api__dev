@@ -4,12 +4,10 @@ interface obj_Loose {
   [key: string]: any;
 }
 
-export const dal_Purchase_Write_Status_Purchase = async (
-  id_Session: string
-) => {
+export const writePurchaseStatus = async (id_Session: string) => {
   let isSuccess_Updated_PurchaseStatus: boolean = false;
   let payload: any;
-  let obj_Return: obj_Loose = {};
+  let returnObject: obj_Loose = {};
 
   await purchaseModel
     .update(
@@ -27,13 +25,13 @@ export const dal_Purchase_Write_Status_Purchase = async (
     .catch((err) => (payload = err));
 
   if (isSuccess_Updated_PurchaseStatus) {
-    obj_Return.success = true;
-    obj_Return.message = "Purchase status UPDATED";
-    obj_Return.payload = payload;
+    returnObject.success = true;
+    returnObject.message = "Purchase status UPDATED";
+    returnObject.payload = payload;
   } else {
-    obj_Return.success = false;
-    obj_Return.message = "Purchase status NOT_UPDATED";
-    obj_Return.payload = payload;
+    returnObject.success = false;
+    returnObject.message = "Purchase status NOT_UPDATED";
+    returnObject.payload = payload;
   }
-  return obj_Return;
+  return returnObject;
 };

@@ -4,7 +4,7 @@ interface obj_Loose {
   [key: string]: any;
 }
 
-export const dal_Purchase_Write_New_Purchase = async (
+export const writeNewPurchase = async (
   id_Document: string,
   id_Session: string,
   currency: string,
@@ -13,7 +13,7 @@ export const dal_Purchase_Write_New_Purchase = async (
 ) => {
   let isSuccess_NewPurchase: boolean = false;
   let payload: any;
-  let obj_Return: obj_Loose = {};
+  let returnObject: obj_Loose = {};
 
   await purchaseModel
     .create({
@@ -32,13 +32,13 @@ export const dal_Purchase_Write_New_Purchase = async (
     });
 
   if (isSuccess_NewPurchase) {
-    obj_Return.success = true;
-    obj_Return.message = "New purchase CREATED";
-    obj_Return.payload = payload;
+    returnObject.success = true;
+    returnObject.message = "New purchase CREATED";
+    returnObject.payload = payload;
   } else {
-    obj_Return.success = false;
-    obj_Return.message = "New purchase NOT_CREATED";
-    obj_Return.payload = payload;
+    returnObject.success = false;
+    returnObject.message = "New purchase NOT_CREATED";
+    returnObject.payload = payload;
   }
-  return obj_Return;
+  return returnObject;
 };

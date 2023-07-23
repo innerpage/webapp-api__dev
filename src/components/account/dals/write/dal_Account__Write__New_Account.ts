@@ -13,7 +13,7 @@ export const dal_Account_Write_New_Account = async (
 ) => {
   let isSuccess_NewAccount: boolean = false;
   let payload: any;
-  let obj_Return: obj_Loose = {};
+  let returnObject: obj_Loose = {};
 
   await accountModel
     .create({
@@ -39,14 +39,14 @@ export const dal_Account_Write_New_Account = async (
     });
 
   if (isSuccess_NewAccount) {
-    obj_Return.success = true;
-    obj_Return.message = "New account CREATED";
-    obj_Return.payload = payload;
+    returnObject.success = true;
+    returnObject.message = "New account CREATED";
+    returnObject.payload = payload;
   } else {
-    obj_Return.success = false;
-    obj_Return.message = "New account NOT_CREATED";
-    obj_Return.payload = payload;
+    returnObject.success = false;
+    returnObject.message = "New account NOT_CREATED";
+    returnObject.payload = payload;
   }
 
-  return obj_Return;
+  return returnObject;
 };

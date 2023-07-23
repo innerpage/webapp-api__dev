@@ -10,7 +10,7 @@ export const dal_Account_Write_Code_EmailVerification = async (
 ) => {
   let isSuccess_EmailVerificationCode_Saved: boolean = false;
   let payload: any;
-  let obj_Return: obj_Loose = {};
+  let returnObject: obj_Loose = {};
 
   await accountModel
     .update(
@@ -28,14 +28,14 @@ export const dal_Account_Write_Code_EmailVerification = async (
     .catch((err) => (payload = err));
 
   if (isSuccess_EmailVerificationCode_Saved) {
-    obj_Return.success = true;
-    obj_Return.message = "Email verification code SAVED";
-    obj_Return.payload = payload;
+    returnObject.success = true;
+    returnObject.message = "Email verification code SAVED";
+    returnObject.payload = payload;
   } else {
-    obj_Return.success = false;
-    obj_Return.message = "Email verification code NOT_SAVED";
-    obj_Return.payload = payload;
+    returnObject.success = false;
+    returnObject.message = "Email verification code NOT_SAVED";
+    returnObject.payload = payload;
   }
 
-  return obj_Return;
+  return returnObject;
 };

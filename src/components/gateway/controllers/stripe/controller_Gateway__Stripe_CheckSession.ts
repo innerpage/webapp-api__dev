@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
 import Stripe from "stripe";
-import { dal_Purchase_Write_Status_Purchase } from "../../../purchase/dals";
+import { writePurchaseStatus } from "../../../purchase/dals";
 import { StripeConfig } from "../../../../config";
 
 export const controller_Gateway_Stripe_CheckSession = async (
@@ -23,9 +23,7 @@ export const controller_Gateway_Stripe_CheckSession = async (
         });
       }
 
-      const updated_Purchase = await dal_Purchase_Write_Status_Purchase(
-        res.locals.id_Session
-      );
+      const updated_Purchase = await writePurchaseStatus(res.locals.id_Session);
 
       if (!updated_Purchase.success) {
         return res.status(200).json({

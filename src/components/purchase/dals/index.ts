@@ -1,6 +1,6 @@
 // Read
-export { dal_Purchase_Read_By_Id_Session } from "./read/dal_Purchase_Read_By_Id_Session";
+export { readPurchaseBySessionId } from "./read/readPurchaseBySessionId";
 
 // Write
-export { dal_Purchase_Write_New_Purchase } from "./write/dal_Purchase_Write_New_Purchase";
-export { dal_Purchase_Write_Status_Purchase } from "./write/dal_Purchase_Write_Status_Purchase";
+export { writeNewPurchase } from "./write/writeNewPurchase";
+export { writePurchaseStatus } from "./write/writePurchaseStatus";
