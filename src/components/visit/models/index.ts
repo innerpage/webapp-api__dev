@@ -1,1 +1,1 @@
-export { model_Visit } from "./model_Visit";
+export { visitModel } from "./visitModel";

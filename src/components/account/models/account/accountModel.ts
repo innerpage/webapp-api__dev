@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import { SequelizeConfig } from "../../../../config";
 
-const model_Name: string = "account";
-const model_Attributes: any = {
+const modelName: string = "account";
+const modelAttributes: any = {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
@@ -26,10 +26,10 @@ const model_Attributes: any = {
   password_reset_code: { type: DataTypes.STRING, defaultValue: "" },
   is_disabled: { type: DataTypes.BOOLEAN, defaultValue: false },
 };
-const model_Options: any = {};
+const modelOptions: any = {};
 
 export const accountModel = SequelizeConfig.define(
-  model_Name,
-  model_Attributes,
-  model_Options
+  modelName,
+  modelAttributes,
+  modelOptions
 );
