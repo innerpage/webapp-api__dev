@@ -25,7 +25,7 @@ export const writeNewAccount = async (
         firstName: newAccount.dataValues.first_name,
         lastName: newAccount.dataValues.last_name,
         email: newAccount.dataValues.email,
-        isVerified_Email: newAccount.dataValues.is_email_verified,
+        isEmailVerified: newAccount.dataValues.is_email_verified,
         emailVerificationCode: newAccount.dataValues.email_verification_code,
       };
     })

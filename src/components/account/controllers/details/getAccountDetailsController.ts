@@ -37,8 +37,8 @@ export const getAccountDetailsController = async (
     success: true,
     message: "✅ Fetched account & app details",
     payload: {
-      details_Account: accountDetailsPayload,
-      details_App: appDetailsPayload,
+      accountDetails: accountDetailsPayload,
+      appDetails: appDetailsPayload,
     },
   });
 };
