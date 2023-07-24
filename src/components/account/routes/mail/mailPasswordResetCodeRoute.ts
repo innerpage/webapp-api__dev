@@ -6,9 +6,9 @@ import {
 } from "../../middlewares";
 import { controller_Account_Mail_Code_PasswordReset } from "../../controllers";
 
-export const route_Account_Mail_Code_PasswordReset = Router();
+export const mailPasswordResetCodeRoute = Router();
 
-route_Account_Mail_Code_PasswordReset.post(
+mailPasswordResetCodeRoute.post(
   "/send-password-reset-code",
   middleware_Account_Validate_Inputs_For_Mail_Reset_Password,
   middleware_Account_Format_Inputs_For_Mail_Reset_Password,

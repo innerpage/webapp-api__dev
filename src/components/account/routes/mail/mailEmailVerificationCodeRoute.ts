@@ -10,9 +10,9 @@ import {
   middleware_Account_Format_Inputs_For_Mail_Code_EmailVerification,
 } from "../../middlewares";
 
-export const route_Account_Mail_Code_EmailVerification = Router();
+export const mailEmailVerificationCodeRoute = Router();
 
-route_Account_Mail_Code_EmailVerification.post(
+mailEmailVerificationCodeRoute.post(
   "/resend-email-verification-code",
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,

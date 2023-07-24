@@ -12,9 +12,9 @@ import {
 
 import { controller_Account_Login } from "../../controllers";
 
-export const route_Account_Login = Router();
+export const loginRoute = Router();
 
-route_Account_Login.post(
+loginRoute.post(
   "/login",
   BlockLoggedInAccount,
   middleware_Account_Validate_Inputs_For_Login,

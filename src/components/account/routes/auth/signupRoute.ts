@@ -14,9 +14,9 @@ import {
 } from "../../middlewares";
 import { controller_Account_Signup } from "../../controllers";
 
-export const route_Account_Signup = Router();
+export const signupRoute = Router();
 
-route_Account_Signup.post(
+signupRoute.post(
   "/signup",
   ExtractOriginFromRequest,
   BlockRequestByOrigin,

@@ -9,9 +9,9 @@ import {
 } from "../../middlewares";
 import { controller_Account_Verify_Email } from "../../controllers";
 
-export const route_Account_Verify_Email = Router();
+export const verifyEmailRoute = Router();
 
-route_Account_Verify_Email.post(
+verifyEmailRoute.post(
   "/verify-email",
   middleware_Account_Validate_Inputs_For_Verify_Email,
   middleware_Account_Format_Inputs_For_Verify_Email,

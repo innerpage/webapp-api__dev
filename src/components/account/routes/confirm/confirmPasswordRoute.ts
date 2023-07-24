@@ -6,9 +6,9 @@ import {
 } from "../../middlewares";
 import { controller_Account_Confirm_Password } from "../../controllers";
 
-export const route_Account_Confirm_Password = Router();
+export const confirmPasswordRoute = Router();
 
-route_Account_Confirm_Password.post(
+confirmPasswordRoute.post(
   "/password",
   middleware_Account_Validate_Inputs_For_Confirm_Password,
   middleware_Account_Format_Inputs_For_Confirm_Password,

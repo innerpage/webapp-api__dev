@@ -9,9 +9,9 @@ import {
 
 import { controller_Account_Get_Account_Details } from "../../controllers";
 
-export const route_Account_Get_Account_Details = Router();
+export const getAccountDetailsRoute = Router();
 
-route_Account_Get_Account_Details.get(
+getAccountDetailsRoute.get(
   "/account",
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
