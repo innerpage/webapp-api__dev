@@ -1,41 +1,38 @@
 import { accountModel } from "../../models";
 
-interface obj_Loose {
-  [key: string]: any;
-}
-
 export const writeEmailVerificationCode = async (
   accountId: string,
-  code_EmailVerification: number
+  emailVerificationCode: number
 ) => {
-  let isSuccess_EmailVerificationCode_Saved: boolean = false;
+  let isEmailVerificationCodeSaved: boolean = false;
   let payload: any;
-  let returnObject: obj_Loose = {};
 
   await accountModel
     .update(
-      { email_verification_code: code_EmailVerification },
+      { email_verification_code: emailVerificationCode },
       {
         where: {
           id: accountId,
         },
       }
     )
-    .then((updated_Account: any) => {
-      isSuccess_EmailVerificationCode_Saved = true;
-      payload = {};
+    .then((updatedAccount: any) => {
+      isEmailVerificationCodeSaved = true;
+      payload = updatedAccount;
     })
     .catch((err) => (payload = err));
 
-  if (isSuccess_EmailVerificationCode_Saved) {
-    returnObject.success = true;
-    returnObject.message = "Email verification code SAVED";
-    returnObject.payload = payload;
+  if (isEmailVerificationCodeSaved) {
+    return {
+      succes: true,
+      message: "Email verification code saved",
+      payload: payload,
+    };
   } else {
-    returnObject.success = false;
-    returnObject.message = "Email verification code NOT_SAVED";
-    returnObject.payload = payload;
+    return {
+      success: false,
+      message: "Email verification code not saved",
+      payload: payload,
+    };
   }
-
-  return returnObject;
 };

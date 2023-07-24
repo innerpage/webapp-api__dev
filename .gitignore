@@ -1,5 +1,5 @@
 .env
 .DS_Store
 prod
-Node_modules
+node_modules
 package-lock.json

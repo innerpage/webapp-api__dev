@@ -9,48 +9,48 @@ import { GenerateFourDigitCodeHelper } from "../../../../global/helpers";
 import { AppConfig } from "../../../../config";
 
 export const signupController = async (req: Request, res: Response) => {
-  let { name_First, name_Last, email, password } = res.locals;
+  let { firstName, lastName, email, password } = res.locals;
 
-  let code_EmailVerification: number = GenerateFourDigitCodeHelper();
-  let hashed_Password: string = await hashPasswordHelper(password);
+  let emailVerificationCode: number = GenerateFourDigitCodeHelper();
+  let hashedPassword: string = await hashPasswordHelper(password);
 
-  let returnObj_NewAccount: any = await writeNewAccount(
-    name_First,
-    name_Last,
+  let newAccountReturnObject: any = await writeNewAccount(
+    firstName,
+    lastName,
     email,
-    hashed_Password,
-    code_EmailVerification
+    hashedPassword,
+    emailVerificationCode
   );
 
-  console.log(returnObj_NewAccount.message);
-  console.log(returnObj_NewAccount.payload);
-  loginHelper(req, returnObj_NewAccount.payload.id);
+  console.log(newAccountReturnObject.message);
+  console.log(newAccountReturnObject.payload);
+  loginHelper(req, newAccountReturnObject.payload.id);
 
-  let returnObj_Mail_Code_EmailVerification: any =
+  let mailEmailVerificationCodeReturnObject: any =
     await mailEmailVerificationCodeHelper(
-      returnObj_NewAccount.payload.name_First,
-      returnObj_NewAccount.payload.email,
-      code_EmailVerification,
+      newAccountReturnObject.payload.firstName,
+      newAccountReturnObject.payload.email,
+      emailVerificationCode,
       AppConfig.appWebsiteUrl,
       AppConfig.appName,
       AppConfig.businessName,
       AppConfig.businessAddress,
       AppConfig.appEmail
     );
-  console.log(returnObj_Mail_Code_EmailVerification.message);
-  console.log(returnObj_Mail_Code_EmailVerification.payload);
+  console.log(mailEmailVerificationCodeReturnObject.message);
+  console.log(mailEmailVerificationCodeReturnObject.payload);
 
-  let payload_AccountSignup = {
-    name_First: returnObj_NewAccount.payload.name_First,
-    name_Last: returnObj_NewAccount.payload.name_Last,
-    email: returnObj_NewAccount.payload.email,
-    isVerified_Email: returnObj_NewAccount.payload.isVerified_Email,
-    isActive_Session: true,
+  let signupResponseObject = {
+    firstName: newAccountReturnObject.payload.firstName,
+    lastName: newAccountReturnObject.payload.lastName,
+    email: newAccountReturnObject.payload.email,
+    isEmailVerified: newAccountReturnObject.payload.isEmailVerified,
+    isSessionActive: true,
   };
 
   return res.status(200).json({
     success: true,
     message: "✅ Signed up",
-    payload: payload_AccountSignup,
+    payload: signupResponseObject,
   });
 };

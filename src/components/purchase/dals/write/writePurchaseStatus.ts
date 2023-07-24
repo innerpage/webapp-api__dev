@@ -1,13 +1,13 @@
 import { purchaseModel } from "../../models";
 
-interface obj_Loose {
+interface LooseObject {
   [key: string]: any;
 }
 
 export const writePurchaseStatus = async (sessionId: string) => {
-  let isSuccess_Updated_PurchaseStatus: boolean = false;
+  let isPurchaseStatusUpdated: boolean = false;
   let payload: any;
-  let returnObject: obj_Loose = {};
+  let returnObject: LooseObject = {};
 
   await purchaseModel
     .update(
@@ -18,19 +18,19 @@ export const writePurchaseStatus = async (sessionId: string) => {
         },
       }
     )
-    .then((updated_Purchase: any) => {
-      isSuccess_Updated_PurchaseStatus = true;
-      payload = updated_Purchase;
+    .then((updatedPurchase: any) => {
+      isPurchaseStatusUpdated = true;
+      payload = updatedPurchase;
     })
     .catch((err) => (payload = err));
 
-  if (isSuccess_Updated_PurchaseStatus) {
+  if (isPurchaseStatusUpdated) {
     returnObject.success = true;
-    returnObject.message = "Purchase status UPDATED";
+    returnObject.message = "Purchase status updated";
     returnObject.payload = payload;
   } else {
     returnObject.success = false;
-    returnObject.message = "Purchase status NOT_UPDATED";
+    returnObject.message = "Purchase status not update";
     returnObject.payload = payload;
   }
   return returnObject;

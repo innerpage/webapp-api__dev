@@ -35,7 +35,7 @@ export const stripeCreateSessionController = async (
     tierId,
     session.id,
     session.currency,
-    session.amount_total / 100,
+    session.amount / 100,
     res.locals.accountId
   );
 

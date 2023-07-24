@@ -1,63 +1,54 @@
 import * as postmark from "postmark";
-import { PostmarkConfig } from "../../../../config";
-
-interface obj_Loose {
-  [key: string]: any;
-}
+import { AppConfig, PostmarkConfig } from "../../../../config";
 
 export const mailEmailVerificationCodeHelper = async (
-  subscriber_Name_First: string,
-  subscriber_Email: string,
-  code_EmailVerification: number,
-  publisher_Website: string,
-  publisher_ProductName: string,
-  publisher_BusinessName: string,
-  publisher_BusinessAddress: string,
-  publisher_SupportEmail: string
+  firstName: string,
+  email: string,
+  emailVerificationCode: number
 ) => {
-  const client_Postmark = new postmark.Client(PostmarkConfig.token);
-  let id_Template = 30914127;
-  let isSent_VerificationMail: boolean = false;
-  let returnObj: obj_Loose = {};
+  const postmarkClient = new postmark.Client(PostmarkConfig.token);
+  let isEmailVerificationCodeSent: boolean = false;
   let payload: any;
 
-  await client_Postmark.sendEmailWithTemplate(
+  await postmarkClient.sendEmailWithTemplate(
     {
-      From: `${publisher_ProductName} no-reply@${publisher_Website}`,
-      TemplateId: id_Template,
-      To: subscriber_Email,
+      From: `${AppConfig.appName} no-reply@${AppConfig.appWebsiteUrl}`,
+      TemplateId: PostmarkConfig.template.emailVerificationCode.id,
+      To: email,
       TemplateModel: {
-        code_EmailVerification: code_EmailVerification,
-        subscriber_Name_First: subscriber_Name_First,
-        publisher_Website: publisher_Website,
-        publisher_ProductName: publisher_ProductName,
-        publisher_BusinessName: publisher_BusinessName,
-        publisher_BusinessAddress: publisher_BusinessAddress,
-        publisher_SupportEmail: publisher_SupportEmail,
+        emailVerificationCode: emailVerificationCode,
+        firstName: firstName,
+        appWebsiteUrl: AppConfig.appWebsiteUrl,
+        appName: AppConfig.appName,
+        businessName: AppConfig.businessName,
+        businessAddress: AppConfig.businessAddress,
+        appSupportUrl: AppConfig.appSupportUrl,
       },
     },
     (error, success) => {
       if (error) {
         payload = error;
-        isSent_VerificationMail = false;
+        isEmailVerificationCodeSent = false;
       }
 
       if (success) {
         payload = success;
-        isSent_VerificationMail = true;
+        isEmailVerificationCodeSent = true;
       }
     }
   );
 
-  if (isSent_VerificationMail) {
-    returnObj.success = true;
-    returnObj.message = "Email verification code SENT";
-    returnObj.payload = payload;
+  if (isEmailVerificationCodeSent) {
+    return {
+      success: true,
+      message: "Email verification code sent",
+      payload: payload,
+    };
   } else {
-    returnObj.success = false;
-    returnObj.message = "Email verification code NOT_SENT";
-    returnObj.payload = payload;
+    return {
+      sucess: false,
+      message: "Email verification code not sent",
+      payload: payload,
+    };
   }
-
-  return returnObj;
 };

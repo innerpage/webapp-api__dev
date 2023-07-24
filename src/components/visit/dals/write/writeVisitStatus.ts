@@ -11,10 +11,10 @@ export const writeVisitStatus = async (socketId: string) => {
       }
     )
     .then(() => {
-      console.log(`✅ Connection active status UPDATED: ${socketId}`);
+      console.log(`✅ Connection active status updated: ${socketId}`);
     })
     .catch((err: any) => {
-      console.log(`❌ Connection active status NOT_UPDATED: ${socketId}`);
+      console.log(`❌ Connection active status not updated: ${socketId}`);
       console.log(err);
     });
 };

@@ -7,33 +7,33 @@ export const loginController = async (req: Request, res: Response) => {
   let { email, password } = res.locals;
   let account: any = await readAccountByEmail(email);
 
-  let isValid_Password: boolean = await verifyPasswordHashHelper(
+  let isPasswordValid: boolean = await verifyPasswordHashHelper(
     account?.dataValues.password,
     password
   );
 
-  if (!isValid_Password) {
-    console.log(`${email} password IS_NOT_VALID`);
+  if (!isPasswordValid) {
+    console.log(`${email} password is not valid`);
     return res.status(400).json({
       success: false,
       message: "❌ Invalid password",
     });
   }
-  console.log(`${email} password IS_VALID`);
+  console.log(`${email} password is valid`);
   res.locals.accountId = account?.dataValues.id;
   loginHelper(req, res.locals.accountId);
 
-  let payload_Account_Login = {
-    name_First: account.first_name,
-    name_Last: account.last_name,
+  let loginResponseObject = {
+    firstName: account.first_name,
+    lastName: account.last_name,
     email: account.email,
-    isVerified_Email: account.is_email_verified,
-    isActive_Session: true,
+    isEmailVerified: account.is_email_verified,
+    isSessionActive: true,
   };
 
   return res.status(200).json({
     success: true,
     message: "✅ Logged in",
-    payload: payload_Account_Login,
+    payload: loginResponseObject,
   });
 };

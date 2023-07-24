@@ -10,7 +10,7 @@ const modelAttributes: any = {
     unique: true,
     primaryKey: true,
   },
-  value_id: {
+  product_id: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -22,7 +22,7 @@ const modelAttributes: any = {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  amount_paid: {
+  amount: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },

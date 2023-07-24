@@ -1,9 +1,9 @@
 import Joi from "joi";
 import { Request, Response, NextFunction } from "express";
 
-const schema_Signup_Inputs = Joi.object({
-  name_First: Joi.string().required(),
-  name_Last: Joi.string().required(),
+const signupInputsSchema = Joi.object({
+  firstName: Joi.string().required(),
+  lastName: Joi.string().required(),
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .min(5)
@@ -18,15 +18,15 @@ export const validateInputsForSignupMiddleware = (
   res: Response,
   next: NextFunction
 ) => {
-  let { error } = schema_Signup_Inputs.validate(req.body);
+  let { error } = signupInputsSchema.validate(req.body);
 
   if (error) {
-    console.log("Signup inputs NOT_VALID");
+    console.log("Signup inputs not valid");
     return res
       .status(400)
       .json({ success: false, message: `❌ ${error.details[0].message}` });
   }
 
-  console.log("Signup inputs VALID");
+  console.log("Signup inputs valid");
   next();
 };

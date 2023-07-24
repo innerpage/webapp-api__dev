@@ -23,11 +23,9 @@ export const stripeCheckSessionController = async (
         });
       }
 
-      const updatedPurchaseObject = await writePurchaseStatus(
-        res.locals.sessionId
-      );
+      const updatedPurchase = await writePurchaseStatus(res.locals.sessionId);
 
-      if (!updatedPurchaseObject.success) {
+      if (!updatedPurchase.success) {
         return res.status(200).json({
           success: false,
           message: "❌ Payment status update failed",

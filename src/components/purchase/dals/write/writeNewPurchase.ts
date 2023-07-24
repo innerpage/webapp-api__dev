@@ -1,43 +1,43 @@
 import { purchaseModel } from "../../models";
 
-interface obj_Loose {
+interface LooseObject {
   [key: string]: any;
 }
 
 export const writeNewPurchase = async (
-  documentId: string,
+  productId: string,
   sessionId: string,
   currency: string,
-  paid_Amount: number,
+  amount: number,
   accountId: string
 ) => {
-  let isSuccess_NewPurchase: boolean = false;
+  let isNewPurchaseCreated: boolean = false;
   let payload: any;
-  let returnObject: obj_Loose = {};
+  let returnObject: LooseObject = {};
 
   await purchaseModel
     .create({
-      document_id: documentId,
+      product_id: productId,
       session_id: sessionId,
       currency: currency,
-      amount_paid: paid_Amount,
+      amount: amount,
       accountId: accountId,
     })
-    .then((new_Purchase: any) => {
-      isSuccess_NewPurchase = true;
-      payload = new_Purchase;
+    .then((newPurchase: any) => {
+      isNewPurchaseCreated = true;
+      payload = newPurchase;
     })
     .catch((err) => {
       payload = err;
     });
 
-  if (isSuccess_NewPurchase) {
+  if (isNewPurchaseCreated) {
     returnObject.success = true;
-    returnObject.message = "New purchase CREATED";
+    returnObject.message = "New purchase created";
     returnObject.payload = payload;
   } else {
     returnObject.success = false;
-    returnObject.message = "New purchase NOT_CREATED";
+    returnObject.message = "New purchase not created";
     returnObject.payload = payload;
   }
   return returnObject;

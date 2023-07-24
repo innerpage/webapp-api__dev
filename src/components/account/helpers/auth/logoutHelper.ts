@@ -10,12 +10,12 @@ export const logoutHelper = (req: Request, res: Response) => {
       res.clearCookie("isLogged");
       resolve();
 
-      let payload_AccountLogout = { isActive_Session: false };
+      let logoutPayloadObject = { isSessionActive: false };
 
       return res.status(200).json({
         success: true,
         message: "✅ Logged out",
-        payload: payload_AccountLogout,
+        payload: logoutPayloadObject,
       });
     });
   });

@@ -1,52 +1,49 @@
 import { accountModel } from "../../models";
 
-interface obj_Loose {
-  [key: string]: any;
-}
-
 export const writeNewAccount = async (
-  name_First: string,
-  name_Last: string,
+  firstName: string,
+  lastName: string,
   email: string,
-  hashed_Password: string,
-  code_Email_Verification: number
+  hashedPassword: string,
+  emailVerificationCode: number
 ) => {
-  let isSuccess_NewAccount: boolean = false;
+  let isNewAccountCreated: boolean = false;
   let payload: any;
-  let returnObject: obj_Loose = {};
 
   await accountModel
     .create({
-      first_name: name_First,
-      last_name: name_Last,
+      first_name: firstName,
+      last_name: lastName,
       email: email,
-      password: hashed_Password,
-      email_verification_code: code_Email_Verification,
+      password: hashedPassword,
+      email_verification_code: emailVerificationCode,
     })
-    .then((new_Account: any) => {
-      isSuccess_NewAccount = true;
+    .then((newAccount: any) => {
+      isNewAccountCreated = true;
       payload = {
-        id: new_Account.dataValues.id,
-        name_First: new_Account.dataValues.first_name,
-        name_Last: new_Account.dataValues.last_name,
-        email: new_Account.dataValues.email,
-        isVerified_Email: new_Account.dataValues.is_email_verified,
-        code_Email_Verification: new_Account.dataValues.email_verification_code,
+        id: newAccount.dataValues.id,
+        firstName: newAccount.dataValues.first_name,
+        lastName: newAccount.dataValues.last_name,
+        email: newAccount.dataValues.email,
+        isVerified_Email: newAccount.dataValues.is_email_verified,
+        emailVerificationCode: newAccount.dataValues.email_verification_code,
       };
     })
     .catch((err) => {
       payload = err;
     });
 
-  if (isSuccess_NewAccount) {
-    returnObject.success = true;
-    returnObject.message = "New account CREATED";
-    returnObject.payload = payload;
+  if (isNewAccountCreated) {
+    return {
+      success: true,
+      message: "New account created",
+      payload: payload,
+    };
   } else {
-    returnObject.success = false;
-    returnObject.message = "New account NOT_CREATED";
-    returnObject.payload = payload;
+    return {
+      success: false,
+      message: "New account not created",
+      payload: payload,
+    };
   }
-
-  return returnObject;
 };

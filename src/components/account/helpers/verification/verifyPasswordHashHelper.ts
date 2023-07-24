@@ -1,13 +1,13 @@
 import * as argon from "argon2";
 
 export const verifyPasswordHashHelper = async (
-  password_Hashed: string,
-  password_Unhashed: string
+  hashedPassword: string,
+  unHashedPassword: string
 ) => {
-  let isValid_Password: boolean = await argon.verify(
-    password_Hashed,
-    password_Unhashed
+  let isPasswordValid: boolean = await argon.verify(
+    hashedPassword,
+    unHashedPassword
   );
 
-  return isValid_Password;
+  return isPasswordValid;
 };

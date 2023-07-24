@@ -13,9 +13,9 @@ export const confirmPasswordController = async (
 ) => {
   let account: any = await readAccountByEmail(res.locals.email);
 
-  if (account.password_reset_code != res.locals.code_ResetPassword) {
+  if (account.password_reset_code != res.locals.passwordResetCode) {
     console.log(
-      `${res.locals.code_ResetPassword} is not a valid verification code for ${res.locals.email}`
+      `${res.locals.passwordResetCode} is not a valid verification code for ${res.locals.email}`
     );
     return res.status(400).json({
       success: false,

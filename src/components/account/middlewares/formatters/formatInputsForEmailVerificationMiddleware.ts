@@ -5,10 +5,10 @@ export const formatInputsForEmailVerificationMiddleware = async (
   res: Response,
   next: NextFunction
 ) => {
-  let { email, code_EmailVerification } = req.body;
+  let { email, emailVerificationCode } = req.body;
 
   res.locals.email = email.trim().toLowerCase();
-  res.locals.code_EmailVerification = code_EmailVerification;
+  res.locals.emailVerificationCode = emailVerificationCode;
 
   next();
 };

@@ -1,13 +1,8 @@
 import { accountModel } from "../../models";
 
-interface obj_Loose {
-  [key: string]: any;
-}
-
 export const writeEmailVerificationStatus = async (email: string) => {
-  let isSuccess_StatusUpdate: boolean = false;
+  let isStatusUpdated: boolean = false;
   let payload: any;
-  let returnObject: obj_Loose = {};
 
   await accountModel
     .update(
@@ -18,21 +13,23 @@ export const writeEmailVerificationStatus = async (email: string) => {
         },
       }
     )
-    .then((updated_Account: any) => {
-      isSuccess_StatusUpdate = true;
-      payload = {};
+    .then((updatedAccount: any) => {
+      isStatusUpdated = true;
+      payload = updatedAccount;
     })
     .catch((err) => (payload = err));
 
-  if (isSuccess_StatusUpdate) {
-    returnObject.success = true;
-    returnObject.message = "Email VERIFIED";
-    returnObject.payload = payload;
+  if (isStatusUpdated) {
+    return {
+      success: true,
+      message: "Status updated",
+      payload: payload,
+    };
   } else {
-    returnObject.success = false;
-    returnObject.message = "Email NOT_VERIFIED";
-    returnObject.payload = payload;
+    return {
+      success: false,
+      message: "Status not updated",
+      payload: payload,
+    };
   }
-
-  return returnObject;
 };

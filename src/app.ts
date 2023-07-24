@@ -13,7 +13,7 @@ import {
 import { HandleErrorsMiddleware } from "./global/middlewares";
 
 const app = express();
-const store_Redis = connectRedis(session);
+const redisStore = connectRedis(session);
 
 if (NodeConfig.env === "dev") {
   app.use(cors());
@@ -30,7 +30,7 @@ if (NodeConfig.env === "prod") {
 app.use(
   session({
     ...ExpressSessionConfig,
-    store: new store_Redis({ client }),
+    store: new redisStore({ client }),
   })
 );
 
