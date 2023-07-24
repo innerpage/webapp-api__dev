@@ -1,10 +1,7 @@
 import { Request, Response } from "express";
 import { readAccountByEmail, writeEmailVerificationStatus } from "../../dals";
 
-export const controller_Account_Verify_Email = async (
-  req: Request,
-  res: Response
-) => {
+export const verifyEmailController = async (req: Request, res: Response) => {
   let account: any = await readAccountByEmail(res.locals.email);
 
   let code_EmailVerification: number = account.email_verification_code;

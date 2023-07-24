@@ -12,7 +12,7 @@ import {
   validateInputsForSignup,
   formatInputsForSignup,
 } from "../../middlewares";
-import { controller_Account_Signup } from "../../controllers";
+import { signupController } from "../../controllers";
 
 export const signupRoute = Router();
 
@@ -26,5 +26,5 @@ signupRoute.post(
   validateInputsForSignup,
   formatInputsForSignup,
   BlockExistingAccountByEmail,
-  controller_Account_Signup
+  signupController
 );

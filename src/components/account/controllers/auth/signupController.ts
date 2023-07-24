@@ -4,10 +4,7 @@ import { hashPassword, mailEmailVerificationCode, login } from "../../helpers";
 import { GenerateFourDigitCode } from "../../../../global/helpers";
 import { AppConfig } from "../../../../config";
 
-export const controller_Account_Signup = async (
-  req: Request,
-  res: Response
-) => {
+export const signupController = async (req: Request, res: Response) => {
   let { name_First, name_Last, email, password } = res.locals;
 
   let code_EmailVerification: number = GenerateFourDigitCode();

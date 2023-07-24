@@ -4,7 +4,7 @@ import {
   FormatInputsForMail,
   ValidateEmail,
 } from "../../../../global/middlewares";
-import { controller_Account_Mail_Code_PasswordReset } from "../../controllers";
+import { mailPasswordResetCodeController } from "../../controllers";
 
 export const mailPasswordResetCodeRoute = Router();
 
@@ -13,5 +13,5 @@ mailPasswordResetCodeRoute.post(
   ValidateEmail,
   FormatInputsForMail,
   BlockNonExistentAccountByEmail,
-  controller_Account_Mail_Code_PasswordReset
+  mailPasswordResetCodeController
 );

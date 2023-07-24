@@ -3,7 +3,7 @@ import { login } from "../../helpers";
 import { readAccountByEmail } from "../../dals";
 import { verifyPasswordHash } from "../../helpers";
 
-export const controller_Account_Login = async (req: Request, res: Response) => {
+export const loginController = async (req: Request, res: Response) => {
   let { email, password } = res.locals;
   let account: any = await readAccountByEmail(email);
 

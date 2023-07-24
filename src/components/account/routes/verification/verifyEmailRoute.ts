@@ -7,7 +7,7 @@ import {
   validateInputsForEmailVerification,
   formatInputsForEmailVerification,
 } from "../../middlewares";
-import { controller_Account_Verify_Email } from "../../controllers";
+import { verifyEmailController } from "../../controllers";
 
 export const verifyEmailRoute = Router();
 
@@ -17,5 +17,5 @@ verifyEmailRoute.post(
   formatInputsForEmailVerification,
   BlockNonExistentAccountByEmail,
   BlockLoggedOutAccount,
-  controller_Account_Verify_Email
+  verifyEmailController
 );

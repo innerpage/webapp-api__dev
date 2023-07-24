@@ -4,7 +4,7 @@ import {
   validateInputsForPasswordConfirmation,
   formatInputsForPasswordConfirmation,
 } from "../../middlewares";
-import { controller_Account_Confirm_Password } from "../../controllers";
+import { confirmPasswordController } from "../../controllers";
 
 export const confirmPasswordRoute = Router();
 
@@ -13,5 +13,5 @@ confirmPasswordRoute.post(
   validateInputsForPasswordConfirmation,
   formatInputsForPasswordConfirmation,
   BlockNonExistentAccountByEmail,
-  controller_Account_Confirm_Password
+  confirmPasswordController
 );

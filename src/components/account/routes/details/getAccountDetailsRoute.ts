@@ -7,7 +7,7 @@ import {
   BlockDisabledAccountByAccountId,
 } from "../../../../global/middlewares";
 
-import { controller_Account_Get_Account_Details } from "../../controllers";
+import { getAccountDetailsController } from "../../controllers";
 
 export const getAccountDetailsRoute = Router();
 
@@ -17,5 +17,5 @@ getAccountDetailsRoute.get(
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountByAccountId,
   BlockDisabledAccountByAccountId,
-  controller_Account_Get_Account_Details
+  getAccountDetailsController
 );

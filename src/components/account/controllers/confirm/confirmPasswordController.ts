@@ -7,7 +7,7 @@ import {
 } from "../../helpers";
 import { AppConfig } from "../../../../config";
 
-export const controller_Account_Confirm_Password = async (
+export const confirmPasswordController = async (
   req: Request,
   res: Response
 ) => {

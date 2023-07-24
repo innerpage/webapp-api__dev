@@ -4,7 +4,7 @@ import { mailEmailVerificationCode } from "../../helpers";
 import { GenerateFourDigitCode } from "../../../../global/helpers";
 import { AppConfig } from "../../../../config";
 
-export const controller_Account_Mail_Code_EmailVerification = async (
+export const mailEmailVerificationCodeController = async (
   req: Request,
   res: Response
 ) => {

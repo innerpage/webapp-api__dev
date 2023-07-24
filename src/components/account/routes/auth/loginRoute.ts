@@ -10,7 +10,7 @@ import {
   formatInputsForLogin,
 } from "../../middlewares";
 
-import { controller_Account_Login } from "../../controllers";
+import { loginController } from "../../controllers";
 
 export const loginRoute = Router();
 
@@ -20,5 +20,5 @@ loginRoute.post(
   validateInputsForLogin,
   formatInputsForLogin,
   BlockNonExistentAccountByEmail,
-  controller_Account_Login
+  loginController
 );

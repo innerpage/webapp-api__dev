@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { readAccountById } from "../../dals";
 import { AppConfig } from "../../../../config";
 
-export const controller_Account_Get_Account_Details = async (
+export const getAccountDetailsController = async (
   req: Request,
   res: Response
 ) => {
