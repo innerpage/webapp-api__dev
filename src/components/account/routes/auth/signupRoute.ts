@@ -9,8 +9,8 @@ import {
   BlockExistingAccountByEmail,
 } from "../../../../global/middlewares";
 import {
-  middleware_Account_Validate_Inputs_For_Signup,
-  middleware_Account_Format_Inputs_For_Signup,
+  validateInputsForSignup,
+  formatInputsForSignup,
 } from "../../middlewares";
 import { controller_Account_Signup } from "../../controllers";
 
@@ -23,8 +23,8 @@ signupRoute.post(
   ExtractIPAddressFromOrigin,
   ExtractCountryFromIPAddress,
   BlockLoggedInAccount,
-  middleware_Account_Validate_Inputs_For_Signup,
-  middleware_Account_Format_Inputs_For_Signup,
+  validateInputsForSignup,
+  formatInputsForSignup,
   BlockExistingAccountByEmail,
   controller_Account_Signup
 );

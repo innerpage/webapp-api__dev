@@ -4,8 +4,8 @@ import {
   BlockNonExistentAccountByEmail,
 } from "../../../../global/middlewares";
 import {
-  middleware_Account_Validate_Inputs_For_Verify_Email,
-  middleware_Account_Format_Inputs_For_Verify_Email,
+  validateInputsForEmailVerification,
+  formatInputsForEmailVerification,
 } from "../../middlewares";
 import { controller_Account_Verify_Email } from "../../controllers";
 
@@ -13,8 +13,8 @@ export const verifyEmailRoute = Router();
 
 verifyEmailRoute.post(
   "/verify-email",
-  middleware_Account_Validate_Inputs_For_Verify_Email,
-  middleware_Account_Format_Inputs_For_Verify_Email,
+  validateInputsForEmailVerification,
+  formatInputsForEmailVerification,
   BlockNonExistentAccountByEmail,
   BlockLoggedOutAccount,
   controller_Account_Verify_Email

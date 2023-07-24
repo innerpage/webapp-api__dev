@@ -13,6 +13,9 @@ export { ExtractOriginFromRequest } from "./extractors/ExtractOriginFromRequest"
 export { ExtractIPAddressFromOrigin } from "./extractors/ExtractIPAddressFromOrigin";
 export { ExtractCountryFromIPAddress } from "./extractors/ExtractCountryFromIPAddress";
 
+// Formatters
+export { FormatInputsForMail } from "./formatters/FormatInputsForMail";
+
 // Others
 export { HandleErrors } from "./handlers/HandleErrors";
 export { ValidateEmail } from "./validators/ValidateEmail";

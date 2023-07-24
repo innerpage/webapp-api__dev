@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const middleware_Account_Format_Inputs_For_Confirm_Password = async (
+export const formatInputsForPasswordConfirmation = async (
   req: Request,
   res: Response,
   next: NextFunction
