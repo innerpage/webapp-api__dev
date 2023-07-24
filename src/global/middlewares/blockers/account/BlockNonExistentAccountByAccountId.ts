@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from "express";
-import { dal_Account_Read_By_Id_Account } from "../../../../components/account/dals";
+import { readAccountById } from "../../../../components/account/dals";
 
 export const BlockNonExistentAccountByAccountId = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let account = await dal_Account_Read_By_Id_Account(res.locals.accountId);
+  let account = await readAccountById(res.locals.accountId);
 
   if (!account) {
     console.log(`❌ ${res.locals.accountId} is not registered`);

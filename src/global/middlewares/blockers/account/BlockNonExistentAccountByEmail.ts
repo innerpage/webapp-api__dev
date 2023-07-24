@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from "express";
-import { dal_Account_Read_By_Email } from "../../../../components/account/dals";
+import { readAccountByEmail } from "../../../../components/account/dals";
 
 export const BlockNonExistentAccountByEmail = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let account: any = await dal_Account_Read_By_Email(res.locals.email);
+  let account: any = await readAccountByEmail(res.locals.email);
 
   if (!account) {
     console.log(`❌ ${res.locals.email} does not exist`);

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { dal_Account_Write_New_Account } from "../../dals";
+import { writeNewAccount } from "../../dals";
 import { hashPassword, mailEmailVerificationCode, login } from "../../helpers";
 import { GenerateFourDigitCode } from "../../../../global/helpers";
 import { AppConfig } from "../../../../config";
@@ -13,7 +13,7 @@ export const controller_Account_Signup = async (
   let code_EmailVerification: number = GenerateFourDigitCode();
   let hashed_Password: string = await hashPassword(password);
 
-  let returnObj_NewAccount: any = await dal_Account_Write_New_Account(
+  let returnObj_NewAccount: any = await writeNewAccount(
     name_First,
     name_Last,
     email,

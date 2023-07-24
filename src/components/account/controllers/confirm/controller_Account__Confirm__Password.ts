@@ -1,8 +1,5 @@
 import { Request, Response } from "express";
-import {
-  dal_Account_Read_By_Email,
-  dal_Account_Write_New_Password,
-} from "../../dals";
+import { readAccountByEmail, writeNewPassword } from "../../dals";
 import {
   verifyPasswordHash,
   hashPassword,
@@ -14,7 +11,7 @@ export const controller_Account_Confirm_Password = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account_Read_By_Email(res.locals.email);
+  let account: any = await readAccountByEmail(res.locals.email);
 
   if (account.password_reset_code != res.locals.code_ResetPassword) {
     console.log(
@@ -28,7 +25,7 @@ export const controller_Account_Confirm_Password = async (
 
   let password_Hashed_New: string = await hashPassword(res.locals.password_New);
 
-  let returnObj_NewPassword: any = await dal_Account_Write_New_Password(
+  let returnObj_NewPassword: any = await writeNewPassword(
     res.locals.email,
     password_Hashed_New
   );

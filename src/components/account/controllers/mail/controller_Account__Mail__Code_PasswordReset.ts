@@ -1,8 +1,5 @@
 import { Request, Response } from "express";
-import {
-  dal_Account_Write_Code_PasswordReset,
-  dal_Account_Read_By_Email,
-} from "../../dals";
+import { writePasswordResetCode, readAccountByEmail } from "../../dals";
 import { mailPasswordResetCode } from "../../helpers";
 import { GenerateFourDigitCode } from "../../../../global/helpers";
 import { AppConfig } from "../../../../config";
@@ -11,14 +8,13 @@ export const controller_Account_Mail_Code_PasswordReset = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account_Read_By_Email(res.locals.email);
+  let account: any = await readAccountByEmail(res.locals.email);
   let code_PasswordReset: number = await GenerateFourDigitCode();
 
-  let returnObj_WritePasswordResetCode: any =
-    await dal_Account_Write_Code_PasswordReset(
-      res.locals.email,
-      code_PasswordReset
-    );
+  let returnObj_WritePasswordResetCode: any = await writePasswordResetCode(
+    res.locals.email,
+    code_PasswordReset
+  );
   console.log(returnObj_WritePasswordResetCode.message);
   console.log(returnObj_WritePasswordResetCode.payload);
 

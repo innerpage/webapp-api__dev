@@ -1,8 +1,5 @@
 import { Request, Response } from "express";
-import {
-  dal_Account_Write_Code_EmailVerification,
-  dal_Account_Read_By_Id_Account,
-} from "../../dals";
+import { writeEmailVerificationCode, readAccountById } from "../../dals";
 import { mailEmailVerificationCode } from "../../helpers";
 import { GenerateFourDigitCode } from "../../../../global/helpers";
 import { AppConfig } from "../../../../config";
@@ -11,11 +8,11 @@ export const controller_Account_Mail_Code_EmailVerification = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await dal_Account_Read_By_Id_Account(res.locals.accountId);
+  let account: any = await readAccountById(res.locals.accountId);
   let code_EmailVerification: number = await GenerateFourDigitCode();
 
   let returnObj_Write_EmailVerificationCode: any =
-    await dal_Account_Write_Code_EmailVerification(
+    await writeEmailVerificationCode(
       res.locals.accountId,
       code_EmailVerification
     );

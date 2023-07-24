@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { login } from "../../helpers";
-import { dal_Account_Read_By_Email } from "../../dals";
+import { readAccountByEmail } from "../../dals";
 import { verifyPasswordHash } from "../../helpers";
 
 export const controller_Account_Login = async (req: Request, res: Response) => {
   let { email, password } = res.locals;
-  let account: any = await dal_Account_Read_By_Email(email);
+  let account: any = await readAccountByEmail(email);
 
   let isValid_Password: boolean = await verifyPasswordHash(
     account?.dataValues.password,
