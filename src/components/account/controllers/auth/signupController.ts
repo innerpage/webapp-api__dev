@@ -1,14 +1,18 @@
 import { Request, Response } from "express";
 import { writeNewAccount } from "../../dals";
-import { hashPassword, mailEmailVerificationCode, login } from "../../helpers";
-import { GenerateFourDigitCode } from "../../../../global/helpers";
+import {
+  hashPasswordHelper,
+  mailEmailVerificationCodeHelper,
+  loginHelper,
+} from "../../helpers";
+import { GenerateFourDigitCodeHelper } from "../../../../global/helpers";
 import { AppConfig } from "../../../../config";
 
 export const signupController = async (req: Request, res: Response) => {
   let { name_First, name_Last, email, password } = res.locals;
 
-  let code_EmailVerification: number = GenerateFourDigitCode();
-  let hashed_Password: string = await hashPassword(password);
+  let code_EmailVerification: number = GenerateFourDigitCodeHelper();
+  let hashed_Password: string = await hashPasswordHelper(password);
 
   let returnObj_NewAccount: any = await writeNewAccount(
     name_First,
@@ -20,10 +24,10 @@ export const signupController = async (req: Request, res: Response) => {
 
   console.log(returnObj_NewAccount.message);
   console.log(returnObj_NewAccount.payload);
-  login(req, returnObj_NewAccount.payload.id);
+  loginHelper(req, returnObj_NewAccount.payload.id);
 
   let returnObj_Mail_Code_EmailVerification: any =
-    await mailEmailVerificationCode(
+    await mailEmailVerificationCodeHelper(
       returnObj_NewAccount.payload.name_First,
       returnObj_NewAccount.payload.email,
       code_EmailVerification,

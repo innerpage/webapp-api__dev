@@ -1,10 +1,10 @@
 import { Router } from "express";
 
 import {
-  BlockLoggedOutAccount,
-  ExtractAccountIdFromRequest,
-  BlockNonExistentAccountByAccountId,
-  BlockDisabledAccountByAccountId,
+  BlockLoggedOutAccountMiddleware,
+  ExtractAccountIdFromRequestMiddleware,
+  BlockNonExistentAccountByIdMiddleware,
+  BlockDisabledAccountByIdMiddleware,
 } from "../../../../global/middlewares";
 
 import { getAccountDetailsController } from "../../controllers";
@@ -13,9 +13,9 @@ export const getAccountDetailsRoute = Router();
 
 getAccountDetailsRoute.get(
   "/account",
-  BlockLoggedOutAccount,
-  ExtractAccountIdFromRequest,
-  BlockNonExistentAccountByAccountId,
-  BlockDisabledAccountByAccountId,
+  BlockLoggedOutAccountMiddleware,
+  ExtractAccountIdFromRequestMiddleware,
+  BlockNonExistentAccountByIdMiddleware,
+  BlockDisabledAccountByIdMiddleware,
   getAccountDetailsController
 );

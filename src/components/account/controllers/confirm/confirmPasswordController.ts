@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { readAccountByEmail, writeNewPassword } from "../../dals";
 import {
-  verifyPasswordHash,
-  hashPassword,
-  mailPasswordResetConfirmation,
+  verifyPasswordHashHelper,
+  hashPasswordHelper,
+  mailPasswordResetConfirmationHelper,
 } from "../../helpers";
 import { AppConfig } from "../../../../config";
 
@@ -23,7 +23,9 @@ export const confirmPasswordController = async (
     });
   }
 
-  let password_Hashed_New: string = await hashPassword(res.locals.password_New);
+  let password_Hashed_New: string = await hashPasswordHelper(
+    res.locals.password_New
+  );
 
   let returnObj_NewPassword: any = await writeNewPassword(
     res.locals.email,
@@ -41,7 +43,7 @@ export const confirmPasswordController = async (
   }
 
   let returnObj_MailPasswordResetConfirmation: any =
-    await mailPasswordResetConfirmation(
+    await mailPasswordResetConfirmationHelper(
       account.first_name,
       res.locals.email,
       AppConfig.appWebsiteUrl,

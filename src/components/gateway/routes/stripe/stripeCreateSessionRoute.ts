@@ -1,16 +1,16 @@
 import { Router } from "express";
 
 import {
-  BlockLoggedOutAccount,
-  ExtractAccountIdFromRequest,
-  ExtractOriginFromRequest,
-  BlockNonExistentAccountByAccountId,
-  BlockDisabledAccountByAccountId,
+  BlockLoggedOutAccountMiddleware,
+  ExtractAccountIdFromRequestMiddleware,
+  ExtractOriginFromRequestMiddleware,
+  BlockNonExistentAccountByIdMiddleware,
+  BlockDisabledAccountByIdMiddleware,
 } from "../../../../global/middlewares";
 
 import {
-  validateInputsForStripeCreateSession,
-  formatInputsForStripeCreateSession,
+  validateInputsForStripeCreateSessionMiddleware,
+  formatInputsForStripeCreateSessionMiddleware,
 } from "../../middlewares";
 
 import { stripeCreateSessionController } from "../../controllers";
@@ -19,12 +19,12 @@ export const stripeCreateSessionRoute = Router();
 
 stripeCreateSessionRoute.post(
   "/stripe-create-session",
-  BlockLoggedOutAccount,
-  ExtractAccountIdFromRequest,
-  BlockNonExistentAccountByAccountId,
-  BlockDisabledAccountByAccountId,
-  ExtractOriginFromRequest,
-  validateInputsForStripeCreateSession,
-  formatInputsForStripeCreateSession,
+  BlockLoggedOutAccountMiddleware,
+  ExtractAccountIdFromRequestMiddleware,
+  BlockNonExistentAccountByIdMiddleware,
+  BlockDisabledAccountByIdMiddleware,
+  ExtractOriginFromRequestMiddleware,
+  validateInputsForStripeCreateSessionMiddleware,
+  formatInputsForStripeCreateSessionMiddleware,
   stripeCreateSessionController
 );

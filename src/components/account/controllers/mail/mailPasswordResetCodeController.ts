@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { writePasswordResetCode, readAccountByEmail } from "../../dals";
-import { mailPasswordResetCode } from "../../helpers";
-import { GenerateFourDigitCode } from "../../../../global/helpers";
+import { mailPasswordResetCodeHelper } from "../../helpers";
+import { GenerateFourDigitCodeHelper } from "../../../../global/helpers";
 import { AppConfig } from "../../../../config";
 
 export const mailPasswordResetCodeController = async (
@@ -9,7 +9,7 @@ export const mailPasswordResetCodeController = async (
   res: Response
 ) => {
   let account: any = await readAccountByEmail(res.locals.email);
-  let code_PasswordReset: number = await GenerateFourDigitCode();
+  let code_PasswordReset: number = await GenerateFourDigitCodeHelper();
 
   let returnObj_WritePasswordResetCode: any = await writePasswordResetCode(
     res.locals.email,
@@ -25,16 +25,17 @@ export const mailPasswordResetCodeController = async (
     });
   }
 
-  let returnObj_MailEmailVerificationCode: any = await mailPasswordResetCode(
-    account.first_name,
-    res.locals.email,
-    code_PasswordReset,
-    AppConfig.appWebsiteUrl,
-    AppConfig.appName,
-    AppConfig.businessName,
-    AppConfig.businessAddress,
-    AppConfig.appEmail
-  );
+  let returnObj_MailEmailVerificationCode: any =
+    await mailPasswordResetCodeHelper(
+      account.first_name,
+      res.locals.email,
+      code_PasswordReset,
+      AppConfig.appWebsiteUrl,
+      AppConfig.appName,
+      AppConfig.businessName,
+      AppConfig.businessAddress,
+      AppConfig.appEmail
+    );
   console.log(returnObj_MailEmailVerificationCode.message);
   console.log(returnObj_MailEmailVerificationCode.payload);
 

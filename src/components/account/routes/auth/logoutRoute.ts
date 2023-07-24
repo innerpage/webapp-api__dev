@@ -1,8 +1,8 @@
 import { Router } from "express";
 
-import { BlockLoggedOutAccount } from "../../../../global/middlewares";
+import { BlockLoggedOutAccountMiddleware } from "../../../../global/middlewares";
 import { logoutController } from "../../controllers";
 
 export const logoutRoute = Router();
 
-logoutRoute.post("/logout", BlockLoggedOutAccount, logoutController);
+logoutRoute.post("/logout", BlockLoggedOutAccountMiddleware, logoutController);

@@ -1,7 +1,7 @@
 import app from "./app";
 import http from "http";
 import { NodeConfig, SequelizeConfig } from "./config";
-import { IncludeModelAssociations } from "./global/helpers";
+import { IncludeModelAssociationsHelper } from "./global/helpers";
 import { Server, Socket } from "socket.io";
 
 import { writeNewVisit, writeVisitStatus } from "./components/visit/dals";
@@ -19,7 +19,7 @@ dotenv.config();
       console.log(err);
     });
 
-  IncludeModelAssociations();
+  IncludeModelAssociationsHelper();
 
   // await SequelizeConfig
   //   .sync()

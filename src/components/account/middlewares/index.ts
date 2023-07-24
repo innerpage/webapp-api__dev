@@ -1,11 +1,11 @@
 // Formatters
-export { formatInputsForEmailVerification } from "./formatters/formatInputsForEmailVerification";
-export { formatInputsForLogin } from "./formatters/formatInputsForLogin";
-export { formatInputsForPasswordConfirmation } from "./formatters/formatInputsForPasswordConfirmation";
-export { formatInputsForSignup } from "./formatters/formatInputsForSignup";
+export { formatInputsForEmailVerificationMiddleware } from "./formatters/formatInputsForEmailVerificationMiddleware";
+export { formatInputsForLoginMiddleware } from "./formatters/formatInputsForLoginMiddleware";
+export { formatInputsForPasswordConfirmationMiddleware } from "./formatters/formatInputsForPasswordConfirmationMiddleware";
+export { formatInputsForSignupMiddleware } from "./formatters/formatInputsForSignupMiddleware";
 
 // Validators
-export { validateInputsForEmailVerification } from "./validators/validateInputsForEmailVerification";
-export { validateInputsForLogin } from "./validators/validateInputsForLogin";
-export { validateInputsForPasswordConfirmation } from "./validators/validateInputsForPasswordConfirmation";
-export { validateInputsForSignup } from "./validators/validateInputsForSignup";
+export { validateInputsForEmailVerificationMiddleware } from "./validators/validateInputsForEmailVerificationMiddleware";
+export { validateInputsForLoginMiddleware } from "./validators/validateInputsForLoginMiddleware";
+export { validateInputsForPasswordConfirmationMiddleware } from "./validators/validateInputsForPasswordConfirmationMiddleware";
+export { validateInputsForSignupMiddleware } from "./validators/validateInputsForSignupMiddleware";

@@ -1,7 +1,7 @@
 // Stripe -Formatters
-export { formatInputsForStripeCreateSession } from "./stripe/formatters/formatInputsForStripeCreateSession";
-export { formatInputsForStripeCheckSession } from "./stripe/formatters/formatInputsForStripeCheckSession";
+export { formatInputsForStripeCreateSessionMiddleware } from "./stripe/formatters/formatInputsForStripeCreateSessionMiddleware";
+export { formatInputsForStripeCheckSessionMiddleware } from "./stripe/formatters/formatInputsForStripeCheckSessionMiddleware";
 
 // Stripe - Validators
-export { validateInputsForStripeCreateSession } from "./stripe/validators/validateInputsForStripeCreateSession";
-export { validateInputsForStripeCheckSession } from "./stripe/validators/validateInputsForStripeCheckSession";
+export { validateInputsForStripeCreateSessionMiddleware } from "./stripe/validators/validateInputsForStripeCreateSessionMiddleware";
+export { validateInputsForStripeCheckSessionMiddleware } from "./stripe/validators/validateInputsForStripeCheckSessionMiddleware";

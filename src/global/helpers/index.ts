@@ -1,6 +1,6 @@
 // Includes
-export { IncludeRoutes } from "./include/IncludeRoutes";
-export { IncludeModelAssociations } from "./include/IncludeModelAssociations";
+export { IncludeRoutesHelper } from "./include/IncludeRoutesHelper";
+export { IncludeModelAssociationsHelper } from "./include/IncludeModelAssociationsHelper";
 
 // Generators
-export { GenerateFourDigitCode } from "./generators/GenerateFourDigitCode";
+export { GenerateFourDigitCodeHelper } from "./generators/GenerateFourDigitCodeHelper";

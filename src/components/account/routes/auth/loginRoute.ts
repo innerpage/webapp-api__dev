@@ -1,13 +1,13 @@
 import { Router } from "express";
 
 import {
-  BlockLoggedInAccount,
-  BlockNonExistentAccountByEmail,
+  BlockLoggedInAccountMiddleware,
+  BlockNonExistentAccountByEmailMiddleware,
 } from "../../../../global/middlewares";
 
 import {
-  validateInputsForLogin,
-  formatInputsForLogin,
+  validateInputsForLoginMiddleware,
+  formatInputsForLoginMiddleware,
 } from "../../middlewares";
 
 import { loginController } from "../../controllers";
@@ -16,9 +16,9 @@ export const loginRoute = Router();
 
 loginRoute.post(
   "/login",
-  BlockLoggedInAccount,
-  validateInputsForLogin,
-  formatInputsForLogin,
-  BlockNonExistentAccountByEmail,
+  BlockLoggedInAccountMiddleware,
+  validateInputsForLoginMiddleware,
+  formatInputsForLoginMiddleware,
+  BlockNonExistentAccountByEmailMiddleware,
   loginController
 );

@@ -2,7 +2,7 @@ import express from "express";
 import session from "express-session";
 import connectRedis from "connect-redis";
 import cors from "cors";
-import { IncludeRoutes } from "./global/helpers";
+import { IncludeRoutesHelper } from "./global/helpers";
 import {
   CorsConfig,
   NodeConfig,
@@ -10,7 +10,7 @@ import {
   ExpressSessionConfig,
 } from "./config";
 
-import { HandleErrors } from "./global/middlewares";
+import { HandleErrorsMiddleware } from "./global/middlewares";
 
 const app = express();
 const store_Redis = connectRedis(session);
@@ -34,7 +34,7 @@ app.use(
   })
 );
 
-IncludeRoutes().then((routeIndexPaths: any) => {
+IncludeRoutesHelper().then((routeIndexPaths: any) => {
   routeIndexPaths.forEach((routeIndexPath: any) => {
     import("./" + routeIndexPath).then((route) => {
       for (const property in route) {
@@ -44,6 +44,6 @@ IncludeRoutes().then((routeIndexPaths: any) => {
   });
 });
 
-app.use(HandleErrors);
+app.use(HandleErrorsMiddleware);
 
 export default app;
