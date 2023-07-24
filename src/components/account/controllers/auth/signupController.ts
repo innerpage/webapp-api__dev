@@ -6,7 +6,6 @@ import {
   loginHelper,
 } from "../../helpers";
 import { GenerateFourDigitCodeHelper } from "../../../../global/helpers";
-import { AppConfig } from "../../../../config";
 
 export const signupController = async (req: Request, res: Response) => {
   let { firstName, lastName, email, password } = res.locals;
@@ -30,12 +29,7 @@ export const signupController = async (req: Request, res: Response) => {
     await mailEmailVerificationCodeHelper(
       newAccountReturnObject.payload.firstName,
       newAccountReturnObject.payload.email,
-      emailVerificationCode,
-      AppConfig.appWebsiteUrl,
-      AppConfig.appName,
-      AppConfig.businessName,
-      AppConfig.businessAddress,
-      AppConfig.appEmail
+      emailVerificationCode
     );
   console.log(mailEmailVerificationCodeReturnObject.message);
   console.log(mailEmailVerificationCodeReturnObject.payload);

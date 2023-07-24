@@ -4,10 +4,10 @@ import { readAccountByEmail, writeEmailVerificationStatus } from "../../dals";
 export const verifyEmailController = async (req: Request, res: Response) => {
   let account: any = await readAccountByEmail(res.locals.email);
 
-  let code_EmailVerification: number = account.email_verification_code;
-  if (code_EmailVerification != res.locals.code_EmailVerification) {
+  let emailVerificationCode: number = account.email_verification_code;
+  if (emailVerificationCode != res.locals.emailVerificationCode) {
     console.log(
-      `${res.locals.code_EmailVerification} is not a valid verification code for ${res.locals.email}`
+      `${res.locals.emailVerificationCode} is not a valid verification code for ${res.locals.email}`
     );
     return res.status(400).json({
       success: false,
@@ -15,10 +15,10 @@ export const verifyEmailController = async (req: Request, res: Response) => {
     });
   }
 
-  let returnObj_UpdateEmailVerification: any =
+  let updateEmailVerificationStatusReturnObject: any =
     await writeEmailVerificationStatus(res.locals.email);
-  console.log(returnObj_UpdateEmailVerification.message);
-  console.log(returnObj_UpdateEmailVerification.payload);
+  console.log(updateEmailVerificationStatusReturnObject.message);
+  console.log(updateEmailVerificationStatusReturnObject.payload);
 
   return res.status(200).json({
     success: true,

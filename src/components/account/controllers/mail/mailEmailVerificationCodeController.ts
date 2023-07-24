@@ -9,36 +9,31 @@ export const mailEmailVerificationCodeController = async (
   res: Response
 ) => {
   let account: any = await readAccountById(res.locals.accountId);
-  let code_EmailVerification: number = await GenerateFourDigitCodeHelper();
+  let emailVerificationCode: number = await GenerateFourDigitCodeHelper();
 
-  let returnObj_Write_EmailVerificationCode: any =
+  let writeEmailVerificationCodeReturnObject: any =
     await writeEmailVerificationCode(
       res.locals.accountId,
-      code_EmailVerification
+      emailVerificationCode
     );
-  console.log(returnObj_Write_EmailVerificationCode.message);
-  console.log(returnObj_Write_EmailVerificationCode.payload);
+  console.log(writeEmailVerificationCodeReturnObject.message);
+  console.log(writeEmailVerificationCodeReturnObject.payload);
 
-  if (!returnObj_Write_EmailVerificationCode.success) {
+  if (!writeEmailVerificationCodeReturnObject.success) {
     return res.status(400).json({
       success: false,
       message: "❌ Could not save email verification code",
     });
   }
 
-  let returnObj_MailEmailVerificationCode: any =
+  let mailEmailVerificationCodeReturnObject: any =
     await mailEmailVerificationCodeHelper(
       account.first_name,
       account.email,
-      code_EmailVerification,
-      AppConfig.appWebsiteUrl,
-      AppConfig.appName,
-      AppConfig.businessName,
-      AppConfig.businessAddress,
-      AppConfig.appEmail
+      emailVerificationCode
     );
-  console.log(returnObj_MailEmailVerificationCode.message);
-  console.log(returnObj_MailEmailVerificationCode.payload);
+  console.log(mailEmailVerificationCodeReturnObject.message);
+  console.log(mailEmailVerificationCodeReturnObject.payload);
 
   return res.status(200).json({
     success: true,

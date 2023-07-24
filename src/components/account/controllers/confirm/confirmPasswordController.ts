@@ -1,11 +1,9 @@
 import { Request, Response } from "express";
 import { readAccountByEmail, writeNewPassword } from "../../dals";
 import {
-  verifyPasswordHashHelper,
   hashPasswordHelper,
   mailPasswordResetConfirmationHelper,
 } from "../../helpers";
-import { AppConfig } from "../../../../config";
 
 export const confirmPasswordController = async (
   req: Request,
@@ -23,18 +21,18 @@ export const confirmPasswordController = async (
     });
   }
 
-  let password_Hashed_New: string = await hashPasswordHelper(
-    res.locals.password_New
+  let newHashedPassword: string = await hashPasswordHelper(
+    res.locals.newPassword
   );
 
-  let returnObj_NewPassword: any = await writeNewPassword(
+  let newPasswordReturnObject: any = await writeNewPassword(
     res.locals.email,
-    password_Hashed_New
+    newHashedPassword
   );
-  console.log(returnObj_NewPassword.message);
-  console.log(returnObj_NewPassword.payload);
+  console.log(newPasswordReturnObject.message);
+  console.log(newPasswordReturnObject.payload);
 
-  if (!returnObj_NewPassword.success) {
+  if (!newPasswordReturnObject.success) {
     console.log(`Password reset failed`);
     return res.status(400).json({
       success: false,
@@ -42,18 +40,13 @@ export const confirmPasswordController = async (
     });
   }
 
-  let returnObj_MailPasswordResetConfirmation: any =
+  let mailPasswordResetConfirmationReturnObject: any =
     await mailPasswordResetConfirmationHelper(
       account.first_name,
-      res.locals.email,
-      AppConfig.appWebsiteUrl,
-      AppConfig.appName,
-      AppConfig.businessName,
-      AppConfig.businessAddress,
-      AppConfig.appEmail
+      res.locals.email
     );
-  console.log(returnObj_MailPasswordResetConfirmation.message);
-  console.log(returnObj_MailPasswordResetConfirmation.payload);
+  console.log(mailPasswordResetConfirmationReturnObject.message);
+  console.log(mailPasswordResetConfirmationReturnObject.payload);
 
   return res.status(200).json({
     success: true,

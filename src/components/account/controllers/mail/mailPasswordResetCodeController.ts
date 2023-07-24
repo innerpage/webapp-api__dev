@@ -9,35 +9,30 @@ export const mailPasswordResetCodeController = async (
   res: Response
 ) => {
   let account: any = await readAccountByEmail(res.locals.email);
-  let code_PasswordReset: number = await GenerateFourDigitCodeHelper();
+  let passwordResetCode: number = await GenerateFourDigitCodeHelper();
 
-  let returnObj_WritePasswordResetCode: any = await writePasswordResetCode(
+  let writePasswordResetCodeReturnObject: any = await writePasswordResetCode(
     res.locals.email,
-    code_PasswordReset
+    passwordResetCode
   );
-  console.log(returnObj_WritePasswordResetCode.message);
-  console.log(returnObj_WritePasswordResetCode.payload);
+  console.log(writePasswordResetCodeReturnObject.message);
+  console.log(writePasswordResetCodeReturnObject.payload);
 
-  if (!returnObj_WritePasswordResetCode.success) {
+  if (!writePasswordResetCodeReturnObject.success) {
     return res.status(400).json({
       success: false,
       message: "❌ Could not save password reset code",
     });
   }
 
-  let returnObj_MailEmailVerificationCode: any =
+  let mailEmailVerificationCodeReturnObject: any =
     await mailPasswordResetCodeHelper(
       account.first_name,
       res.locals.email,
-      code_PasswordReset,
-      AppConfig.appWebsiteUrl,
-      AppConfig.appName,
-      AppConfig.businessName,
-      AppConfig.businessAddress,
-      AppConfig.appEmail
+      passwordResetCode
     );
-  console.log(returnObj_MailEmailVerificationCode.message);
-  console.log(returnObj_MailEmailVerificationCode.payload);
+  console.log(mailEmailVerificationCodeReturnObject.message);
+  console.log(mailEmailVerificationCodeReturnObject.payload);
 
   return res.status(200).json({
     success: true,

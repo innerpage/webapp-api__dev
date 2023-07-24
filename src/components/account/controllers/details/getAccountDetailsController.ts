@@ -8,28 +8,28 @@ export const getAccountDetailsController = async (
 ) => {
   let account: any = await readAccountById(res.locals.accountId);
 
-  let payload_AccountDetails: any = {
-    name_First: account.first_name,
-    name_Last: account.last_name,
+  let accountDetailsPayload: any = {
+    firstName: account.first_name,
+    lastName: account.last_name,
     email: account.email,
-    isVerified_Email: account.is_email_verified,
-    isActive_Session: true,
+    isEmailVerified: account.is_email_verified,
+    isSessionActive: true,
   };
 
-  let payload_AppDetails: any = {
-    APP_NAME: AppConfig.appName,
-    APP_WEBSITE: AppConfig.appWebsiteUrl,
-    APP_URL: AppConfig.appUrl,
-    APP_EMAIL: AppConfig.appEmail,
-    APP_SUPPORT_URL: AppConfig.appSupportUrl,
-    APP_TOS: AppConfig.appTosUrl,
-    APP_PRIVACY_POLICY: AppConfig.appPrivacyPolicyUrl,
-    APP_CANCELLATION_AND_REFUND: AppConfig.appCancellationAndRefundUrl,
-    APP_SESSION_KEY: AppConfig.appSessionKey,
-    BUSINESS_NAME: AppConfig.businessName,
-    BUSINESS_WEBSITE: AppConfig.businessWebsite,
-    BUSINESS_ADDRESS: AppConfig.businessAddress,
-    BUSINESS_EMAIL: AppConfig.businessEmail,
+  let appDetailsPayload: any = {
+    appName: AppConfig.appName,
+    appWebsiteUrl: AppConfig.appWebsiteUrl,
+    appUrl: AppConfig.appUrl,
+    appEmail: AppConfig.appEmail,
+    appSupportUrl: AppConfig.appSupportUrl,
+    appTosUrl: AppConfig.appTosUrl,
+    appPrivacyPolicyUrl: AppConfig.appPrivacyPolicyUrl,
+    appCancellationAndRefundUrl: AppConfig.appCancellationAndRefundUrl,
+    appSessionKey: AppConfig.appSessionKey,
+    businessName: AppConfig.businessName,
+    businessWebsite: AppConfig.businessWebsite,
+    businessAddress: AppConfig.businessAddress,
+    businessEmail: AppConfig.businessEmail,
     clientCountry: res.locals.clientCountry,
   };
 
@@ -37,8 +37,8 @@ export const getAccountDetailsController = async (
     success: true,
     message: "✅ Fetched account & app details",
     payload: {
-      details_Account: payload_AccountDetails,
-      details_App: payload_AppDetails,
+      details_Account: accountDetailsPayload,
+      details_App: appDetailsPayload,
     },
   });
 };
