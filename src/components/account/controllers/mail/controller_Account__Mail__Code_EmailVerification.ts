@@ -3,7 +3,7 @@ import {
   dal_Account_Write_Code_EmailVerification,
   dal_Account_Read_By_Id_Account,
 } from "../../dals";
-import { helper_Account_Mail_Code_EmailVerification } from "../../helpers";
+import { mailEmailVerificationCode } from "../../helpers";
 import { GenerateFourDigitCode } from "../../../../global/helpers";
 import { AppConfig } from "../../../../config";
 
@@ -30,7 +30,7 @@ export const controller_Account_Mail_Code_EmailVerification = async (
   }
 
   let returnObj_MailEmailVerificationCode: any =
-    await helper_Account_Mail_Code_EmailVerification(
+    await mailEmailVerificationCode(
       account.first_name,
       account.email,
       code_EmailVerification,

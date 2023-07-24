@@ -5,10 +5,10 @@ interface obj_Loose {
   [key: string]: any;
 }
 
-export const helper_Account_Mail_Code_EmailVerification = async (
+export const mailPasswordResetCode = async (
   subscriber_Name_First: string,
   subscriber_Email: string,
-  code_EmailVerification: number,
+  code_PasswordReset: number,
   publisher_Website: string,
   publisher_ProductName: string,
   publisher_BusinessName: string,
@@ -16,8 +16,8 @@ export const helper_Account_Mail_Code_EmailVerification = async (
   publisher_SupportEmail: string
 ) => {
   const client_Postmark = new postmark.Client(PostmarkConfig.token);
-  let id_Template = 30914127;
-  let isSent_VerificationMail: boolean = false;
+  let id_Template = 30958891;
+  let isSent_PasswordResetCode: boolean = false;
   let returnObj: obj_Loose = {};
   let payload: any;
 
@@ -27,7 +27,7 @@ export const helper_Account_Mail_Code_EmailVerification = async (
       TemplateId: id_Template,
       To: subscriber_Email,
       TemplateModel: {
-        code_EmailVerification: code_EmailVerification,
+        code_PasswordReset: code_PasswordReset,
         subscriber_Name_First: subscriber_Name_First,
         publisher_Website: publisher_Website,
         publisher_ProductName: publisher_ProductName,
@@ -39,23 +39,23 @@ export const helper_Account_Mail_Code_EmailVerification = async (
     (error, success) => {
       if (error) {
         payload = error;
-        isSent_VerificationMail = false;
+        isSent_PasswordResetCode = false;
       }
 
       if (success) {
         payload = success;
-        isSent_VerificationMail = true;
+        isSent_PasswordResetCode = true;
       }
     }
   );
 
-  if (isSent_VerificationMail) {
+  if (isSent_PasswordResetCode) {
     returnObj.success = true;
-    returnObj.message = "Email verification code SENT";
+    returnObj.message = "Password rest code SENT";
     returnObj.payload = payload;
   } else {
     returnObj.success = false;
-    returnObj.message = "Email verification code NOT_SENT";
+    returnObj.message = "Password reset code NOT_SENT";
     returnObj.payload = payload;
   }
 

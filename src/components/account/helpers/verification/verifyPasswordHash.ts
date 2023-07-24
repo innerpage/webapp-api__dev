@@ -1,6 +1,6 @@
 import * as argon from "argon2";
 
-export const helper_Account_Verify_Password_Hash = async (
+export const verifyPasswordHash = async (
   password_Hashed: string,
   password_Unhashed: string
 ) => {

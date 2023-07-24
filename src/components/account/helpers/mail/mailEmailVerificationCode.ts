@@ -5,9 +5,10 @@ interface obj_Loose {
   [key: string]: any;
 }
 
-export const helper_Account_Mail_Confirm_Reset_Password = async (
+export const mailEmailVerificationCode = async (
   subscriber_Name_First: string,
   subscriber_Email: string,
+  code_EmailVerification: number,
   publisher_Website: string,
   publisher_ProductName: string,
   publisher_BusinessName: string,
@@ -15,8 +16,8 @@ export const helper_Account_Mail_Confirm_Reset_Password = async (
   publisher_SupportEmail: string
 ) => {
   const client_Postmark = new postmark.Client(PostmarkConfig.token);
-  let id_Template = 30958892;
-  let isSent_PasswordResetConfirmation: boolean = false;
+  let id_Template = 30914127;
+  let isSent_VerificationMail: boolean = false;
   let returnObj: obj_Loose = {};
   let payload: any;
 
@@ -26,6 +27,7 @@ export const helper_Account_Mail_Confirm_Reset_Password = async (
       TemplateId: id_Template,
       To: subscriber_Email,
       TemplateModel: {
+        code_EmailVerification: code_EmailVerification,
         subscriber_Name_First: subscriber_Name_First,
         publisher_Website: publisher_Website,
         publisher_ProductName: publisher_ProductName,
@@ -37,23 +39,23 @@ export const helper_Account_Mail_Confirm_Reset_Password = async (
     (error, success) => {
       if (error) {
         payload = error;
-        isSent_PasswordResetConfirmation = false;
+        isSent_VerificationMail = false;
       }
 
       if (success) {
         payload = success;
-        isSent_PasswordResetConfirmation = true;
+        isSent_VerificationMail = true;
       }
     }
   );
 
-  if (isSent_PasswordResetConfirmation) {
+  if (isSent_VerificationMail) {
     returnObj.success = true;
-    returnObj.message = "Password rest code SENT";
+    returnObj.message = "Email verification code SENT";
     returnObj.payload = payload;
   } else {
     returnObj.success = false;
-    returnObj.message = "Password reset code NOT_SENT";
+    returnObj.message = "Email verification code NOT_SENT";
     returnObj.payload = payload;
   }
 

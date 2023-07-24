@@ -5,10 +5,9 @@ interface obj_Loose {
   [key: string]: any;
 }
 
-export const helper_Account_Mail_Code_PasswordReset = async (
+export const mailPasswordResetConfirmation = async (
   subscriber_Name_First: string,
   subscriber_Email: string,
-  code_PasswordReset: number,
   publisher_Website: string,
   publisher_ProductName: string,
   publisher_BusinessName: string,
@@ -16,8 +15,8 @@ export const helper_Account_Mail_Code_PasswordReset = async (
   publisher_SupportEmail: string
 ) => {
   const client_Postmark = new postmark.Client(PostmarkConfig.token);
-  let id_Template = 30958891;
-  let isSent_PasswordResetCode: boolean = false;
+  let id_Template = 30958892;
+  let isSent_PasswordResetConfirmation: boolean = false;
   let returnObj: obj_Loose = {};
   let payload: any;
 
@@ -27,7 +26,6 @@ export const helper_Account_Mail_Code_PasswordReset = async (
       TemplateId: id_Template,
       To: subscriber_Email,
       TemplateModel: {
-        code_PasswordReset: code_PasswordReset,
         subscriber_Name_First: subscriber_Name_First,
         publisher_Website: publisher_Website,
         publisher_ProductName: publisher_ProductName,
@@ -39,17 +37,17 @@ export const helper_Account_Mail_Code_PasswordReset = async (
     (error, success) => {
       if (error) {
         payload = error;
-        isSent_PasswordResetCode = false;
+        isSent_PasswordResetConfirmation = false;
       }
 
       if (success) {
         payload = success;
-        isSent_PasswordResetCode = true;
+        isSent_PasswordResetConfirmation = true;
       }
     }
   );
 
-  if (isSent_PasswordResetCode) {
+  if (isSent_PasswordResetConfirmation) {
     returnObj.success = true;
     returnObj.message = "Password rest code SENT";
     returnObj.payload = payload;

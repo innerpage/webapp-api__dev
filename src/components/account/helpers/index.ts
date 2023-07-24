@@ -1,14 +1,14 @@
 // Auth
-export { helper_Account_Login } from "./auth/helper_Account_Login";
-export { helper_Account_Logout } from "./auth/helper_Account_Logout";
+export { login } from "./auth/login";
+export { logout } from "./auth/logout";
 
 // Hasher
-export { helper_Account_Hash_Password } from "./hasher/helper_Account_Hash_Password";
+export { hashPassword } from "./hasher/hashPassword";
 
 // Mail
-export { helper_Account_Mail_Code_EmailVerification } from "./mail/helper_Account_Mail_Code_EmailVerification";
-export { helper_Account_Mail_Code_PasswordReset } from "./mail/helper_Account_Mail_Code_PasswordReset";
-export { helper_Account_Mail_Confirm_Reset_Password } from "./mail/helper_Account_Mail_Confirm_Reset_Password";
+export { mailEmailVerificationCode } from "./mail/mailEmailVerificationCode";
+export { mailPasswordResetCode } from "./mail/mailPasswordResetCode";
+export { mailPasswordResetConfirmation } from "./mail/mailPasswordResetConfirmation";
 
 // Verification
-export { helper_Account_Verify_Password_Hash } from "./verification/helper_Account_Verify_Password_Hash";
+export { verifyPasswordHash } from "./verification/verifyPasswordHash";

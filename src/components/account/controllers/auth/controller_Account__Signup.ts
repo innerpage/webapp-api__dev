@@ -1,10 +1,6 @@
 import { Request, Response } from "express";
 import { dal_Account_Write_New_Account } from "../../dals";
-import {
-  helper_Account_Hash_Password,
-  helper_Account_Mail_Code_EmailVerification,
-  helper_Account_Login,
-} from "../../helpers";
+import { hashPassword, mailEmailVerificationCode, login } from "../../helpers";
 import { GenerateFourDigitCode } from "../../../../global/helpers";
 import { AppConfig } from "../../../../config";
 
@@ -15,7 +11,7 @@ export const controller_Account_Signup = async (
   let { name_First, name_Last, email, password } = res.locals;
 
   let code_EmailVerification: number = GenerateFourDigitCode();
-  let hashed_Password: string = await helper_Account_Hash_Password(password);
+  let hashed_Password: string = await hashPassword(password);
 
   let returnObj_NewAccount: any = await dal_Account_Write_New_Account(
     name_First,
@@ -27,10 +23,10 @@ export const controller_Account_Signup = async (
 
   console.log(returnObj_NewAccount.message);
   console.log(returnObj_NewAccount.payload);
-  helper_Account_Login(req, returnObj_NewAccount.payload.id);
+  login(req, returnObj_NewAccount.payload.id);
 
   let returnObj_Mail_Code_EmailVerification: any =
-    await helper_Account_Mail_Code_EmailVerification(
+    await mailEmailVerificationCode(
       returnObj_NewAccount.payload.name_First,
       returnObj_NewAccount.payload.email,
       code_EmailVerification,
