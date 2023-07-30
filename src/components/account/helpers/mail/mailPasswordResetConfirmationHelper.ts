@@ -11,7 +11,7 @@ export const mailPasswordResetConfirmationHelper = async (
 
   await postmarkClient.sendEmailWithTemplate(
     {
-      From: `${AppConfig.appName} no-reply@${AppConfig.appWebsiteUrl}`,
+      From: `${AppConfig.appName} no-reply@${AppConfig.appMailerDomain}`,
       TemplateId: PostmarkConfig.template.passwordResetConfirmation.id,
       To: email,
       TemplateModel: {

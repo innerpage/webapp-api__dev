@@ -9,7 +9,7 @@ import { confirmPasswordController } from "../../controllers";
 export const confirmPasswordRoute = Router();
 
 confirmPasswordRoute.post(
-  "/password",
+  "/confirm-password",
   validateInputsForPasswordConfirmationMiddleware,
   formatInputsForPasswordConfirmationMiddleware,
   BlockNonExistentAccountByEmailMiddleware,
