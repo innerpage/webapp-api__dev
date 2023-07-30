@@ -12,7 +12,7 @@ export const mailEmailVerificationCodeHelper = async (
 
   await postmarkClient.sendEmailWithTemplate(
     {
-      From: `${AppConfig.appName} no-reply@${AppConfig.appWebsiteUrl}`,
+      From: `${AppConfig.appName} no-reply@${AppConfig.appMailerDomain}`,
       TemplateId: PostmarkConfig.template.emailVerificationCode.id,
       To: email,
       TemplateModel: {
@@ -30,7 +30,6 @@ export const mailEmailVerificationCodeHelper = async (
         payload = error;
         isEmailVerificationCodeSent = false;
       }
-
       if (success) {
         payload = success;
         isEmailVerificationCodeSent = true;

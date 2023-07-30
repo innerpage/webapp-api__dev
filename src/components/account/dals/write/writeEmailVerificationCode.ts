@@ -24,7 +24,7 @@ export const writeEmailVerificationCode = async (
 
   if (isEmailVerificationCodeSaved) {
     return {
-      succes: true,
+      success: true,
       message: "Email verification code saved",
       payload: payload,
     };

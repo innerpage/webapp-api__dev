@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   BlockNonExistentAccountByIdMiddleware,
+  BlockNonExistentAccountByEmailMiddleware,
   BlockLoggedOutAccountMiddleware,
   ExtractAccountIdFromRequestMiddleware,
   FormatEmailMiddleware,
@@ -11,11 +12,12 @@ import { mailEmailVerificationCodeController } from "../../controllers";
 export const mailEmailVerificationCodeRoute = Router();
 
 mailEmailVerificationCodeRoute.post(
-  "/resend-email-verification-code",
+  "/mail-email-verification-code",
   BlockLoggedOutAccountMiddleware,
   ExtractAccountIdFromRequestMiddleware,
   BlockNonExistentAccountByIdMiddleware,
   ValidateEmailMiddleware,
   FormatEmailMiddleware,
+  BlockNonExistentAccountByEmailMiddleware,
   mailEmailVerificationCodeController
 );

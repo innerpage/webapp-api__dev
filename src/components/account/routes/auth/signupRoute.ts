@@ -8,10 +8,12 @@ import {
   BlockLoggedInAccountMiddleware,
   BlockExistingAccountByEmailMiddleware,
 } from "../../../../global/middlewares";
+
 import {
   validateInputsForSignupMiddleware,
   formatInputsForSignupMiddleware,
 } from "../../middlewares";
+
 import { signupController } from "../../controllers";
 
 export const signupRoute = Router();

@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { writeEmailVerificationCode, readAccountById } from "../../dals";
 import { mailEmailVerificationCodeHelper } from "../../helpers";
 import { GenerateFourDigitCodeHelper } from "../../../../global/helpers";
-import { AppConfig } from "../../../../config";
 
 export const mailEmailVerificationCodeController = async (
   req: Request,

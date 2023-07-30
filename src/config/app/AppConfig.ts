@@ -11,6 +11,7 @@ export const AppConfig = {
   appPrivacyPolicyUrl: process.env.APP_PRIVACY_POLICY || "",
   appCancellationAndRefundUrl: process.env.APP_CANCELLATION_AND_REFUND || "",
   appSessionKey: process.env.APP_SESSION_KEY || "",
+  appMailerDomain: process.env.APP_MAILER_DOMAIN || "",
   businessName: process.env.BUSINESS_NAME || "",
   businessWebsite: process.env.BUSINESS_WEBSITE,
   businessAddress: process.env.BUSINESS_ADDRESS || "",
