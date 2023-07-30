@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { writePasswordResetCode, readAccountByEmail } from "../../dals";
 import { mailPasswordResetCodeHelper } from "../../helpers";
 import { GenerateFourDigitCodeHelper } from "../../../../global/helpers";
-import { AppConfig } from "../../../../config";
 
 export const mailPasswordResetCodeController = async (
   req: Request,

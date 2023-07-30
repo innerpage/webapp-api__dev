@@ -9,7 +9,7 @@ import { mailPasswordResetCodeController } from "../../controllers";
 export const mailPasswordResetCodeRoute = Router();
 
 mailPasswordResetCodeRoute.post(
-  "/send-password-reset-code",
+  "/mail-password-reset-code",
   ValidateEmailMiddleware,
   FormatEmailMiddleware,
   BlockNonExistentAccountByEmailMiddleware,

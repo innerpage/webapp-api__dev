@@ -12,7 +12,7 @@ export const mailPasswordResetCodeHelper = async (
 
   await postmarkClient.sendEmailWithTemplate(
     {
-      From: `${AppConfig.appName} no-reply@${AppConfig.appWebsiteUrl}`,
+      From: `${AppConfig.appName} no-reply@${AppConfig.appMailerDomain}`,
       TemplateId: PostmarkConfig.template.passwordResetCode.id,
       To: email,
       TemplateModel: {
