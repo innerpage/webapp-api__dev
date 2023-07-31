@@ -1,7 +1,7 @@
 import app from "./app";
 import http from "http";
 import { NodeConfig, SequelizeConfig } from "./config";
-import { IncludeModelAssociationsHelper } from "./global/helpers";
+import { IncludeModelAssociations } from "./global/helpers";
 import { Server, Socket } from "socket.io";
 
 import { writeNewVisit, writeVisitStatus } from "./components/visit/dals";
@@ -19,7 +19,7 @@ dotenv.config();
       console.log(err);
     });
 
-  IncludeModelAssociationsHelper();
+  IncludeModelAssociations();
 
   // await SequelizeConfig
   //   .sync()
@@ -31,7 +31,7 @@ dotenv.config();
   //     console.log("❌ Could not sync models");
   //   });
 
-  // alters table
+  // Alters table
   await SequelizeConfig.sync({ alter: true })
     .then((result) => {
       console.log("✅ Models synced");
@@ -43,23 +43,23 @@ dotenv.config();
 
   const nodeServer = http.createServer(app);
 
-  // const io = new Server(nodeServer, {
-  //   cors: {
-  //     origin: "*",
-  //   },
-  // });
+  const io = new Server(nodeServer, {
+    cors: {
+      origin: "*",
+    },
+  });
 
-  // io.on("connection", (socket: Socket) => {
-  //   const email: any = socket.handshake.query.email;
+  io.on("connection", (socket: Socket) => {
+    const email: any = socket.handshake.query.email;
 
-  //   console.log(`${email} connected via ${socket.id}`);
-  //   writeNewVisit(email, socket.id);
+    console.log(`✅ ${email} connected via ${socket.id}`);
+    writeNewVisit(email, socket.id);
 
-  //   socket.on("disconnect", () => {
-  //     console.log(`Client disconnected: ${socket.id}`);
-  //     writeVisitStatus(socket.id);
-  //   });
-  // });
+    socket.on("disconnect", () => {
+      console.log(`❌ Client disconnected: ${socket.id}`);
+      writeVisitStatus(socket.id);
+    });
+  });
 
   nodeServer.listen(NodeConfig.port, () => {
     console.log(`✅ Server is running on port: ${NodeConfig.port}`);

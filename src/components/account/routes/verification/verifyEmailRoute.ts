@@ -1,7 +1,7 @@
 import { Router } from "express";
 import {
-  BlockLoggedOutAccountMiddleware,
-  BlockNonExistentAccountByEmailMiddleware,
+  BlockLoggedOutAccount,
+  BlockNonExistentAccountByEmail,
 } from "../../../../global/middlewares";
 import {
   validateInputsForEmailVerificationMiddleware,
@@ -15,7 +15,7 @@ verifyEmailRoute.post(
   "/verify-email",
   validateInputsForEmailVerificationMiddleware,
   formatInputsForEmailVerificationMiddleware,
-  BlockNonExistentAccountByEmailMiddleware,
-  BlockLoggedOutAccountMiddleware,
+  BlockNonExistentAccountByEmail,
+  BlockLoggedOutAccount,
   verifyEmailController
 );

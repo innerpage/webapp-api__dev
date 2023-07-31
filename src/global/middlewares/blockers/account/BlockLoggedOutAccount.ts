@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const BlockLoggedInAccountMiddleware = (
+export const BlockLoggedOutAccount = (
   req: Request,
   res: Response,
   next: NextFunction
@@ -8,13 +8,13 @@ export const BlockLoggedInAccountMiddleware = (
   let isUserLoggedIn = !!req.session!.accountId;
 
   if (isUserLoggedIn) {
-    console.log(`❌ ${req.session.accountId} is logged in`);
+    console.log(`✅ ${req.session.accountId} is logged in`);
+    next();
+  } else {
+    console.log(`❌ ${req.session.accountId} is not logged in`);
     return res.status(400).json({
       success: false,
-      message: "❌ You are already logged in",
+      message: "❌ You are not logged in",
     });
-  } else {
-    console.log("✅ User is not logged in");
-    next();
   }
 };

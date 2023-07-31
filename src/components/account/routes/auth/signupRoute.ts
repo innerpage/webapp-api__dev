@@ -1,12 +1,12 @@
 import { Router } from "express";
 
 import {
-  ExtractOriginFromRequestMiddleware,
-  BlockRequestByOriginMiddleware,
-  ExtractIPAddressFromOriginMiddleware,
-  ExtractCountryFromIPAddressMiddleware,
-  BlockLoggedInAccountMiddleware,
-  BlockExistingAccountByEmailMiddleware,
+  ExtractOriginFromRequest,
+  BlockRequestByOrigin,
+  ExtractIPAddressFromOrigin,
+  ExtractCountryFromIPAddress,
+  BlockLoggedInAccount,
+  BlockExistingAccountByEmail,
 } from "../../../../global/middlewares";
 
 import {
@@ -20,13 +20,13 @@ export const signupRoute = Router();
 
 signupRoute.post(
   "/signup",
-  ExtractOriginFromRequestMiddleware,
-  BlockRequestByOriginMiddleware,
-  ExtractIPAddressFromOriginMiddleware,
-  ExtractCountryFromIPAddressMiddleware,
-  BlockLoggedInAccountMiddleware,
+  ExtractOriginFromRequest,
+  BlockRequestByOrigin,
+  ExtractIPAddressFromOrigin,
+  ExtractCountryFromIPAddress,
+  BlockLoggedInAccount,
   validateInputsForSignupMiddleware,
   formatInputsForSignupMiddleware,
-  BlockExistingAccountByEmailMiddleware,
+  BlockExistingAccountByEmail,
   signupController
 );

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import geoip from "geoip-lite";
 
-export const ExtractCountryFromIPAddressMiddleware = async (
+export const ExtractCountryFromIPAddress = async (
   req: Request,
   res: Response,
   next: NextFunction

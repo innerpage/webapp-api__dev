@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const ExtractAccountIdFromRequestMiddleware = (
+export const ExtractAccountIdFromRequest = (
   req: Request,
   res: Response,
   next: NextFunction

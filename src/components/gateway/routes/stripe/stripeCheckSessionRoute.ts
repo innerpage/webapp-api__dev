@@ -1,11 +1,11 @@
 import { Router } from "express";
 
 import {
-  BlockLoggedOutAccountMiddleware,
-  ExtractAccountIdFromRequestMiddleware,
-  ExtractOriginFromRequestMiddleware,
-  BlockNonExistentAccountByIdMiddleware,
-  BlockDisabledAccountByIdMiddleware,
+  BlockLoggedOutAccount,
+  ExtractAccountIdFromRequest,
+  ExtractOriginFromRequest,
+  BlockNonExistentAccountById,
+  BlockDisabledAccountById,
 } from "../../../../global/middlewares";
 
 import {
@@ -19,11 +19,11 @@ export const stripeCheckSessionRoute = Router();
 
 stripeCheckSessionRoute.post(
   "/stripe-check-session",
-  BlockLoggedOutAccountMiddleware,
-  ExtractAccountIdFromRequestMiddleware,
-  ExtractOriginFromRequestMiddleware,
-  BlockNonExistentAccountByIdMiddleware,
-  BlockDisabledAccountByIdMiddleware,
+  BlockLoggedOutAccount,
+  ExtractAccountIdFromRequest,
+  ExtractOriginFromRequest,
+  BlockNonExistentAccountById,
+  BlockDisabledAccountById,
   validateInputsForStripeCheckSessionMiddleware,
   formatInputsForStripeCheckSessionMiddleware,
   stripeCheckSessionController

@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import { writePasswordResetCode, readAccountByEmail } from "../../dals";
 import { mailPasswordResetCodeHelper } from "../../helpers";
-import { GenerateFourDigitCodeHelper } from "../../../../global/helpers";
+import { GenerateFourDigitCode } from "../../../../global/helpers";
 
 export const mailPasswordResetCodeController = async (
   req: Request,
   res: Response
 ) => {
   let account: any = await readAccountByEmail(res.locals.email);
-  let passwordResetCode: number = await GenerateFourDigitCodeHelper();
+  let passwordResetCode: number = await GenerateFourDigitCode();
 
   let writePasswordResetCodeReturnObject: any = await writePasswordResetCode(
     res.locals.email,

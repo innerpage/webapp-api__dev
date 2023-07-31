@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const FormatEmailMiddleware = async (
+export const FormatEmail = async (
   req: Request,
   res: Response,
   next: NextFunction

@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import { writeEmailVerificationCode, readAccountById } from "../../dals";
 import { mailEmailVerificationCodeHelper } from "../../helpers";
-import { GenerateFourDigitCodeHelper } from "../../../../global/helpers";
+import { GenerateFourDigitCode } from "../../../../global/helpers";
 
 export const mailEmailVerificationCodeController = async (
   req: Request,
   res: Response
 ) => {
   let account: any = await readAccountById(res.locals.accountId);
-  let emailVerificationCode: number = await GenerateFourDigitCodeHelper();
+  let emailVerificationCode: number = await GenerateFourDigitCode();
 
   let writeEmailVerificationCodeReturnObject: any =
     await writeEmailVerificationCode(

@@ -11,7 +11,7 @@ const emailSchema = Joi.object({
     .required(),
 });
 
-export const ValidateEmailMiddleware = async (
+export const ValidateEmail = async (
   req: Request,
   res: Response,
   next: NextFunction

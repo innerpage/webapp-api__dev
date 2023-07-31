@@ -5,12 +5,12 @@ import {
   mailEmailVerificationCodeHelper,
   loginHelper,
 } from "../../helpers";
-import { GenerateFourDigitCodeHelper } from "../../../../global/helpers";
+import { GenerateFourDigitCode } from "../../../../global/helpers";
 
 export const signupController = async (req: Request, res: Response) => {
   let { firstName, lastName, email, password } = res.locals;
 
-  let emailVerificationCode: number = GenerateFourDigitCodeHelper();
+  let emailVerificationCode: number = GenerateFourDigitCode();
   let hashedPassword: string = await hashPasswordHelper(password);
 
   let newAccountReturnObject: any = await writeNewAccount(

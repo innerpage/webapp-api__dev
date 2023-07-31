@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { readAccountByEmail } from "../../../../components/account/dals";
 
-export const BlockNonExistentAccountByEmailMiddleware = async (
+export const BlockNonExistentAccountByEmail = async (
   req: Request,
   res: Response,
   next: NextFunction

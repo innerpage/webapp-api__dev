@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const ExtractIPAddressFromOriginMiddleware = async (
+export const ExtractIPAddressFromOrigin = async (
   req: Request,
   res: Response,
   next: NextFunction

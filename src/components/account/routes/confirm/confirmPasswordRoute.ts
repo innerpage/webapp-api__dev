@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { BlockNonExistentAccountByEmailMiddleware } from "../../../../global/middlewares";
+import { BlockNonExistentAccountByEmail } from "../../../../global/middlewares";
 import {
   validateInputsForPasswordConfirmationMiddleware,
   formatInputsForPasswordConfirmationMiddleware,
@@ -12,6 +12,6 @@ confirmPasswordRoute.post(
   "/confirm-password",
   validateInputsForPasswordConfirmationMiddleware,
   formatInputsForPasswordConfirmationMiddleware,
-  BlockNonExistentAccountByEmailMiddleware,
+  BlockNonExistentAccountByEmail,
   confirmPasswordController
 );

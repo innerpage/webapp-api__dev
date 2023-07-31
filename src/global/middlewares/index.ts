@@ -1,21 +1,21 @@
 // Blockers
-export { BlockLoggedInAccountMiddleware } from "./blockers/account/BlockLoggedInAccountMiddleware";
-export { BlockLoggedOutAccountMiddleware } from "./blockers/account/BlockLoggedOutAccountMiddleware";
-export { BlockExistingAccountByEmailMiddleware } from "./blockers/account/BlockExistingAccountByEmailMiddleware";
-export { BlockNonExistentAccountByIdMiddleware } from "./blockers/account/BlockNonExistentAccountByIdMiddleware";
-export { BlockDisabledAccountByIdMiddleware } from "./blockers/account/BlockDisabledAccountByIdMiddleware";
-export { BlockNonExistentAccountByEmailMiddleware } from "./blockers/account/BlockNonExistentAccountByEmailMiddleware";
-export { BlockRequestByOriginMiddleware } from "./blockers/origin/BlockRequestByOriginMiddleware";
+export { BlockLoggedInAccount } from "./blockers/account/BlockLoggedInAccount";
+export { BlockLoggedOutAccount } from "./blockers/account/BlockLoggedOutAccount";
+export { BlockExistingAccountByEmail } from "./blockers/account/BlockExistingAccountByEmail";
+export { BlockNonExistentAccountById } from "./blockers/account/BlockNonExistentAccountById";
+export { BlockDisabledAccountById } from "./blockers/account/BlockDisabledAccountById";
+export { BlockNonExistentAccountByEmail } from "./blockers/account/BlockNonExistentAccountByEmail";
+export { BlockRequestByOrigin } from "./blockers/origin/BlockRequestByOrigin";
 
 // Extractors
-export { ExtractAccountIdFromRequestMiddleware } from "./extractors/ExtractAccountIdFromRequestMiddleware";
-export { ExtractOriginFromRequestMiddleware } from "./extractors/ExtractOriginFromRequestMiddleware";
-export { ExtractIPAddressFromOriginMiddleware } from "./extractors/ExtractIPAddressFromOriginMiddleware";
-export { ExtractCountryFromIPAddressMiddleware } from "./extractors/ExtractCountryFromIPAddressMiddleware";
+export { ExtractAccountIdFromRequest } from "./extractors/ExtractAccountIdFromRequest";
+export { ExtractOriginFromRequest } from "./extractors/ExtractOriginFromRequest";
+export { ExtractIPAddressFromOrigin } from "./extractors/ExtractIPAddressFromOrigin";
+export { ExtractCountryFromIPAddress } from "./extractors/ExtractCountryFromIPAddress";
 
 // Formatters
-export { FormatEmailMiddleware } from "./formatters/FormatEmailMiddleware";
+export { FormatEmail } from "./formatters/FormatEmail";
 
 // Others
-export { HandleErrorsMiddleware } from "./handlers/HandleErrorsMiddleware";
-export { ValidateEmailMiddleware } from "./validators/ValidateEmailMiddleware";
+export { HandleErrors } from "./handlers/HandleErrors";
+export { ValidateEmail } from "./validators/ValidateEmail";

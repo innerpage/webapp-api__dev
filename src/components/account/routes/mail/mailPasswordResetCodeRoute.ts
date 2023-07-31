@@ -1,8 +1,8 @@
 import { Router } from "express";
 import {
-  BlockNonExistentAccountByEmailMiddleware,
-  FormatEmailMiddleware,
-  ValidateEmailMiddleware,
+  BlockNonExistentAccountByEmail,
+  FormatEmail,
+  ValidateEmail,
 } from "../../../../global/middlewares";
 import { mailPasswordResetCodeController } from "../../controllers";
 
@@ -10,8 +10,8 @@ export const mailPasswordResetCodeRoute = Router();
 
 mailPasswordResetCodeRoute.post(
   "/mail-password-reset-code",
-  ValidateEmailMiddleware,
-  FormatEmailMiddleware,
-  BlockNonExistentAccountByEmailMiddleware,
+  ValidateEmail,
+  FormatEmail,
+  BlockNonExistentAccountByEmail,
   mailPasswordResetCodeController
 );
