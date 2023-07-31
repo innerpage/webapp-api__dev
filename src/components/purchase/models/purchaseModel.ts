@@ -10,11 +10,11 @@ const modelAttributes: any = {
     unique: true,
     primaryKey: true,
   },
-  product_id: {
+  productId: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  session_id: {
+  sessionId: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -26,7 +26,7 @@ const modelAttributes: any = {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  is_success: {
+  isSuccess: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
     defaultValue: false,

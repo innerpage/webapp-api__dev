@@ -1,17 +1,12 @@
 import { purchaseModel } from "../../models";
 
-interface LooseObject {
-  [key: string]: any;
-}
-
 export const readPurchaseBySessionId = async (sessionId: string) => {
   let payload: any;
-  let returnObject: LooseObject = {};
 
   await purchaseModel
     .findOne({
       where: {
-        session_id: sessionId,
+        sessionId: sessionId,
       },
     })
     .then((purchase: any) => {
@@ -20,14 +15,16 @@ export const readPurchaseBySessionId = async (sessionId: string) => {
     .catch((err) => (payload = err));
 
   if (payload) {
-    returnObject.success = true;
-    returnObject.message = "✅ Purchase read";
-    returnObject.payload = payload;
+    return {
+      success: true,
+      message: "✅ Purchase read",
+      payload: payload,
+    };
   } else {
-    returnObject.success = false;
-    returnObject.message = "❌ Purchase not read";
-    returnObject.payload = payload;
+    return {
+      success: false,
+      message: "❌ Purchase not read",
+      payload: payload,
+    };
   }
-
-  return returnObject;
 };

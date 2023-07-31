@@ -1,9 +1,5 @@
 import { purchaseModel } from "../../models";
 
-interface LooseObject {
-  [key: string]: any;
-}
-
 export const writeNewPurchase = async (
   productId: string,
   sessionId: string,
@@ -13,12 +9,11 @@ export const writeNewPurchase = async (
 ) => {
   let isNewPurchaseCreated: boolean = false;
   let payload: any;
-  let returnObject: LooseObject = {};
 
   await purchaseModel
     .create({
-      product_id: productId,
-      session_id: sessionId,
+      productId: productId,
+      sessionId: sessionId,
       currency: currency,
       amount: amount,
       accountId: accountId,
@@ -32,13 +27,16 @@ export const writeNewPurchase = async (
     });
 
   if (isNewPurchaseCreated) {
-    returnObject.success = true;
-    returnObject.message = "New purchase created";
-    returnObject.payload = payload;
+    return {
+      success: true,
+      message: "✅ New purchase created",
+      payload: payload,
+    };
   } else {
-    returnObject.success = false;
-    returnObject.message = "New purchase not created";
-    returnObject.payload = payload;
+    return {
+      success: false,
+      message: "❌ New purchase not created",
+      payload: payload,
+    };
   }
-  return returnObject;
 };

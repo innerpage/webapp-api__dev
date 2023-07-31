@@ -16,8 +16,8 @@ export const stripeCreateSessionController = async (
   });
 
   const session: any = await stripe.checkout.sessions.create({
-    success_url: `${res.locals.origin}/payment-handle/{CHECKOUT_SESSION_ID}`,
-    cancel_url: `${res.locals.origin}/payment-cancel/{CHECKOUT_SESSION_ID}`,
+    success_url: `${res.locals.origin}/payment-handle/{CHECKOUT_sessionId}`,
+    cancel_url: `${res.locals.origin}/payment-cancel/{CHECKOUT_sessionId}`,
     line_items: [{ price: priceId, quantity: 1 }],
     mode: "payment",
     currency: "USD",
