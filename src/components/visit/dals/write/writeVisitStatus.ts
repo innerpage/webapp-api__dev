@@ -3,18 +3,18 @@ import { visitModel } from "../../models";
 export const writeVisitStatus = async (socketId: string) => {
   await visitModel
     .update(
-      { is_active: false },
+      { isActive: false },
       {
         where: {
-          socket_id: socketId,
+          socketId: socketId,
         },
       }
     )
     .then(() => {
-      console.log(`✅ Connection active status updated: ${socketId}`);
+      console.log(`✅ Visit status updated: ${socketId}`);
     })
     .catch((err: any) => {
-      console.log(`❌ Connection active status not updated: ${socketId}`);
+      console.log(`❌ Visit status not updated: ${socketId}`);
       console.log(err);
     });
 };

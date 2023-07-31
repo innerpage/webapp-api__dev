@@ -16,6 +16,6 @@ export const ExtractIPAddressFromOrigin = async (
   }
 
   res.locals.clientIPAddress = ip;
-  console.log(`Client IP: ${res.locals.clientIPAddress}`);
+  console.log(`✅ Client IP: ${res.locals.clientIPAddress}`);
   next();
 };

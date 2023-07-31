@@ -15,12 +15,12 @@ const modelAttributes: any = {
     allowNull: false,
     validate: { isEmail: true },
   },
-  socket_id: {
+  socketId: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  is_active: { type: DataTypes.BOOLEAN, defaultValue: true },
-  ip_address: { type: DataTypes.STRING },
+  isActive: { type: DataTypes.BOOLEAN, defaultValue: true },
+  ipAddress: { type: DataTypes.STRING },
 };
 
 const modelOptions: any = {};

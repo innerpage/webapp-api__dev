@@ -14,6 +14,6 @@ export const ExtractCountryFromIPAddress = async (
   }
 
   res.locals.clientCountry = clientCountry;
-  console.log(`Client location: ${res.locals.clientCountry}`);
+  console.log(`✅ Client location: ${res.locals.clientCountry}`);
   next();
 };
