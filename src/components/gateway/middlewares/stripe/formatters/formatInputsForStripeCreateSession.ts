@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-export const formatInputsForStripeCreateSessionMiddleware = async (
+export const formatInputsForStripeCreateSession = async (
   req: Request,
   res: Response,
   next: NextFunction

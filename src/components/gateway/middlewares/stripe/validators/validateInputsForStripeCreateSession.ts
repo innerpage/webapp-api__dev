@@ -5,7 +5,7 @@ const stripeCreateSessionInputSchema = Joi.object({
   documentId: Joi.string().required(),
 });
 
-export const validateInputsForStripeCreateSessionMiddleware = (
+export const validateInputsForStripeCreateSession = (
   req: Request,
   res: Response,
   next: NextFunction

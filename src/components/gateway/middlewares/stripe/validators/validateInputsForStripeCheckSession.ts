@@ -5,7 +5,7 @@ const stripeCheckSessionInputSchema = Joi.object({
   sessionId: Joi.string().required(),
 });
 
-export const validateInputsForStripeCheckSessionMiddleware = (
+export const validateInputsForStripeCheckSession = (
   req: Request,
   res: Response,
   next: NextFunction
