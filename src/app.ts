@@ -16,7 +16,12 @@ const app = express();
 const redisStore = connectRedis(session);
 
 if (NodeConfig.env === "dev") {
-  app.use(cors());
+  app.use(
+    cors({
+      origin: ["http://localhost:3333"],
+      credentials: true,
+    })
+  );
 } else {
   app.use(cors(CorsConfig));
 }
