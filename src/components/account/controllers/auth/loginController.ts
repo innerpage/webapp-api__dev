@@ -21,7 +21,7 @@ export const loginController = async (req: Request, res: Response) => {
   }
   console.log(`${email} password is valid`);
   res.locals.accountId = account?.dataValues.id;
-  loginHelper(req, res.locals.accountId);
+  loginHelper(req, res, res.locals.accountId);
 
   let loginResponseObject = {
     firstName: account.first_name,

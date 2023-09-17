@@ -4,5 +4,5 @@ export { signupRoute } from "./auth/signupRoute";
 export { getAccountDetailsRoute } from "./details/getAccountDetailsRoute";
 export { mailPasswordResetCodeRoute } from "./mail/mailPasswordResetCodeRoute";
 export { mailEmailVerificationCodeRoute } from "./mail/mailEmailVerificationCodeRoute";
-export { confirmPasswordRoute } from "./confirm/confirmPasswordRoute";
+export { confirmPasswordRoute } from "./password/confirmPasswordRoute";
 export { verifyEmailRoute } from "./verification/verifyEmailRoute";

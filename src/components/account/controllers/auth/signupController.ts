@@ -23,7 +23,7 @@ export const signupController = async (req: Request, res: Response) => {
 
   console.log(newAccountReturnObject.message);
   console.log(newAccountReturnObject.payload);
-  loginHelper(req, newAccountReturnObject.payload.id);
+  loginHelper(req, res, newAccountReturnObject.payload.id);
 
   let mailEmailVerificationCodeReturnObject: any =
     await mailEmailVerificationCodeHelper(
