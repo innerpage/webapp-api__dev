@@ -7,6 +7,13 @@ export const loginController = async (req: Request, res: Response) => {
   let { email, password } = res.locals;
   let account: any = await readAccountByEmail(email);
 
+  if (!account.dataValues.password) {
+    return res.status(400).json({
+      success: false,
+      message: "❌ Invalid password",
+    });
+  }
+
   let isPasswordValid: boolean = await verifyPasswordHashHelper(
     account?.dataValues.password,
     password

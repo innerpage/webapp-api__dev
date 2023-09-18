@@ -6,7 +6,11 @@ export const writeGoogleOauthStatus = async (email: string) => {
 
   await accountModel
     .update(
-      { is_email_verified: true, is_google_oauth_linked: true },
+      {
+        is_email_verified: true,
+        email_verification_code: "",
+        is_google_oauth_linked: true,
+      },
       {
         where: {
           email: email,
