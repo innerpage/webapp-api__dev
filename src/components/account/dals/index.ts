@@ -8,3 +8,5 @@ export { writePasswordResetCode } from "./write/writePasswordResetCode";
 export { writeNewAccount } from "./write/writeNewAccount";
 export { writeNewPassword } from "./write/writeNewPassword";
 export { writeEmailVerificationStatus } from "./write/writeEmailVerificationStatus";
+export { writeNewAccountFromGoogleOauth } from "./write/writeNewAccountFromGoogleOauth";
+export { writeGoogleOauthStatus } from "./write/writeGoogleOauthStatus";

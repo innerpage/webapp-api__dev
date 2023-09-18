@@ -6,3 +6,4 @@ export { mailPasswordResetCodeRoute } from "./mail/mailPasswordResetCodeRoute";
 export { mailEmailVerificationCodeRoute } from "./mail/mailEmailVerificationCodeRoute";
 export { confirmPasswordRoute } from "./password/confirmPasswordRoute";
 export { verifyEmailRoute } from "./verification/verifyEmailRoute";
+export { googleOauthRoute } from "./oauth/googleOauthRoute";

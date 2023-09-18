@@ -18,12 +18,13 @@ const modelAttributes: any = {
     unique: true,
     validate: { isEmail: true },
   },
-  password: { type: DataTypes.STRING, allowNull: false },
+  password: { type: DataTypes.STRING, allowNull: true },
   is_email_verified: { type: DataTypes.BOOLEAN, defaultValue: false },
   email_verification_code: {
     type: DataTypes.STRING,
   },
   password_reset_code: { type: DataTypes.STRING, defaultValue: "" },
+  is_google_oauth_linked: { type: DataTypes.BOOLEAN, defaultValue: false },
   is_disabled: { type: DataTypes.BOOLEAN, defaultValue: false },
 };
 const modelOptions: any = {};

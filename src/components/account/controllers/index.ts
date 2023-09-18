@@ -13,5 +13,8 @@ export { getAccountDetailsController } from "./details/getAccountDetailsControll
 export { mailPasswordResetCodeController } from "./mail/mailPasswordResetCodeController";
 export { mailEmailVerificationCodeController } from "./mail/mailEmailVerificationCodeController";
 
+// OAuth
+export { googleOauthController } from "./oauth/googleOauthController";
+
 // Verify
 export { verifyEmailController } from "./verification/verifyEmailController";
