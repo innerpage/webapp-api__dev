@@ -3,11 +3,11 @@
 - `git clone git@github.com-projckt:projckt/starter_webapp-api-dev.git dev`
 - `cd dev`
 
-## Edit repo
+## Edit repo remote
 
 - `git remote set-url origin git@github.com-{username}:{username}/{repo_name}-api-dev.git`
 
-## Init dependencies
+## Install dependencies
 
 - `npm install`
 
@@ -20,8 +20,8 @@
 
 - Copy `.env-bak` to `.env`
 - Edit `.env` values
-  <br/>
-  **App**
+  <br/><br/>
+  **App** <br/>
   `APP_NAME` <br/>
   `APP_WEBSITE` <br/>
   `APP_URL` <br/>
@@ -38,18 +38,18 @@
   `BUSINESS_EMAIL` <br/>
   <hr/>
 
-  **Express Session**
+  **Express Session** <br/>
   `EXPRESS_SESSION_NAME` <br/>
-  `EXPRESS_SESSION_SECRET` <br/> <br/>
+  `EXPRESS_SESSION_SECRET` <br/>
   `EXPRESS_SESSION_TIMEOUT`
     <hr/>
 
-  **Node**
+  **Node** <br/>
   `NODE_ENV` <br/>
   `NODE_PORT` <br/>
     <hr/>
 
-  **Postgres**
+  **Postgres** <br/>
   `POSTGRES_HOST` <br/>
   `POSTGRES_PORT` <br/>
   `POSTGRES_DATABASE` <br/>
@@ -57,19 +57,19 @@
   `POSTGRES_PASSWORD` <br/>
     <hr/>
 
-  **Postmark**
+  **Postmark** <br/>
   `POSTMARK_TOKEN` <br/>
   `POSTMARK_TEMPLATE_EMAIL_VERIFICATION_CODE` <br/>
   `POSTMARK_TEMPLATE_PASSWORD_RESET_CODE` <br/>
   `POSTMARK_TEMPLATE_CONFIRM_PASSWORD_RESET` <br/>
     <hr/>
 
-  **Redis**
+  **Redis** <br/>
   `REDIS_HOST` <br/>
   `REDIS_PORT` <br/>
      <hr/>
 
-  **Stripe**
+  **Stripe** <br/>
   `STRIPE_PUBLIC_KEY` <br/>
   `STRIPE_SECRET_KEY` <br/>
   `STRIPE_WEBHOOK_SECRET` <br/>
