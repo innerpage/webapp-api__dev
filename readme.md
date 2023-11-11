@@ -1,71 +1,80 @@
-## Project initialization
+## Clone repo
 
-- `npm install` inside the project directory
-- Change **git remote** of the project directory
+- `git clone git@github.com-projckt:projckt/starter_webapp-api-dev.git dev`
+- `cd dev`
 
-## Changes in <u>package.json</u>
+## Edit repo
 
-- Change **name**
-- Change **repository.url**
+- `git remote set-url origin git@github.com-{username}:{username}/{repo_name}-api-dev.git`
 
-## Prepare <u>.env</u>
+## Init dependencies
 
-- Copy **.env-bak** to **.env**
-- Add values to **.env**<br/>
+- `npm install`
+
+## Edit ./package.json
+
+- Change `name`
+- Change `repository.url`
+
+## Edit ./.env
+
+- Copy `.env-bak` to `.env`
+- Edit `.env` values
+  <br/>
   **App**
-  `APP_NAME`
-  `APP_WEBSITE`
-  `APP_URL`
-  `APP_EMAIL`
-  `APP_SUPPORT_URL`
-  `APP_TOS`
-  `APP_PRIVACY_POLICY`
-  `APP_CANCELLATION_AND_REFUND`
-  `APP_SESSION_KEY`
-  `APP_MAILER_DOMAIN`
-  `BUSINESS_NAME`
-  `BUSINESS_WEBSITE`
-  `BUSINESS_ADDRESS`
-  `BUSINESS_EMAIL`
+  `APP_NAME` <br/>
+  `APP_WEBSITE` <br/>
+  `APP_URL` <br/>
+  `APP_EMAIL` <br/>
+  `APP_SUPPORT_URL` <br/>
+  `APP_TOS` <br/>
+  `APP_PRIVACY_POLICY` <br/>
+  `APP_CANCELLATION_AND_REFUND` <br/>
+  `APP_SESSION_KEY` <br/>
+  `APP_MAILER_DOMAIN` <br/>
+  `BUSINESS_NAME` <br/>
+  `BUSINESS_WEBSITE` <br/>
+  `BUSINESS_ADDRESS` <br/>
+  `BUSINESS_EMAIL` <br/>
   <hr/>
 
   **Express Session**
-  `EXPRESS_SESSION_NAME`
-  `EXPRESS_SESSION_SECRET`
+  `EXPRESS_SESSION_NAME` <br/>
+  `EXPRESS_SESSION_SECRET` <br/> <br/>
   `EXPRESS_SESSION_TIMEOUT`
-  <hr/>
+    <hr/>
 
   **Node**
-  `NODE_ENV`
-  `NODE_PORT`
-  <hr/>
+  `NODE_ENV` <br/>
+  `NODE_PORT` <br/>
+    <hr/>
 
   **Postgres**
-  `POSTGRES_HOST`
-  `POSTGRES_PORT`
-  `POSTGRES_DATABASE`
-  `POSTGRES_USER`
-  `POSTGRES_PASSWORD`
-  <hr/>
+  `POSTGRES_HOST` <br/>
+  `POSTGRES_PORT` <br/>
+  `POSTGRES_DATABASE` <br/>
+  `POSTGRES_USER` <br/>
+  `POSTGRES_PASSWORD` <br/>
+    <hr/>
 
   **Postmark**
-  `POSTMARK_TOKEN`
-  `POSTMARK_TEMPLATE_EMAIL_VERIFICATION_CODE`
-  `POSTMARK_TEMPLATE_PASSWORD_RESET_CODE`
-  `POSTMARK_TEMPLATE_CONFIRM_PASSWORD_RESET`
-  <hr/>
+  `POSTMARK_TOKEN` <br/>
+  `POSTMARK_TEMPLATE_EMAIL_VERIFICATION_CODE` <br/>
+  `POSTMARK_TEMPLATE_PASSWORD_RESET_CODE` <br/>
+  `POSTMARK_TEMPLATE_CONFIRM_PASSWORD_RESET` <br/>
+    <hr/>
 
   **Redis**
-  `REDIS_HOST`
-  `REDIS_PORT`
-   <hr/>
+  `REDIS_HOST` <br/>
+  `REDIS_PORT` <br/>
+     <hr/>
 
   **Stripe**
-  `STRIPE_PUBLIC_KEY`
-  `STRIPE_SECRET_KEY`
-  `STRIPE_WEBHOOK_SECRET`
-  `STRIPE_PROCESSING_FEE`
+  `STRIPE_PUBLIC_KEY` <br/>
+  `STRIPE_SECRET_KEY` <br/>
+  `STRIPE_WEBHOOK_SECRET` <br/>
+  `STRIPE_PROCESSING_FEE` <br/>
 
-## Changes in <u>build.sh</u>
+## Edit ./build.sh
 
-- Change **git remote** for <u>prod repo</u>
+- Change production repo to `git remote set-url origin git@github.com-{username}:{username}/{repo_name}-api-prod.git`
