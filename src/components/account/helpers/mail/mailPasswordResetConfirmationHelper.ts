@@ -2,7 +2,7 @@ import * as postmark from "postmark";
 import { AppConfig, PostmarkConfig } from "../../../../config";
 
 export const mailPasswordResetConfirmationHelper = async (
-  firstName: string,
+  name: string,
   email: string
 ) => {
   const postmarkClient = new postmark.Client(PostmarkConfig.token);
@@ -15,7 +15,7 @@ export const mailPasswordResetConfirmationHelper = async (
       TemplateId: PostmarkConfig.template.passwordResetConfirmation.id,
       To: email,
       TemplateModel: {
-        firstName: firstName,
+        name: name,
         appWebsiteUrl: AppConfig.appWebsiteUrl,
         appName: AppConfig.appName,
         businessName: AppConfig.businessName,

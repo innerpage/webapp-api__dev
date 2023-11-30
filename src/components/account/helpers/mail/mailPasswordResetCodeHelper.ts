@@ -2,7 +2,7 @@ import * as postmark from "postmark";
 import { AppConfig, PostmarkConfig } from "../../../../config";
 
 export const mailPasswordResetCodeHelper = async (
-  firstName: string,
+  name: string,
   email: string,
   passwordResetCode: number
 ) => {
@@ -17,7 +17,7 @@ export const mailPasswordResetCodeHelper = async (
       To: email,
       TemplateModel: {
         passwordResetCode: passwordResetCode,
-        firstName: firstName,
+        name: name,
         appWebsiteUrl: AppConfig.appWebsiteUrl,
         appName: AppConfig.appName,
         businessName: AppConfig.businessName,

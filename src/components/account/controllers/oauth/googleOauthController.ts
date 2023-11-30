@@ -21,10 +21,10 @@ export const googleOauthController = async (req: Request, res: Response) => {
   // Extract account details
   let email: string = decodedToken.email;
   let isEmailVerified: boolean = decodedToken.email_verified;
-  let firstName: string = decodedToken.given_name;
-  let lastName: string = decodedToken.family_name;
+  let givenName: string = decodedToken.given_name;
+  let familyName: string = decodedToken.family_name;
 
-  if (!email || !isEmailVerified || !firstName || !lastName) {
+  if (!email || !isEmailVerified || !givenName || !familyName) {
     return res.status(400).json({
       success: false,
       message: "❌ Invalid Google account details",
@@ -34,11 +34,11 @@ export const googleOauthController = async (req: Request, res: Response) => {
   // Get account
   let account: any = await readAccountByEmail(email);
   let accountId: string = "";
+  let name: string = `${givenName} ${familyName}`;
 
   if (!account) {
     let newAccountReturnObject: any = await writeNewAccountFromGoogleOauth(
-      firstName,
-      lastName,
+      name,
       email,
       true,
       true
@@ -68,8 +68,7 @@ export const googleOauthController = async (req: Request, res: Response) => {
   loginHelper(req, res, accountId);
 
   let responseObject = {
-    firstName: firstName,
-    lastName: lastName,
+    name: name,
     email: email,
     isEmailVerified: true,
     isSessionActive: true,

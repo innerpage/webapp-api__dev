@@ -8,14 +8,13 @@ import {
 import { GenerateFourDigitCode } from "../../../../global/helpers";
 
 export const signupController = async (req: Request, res: Response) => {
-  let { firstName, lastName, email, password } = res.locals;
+  let { name, email, password } = res.locals;
 
   let emailVerificationCode: number = GenerateFourDigitCode();
   let hashedPassword: string = await hashPasswordHelper(password);
 
   let newAccountReturnObject: any = await writeNewAccount(
-    firstName,
-    lastName,
+    name,
     email,
     hashedPassword,
     emailVerificationCode
@@ -27,7 +26,7 @@ export const signupController = async (req: Request, res: Response) => {
 
   let mailEmailVerificationCodeReturnObject: any =
     await mailEmailVerificationCodeHelper(
-      newAccountReturnObject.payload.firstName,
+      newAccountReturnObject.payload.name,
       newAccountReturnObject.payload.email,
       emailVerificationCode
     );
@@ -35,8 +34,7 @@ export const signupController = async (req: Request, res: Response) => {
   console.log(mailEmailVerificationCodeReturnObject.payload);
 
   let signupResponseObject = {
-    firstName: newAccountReturnObject.payload.firstName,
-    lastName: newAccountReturnObject.payload.lastName,
+    name: newAccountReturnObject.payload.name,
     email: newAccountReturnObject.payload.email,
     isEmailVerified: newAccountReturnObject.payload.isEmailVerified,
     isSessionActive: true,

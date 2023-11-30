@@ -1,8 +1,7 @@
 import { accountModel } from "../../models";
 
 export const writeNewAccountFromGoogleOauth = async (
-  firstName: string,
-  lastName: string,
+  name: string,
   email: string,
   isEmailVerified: boolean,
   isGoogleOauthLinked: boolean
@@ -12,8 +11,7 @@ export const writeNewAccountFromGoogleOauth = async (
 
   await accountModel
     .create({
-      first_name: firstName,
-      last_name: lastName,
+      name: name,
       email: email,
       is_email_verified: isEmailVerified,
       is_google_oauth_linked: isGoogleOauthLinked,
@@ -22,8 +20,7 @@ export const writeNewAccountFromGoogleOauth = async (
       isNewAccountCreated = true;
       payload = {
         id: newAccount.dataValues.id,
-        firstName: newAccount.dataValues.first_name,
-        lastName: newAccount.dataValues.last_name,
+        name: newAccount.dataValues.name,
         email: newAccount.dataValues.email,
         isEmailVerified: newAccount.dataValues.is_email_verified,
       };

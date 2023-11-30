@@ -21,8 +21,7 @@ dotenv.config();
 
   IncludeModelAssociations();
 
-  // await SequelizeConfig
-  //   .sync()
+  // await SequelizeConfig.sync()
   //   .then((result) => {
   //     console.log("✅ Models synced");
   //   })

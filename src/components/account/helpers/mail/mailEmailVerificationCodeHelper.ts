@@ -2,7 +2,7 @@ import * as postmark from "postmark";
 import { AppConfig, PostmarkConfig } from "../../../../config";
 
 export const mailEmailVerificationCodeHelper = async (
-  firstName: string,
+  name: string,
   email: string,
   emailVerificationCode: number
 ) => {
@@ -17,7 +17,7 @@ export const mailEmailVerificationCodeHelper = async (
       To: email,
       TemplateModel: {
         emailVerificationCode: emailVerificationCode,
-        firstName: firstName,
+        name: name,
         appWebsiteUrl: AppConfig.appWebsiteUrl,
         appName: AppConfig.appName,
         businessName: AppConfig.businessName,

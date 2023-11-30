@@ -27,7 +27,7 @@ export const mailEmailVerificationCodeController = async (
 
   let mailEmailVerificationCodeReturnObject: any =
     await mailEmailVerificationCodeHelper(
-      account.first_name,
+      account.name,
       account.email,
       emailVerificationCode
     );

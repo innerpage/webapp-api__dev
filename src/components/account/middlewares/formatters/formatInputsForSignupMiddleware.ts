@@ -5,10 +5,9 @@ export const formatInputsForSignupMiddleware = async (
   res: Response,
   next: NextFunction
 ) => {
-  let { firstName, lastName, email, password } = req.body;
+  let { name, email, password } = req.body;
 
-  res.locals.firstName = firstName.trim();
-  res.locals.lastName = lastName.trim();
+  res.locals.name = name.trim();
   res.locals.email = email.trim().toLowerCase();
   res.locals.password = password.trim();
 

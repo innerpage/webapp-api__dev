@@ -1,8 +1,7 @@
 import { accountModel } from "../../models";
 
 export const writeNewAccount = async (
-  firstName: string,
-  lastName: string,
+  name: string,
   email: string,
   hashedPassword: string,
   emailVerificationCode: number
@@ -12,8 +11,7 @@ export const writeNewAccount = async (
 
   await accountModel
     .create({
-      first_name: firstName,
-      last_name: lastName,
+      name: name,
       email: email,
       password: hashedPassword,
       email_verification_code: emailVerificationCode,
@@ -22,8 +20,7 @@ export const writeNewAccount = async (
       isNewAccountCreated = true;
       payload = {
         id: newAccount.dataValues.id,
-        firstName: newAccount.dataValues.first_name,
-        lastName: newAccount.dataValues.last_name,
+        name: newAccount.dataValues.name,
         email: newAccount.dataValues.email,
         isEmailVerified: newAccount.dataValues.is_email_verified,
         emailVerificationCode: newAccount.dataValues.email_verification_code,

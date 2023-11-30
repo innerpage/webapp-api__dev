@@ -26,7 +26,7 @@ export const mailPasswordResetCodeController = async (
 
   let mailEmailVerificationCodeReturnObject: any =
     await mailPasswordResetCodeHelper(
-      account.first_name,
+      account.name,
       res.locals.email,
       passwordResetCode
     );

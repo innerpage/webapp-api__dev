@@ -31,8 +31,7 @@ export const loginController = async (req: Request, res: Response) => {
   loginHelper(req, res, res.locals.accountId);
 
   let loginResponseObject = {
-    firstName: account.first_name,
-    lastName: account.last_name,
+    name: account.name,
     email: account.email,
     isEmailVerified: account.is_email_verified,
     isSessionActive: true,

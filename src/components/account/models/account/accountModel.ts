@@ -10,8 +10,7 @@ const modelAttributes: any = {
     unique: true,
     primaryKey: true,
   },
-  first_name: { type: DataTypes.STRING, allowNull: false },
-  last_name: { type: DataTypes.STRING, allowNull: false },
+  name: { type: DataTypes.STRING, allowNull: false },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -27,6 +26,7 @@ const modelAttributes: any = {
   is_google_oauth_linked: { type: DataTypes.BOOLEAN, defaultValue: false },
   is_disabled: { type: DataTypes.BOOLEAN, defaultValue: false },
 };
+
 const modelOptions: any = {};
 
 export const accountModel = SequelizeConfig.define(

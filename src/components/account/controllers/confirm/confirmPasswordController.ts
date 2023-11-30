@@ -41,10 +41,7 @@ export const confirmPasswordController = async (
   }
 
   let mailPasswordResetConfirmationReturnObject: any =
-    await mailPasswordResetConfirmationHelper(
-      account.first_name,
-      res.locals.email
-    );
+    await mailPasswordResetConfirmationHelper(account.name, res.locals.email);
   console.log(mailPasswordResetConfirmationReturnObject.message);
   console.log(mailPasswordResetConfirmationReturnObject.payload);
 
