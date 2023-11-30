@@ -1,21 +1,21 @@
 import { Request, Response, NextFunction } from "express";
 import { readAccountById } from "../../../../components/account/dals";
 
-export const BlockDisabledAccountById = async (
+export const BlockDeletedAccountById = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   let account: any = await readAccountById(res.locals.accountId);
 
-  if (account.is_disabled) {
-    console.log(`❌ ${res.locals.accountId} is disabled`);
+  if (account.is_deleted) {
+    console.log(`❌ ${res.locals.accountId} is deleted`);
     return res.status(200).json({
       success: false,
-      message: "❌ Your account is disabled",
+      message: "❌ Your account is deleted",
     });
   }
 
-  console.log(`✅ ${res.locals.accountId} is not disabled`);
+  console.log(`✅ ${res.locals.accountId} is active`);
   next();
 };

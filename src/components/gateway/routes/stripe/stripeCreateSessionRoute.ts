@@ -5,7 +5,7 @@ import {
   ExtractAccountIdFromRequest,
   ExtractOriginFromRequest,
   BlockNonExistentAccountById,
-  BlockDisabledAccountById,
+  BlockDeletedAccountById,
 } from "../../../../global/middlewares";
 
 import {
@@ -22,7 +22,7 @@ stripeCreateSessionRoute.post(
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
-  BlockDisabledAccountById,
+  BlockDeletedAccountById,
   ExtractOriginFromRequest,
   validateInputsForStripeCreateSession,
   formatInputsForStripeCreateSession,

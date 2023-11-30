@@ -3,7 +3,7 @@ export { BlockLoggedInAccount } from "./blockers/account/BlockLoggedInAccount";
 export { BlockLoggedOutAccount } from "./blockers/account/BlockLoggedOutAccount";
 export { BlockExistingAccountByEmail } from "./blockers/account/BlockExistingAccountByEmail";
 export { BlockNonExistentAccountById } from "./blockers/account/BlockNonExistentAccountById";
-export { BlockDisabledAccountById } from "./blockers/account/BlockDisabledAccountById";
+export { BlockDeletedAccountById } from "./blockers/account/BlockDeletedAccountById";
 export { BlockNonExistentAccountByEmail } from "./blockers/account/BlockNonExistentAccountByEmail";
 export { BlockRequestByOrigin } from "./blockers/origin/BlockRequestByOrigin";
 

@@ -4,7 +4,7 @@ import {
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
-  BlockDisabledAccountById,
+  BlockDeletedAccountById,
 } from "../../../../global/middlewares";
 
 import { getAccountDetailsController } from "../../controllers";
@@ -16,6 +16,6 @@ getAccountDetailsRoute.get(
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
-  BlockDisabledAccountById,
+  BlockDeletedAccountById,
   getAccountDetailsController
 );

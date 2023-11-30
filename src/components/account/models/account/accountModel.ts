@@ -24,7 +24,7 @@ const modelAttributes: any = {
   },
   password_reset_code: { type: DataTypes.STRING, defaultValue: "" },
   is_google_oauth_linked: { type: DataTypes.BOOLEAN, defaultValue: false },
-  is_disabled: { type: DataTypes.BOOLEAN, defaultValue: false },
+  is_deleted: { type: DataTypes.BOOLEAN, defaultValue: false },
 };
 
 const modelOptions: any = {};
