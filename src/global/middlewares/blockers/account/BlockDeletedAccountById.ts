@@ -12,7 +12,7 @@ export const BlockDeletedAccountById = async (
     console.log(`❌ ${res.locals.accountId} is deleted`);
     return res.status(200).json({
       success: false,
-      message: "❌ Your account is deleted",
+      message: "❌ Your account does not exist",
     });
   }
 

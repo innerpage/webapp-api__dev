@@ -10,3 +10,4 @@ export { writeNewPassword } from "./write/writeNewPassword";
 export { writeEmailVerificationStatus } from "./write/writeEmailVerificationStatus";
 export { writeNewAccountFromGoogleOauth } from "./write/writeNewAccountFromGoogleOauth";
 export { writeGoogleOauthStatus } from "./write/writeGoogleOauthStatus";
+export { writeAccountDeletionStatus } from "./write/writeAccountDeletionStatus";
