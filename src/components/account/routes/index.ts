@@ -7,4 +7,3 @@ export { mailEmailVerificationCodeRoute } from "./mail/mailEmailVerificationCode
 export { confirmPasswordRoute } from "./password/confirmPasswordRoute";
 export { verifyEmailRoute } from "./verification/verifyEmailRoute";
 export { googleOauthRoute } from "./oauth/googleOauthRoute";
-export { deleteAccountRoute } from "./delete/deleteAccountRoute";

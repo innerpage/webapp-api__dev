@@ -33,7 +33,7 @@ dotenv.config();
   // Alters table
   await SequelizeConfig.sync({ alter: true })
     .then((result) => {
-      console.log("✅ Models synced");
+      console.log("✅ Models altered & synced");
     })
     .catch((err) => {
       console.log(err);

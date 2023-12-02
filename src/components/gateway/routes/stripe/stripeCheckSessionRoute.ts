@@ -5,7 +5,6 @@ import {
   ExtractAccountIdFromRequest,
   ExtractOriginFromRequest,
   BlockNonExistentAccountById,
-  BlockDeletedAccountById,
 } from "../../../../global/middlewares";
 
 import {
@@ -23,7 +22,6 @@ stripeCheckSessionRoute.post(
   ExtractAccountIdFromRequest,
   ExtractOriginFromRequest,
   BlockNonExistentAccountById,
-  BlockDeletedAccountById,
   validateInputsForStripeCheckSession,
   formatInputsForStripeCheckSession,
   stripeCheckSessionController
