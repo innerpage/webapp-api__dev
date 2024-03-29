@@ -4,7 +4,7 @@ export const writeNewAccount = async (
   name: string,
   email: string,
   hashedPassword: string,
-  emailVerificationCode: number
+  emailVerificationCode: string
 ) => {
   let isNewAccountCreated: boolean = false;
   let payload: any;

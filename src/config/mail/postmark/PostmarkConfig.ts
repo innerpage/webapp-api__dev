@@ -4,7 +4,7 @@ dotenv.config();
 export const PostmarkConfig = {
   token: process.env.POSTMARK_TOKEN!,
   template: {
-    emailVerificationCode: {
+    emailVerificationLink: {
       id: parseInt(process.env.POSTMARK_TEMPLATE_EMAIL_VERIFICATION_CODE!),
     },
     passwordResetCode: {

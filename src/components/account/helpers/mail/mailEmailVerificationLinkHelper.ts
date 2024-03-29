@@ -1,22 +1,22 @@
 import * as postmark from "postmark";
 import { AppConfig, PostmarkConfig } from "../../../../config";
 
-export const mailEmailVerificationCodeHelper = async (
+export const mailEmailVerificationLinkHelper = async (
   name: string,
   email: string,
-  emailVerificationCode: number
+  emailVerificationLink: string
 ) => {
   const postmarkClient = new postmark.Client(PostmarkConfig.token);
-  let isEmailVerificationCodeSent: boolean = false;
+  let isEmailVerificationLinkSent: boolean = false;
   let payload: any;
 
   await postmarkClient.sendEmailWithTemplate(
     {
       From: `${AppConfig.appName} no-reply@${AppConfig.appMailerDomain}`,
-      TemplateId: PostmarkConfig.template.emailVerificationCode.id,
+      TemplateId: PostmarkConfig.template.emailVerificationLink.id,
       To: email,
       TemplateModel: {
-        emailVerificationCode: emailVerificationCode,
+        emailVerificationLink: emailVerificationLink,
         name: name,
         appWebsiteUrl: AppConfig.appWebsiteUrl,
         appName: AppConfig.appName,
@@ -28,25 +28,25 @@ export const mailEmailVerificationCodeHelper = async (
     (error, success) => {
       if (error) {
         payload = error;
-        isEmailVerificationCodeSent = false;
+        isEmailVerificationLinkSent = false;
       }
       if (success) {
         payload = success;
-        isEmailVerificationCodeSent = true;
+        isEmailVerificationLinkSent = true;
       }
     }
   );
 
-  if (isEmailVerificationCodeSent) {
+  if (isEmailVerificationLinkSent) {
     return {
       success: true,
-      message: "Email verification code sent",
+      message: "Email verification link sent",
       payload: payload,
     };
   } else {
     return {
       sucess: false,
-      message: "Email verification code not sent",
+      message: "Email verification link not sent",
       payload: payload,
     };
   }
