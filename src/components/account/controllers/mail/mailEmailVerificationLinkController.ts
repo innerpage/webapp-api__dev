@@ -1,20 +1,19 @@
 import { Request, Response } from "express";
-import { writeEmailVerificationCode, readAccountById } from "../../dals";
-import { mailEmailVerificationCodeHelper } from "../../helpers";
-import { GenerateFourDigitCode } from "../../../../global/helpers";
+import { writeVerificationCode, readAccountById } from "../../dals";
+import { mailEmailVerificationLinkHelper } from "../../helpers";
+import { GenerateVerificationCode } from "../../../../global/helpers";
 
-export const mailEmailVerificationCodeController = async (
+export const mailEmailVerificationLinkController = async (
   req: Request,
   res: Response
 ) => {
   let account: any = await readAccountById(res.locals.accountId);
-  let emailVerificationCode: number = await GenerateFourDigitCode();
+  let verificationCode: string = await GenerateVerificationCode();
 
-  let writeEmailVerificationCodeReturnObject: any =
-    await writeEmailVerificationCode(
-      res.locals.accountId,
-      emailVerificationCode
-    );
+  let writeEmailVerificationCodeReturnObject: any = await writeVerificationCode(
+    res.locals.accountId,
+    verificationCode
+  );
   console.log(writeEmailVerificationCodeReturnObject.message);
   console.log(writeEmailVerificationCodeReturnObject.payload);
 
@@ -26,17 +25,17 @@ export const mailEmailVerificationCodeController = async (
   }
 
   let mailEmailVerificationCodeReturnObject: any =
-    await mailEmailVerificationCodeHelper(
+    await mailEmailVerificationLinkHelper(
       account.name,
       account.email,
-      emailVerificationCode
+      verificationCode
     );
   console.log(mailEmailVerificationCodeReturnObject.message);
   console.log(mailEmailVerificationCodeReturnObject.payload);
 
   return res.status(200).json({
     success: true,
-    message: "✅ Email verification code sent",
+    message: "✅ Email verification link sent",
     payload: {},
   });
 };

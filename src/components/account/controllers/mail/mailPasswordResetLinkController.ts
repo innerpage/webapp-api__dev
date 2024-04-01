@@ -3,7 +3,7 @@ import { writePasswordResetCode, readAccountByEmail } from "../../dals";
 import { mailPasswordResetCodeHelper } from "../../helpers";
 import { GenerateFourDigitCode } from "../../../../global/helpers";
 
-export const mailPasswordResetCodeController = async (
+export const mailPasswordResetLinkController = async (
   req: Request,
   res: Response
 ) => {

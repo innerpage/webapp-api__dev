@@ -6,7 +6,7 @@ export const writeEmailVerificationStatus = async (email: string) => {
 
   await accountModel
     .update(
-      { is_email_verified: true, email_verification_code: "" },
+      { is_email_verified: true, verification_code: "" },
       {
         where: {
           email: email,

@@ -3,7 +3,7 @@ export { readAccountById } from "./read/readAccountById";
 export { readAccountByEmail } from "./read/readAccountByEmail";
 
 // Write
-export { writeEmailVerificationCode } from "./write/writeEmailVerificationCode";
+export { writeVerificationCode } from "./write/writeVerificationCode";
 export { writePasswordResetCode } from "./write/writePasswordResetCode";
 export { writeNewAccount } from "./write/writeNewAccount";
 export { writeNewPassword } from "./write/writeNewPassword";

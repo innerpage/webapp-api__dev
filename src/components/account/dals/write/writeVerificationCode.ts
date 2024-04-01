@@ -1,15 +1,15 @@
 import { accountModel } from "../../models";
 
-export const writeEmailVerificationCode = async (
+export const writeVerificationCode = async (
   accountId: string,
-  emailVerificationCode: number
+  emailVerificationCode: string
 ) => {
   let isEmailVerificationCodeSaved: boolean = false;
   let payload: any;
 
   await accountModel
     .update(
-      { email_verification_code: emailVerificationCode },
+      { verification_code: emailVerificationCode },
       {
         where: {
           id: accountId,

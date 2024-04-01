@@ -5,10 +5,10 @@ export const PostmarkConfig = {
   token: process.env.POSTMARK_TOKEN!,
   template: {
     emailVerificationLink: {
-      id: parseInt(process.env.POSTMARK_TEMPLATE_EMAIL_VERIFICATION_CODE!),
+      id: parseInt(process.env.POSTMARK_TEMPLATE_EMAIL_VERIFICATION_LINK!),
     },
-    passwordResetCode: {
-      id: parseInt(process.env.POSTMARK_TEMPLATE_PASSWORD_RESET_CODE!),
+    passwordResetLink: {
+      id: parseInt(process.env.POSTMARK_TEMPLATE_PASSWORD_RESET_LINK!),
     },
     passwordResetConfirmation: {
       id: parseInt(process.env.POSTMARK_TEMPLATE_CONFIRM_PASSWORD_RESET!),

@@ -4,7 +4,7 @@ import { readAccountByEmail, writeEmailVerificationStatus } from "../../dals";
 export const verifyEmailController = async (req: Request, res: Response) => {
   let account: any = await readAccountByEmail(res.locals.email);
 
-  let emailVerificationCode: number = account.email_verification_code;
+  let emailVerificationCode: number = account.verification_code;
   if (emailVerificationCode != res.locals.emailVerificationCode) {
     console.log(
       `${res.locals.emailVerificationCode} is not a valid verification code for ${res.locals.email}`

@@ -8,7 +8,7 @@ export const writeGoogleOauthStatus = async (email: string) => {
     .update(
       {
         is_email_verified: true,
-        email_verification_code: "",
+        verification_code: "",
         is_google_oauth_linked: true,
       },
       {

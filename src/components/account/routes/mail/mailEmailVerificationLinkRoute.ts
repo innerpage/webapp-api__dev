@@ -7,17 +7,17 @@ import {
   FormatEmail,
   ValidateEmail,
 } from "../../../../global/middlewares";
-import { mailEmailVerificationCodeController } from "../../controllers";
+import { mailEmailVerificationLinkController } from "../../controllers";
 
-export const mailEmailVerificationCodeRoute = Router();
+export const mailEmailVerificationLinkRoute = Router();
 
-mailEmailVerificationCodeRoute.post(
-  "/mail-email-verification-code",
+mailEmailVerificationLinkRoute.post(
+  "/mail-email-verification-link",
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
   ValidateEmail,
   FormatEmail,
   BlockNonExistentAccountByEmail,
-  mailEmailVerificationCodeController
+  mailEmailVerificationLinkController
 );

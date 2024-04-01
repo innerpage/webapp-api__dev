@@ -4,14 +4,14 @@ import {
   FormatEmail,
   ValidateEmail,
 } from "../../../../global/middlewares";
-import { mailPasswordResetCodeController } from "../../controllers";
+import { mailPasswordResetLinkController } from "../../controllers";
 
-export const mailPasswordResetCodeRoute = Router();
+export const mailPasswordResetLinkRoute = Router();
 
-mailPasswordResetCodeRoute.post(
-  "/mail-password-reset-code",
+mailPasswordResetLinkRoute.post(
+  "/mail-password-reset-link",
   ValidateEmail,
   FormatEmail,
   BlockNonExistentAccountByEmail,
-  mailPasswordResetCodeController
+  mailPasswordResetLinkController
 );

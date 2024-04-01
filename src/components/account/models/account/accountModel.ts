@@ -19,10 +19,9 @@ const modelAttributes: any = {
   },
   password: { type: DataTypes.STRING, allowNull: true },
   is_email_verified: { type: DataTypes.BOOLEAN, defaultValue: false },
-  email_verification_code: {
+  verification_code: {
     type: DataTypes.STRING,
   },
-  password_reset_code: { type: DataTypes.STRING, defaultValue: "" },
   is_google_oauth_linked: { type: DataTypes.BOOLEAN, defaultValue: false },
 };
 
