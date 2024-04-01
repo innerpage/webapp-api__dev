@@ -24,15 +24,15 @@ export const signupController = async (req: Request, res: Response) => {
   console.log(newAccountReturnObject.payload);
   loginHelper(req, res, newAccountReturnObject.payload.id);
 
-  let emailVerificationLink: string = `${res.locals.origin}/verify/email/${verificationCode}`;
-  let mailEmailVerificationCodeReturnObject: any =
+  let verificationLink: string = `${res.locals.origin}/verification/email/${verificationCode}`;
+  let mailVerificationLinkReturnObject: any =
     await mailEmailVerificationLinkHelper(
       newAccountReturnObject.payload.name.split(" ")[0],
       newAccountReturnObject.payload.email,
-      emailVerificationLink
+      verificationLink
     );
-  console.log(mailEmailVerificationCodeReturnObject.message);
-  console.log(mailEmailVerificationCodeReturnObject.payload);
+  console.log(mailVerificationLinkReturnObject.message);
+  console.log(mailVerificationLinkReturnObject.payload);
 
   let signupResponseObject = {
     name: newAccountReturnObject.payload.name,
@@ -43,7 +43,7 @@ export const signupController = async (req: Request, res: Response) => {
 
   return res.status(200).json({
     success: true,
-    message: "✅ Signed up",
+    message: "✅ User signed up",
     payload: signupResponseObject,
   });
 };

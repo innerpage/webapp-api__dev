@@ -14,7 +14,6 @@ const resetPasswordInputsSchema = Joi.object({
     .equal(Joi.ref("newPassword"))
     .trim()
     .required(),
-  passwordResetCode: Joi.number().required().min(1000).max(9999),
 });
 
 export const validateInputsForPasswordConfirmationMiddleware = (

@@ -7,11 +7,11 @@ export const verifyEmailController = async (req: Request, res: Response) => {
   let emailVerificationCode: number = account.verification_code;
   if (emailVerificationCode != res.locals.emailVerificationCode) {
     console.log(
-      `${res.locals.emailVerificationCode} is not a valid verification code for ${res.locals.email}`
+      `${res.locals.emailVerificationCode} is not a valid verification link for ${res.locals.email}`
     );
     return res.status(400).json({
       success: false,
-      message: "❌ Invalid email verification code",
+      message: "❌ Invalid email verification link",
     });
   }
 

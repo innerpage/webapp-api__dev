@@ -10,8 +10,7 @@ export { confirmPasswordController } from "./confirm/confirmPasswordController";
 export { getAccountDetailsController } from "./details/getAccountDetailsController";
 
 // Mail
-export { mailPasswordResetLinkController } from "./mail/mailPasswordResetLinkController";
-export { mailEmailVerificationLinkController } from "./mail/mailEmailVerificationLinkController";
+export { mailVerificationLinkController } from "./mail/mailVerificationLinkController";
 
 // OAuth
 export { googleOauthController } from "./oauth/googleOauthController";

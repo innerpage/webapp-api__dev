@@ -36,17 +36,17 @@ export const mailPasswordResetConfirmationHelper = async (
     }
   );
 
-  if (isPasswordResetConfirmationSent) {
-    return {
-      success: true,
-      message: "Password rest code sent",
-      payload: payload,
-    };
-  } else {
+  if (!isPasswordResetConfirmationSent) {
     return {
       success: false,
-      message: "Password reset code not sent",
+      message: "❌ Password reset confirmation not sent",
       payload: payload,
     };
   }
+
+  return {
+    success: true,
+    message: "✅ Password reset confirmation sent",
+    payload: payload,
+  };
 };

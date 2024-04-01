@@ -4,7 +4,7 @@ export const writeNewAccount = async (
   name: string,
   email: string,
   hashedPassword: string,
-  emailVerificationCode: string
+  verificationCode: string
 ) => {
   let isNewAccountCreated: boolean = false;
   let payload: any;
@@ -14,7 +14,7 @@ export const writeNewAccount = async (
       name: name,
       email: email,
       password: hashedPassword,
-      verification_code: emailVerificationCode,
+      verification_code: verificationCode,
     })
     .then((newAccount: any) => {
       isNewAccountCreated = true;
@@ -23,7 +23,7 @@ export const writeNewAccount = async (
         name: newAccount.dataValues.name,
         email: newAccount.dataValues.email,
         isEmailVerified: newAccount.dataValues.is_email_verified,
-        emailVerificationCode: newAccount.dataValues.verification_code,
+        verificationCode: newAccount.dataValues.verification_code,
       };
     })
     .catch((err) => {

@@ -8,7 +8,7 @@ export const BlockLoggedInAccount = (
   let isUserLoggedIn = !!req.session!.accountId;
 
   if (isUserLoggedIn) {
-    console.log(`❌ ${req.session.accountId} is logged in`);
+    console.log(`❌ ${req.session.accountId} is already logged in`);
     return res.status(400).json({
       success: false,
       message: "❌ You are already logged in",

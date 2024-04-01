@@ -40,13 +40,13 @@ export const mailEmailVerificationLinkHelper = async (
   if (isEmailVerificationLinkSent) {
     return {
       success: true,
-      message: "Email verification link sent",
+      message: "✅ Email verification link sent",
       payload: payload,
     };
   } else {
     return {
       sucess: false,
-      message: "Email verification link not sent",
+      message: "❌ Email verification link not sent",
       payload: payload,
     };
   }

@@ -7,7 +7,7 @@ export { hashPasswordHelper } from "./hasher/hashPasswordHelper";
 
 // Mail
 export { mailEmailVerificationLinkHelper } from "./mail/mailEmailVerificationLinkHelper";
-export { mailPasswordResetCodeHelper } from "./mail/mailPasswordResetCodeHelper";
+export { mailPasswordResetLinkHelper } from "./mail/mailPasswordResetLinkHelper";
 export { mailPasswordResetConfirmationHelper } from "./mail/mailPasswordResetConfirmationHelper";
 
 // Verification

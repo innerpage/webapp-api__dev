@@ -2,8 +2,5 @@ export { loginRoute } from "./auth/loginRoute";
 export { logoutRoute } from "./auth/logoutRoute";
 export { signupRoute } from "./auth/signupRoute";
 export { getAccountDetailsRoute } from "./details/getAccountDetailsRoute";
-export { mailPasswordResetLinkRoute } from "./mail/mailPasswordResetLinkRoute";
-export { mailEmailVerificationLinkRoute } from "./mail/mailEmailVerificationLinkRoute";
 export { confirmPasswordRoute } from "./password/confirmPasswordRoute";
-export { verifyEmailRoute } from "./verification/verifyEmailRoute";
 export { googleOauthRoute } from "./oauth/googleOauthRoute";

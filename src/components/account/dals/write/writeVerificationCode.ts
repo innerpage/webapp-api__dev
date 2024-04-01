@@ -2,14 +2,14 @@ import { accountModel } from "../../models";
 
 export const writeVerificationCode = async (
   accountId: string,
-  emailVerificationCode: string
+  verificationCode: string
 ) => {
-  let isEmailVerificationCodeSaved: boolean = false;
+  let isVerificationCodeSaved: boolean = false;
   let payload: any;
 
   await accountModel
     .update(
-      { verification_code: emailVerificationCode },
+      { verification_code: verificationCode },
       {
         where: {
           id: accountId,
@@ -17,22 +17,22 @@ export const writeVerificationCode = async (
       }
     )
     .then((updatedAccount: any) => {
-      isEmailVerificationCodeSaved = true;
+      isVerificationCodeSaved = true;
       payload = updatedAccount;
     })
     .catch((err) => (payload = err));
 
-  if (isEmailVerificationCodeSaved) {
-    return {
-      success: true,
-      message: "Email verification code saved",
-      payload: payload,
-    };
-  } else {
+  if (!isVerificationCodeSaved) {
     return {
       success: false,
-      message: "Email verification code not saved",
+      message: "❌ Email verification code not saved",
       payload: payload,
     };
   }
+
+  return {
+    success: true,
+    message: "✅ Email verification code saved",
+    payload: payload,
+  };
 };

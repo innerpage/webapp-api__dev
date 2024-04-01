@@ -4,12 +4,12 @@ export const writeNewPassword = async (
   email: string,
   newHashedPassword: string
 ) => {
-  let isPasswordResetCodeUpdated: boolean = false;
+  let isPasswordUpdated: boolean = false;
   let payload: any;
 
   await accountModel
     .update(
-      { password: newHashedPassword, password_reset_code: "" },
+      { password: newHashedPassword, verification_code: "" },
       {
         where: {
           email: email,
@@ -17,22 +17,22 @@ export const writeNewPassword = async (
       }
     )
     .then((updatedAccount: any) => {
-      isPasswordResetCodeUpdated = true;
+      isPasswordUpdated = true;
       payload = updatedAccount;
     })
     .catch((err) => (payload = err));
 
-  if (isPasswordResetCodeUpdated) {
-    return {
-      success: true,
-      message: "New password saved",
-      payload: payload,
-    };
-  } else {
+  if (!isPasswordUpdated) {
     return {
       success: false,
-      message: "New password not saved",
+      message: "❌ New password not saved",
       payload: payload,
     };
   }
+
+  return {
+    success: true,
+    message: "✅ New password saved",
+    payload: payload,
+  };
 };

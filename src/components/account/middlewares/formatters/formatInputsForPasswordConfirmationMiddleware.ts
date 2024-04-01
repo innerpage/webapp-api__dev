@@ -5,11 +5,10 @@ export const formatInputsForPasswordConfirmationMiddleware = async (
   res: Response,
   next: NextFunction
 ) => {
-  let { email, newPassword, passwordResetCode } = req.body;
+  let { email, newPassword } = req.body;
 
   res.locals.email = email.trim().toLowerCase();
   res.locals.newPassword = newPassword.trim();
-  res.locals.passwordResetCode = passwordResetCode;
 
   next();
 };

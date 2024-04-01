@@ -1,13 +1,13 @@
 import * as postmark from "postmark";
 import { AppConfig, PostmarkConfig } from "../../../../config";
 
-export const mailPasswordResetCodeHelper = async (
+export const mailPasswordResetLinkHelper = async (
   name: string,
   email: string,
-  passwordResetCode: number
+  passwordResetLink: string
 ) => {
   const postmarkClient = new postmark.Client(PostmarkConfig.token);
-  let isPasswordResetCodeSent: boolean = false;
+  let isPasswordResetLinkSent: boolean = false;
   let payload: any;
 
   await postmarkClient.sendEmailWithTemplate(
@@ -16,7 +16,7 @@ export const mailPasswordResetCodeHelper = async (
       TemplateId: PostmarkConfig.template.passwordResetLink.id,
       To: email,
       TemplateModel: {
-        passwordResetCode: passwordResetCode,
+        passwordResetLink: passwordResetLink,
         name: name,
         appWebsiteUrl: AppConfig.appWebsiteUrl,
         appName: AppConfig.appName,
@@ -28,26 +28,26 @@ export const mailPasswordResetCodeHelper = async (
     (error, success) => {
       if (error) {
         payload = error;
-        isPasswordResetCodeSent = false;
+        isPasswordResetLinkSent = false;
       }
 
       if (success) {
         payload = success;
-        isPasswordResetCodeSent = true;
+        isPasswordResetLinkSent = true;
       }
     }
   );
 
-  if (isPasswordResetCodeSent) {
+  if (isPasswordResetLinkSent) {
     return {
       success: true,
-      message: "Password rest code sent",
+      message: "✅ Password rest link sent",
       payload: payload,
     };
   } else {
     return {
       success: false,
-      message: "Password reset code not sent",
+      message: "❌ Password reset link not sent",
       payload: payload,
     };
   }
