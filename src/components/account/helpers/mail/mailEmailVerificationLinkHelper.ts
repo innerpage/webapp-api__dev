@@ -13,7 +13,7 @@ export const mailEmailVerificationLinkHelper = async (
   await postmarkClient.sendEmailWithTemplate(
     {
       From: `${AppConfig.appName} no-reply@${AppConfig.appMailerDomain}`,
-      TemplateId: PostmarkConfig.template.emailVerificationLink.id,
+      TemplateId: PostmarkConfig.template.id.emailVerificationLink,
       To: email,
       TemplateModel: {
         emailVerificationLink: emailVerificationLink,
@@ -37,17 +37,17 @@ export const mailEmailVerificationLinkHelper = async (
     }
   );
 
-  if (isEmailVerificationLinkSent) {
-    return {
-      success: true,
-      message: "✅ Email verification link sent",
-      payload: payload,
-    };
-  } else {
+  if (!isEmailVerificationLinkSent) {
     return {
       sucess: false,
-      message: "❌ Email verification link not sent",
+      message: `❌ Could not send verification link. Please contact ${AppConfig.appEmail}`,
       payload: payload,
     };
   }
+
+  return {
+    success: true,
+    message: "✅ Email verification link sent",
+    payload: payload,
+  };
 };

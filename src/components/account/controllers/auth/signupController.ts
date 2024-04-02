@@ -20,6 +20,13 @@ export const signupController = async (req: Request, res: Response) => {
     verificationCode
   );
 
+  if (!newAccountReturnObject.success) {
+    return res.status(400).json({
+      success: false,
+      message: newAccountReturnObject.message,
+    });
+  }
+
   console.log(newAccountReturnObject.message);
   console.log(newAccountReturnObject.payload);
   loginHelper(req, res, newAccountReturnObject.payload.id);
@@ -31,6 +38,14 @@ export const signupController = async (req: Request, res: Response) => {
       newAccountReturnObject.payload.email,
       verificationLink
     );
+
+  if (!mailVerificationLinkReturnObject.success) {
+    return res.status(400).json({
+      success: false,
+      message: mailVerificationLinkReturnObject.message,
+    });
+  }
+
   console.log(mailVerificationLinkReturnObject.message);
   console.log(mailVerificationLinkReturnObject.payload);
 
