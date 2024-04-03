@@ -6,6 +6,6 @@ export const ExtractOriginFromRequest = (
   next: NextFunction
 ) => {
   res.locals.origin = req.header("Origin");
-  console.log(`✅ Client origin: ${res.locals.origin}`);
+  console.log(`✅ Request origin: ${res.locals.origin}`);
   next();
 };

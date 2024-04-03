@@ -1,22 +1,30 @@
 import * as postmark from "postmark";
 import { AppConfig, PostmarkConfig } from "../../../../config";
 
-export const mailPasswordResetLinkHelper = async (
+export const mailVerificationLinkHelper = async (
   name: string,
   email: string,
-  passwordResetLink: string
+  mailType: string,
+  verificationLink: string
 ) => {
   const postmarkClient = new postmark.Client(PostmarkConfig.token);
-  let isPasswordResetLinkSent: boolean = false;
+  let isVerificationLinkSent: boolean = false;
   let payload: any;
+  let templateId: number = 0;
+
+  if (mailType === "emailVerificationLink") {
+    templateId = PostmarkConfig.template.id.emailVerificationLink;
+  } else if (mailType === "passwordResetLink") {
+    templateId = PostmarkConfig.template.id.passwordResetLink;
+  }
 
   await postmarkClient.sendEmailWithTemplate(
     {
       From: `${AppConfig.appName} no-reply@${AppConfig.appMailerDomain}`,
-      TemplateId: PostmarkConfig.template.id.passwordResetLink,
+      TemplateId: templateId,
       To: email,
       TemplateModel: {
-        passwordResetLink: passwordResetLink,
+        verificationLink: verificationLink,
         name: name,
         appWebsiteUrl: AppConfig.appWebsiteUrl,
         appName: AppConfig.appName,
@@ -28,27 +36,27 @@ export const mailPasswordResetLinkHelper = async (
     (error, success) => {
       if (error) {
         payload = error;
-        isPasswordResetLinkSent = false;
+        isVerificationLinkSent = false;
       }
 
       if (success) {
         payload = success;
-        isPasswordResetLinkSent = true;
+        isVerificationLinkSent = true;
       }
     }
   );
 
-  if (isPasswordResetLinkSent) {
-    return {
-      success: true,
-      message: "✅ Password rest link sent",
-      payload: payload,
-    };
-  } else {
+  if (!isVerificationLinkSent) {
     return {
       success: false,
-      message: "❌ Password reset link not sent",
+      message: "❌ Verification link not sent",
       payload: payload,
     };
   }
+
+  return {
+    success: true,
+    message: "✅ Verification link sent",
+    payload: payload,
+  };
 };

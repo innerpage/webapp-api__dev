@@ -1,7 +1,7 @@
 import { accountModel } from "../../models";
 
 export const writeVerificationCode = async (
-  accountId: string,
+  email: string,
   verificationCode: string
 ) => {
   let isVerificationCodeSaved: boolean = false;
@@ -12,7 +12,7 @@ export const writeVerificationCode = async (
       { verification_code: verificationCode },
       {
         where: {
-          id: accountId,
+          email: email,
         },
       }
     )

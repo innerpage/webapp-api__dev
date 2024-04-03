@@ -1,20 +1,17 @@
 import { Request, Response } from "express";
-import { writeVerificationCode, readAccountById } from "../../dals";
-import {
-  mailEmailVerificationLinkHelper,
-  mailPasswordResetLinkHelper,
-} from "../../helpers";
+import { writeVerificationCode, readAccountByEmail } from "../../dals";
+import { mailVerificationLinkHelper } from "../../helpers";
 import { GenerateVerificationCode } from "../../../../global/helpers";
 
 export const mailVerificationLinkController = async (
   req: Request,
   res: Response
 ) => {
-  let account: any = await readAccountById(res.locals.accountId);
+  let account: any = await readAccountByEmail(res.locals.email);
   let verificationCode: string = await GenerateVerificationCode();
 
   let writeVerificationCodeReturnObject: any = await writeVerificationCode(
-    res.locals.accountId,
+    account.email,
     verificationCode
   );
   console.log(writeVerificationCodeReturnObject.message);
@@ -27,37 +24,39 @@ export const mailVerificationLinkController = async (
     });
   }
 
-  let mailVerificationCodeReturnObject: any;
+  let mailVerificationLinkReturnObject: any;
   let verificationLink: string = "";
 
   if (res.locals.mailType === "emailVerificationLink") {
     verificationLink = `${res.locals.origin}/verification/email/${verificationCode}`;
-    mailVerificationCodeReturnObject = await mailEmailVerificationLinkHelper(
+    mailVerificationLinkReturnObject = await mailVerificationLinkHelper(
       account.name,
       account.email,
-      verificationLink
+      verificationLink,
+      "emailVerificationLink"
     );
   } else if (res.locals.mailType === "passwordResetLink") {
     verificationLink = `${res.locals.origin}/verification/reset-password/${verificationCode}`;
-    mailVerificationCodeReturnObject = await mailPasswordResetLinkHelper(
+    mailVerificationLinkReturnObject = await mailVerificationLinkHelper(
       account.name,
       account.email,
-      verificationLink
+      verificationLink,
+      "passwordResetLink"
     );
   }
-  console.log(mailVerificationCodeReturnObject.message);
-  console.log(mailVerificationCodeReturnObject.payload);
+  console.log(mailVerificationLinkReturnObject.message);
+  console.log(mailVerificationLinkReturnObject.payload);
 
-  if (!mailVerificationCodeReturnObject.success) {
+  if (!mailVerificationLinkReturnObject.success) {
     return res.status(400).json({
       success: false,
-      message: `❌ ${mailVerificationCodeReturnObject.message}`,
+      message: `❌ ${mailVerificationLinkReturnObject.message}`,
     });
   }
 
   return res.status(200).json({
     success: true,
-    message: `✅ ${mailVerificationCodeReturnObject.message}`,
+    message: `✅ ${mailVerificationLinkReturnObject.message}`,
     payload: {},
   });
 };

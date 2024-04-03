@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { writeNewAccount } from "../../dals";
 import {
   hashPasswordHelper,
-  mailEmailVerificationLinkHelper,
+  mailVerificationLinkHelper,
   loginHelper,
 } from "../../helpers";
 import { GenerateVerificationCode } from "../../../../global/helpers";
@@ -32,12 +32,12 @@ export const signupController = async (req: Request, res: Response) => {
   loginHelper(req, res, newAccountReturnObject.payload.id);
 
   let verificationLink: string = `${res.locals.origin}/verification/email/${verificationCode}`;
-  let mailVerificationLinkReturnObject: any =
-    await mailEmailVerificationLinkHelper(
-      newAccountReturnObject.payload.name.split(" ")[0],
-      newAccountReturnObject.payload.email,
-      verificationLink
-    );
+  let mailVerificationLinkReturnObject: any = await mailVerificationLinkHelper(
+    newAccountReturnObject.payload.name.split(" ")[0],
+    newAccountReturnObject.payload.email,
+    verificationLink,
+    "emailVerificationLink"
+  );
 
   if (!mailVerificationLinkReturnObject.success) {
     return res.status(400).json({
