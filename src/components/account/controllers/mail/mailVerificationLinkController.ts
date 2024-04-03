@@ -30,7 +30,7 @@ export const mailVerificationLinkController = async (
   if (res.locals.mailType === "emailVerificationLink") {
     verificationLink = `${res.locals.origin}/verification/email/${verificationCode}`;
     mailVerificationLinkReturnObject = await mailVerificationLinkHelper(
-      account.name,
+      account.name.split(" ")[0],
       account.email,
       verificationLink,
       "emailVerificationLink"
@@ -38,7 +38,7 @@ export const mailVerificationLinkController = async (
   } else if (res.locals.mailType === "passwordResetLink") {
     verificationLink = `${res.locals.origin}/verification/reset-password/${verificationCode}`;
     mailVerificationLinkReturnObject = await mailVerificationLinkHelper(
-      account.name,
+      account.name.split(" ")[0],
       account.email,
       verificationLink,
       "passwordResetLink"
@@ -50,13 +50,14 @@ export const mailVerificationLinkController = async (
   if (!mailVerificationLinkReturnObject.success) {
     return res.status(400).json({
       success: false,
-      message: `❌ ${mailVerificationLinkReturnObject.message}`,
+      message: mailVerificationLinkReturnObject.message,
+      payload: {},
     });
   }
 
   return res.status(200).json({
     success: true,
-    message: `✅ ${mailVerificationLinkReturnObject.message}`,
+    message: mailVerificationLinkReturnObject.message,
     payload: {},
   });
 };

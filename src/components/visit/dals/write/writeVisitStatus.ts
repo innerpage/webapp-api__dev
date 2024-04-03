@@ -3,10 +3,10 @@ import { visitModel } from "../../models";
 export const writeVisitStatus = async (socketId: string) => {
   await visitModel
     .update(
-      { isActive: false },
+      { is_active: false },
       {
         where: {
-          socketId: socketId,
+          socket_id: socketId,
         },
       }
     )

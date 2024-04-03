@@ -18,11 +18,6 @@ export const mailVerificationLinkHelper = async (
     templateId = PostmarkConfig.template.id.passwordResetLink;
   }
 
-  console.log("");
-  console.log(`mailType: ${mailType}`);
-  console.log(`Template ID: ${templateId}`);
-  console.log("");
-
   await postmarkClient.sendEmailWithTemplate(
     {
       From: `${AppConfig.appName} no-reply@${AppConfig.appMailerDomain}`,
@@ -54,14 +49,14 @@ export const mailVerificationLinkHelper = async (
   if (!isVerificationLinkSent) {
     return {
       success: false,
-      message: "❌ Verification link not sent",
+      message: "❌ Link not sent",
       payload: payload,
     };
   }
 
   return {
     success: true,
-    message: "✅ Verification link sent",
+    message: `✅ Link mailed to ${email}`,
     payload: payload,
   };
 };

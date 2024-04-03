@@ -52,7 +52,8 @@ dotenv.config();
     const email: any = socket.handshake.query.email;
 
     console.log(`✅ ${email} connected via ${socket.id}`);
-    writeNewVisit(email, socket.id);
+
+    writeNewVisit(email, socket.id, socket.handshake.address);
 
     socket.on("disconnect", () => {
       console.log(`❌ Client disconnected: ${socket.id}`);
