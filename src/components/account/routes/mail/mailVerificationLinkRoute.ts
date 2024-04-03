@@ -13,9 +13,9 @@ import {
 } from "../../middlewares";
 import { mailVerificationLinkController } from "../../controllers";
 
-export const mailPasswordResetLinkRoute = Router();
+export const mailVerificationLinkRoute = Router();
 
-mailPasswordResetLinkRoute.post(
+mailVerificationLinkRoute.post(
   "/mail-verification-link",
   ExtractOriginFromRequest,
   BlockRequestByOrigin,
