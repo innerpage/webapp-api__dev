@@ -4,8 +4,8 @@ import { AppConfig, PostmarkConfig } from "../../../../config";
 export const mailVerificationLinkHelper = async (
   name: string,
   email: string,
-  mailType: string,
-  verificationLink: string
+  verificationLink: string,
+  mailType: string
 ) => {
   const postmarkClient = new postmark.Client(PostmarkConfig.token);
   let isVerificationLinkSent: boolean = false;
@@ -17,6 +17,11 @@ export const mailVerificationLinkHelper = async (
   } else if (mailType === "passwordResetLink") {
     templateId = PostmarkConfig.template.id.passwordResetLink;
   }
+
+  console.log("");
+  console.log(`mailType: ${mailType}`);
+  console.log(`Template ID: ${templateId}`);
+  console.log("");
 
   await postmarkClient.sendEmailWithTemplate(
     {
