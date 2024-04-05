@@ -36,7 +36,7 @@ export const mailVerificationLinkController = async (
       "emailVerificationLink"
     );
   } else if (res.locals.mailType === "passwordResetLink") {
-    verificationLink = `${res.locals.origin}/verification/reset-password/${verificationCode}`;
+    verificationLink = `${res.locals.origin}/verification/password-reset/${verificationCode}`;
     mailVerificationLinkReturnObject = await mailVerificationLinkHelper(
       account.name.split(" ")[0],
       account.email,
