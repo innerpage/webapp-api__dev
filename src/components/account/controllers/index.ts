@@ -16,4 +16,3 @@ export { mailVerificationLinkController } from "./mail/mailVerificationLinkContr
 export { googleOauthController } from "./oauth/googleOauthController";
 
 // Verify
-export { verifyEmailController } from "./verification/verifyEmailController";
