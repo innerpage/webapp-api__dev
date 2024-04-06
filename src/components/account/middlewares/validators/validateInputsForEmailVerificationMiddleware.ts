@@ -1,7 +1,7 @@
 import Joi from "joi";
 import { Request, Response, NextFunction } from "express";
 
-const codeVerificationInputsSchema = Joi.object({
+const emailVerificationInputsSchema = Joi.object({
   email: Joi.string()
     .email({ tlds: { allow: false } })
     .min(5)
@@ -13,12 +13,12 @@ const codeVerificationInputsSchema = Joi.object({
   code: Joi.string().trim().required(),
 });
 
-export const validateInputsForCodeVerificationMiddleware = (
+export const validateInputsForEmailVerificationMiddleware = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  let { error } = codeVerificationInputsSchema.validate(req.body);
+  let { error } = emailVerificationInputsSchema.validate(req.body);
 
   if (error) {
     return res.status(400).json({

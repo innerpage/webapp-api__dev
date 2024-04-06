@@ -8,11 +8,11 @@ import {
 } from "../../../../global/middlewares";
 
 import {
-  validateInputsForCodeVerificationMiddleware,
-  formatInputsForCodeVerificationMiddleware,
+  validateInputsForEmailVerificationMiddleware,
+  formatInputsForEmailVerificationMiddleware,
 } from "../../middlewares";
 
-import { verifyCodeController } from "../../controllers";
+import { verifyEmailController } from "../../controllers";
 
 export const verifyCodeRoute = Router();
 
@@ -22,8 +22,8 @@ verifyCodeRoute.post(
   BlockRequestByOrigin,
   ExtractIPAddressFromOrigin,
   ExtractCountryFromIPAddress,
-  validateInputsForCodeVerificationMiddleware,
-  formatInputsForCodeVerificationMiddleware,
+  validateInputsForEmailVerificationMiddleware,
+  formatInputsForEmailVerificationMiddleware,
   BlockNonExistentAccountByEmail,
-  verifyCodeController
+  verifyEmailController
 );
