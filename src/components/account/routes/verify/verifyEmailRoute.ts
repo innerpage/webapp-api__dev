@@ -4,7 +4,6 @@ import {
   BlockRequestByOrigin,
   ExtractIPAddressFromOrigin,
   ExtractCountryFromIPAddress,
-  BlockNonExistentAccountByEmail,
 } from "../../../../global/middlewares";
 
 import {
@@ -24,6 +23,5 @@ verifyEmailRoute.post(
   ExtractCountryFromIPAddress,
   validateInputsForEmailVerificationMiddleware,
   formatInputsForEmailVerificationMiddleware,
-  BlockNonExistentAccountByEmail,
   verifyEmailController
 );

@@ -2,13 +2,19 @@ import { Request, Response } from "express";
 import {
   writeVerificationCode,
   writeEmailVerificationStatus,
-  readAccountByEmail,
+  readAccountByVerificationCode,
 } from "../../dals";
 
 export const verifyEmailController = async (req: Request, res: Response) => {
-  let account: any = await readAccountByEmail(res.locals.email);
-  let verificationCode: string = account.dataValues.verification_code;
+  let account: any = await readAccountByVerificationCode(res.locals.code);
+  if (!account) {
+    return res.status(400).json({
+      success: false,
+      message: "❌ Verification failed",
+    });
+  }
 
+  let verificationCode: string = account.dataValues.verification_code;
   if (!verificationCode) {
     return res.status(400).json({
       success: false,

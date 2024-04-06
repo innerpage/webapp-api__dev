@@ -1,6 +1,7 @@
 // Read
 export { readAccountById } from "./read/readAccountById";
 export { readAccountByEmail } from "./read/readAccountByEmail";
+export { readAccountByVerificationCode } from "./read/readAccountByVerificationCode";
 
 // Write
 export { writeVerificationCode } from "./write/writeVerificationCode";

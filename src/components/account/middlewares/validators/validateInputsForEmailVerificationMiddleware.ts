@@ -2,14 +2,7 @@ import Joi from "joi";
 import { Request, Response, NextFunction } from "express";
 
 const emailVerificationInputsSchema = Joi.object({
-  email: Joi.string()
-    .email({ tlds: { allow: false } })
-    .min(5)
-    .max(128)
-    .lowercase()
-    .trim()
-    .required(),
-  type: Joi.string().trim().required(),
+  type: Joi.string().trim().valid("email", "password-reset").required(),
   code: Joi.string().trim().required(),
 });
 
