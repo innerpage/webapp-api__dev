@@ -8,22 +8,22 @@ import {
 } from "../../../../global/middlewares";
 
 import {
-  validateInputsForMailMiddleware,
-  formatInputsForMailMiddleware,
+  validateInputsForCodeVerificationMiddleware,
+  formatInputsForCodeVerificationMiddleware,
 } from "../../middlewares";
 
-import { mailVerificationLinkController } from "../../controllers";
+import { verifyCodeController } from "../../controllers";
 
-export const mailVerificationLinkRoute = Router();
+export const verifyCodeRoute = Router();
 
-mailVerificationLinkRoute.post(
-  "/mail-verification-link",
+verifyCodeRoute.post(
+  "/verify",
   ExtractOriginFromRequest,
   BlockRequestByOrigin,
   ExtractIPAddressFromOrigin,
   ExtractCountryFromIPAddress,
-  validateInputsForMailMiddleware,
-  formatInputsForMailMiddleware,
+  validateInputsForCodeVerificationMiddleware,
+  formatInputsForCodeVerificationMiddleware,
   BlockNonExistentAccountByEmail,
-  mailVerificationLinkController
+  verifyCodeController
 );

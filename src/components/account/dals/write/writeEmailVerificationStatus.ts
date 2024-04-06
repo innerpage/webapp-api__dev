@@ -1,12 +1,15 @@
 import { accountModel } from "../../models";
 
-export const writeEmailVerificationStatus = async (email: string) => {
-  let isStatusUpdated: boolean = false;
+export const writeEmailVerificationStatus = async (
+  email: string,
+  isEmailVerified: boolean
+) => {
+  let isEmailVerificationStatusUpdated: boolean = false;
   let payload: any;
 
   await accountModel
     .update(
-      { is_email_verified: true, verification_code: "" },
+      { is_email_verified: isEmailVerified },
       {
         where: {
           email: email,
@@ -14,22 +17,22 @@ export const writeEmailVerificationStatus = async (email: string) => {
       }
     )
     .then((updatedAccount: any) => {
-      isStatusUpdated = true;
+      isEmailVerificationStatusUpdated = true;
       payload = updatedAccount;
     })
     .catch((err) => (payload = err));
 
-  if (isStatusUpdated) {
-    return {
-      success: true,
-      message: "Status updated",
-      payload: payload,
-    };
-  } else {
+  if (!isEmailVerificationStatusUpdated) {
     return {
       success: false,
-      message: "Status not updated",
+      message: "❌ Email verification status not updated",
       payload: payload,
     };
   }
+
+  return {
+    success: true,
+    message: "✅ Email verification status updated",
+    payload: payload,
+  };
 };

@@ -1,18 +1,19 @@
 // Auth
-export { signupController } from "./account/signupController";
-export { loginController } from "./account/loginController";
-export { logoutController } from "./account/logoutController";
+export { signupController } from "./auth/signupController";
+export { loginController } from "./auth/loginController";
+export { logoutController } from "./auth/logoutController";
 
 // Confirm
-export { confirmPasswordController } from "./account/confirmPasswordController";
+export { confirmPasswordController } from "./confirm/confirmPasswordController";
 
 // Details
-export { getAccountDetailsController } from "./account/getAccountDetailsController";
+export { getAccountDetailsController } from "./details/getAccountDetailsController";
 
 // Mail
 export { mailVerificationLinkController } from "./mail/mailVerificationLinkController";
 
 // OAuth
-export { googleOauthController } from "./account/googleOauthController";
+export { googleOauthController } from "./auth/googleOauthController";
 
 // Verify
+export { verifyEmailController } from "./verify/verifyEmailController";
