@@ -10,4 +10,4 @@ export { mailPasswordResetConfirmationHelper } from "./mail/mailPasswordResetCon
 export { mailVerificationLinkHelper } from "./mail/mailVerificationLinkHelper";
 
 // Verification
-export { verifyPasswordHashHelper } from "./verification/verifyPasswordHashHelper";
+export { verifyPasswordHashHelper } from "./verify/verifyPasswordHashHelper";
