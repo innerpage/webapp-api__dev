@@ -14,9 +14,9 @@ import {
 
 import { verifyEmailController } from "../../controllers";
 
-export const verifyCodeRoute = Router();
+export const verifyEmailRoute = Router();
 
-verifyCodeRoute.post(
+verifyEmailRoute.post(
   "/verify",
   ExtractOriginFromRequest,
   BlockRequestByOrigin,

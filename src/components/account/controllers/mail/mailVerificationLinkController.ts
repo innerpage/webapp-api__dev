@@ -28,7 +28,7 @@ export const mailVerificationLinkController = async (
   let verificationLink: string = "";
 
   if (res.locals.mailType === "emailVerificationLink") {
-    verificationLink = `${res.locals.origin}/verify/email/${account.email}/${verificationCode}`;
+    verificationLink = `${res.locals.origin}/verify/email/${verificationCode}`;
     mailVerificationLinkReturnObject = await mailVerificationLinkHelper(
       account.name.split(" ")[0],
       account.email,
@@ -36,7 +36,7 @@ export const mailVerificationLinkController = async (
       "emailVerificationLink"
     );
   } else if (res.locals.mailType === "passwordResetLink") {
-    verificationLink = `${res.locals.origin}/verify/password-reset/${account.email}/${verificationCode}`;
+    verificationLink = `${res.locals.origin}/verify/password-reset/${verificationCode}`;
     mailVerificationLinkReturnObject = await mailVerificationLinkHelper(
       account.name.split(" ")[0],
       account.email,

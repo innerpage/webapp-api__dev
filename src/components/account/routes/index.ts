@@ -5,3 +5,4 @@ export { getAccountDetailsRoute } from "./details/getAccountDetailsRoute";
 export { confirmPasswordRoute } from "./confirm/confirmPasswordRoute";
 export { googleOauthRoute } from "./auth/googleOauthRoute";
 export { mailVerificationLinkRoute } from "./mail/mailVerificationLinkRoute";
+export { verifyEmailRoute } from "./verify/verifyEmailRoute";

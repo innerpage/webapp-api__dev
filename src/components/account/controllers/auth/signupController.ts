@@ -31,7 +31,7 @@ export const signupController = async (req: Request, res: Response) => {
   console.log(newAccountReturnObject.payload);
   loginHelper(req, res, newAccountReturnObject.payload.id);
 
-  let verificationLink: string = `${res.locals.origin}/verify/email/${email}/${verificationCode}`;
+  let verificationLink: string = `${res.locals.origin}/verify/email/${verificationCode}`;
   let mailVerificationLinkReturnObject: any = await mailVerificationLinkHelper(
     newAccountReturnObject.payload.name.split(" ")[0],
     newAccountReturnObject.payload.email,
