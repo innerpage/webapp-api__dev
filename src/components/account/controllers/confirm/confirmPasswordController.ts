@@ -17,7 +17,7 @@ export const confirmPasswordController = async (
     );
     return res.status(400).json({
       success: false,
-      message: "❌ Invalid password reset code",
+      message: "❌ Failed to reset password",
     });
   }
 

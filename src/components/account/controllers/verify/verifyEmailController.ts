@@ -8,10 +8,17 @@ import {
 export const verifyEmailController = async (req: Request, res: Response) => {
   let account: any = await readAccountByVerificationCode(res.locals.code);
   if (!account) {
-    return res.status(400).json({
-      success: false,
-      message: "❌ Verification failed",
-    });
+    if (res.locals.type === "email") {
+      return res.status(400).json({
+        success: false,
+        message: "⚠️ Verification failed or email already verified",
+      });
+    } else if (res.locals.type === "password-reset") {
+      return res.status(400).json({
+        success: false,
+        message: "❌ Password rest link expired. Please try again",
+      });
+    }
   }
 
   let verificationCode: string = account.dataValues.verification_code;
@@ -68,5 +75,8 @@ export const verifyEmailController = async (req: Request, res: Response) => {
   return res.status(200).json({
     success: true,
     message: "✅ Email verified",
+    payload: {
+      email: account.email,
+    },
   });
 };

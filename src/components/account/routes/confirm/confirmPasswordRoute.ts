@@ -8,7 +8,7 @@ import { confirmPasswordController } from "../../controllers";
 
 export const confirmPasswordRoute = Router();
 
-confirmPasswordRoute.post(
+confirmPasswordRoute.put(
   "/password",
   validateInputsForPasswordConfirmationMiddleware,
   formatInputsForPasswordConfirmationMiddleware,
