@@ -11,7 +11,7 @@ export const verifyEmailController = async (req: Request, res: Response) => {
     if (res.locals.type === "email") {
       return res.status(400).json({
         success: false,
-        message: "⚠️ Verification failed or email already verified",
+        message: "Verification failed or email already verified",
       });
     } else if (res.locals.type === "password-reset") {
       return res.status(400).json({
@@ -33,7 +33,7 @@ export const verifyEmailController = async (req: Request, res: Response) => {
     if (account.dataValues.is_email_verified) {
       return res.status(400).json({
         success: false,
-        message: `⚠️ ${res.locals.email} is already verified`,
+        message: `${res.locals.email} is already verified`,
       });
     }
   }
