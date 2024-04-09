@@ -7,7 +7,7 @@ export const writeDeletedAccount = async (
   isEmailVerified: boolean,
   isGoogleOauthLinked: boolean
 ) => {
-  let isAccountDeleted: boolean = false;
+  let isWriteSuccessful: boolean = false;
   let payload: any;
 
   await deletedAccountModel
@@ -19,22 +19,14 @@ export const writeDeletedAccount = async (
       is_google_oauth_linked: isGoogleOauthLinked,
     })
     .then((deletedAccount: any) => {
-      isAccountDeleted = true;
+      isWriteSuccessful = true;
       payload = deletedAccount;
     })
     .catch((err) => (payload = err));
 
-  if (isAccountDeleted) {
-    return {
-      success: true,
-      message: "Account deleted",
-      payload: payload,
-    };
-  } else {
-    return {
-      success: false,
-      message: "Account not deleted",
-      payload: payload,
-    };
-  }
+  return {
+    success: isWriteSuccessful,
+    message: isWriteSuccessful ? "Account deleted" : "Account not deleted",
+    payload: payload,
+  };
 };

@@ -11,3 +11,4 @@ export { writeEmailVerificationStatus } from "./write/writeEmailVerificationStat
 export { writeNewAccountFromGoogleOauth } from "./write/writeNewAccountFromGoogleOauth";
 export { writeGoogleOauthStatus } from "./write/writeGoogleOauthStatus";
 export { writeDeletedAccount } from "./write/writeDeletedAccount";
+export { writeAccountDeletion } from "./write/writeAccountDeletion";

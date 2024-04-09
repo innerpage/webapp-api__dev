@@ -6,6 +6,9 @@ export { logoutController } from "./auth/logoutController";
 // Confirm
 export { confirmPasswordController } from "./confirm/confirmPasswordController";
 
+// Delete
+export { deleteAccountController } from "./delete/deleteAccountController";
+
 // Details
 export { getAccountDetailsController } from "./details/getAccountDetailsController";
 
