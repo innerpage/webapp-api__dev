@@ -8,17 +8,15 @@ import {
 import jwt from "jsonwebtoken";
 
 export const googleOauthController = async (req: Request, res: Response) => {
-  let { token } = req.body;
-  if (!token) {
+  if (!res.locals.token) {
     return res.status(400).json({
       success: false,
       message: "❌ Could not complete authorization",
     });
   }
 
-  let decodedToken: any = jwt.decode(token);
+  let decodedToken: any = jwt.decode(res.locals.token);
 
-  // Extract account details
   let email: string = decodedToken.email;
   let isEmailVerified: boolean = decodedToken.email_verified;
   let givenName: string = decodedToken.given_name;

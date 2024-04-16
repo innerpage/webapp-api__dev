@@ -13,8 +13,8 @@ export const BlockLoggedInAccount = (
       success: false,
       message: "❌ You are already logged in",
     });
-  } else {
-    console.log("✅ User is not logged in");
-    next();
   }
+
+  console.log("✅ User is not logged in");
+  next();
 };
