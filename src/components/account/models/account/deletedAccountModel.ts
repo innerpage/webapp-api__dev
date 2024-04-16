@@ -13,7 +13,6 @@ const modelAttributes: any = {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true,
     validate: { isEmail: true },
   },
   is_email_verified: { type: DataTypes.BOOLEAN, defaultValue: false },
