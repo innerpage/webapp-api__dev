@@ -22,14 +22,14 @@ export const writeNewName = async (email: string, newName: string) => {
   if (!isNameUpdated) {
     return {
       success: false,
-      message: "❌ Failed to save new name",
+      message: "❌ Failed to update name",
       payload: payload,
     };
   }
 
   return {
     success: true,
-    message: "✅ New name saved",
+    message: "✅ Name updated",
     payload: { newName: newName },
   };
 };

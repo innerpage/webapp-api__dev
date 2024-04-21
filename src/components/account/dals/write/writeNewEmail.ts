@@ -22,14 +22,14 @@ export const writeNewEmail = async (email: string, newEmail: string) => {
   if (!isEmailUpdated) {
     return {
       success: false,
-      message: "❌ Failed to save new email",
+      message: "❌ Failed to update email",
       payload: payload,
     };
   }
 
   return {
     success: true,
-    message: "✅ New email saved",
+    message: "✅ Email updated",
     payload: {
       newEmail: newEmail,
     },

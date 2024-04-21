@@ -7,3 +7,4 @@ export { googleOauthRoute } from "./auth/googleOauthRoute";
 export { mailVerificationLinkRoute } from "./mail/mailVerificationLinkRoute";
 export { verifyEmailRoute } from "./verify/verifyEmailRoute";
 export { deleteAccountRoute } from "./delete/deleteAccountRoute";
+export { updateAccountRoute } from "./update/updateAccountRoute";
