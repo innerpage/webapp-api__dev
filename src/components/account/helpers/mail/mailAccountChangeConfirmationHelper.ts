@@ -1,21 +1,23 @@
 import * as postmark from "postmark";
 import { AppConfig, PostmarkConfig } from "../../../../config";
 
-export const mailPasswordResetConfirmationHelper = async (
-  name: string,
-  email: string
+export const mailAccountChangeConfirmationHelper = async (
+  email: string,
+  field: string,
+  name: string
 ) => {
   const postmarkClient = new postmark.Client(PostmarkConfig.token);
-  let isPasswordResetConfirmationSent: boolean = false;
+  let isAccountChangeConfirmationSent: boolean = false;
   let payload: any;
 
   await postmarkClient.sendEmailWithTemplate(
     {
       From: `${AppConfig.appName} no-reply@${AppConfig.appMailerDomain}`,
-      TemplateId: PostmarkConfig.template.id.passwordResetConfirmation,
+      TemplateId: PostmarkConfig.template.id.accountChangeConfirmation,
       To: email,
       TemplateModel: {
         name: name,
+        field: field,
         appWebsiteUrl: AppConfig.appWebsiteUrl,
         appName: AppConfig.appName,
         businessName: AppConfig.businessName,
@@ -26,27 +28,27 @@ export const mailPasswordResetConfirmationHelper = async (
     (error, success) => {
       if (error) {
         payload = error;
-        isPasswordResetConfirmationSent = false;
+        isAccountChangeConfirmationSent = false;
       }
 
       if (success) {
         payload = success;
-        isPasswordResetConfirmationSent = true;
+        isAccountChangeConfirmationSent = true;
       }
     }
   );
 
-  if (!isPasswordResetConfirmationSent) {
+  if (!isAccountChangeConfirmationSent) {
     return {
       success: false,
-      message: "❌ Password reset confirmation not sent",
+      message: "❌ Account change confirmation not sent",
       payload: payload,
     };
   }
 
   return {
     success: true,
-    message: "✅ Password reset confirmation sent",
+    message: "✅ Account change confirmation sent",
     payload: payload,
   };
 };

@@ -6,8 +6,8 @@ export { logoutHelper } from "./auth/logoutHelper";
 export { hashPasswordHelper } from "./hasher/hashPasswordHelper";
 
 // Mail
-export { mailPasswordResetConfirmationHelper } from "./mail/mailPasswordResetConfirmationHelper";
 export { mailVerificationLinkHelper } from "./mail/mailVerificationLinkHelper";
+export { mailAccountChangeConfirmationHelper } from "./mail/mailAccountChangeConfirmationHelper";
 
 // Verification
 export { verifyPasswordHashHelper } from "./verify/verifyPasswordHashHelper";

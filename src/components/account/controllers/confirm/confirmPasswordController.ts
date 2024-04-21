@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { readAccountByEmail, writeNewPassword } from "../../dals";
 import {
   hashPasswordHelper,
-  mailPasswordResetConfirmationHelper,
+  mailAccountChangeConfirmationHelper,
 } from "../../helpers";
 
 export const confirmPasswordController = async (
@@ -11,7 +11,7 @@ export const confirmPasswordController = async (
 ) => {
   let account: any = await readAccountByEmail(res.locals.email);
 
-  if (account.password_reset_code != res.locals.passwordResetCode) {
+  if (account.dataValues.password_reset_code != res.locals.passwordResetCode) {
     console.log(
       `${res.locals.passwordResetCode} is not a valid verification code for ${res.locals.email}`
     );
@@ -30,7 +30,6 @@ export const confirmPasswordController = async (
     newHashedPassword
   );
   console.log(newPasswordReturnObject.message);
-  console.log(newPasswordReturnObject.payload);
 
   if (!newPasswordReturnObject.success) {
     console.log(`Password reset failed`);
@@ -40,10 +39,13 @@ export const confirmPasswordController = async (
     });
   }
 
-  let mailPasswordResetConfirmationReturnObject: any =
-    await mailPasswordResetConfirmationHelper(account.name, res.locals.email);
-  console.log(mailPasswordResetConfirmationReturnObject.message);
-  console.log(mailPasswordResetConfirmationReturnObject.payload);
+  let mailAccountChangeConfirmationReturnObject: any =
+    await mailAccountChangeConfirmationHelper(
+      res.locals.email,
+      "password",
+      account.dataValues.name.split(" ")[0]
+    );
+  console.log(mailAccountChangeConfirmationReturnObject.message);
 
   return res.status(200).json({
     success: true,

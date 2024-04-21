@@ -5,6 +5,7 @@ export { formatInputsForSignupMiddleware } from "./formatters/formatInputsForSig
 export { formatInputsForMailMiddleware } from "./formatters/formatInputsForMailMiddleware";
 export { formatInputsForEmailVerificationMiddleware } from "./formatters/formatInputsForEmailVerificationMiddleware";
 export { formatInputsForGoogleOauthMiddleware } from "./formatters/formatInputsForGoogleOauthMiddleware";
+export { formatAccountUpdatePayloadMiddleware } from "./formatters/formatAccountUpdatePayloadMiddleware";
 
 // Validators
 export { validateInputsForLoginMiddleware } from "./validators/validateInputsForLoginMiddleware";
@@ -13,3 +14,4 @@ export { validateInputsForSignupMiddleware } from "./validators/validateInputsFo
 export { validateInputsForMailMiddleware } from "./validators/validateInputsForMailMiddleware";
 export { validateInputsForEmailVerificationMiddleware } from "./validators/validateInputsForEmailVerificationMiddleware";
 export { validateInputsForGoogleOauthMiddleware } from "./validators/validateInputsForGoogleOauthMiddleware";
+export { validateAccountUpdatePayloadMiddleware } from "./validators/validateAccountUpdatePayloadMiddleware";

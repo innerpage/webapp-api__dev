@@ -5,6 +5,9 @@ export const PostmarkConfig = {
   token: process.env.POSTMARK_TOKEN!,
   template: {
     id: {
+      accountChangeConfirmation: parseInt(
+        process.env.POSTMARK_TEMPLATE_ACCOUNT_CHANGE_CONFIRMATION!
+      ),
       emailVerificationLink: parseInt(
         process.env.POSTMARK_TEMPLATE_EMAIL_VERIFICATION_LINK!
       ),

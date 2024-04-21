@@ -1,15 +1,12 @@
 import { accountModel } from "../../models";
 
-export const writeNewPassword = async (
-  email: string,
-  newHashedPassword: string
-) => {
-  let isPasswordUpdated: boolean = false;
+export const writeNewEmail = async (email: string, newEmail: string) => {
+  let isEmailUpdated: boolean = false;
   let payload: any;
 
   await accountModel
     .update(
-      { password: newHashedPassword, verification_code: "" },
+      { email: newEmail },
       {
         where: {
           email: email,
@@ -17,22 +14,24 @@ export const writeNewPassword = async (
       }
     )
     .then((updatedAccount: any) => {
-      isPasswordUpdated = true;
+      isEmailUpdated = true;
       payload = updatedAccount;
     })
     .catch((err) => (payload = err));
 
-  if (!isPasswordUpdated) {
+  if (!isEmailUpdated) {
     return {
       success: false,
-      message: "❌ Failed to save new password",
+      message: "❌ Failed to save new email",
       payload: payload,
     };
   }
 
   return {
     success: true,
-    message: "✅ New password saved",
-    payload: {},
+    message: "✅ New email saved",
+    payload: {
+      newEmail: newEmail,
+    },
   };
 };
