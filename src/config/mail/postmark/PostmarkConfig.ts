@@ -14,9 +14,6 @@ export const PostmarkConfig = {
       passwordResetLink: parseInt(
         process.env.POSTMARK_TEMPLATE_PASSWORD_RESET_LINK!
       ),
-      passwordResetConfirmation: parseInt(
-        process.env.POSTMARK_TEMPLATE_CONFIRM_PASSWORD_RESET!
-      ),
     },
   },
 };
