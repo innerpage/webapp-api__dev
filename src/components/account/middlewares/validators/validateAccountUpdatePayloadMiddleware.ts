@@ -2,8 +2,8 @@ import Joi from "joi";
 import { Request, Response, NextFunction } from "express";
 
 const accountUpdatePayloadSchema = Joi.object({
-  type: Joi.string().valid("name", "email", "password").required(),
-  value: Joi.when("type", {
+  filter: Joi.string().valid("name", "email", "password").required(),
+  value: Joi.when("filter", {
     switch: [
       { is: "name", then: Joi.string().required() },
       {

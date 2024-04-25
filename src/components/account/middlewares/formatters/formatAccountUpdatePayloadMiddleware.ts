@@ -5,9 +5,9 @@ export const formatAccountUpdatePayloadMiddleware = async (
   res: Response,
   next: NextFunction
 ) => {
-  let { type, value } = req.body;
+  let { filter, value } = req.body;
 
-  res.locals.type = type;
+  res.locals.filter = filter;
   res.locals.value = value;
 
   next();

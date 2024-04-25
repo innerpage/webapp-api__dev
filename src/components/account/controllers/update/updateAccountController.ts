@@ -16,11 +16,15 @@ export const updateAccountController = async (req: Request, res: Response) => {
 
   let accountUpdateReturnObject: any;
 
-  if (res.locals.type === "name") {
+  console.log(`email              : ${email}`);
+  console.log(`res.locals.filter  : ${res.locals.filter}`);
+  console.log(`res.locals.value   : ${res.locals.value}`);
+
+  if (res.locals.filter === "name") {
     accountUpdateReturnObject = await writeNewName(email, res.locals.value);
-  } else if (res.locals.type === "email") {
+  } else if (res.locals.filter === "email") {
     accountUpdateReturnObject = await writeNewEmail(email, res.locals.value);
-  } else if (res.locals.type === "password") {
+  } else if (res.locals.filter === "password") {
     let newHashedPassword: string = await hashPasswordHelper(res.locals.value);
     accountUpdateReturnObject = await writeNewPassword(
       email,
@@ -30,17 +34,17 @@ export const updateAccountController = async (req: Request, res: Response) => {
 
   console.log(accountUpdateReturnObject.message);
   if (!accountUpdateReturnObject.success) {
-    console.log(`❌ Failed to update ${res.locals.type}`);
+    console.log(`❌ Failed to update ${res.locals.filter}`);
     return res.status(400).json({
       success: false,
-      message: `❌ Failed to update ${res.locals.type}`,
+      message: `❌ Failed to update ${res.locals.filter}`,
     });
   }
 
   let mailAccountChangeConfirmationReturnObject: any =
     mailAccountChangeConfirmationHelper(
       email,
-      res.locals.type,
+      res.locals.filter,
       account.dataValues.name.split(" ")[0]
     );
   console.log(mailAccountChangeConfirmationReturnObject.message);
