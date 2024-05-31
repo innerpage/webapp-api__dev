@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 
 import Stripe from "stripe";
 import { writeNewPurchase } from "../../../purchase/dals";
-import { StripeConfig } from "../../../../config";
+import { Vars } from "../../../../global/vars";
 
 export const stripeCreateSessionController = async (
   req: Request,
@@ -11,7 +11,7 @@ export const stripeCreateSessionController = async (
   let tierId: string = "";
   let priceId: string = "";
 
-  const stripe = new Stripe(StripeConfig.secretKey, {
+  const stripe = new Stripe(Vars.stripe.secretKey, {
     apiVersion: "2022-11-15",
   });
 

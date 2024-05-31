@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { readAccountById } from "../../dals";
-import { AppConfig } from "../../../../config";
 
 export const getAccountDetailsController = async (
   req: Request,
@@ -15,29 +14,9 @@ export const getAccountDetailsController = async (
     isSessionActive: true,
   };
 
-  let appDetailsPayload: any = {
-    appName: AppConfig.appName,
-    appWebsiteUrl: AppConfig.appWebsiteUrl,
-    appUrl: AppConfig.appUrl,
-    appEmail: AppConfig.appEmail,
-    appSupportUrl: AppConfig.appSupportUrl,
-    appTosUrl: AppConfig.appTosUrl,
-    appPrivacyPolicyUrl: AppConfig.appPrivacyPolicyUrl,
-    appCancellationAndRefundUrl: AppConfig.appCancellationAndRefundUrl,
-    appSessionKey: AppConfig.appSessionKey,
-    businessName: AppConfig.businessName,
-    businessWebsite: AppConfig.businessWebsite,
-    businessAddress: AppConfig.businessAddress,
-    businessEmail: AppConfig.businessEmail,
-    clientCountry: res.locals.clientCountry,
-  };
-
   return res.status(200).json({
     success: true,
     message: "✅ Fetched account & app details",
-    payload: {
-      accountDetails: accountDetailsPayload,
-      appDetails: appDetailsPayload,
-    },
+    payload: accountDetailsPayload,
   });
 };

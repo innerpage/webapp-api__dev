@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { SequelizeConfig } from "../../../../config";
+import { Sequelize } from "../../../../global/vars";
 
 const modelName: string = "account";
 const modelAttributes: any = {
@@ -27,7 +27,7 @@ const modelAttributes: any = {
 
 const modelOptions: any = {};
 
-export const accountModel = SequelizeConfig.define(
+export const accountModel = Sequelize.define(
   modelName,
   modelAttributes,
   modelOptions

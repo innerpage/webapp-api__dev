@@ -1,5 +1,5 @@
 import * as postmark from "postmark";
-import { AppConfig, PostmarkConfig } from "../../../../config";
+import { Vars } from "../../../../global/vars";
 
 export const mailVerificationLinkHelper = async (
   name: string,
@@ -7,30 +7,34 @@ export const mailVerificationLinkHelper = async (
   verificationLink: string,
   mailType: string
 ) => {
-  const postmarkClient = new postmark.Client(PostmarkConfig.token);
+  const postmarkClient = new postmark.Client(Vars.postmark.token);
   let isVerificationLinkSent: boolean = false;
   let payload: any;
   let templateId: number = 0;
 
   if (mailType === "emailVerificationLink") {
-    templateId = PostmarkConfig.template.id.emailVerificationLink;
+    templateId = Vars.postmark.template.emailVerificationLink.id;
   } else if (mailType === "passwordResetLink") {
-    templateId = PostmarkConfig.template.id.passwordResetLink;
+    templateId = Vars.postmark.template.passwordResetLink.id;
   }
 
   await postmarkClient.sendEmailWithTemplate(
     {
-      From: `${AppConfig.appName} no-reply@${AppConfig.appMailerDomain}`,
+      From: `${Vars.app.name} no-reply@${Vars.app.domain}`,
       TemplateId: templateId,
       To: email,
       TemplateModel: {
         verificationLink: verificationLink,
         name: name,
-        appWebsiteUrl: AppConfig.appWebsiteUrl,
-        appName: AppConfig.appName,
-        businessName: AppConfig.businessName,
-        businessAddress: AppConfig.businessAddress,
-        appSupportUrl: AppConfig.appSupportUrl,
+        app: {
+          name: Vars.app.name,
+          url: {
+            website: Vars.app.website.url,
+          },
+        },
+        businessName: Vars.business.name,
+        businessAddress: Vars.business.address,
+        appSupportUrl: Vars.app.support.url,
       },
     },
     (error, success) => {
@@ -49,14 +53,14 @@ export const mailVerificationLinkHelper = async (
   if (!isVerificationLinkSent) {
     return {
       success: false,
-      message: "❌ Link not sent",
+      message: "❌ Verification link not sent",
       payload: payload,
     };
   }
 
   return {
     success: true,
-    message: `✅ Link mailed to ${email}`,
+    message: `✅ Verification link sent to ${email}`,
     payload: payload,
   };
 };

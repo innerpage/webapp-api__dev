@@ -1,5 +1,5 @@
 import { accountModel } from "../../models";
-import { AppConfig } from "../../../../config";
+import { Vars } from "../../../../global/vars";
 
 export const writeNewAccount = async (
   name: string,
@@ -34,7 +34,7 @@ export const writeNewAccount = async (
   if (!isNewAccountCreated) {
     return {
       success: false,
-      message: `❌ Could not create account. Please contact ${AppConfig.appEmail}`,
+      message: `❌ Could not create account. Please contact ${Vars.app.support.email}`,
       payload: payload,
     };
   }

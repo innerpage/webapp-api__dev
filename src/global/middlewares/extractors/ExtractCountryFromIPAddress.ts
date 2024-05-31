@@ -6,14 +6,14 @@ export const ExtractCountryFromIPAddress = async (
   res: Response,
   next: NextFunction
 ) => {
-  let clientCountry: any = geoip.lookup(res.locals.clientIPAddress);
+  let originCountry: any = geoip.lookup(res.locals.clientIPAddress);
 
-  if (!clientCountry) {
+  if (!originCountry) {
     console.log("⚠️ Unable to ascertain origin country. Defaulting to 'IN'");
-    clientCountry = "IN";
+    originCountry = "IN";
   }
 
-  res.locals.clientCountry = clientCountry;
-  console.log(`✅ Origin country: ${res.locals.clientCountry}`);
+  res.locals.originCountry = originCountry;
+  console.log(`✅ Origin country: ${res.locals.originCountry}`);
   next();
 };

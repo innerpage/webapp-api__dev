@@ -23,17 +23,17 @@
   <br/><br/>
   **App** <br/>
   `APP_NAME` <br/>
-  `APP_WEBSITE` <br/>
-  `APP_URL` <br/>
+  `APP_WEBSITE_URL` <br/>
+  `APP_URL_PROD` <br/>
   `APP_EMAIL` <br/>
   `APP_SUPPORT_URL` <br/>
-  `APP_TOS` <br/>
-  `APP_PRIVACY_POLICY` <br/>
-  `APP_CANCELLATION_AND_REFUND` <br/>
+  `APP_TOS_URL` <br/>
+  `APP_PRIVACY_POLICY_URL` <br/>
+  `APP_CANCELLATION_AND_REFUND_POLICY_URL` <br/>
   `APP_SESSION_KEY` <br/>
-  `APP_MAILER_DOMAIN` <br/>
+  `APP_DOMAIN` <br/>
   `BUSINESS_NAME` <br/>
-  `BUSINESS_WEBSITE` <br/>
+  `BUSINESS_WEBSITE_URL` <br/>
   `BUSINESS_ADDRESS` <br/>
   `BUSINESS_EMAIL` <br/>
   <hr/>
