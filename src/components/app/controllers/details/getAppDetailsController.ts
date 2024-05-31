@@ -1,32 +1,35 @@
 import { Request, Response } from "express";
-import { Vars } from "../../../../global/vars";
+import { ConfigVar } from "../../../../global/vars";
 
 export const getAppDetailsController = async (req: Request, res: Response) => {
   let appDetailsResponseObject: any = {
     app: {
-      name: Vars.app.name,
-      url: Vars.node.env === "prod" ? Vars.app.url.prod : Vars.app.url.dev,
+      name: ConfigVar.app.name,
+      url:
+        ConfigVar.node.env === "prod"
+          ? ConfigVar.app.url.prod
+          : ConfigVar.app.url.dev,
       policy: {
-        tos: { url: Vars.app.policy.tos.url },
-        privacy: { url: Vars.app.policy.privacy.url },
+        tos: { url: ConfigVar.app.policy.tos.url },
+        privacy: { url: ConfigVar.app.policy.privacy.url },
         cancellationAndRefund: {
-          url: Vars.app.policy.cancellationAndRefund.url,
+          url: ConfigVar.app.policy.cancellationAndRefund.url,
         },
       },
       support: {
-        email: Vars.app.support.email,
-        url: Vars.app.support.url,
+        email: ConfigVar.app.contact.email,
+        url: ConfigVar.app.contact.url,
       },
       website: {
-        url: Vars.app.website.url,
+        url: ConfigVar.app.website.url,
       },
-      paymentGateway: Vars.app.paymentGateway,
+      paymentGateway: ConfigVar.app.paymentGateway,
     },
     business: {
-      name: Vars.business.name,
-      website: Vars.business.website,
-      address: Vars.business.address,
-      email: Vars.business.email,
+      name: ConfigVar.business.name,
+      website: ConfigVar.business.website,
+      address: ConfigVar.business.contact.address,
+      email: ConfigVar.business.contact.email,
     },
     origin: {
       country: res.locals.originCountry,

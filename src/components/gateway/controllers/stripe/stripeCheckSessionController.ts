@@ -2,13 +2,13 @@ import { Request, Response } from "express";
 
 import Stripe from "stripe";
 import { writePurchaseStatus } from "../../../purchase/dals";
-import { Vars } from "../../../../global/vars";
+import { ConfigVar } from "../../../../global/vars";
 
 export const stripeCheckSessionController = async (
   req: Request,
   res: Response
 ) => {
-  const stripe = new Stripe(Vars.stripe.secretKey, {
+  const stripe = new Stripe(ConfigVar.stripe.key.secret, {
     apiVersion: "2022-11-15",
   });
 

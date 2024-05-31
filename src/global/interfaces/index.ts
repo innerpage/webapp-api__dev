@@ -1,0 +1,1 @@
+export { ConfigVarInterface } from "./ConfigVarInterface";

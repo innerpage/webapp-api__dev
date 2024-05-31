@@ -4,7 +4,7 @@ import connectRedis from "connect-redis";
 import Redis from "ioredis";
 import cors from "cors";
 import { IncludeRoutes } from "./global/helpers";
-import { Vars } from "./global/vars";
+import { ConfigVar } from "./global/vars";
 
 import { HandleErrors } from "./global/middlewares";
 
@@ -12,7 +12,7 @@ const app = express();
 const redisStore = connectRedis(session);
 
 let corsOrigin: string =
-  Vars.node.env === "dev" ? Vars.app.url.dev : Vars.app.url.prod;
+  ConfigVar.node.env === "dev" ? ConfigVar.app.url.dev : ConfigVar.app.url.prod;
 app.use(
   cors({
     origin: [corsOrigin],
@@ -22,23 +22,23 @@ app.use(
 
 app.use(express.json());
 
-if (Vars.node.env === "prod") {
+if (ConfigVar.node.env === "prod") {
   app.set("trust proxy", 1);
 }
 
 const client = new Redis({
-  host: Vars.redis.host,
-  port: +Vars.redis.port,
+  host: ConfigVar.redis.host,
+  port: +ConfigVar.redis.port,
 });
 
 app.use(
   session({
-    secret: Vars.node.express.session.secret!,
-    name: Vars.node.express.session.name,
+    secret: ConfigVar.node.express.session.secret!,
+    name: ConfigVar.node.express.session.name,
     cookie: {
-      maxAge: +Vars.node.express.session.maxAge!,
-      secure: Vars.node.env === "prod" ? true : false,
-      sameSite: Vars.node.env === "prod" ? "none" : "lax",
+      maxAge: +ConfigVar.node.express.session.maxAge!,
+      secure: ConfigVar.node.env === "prod" ? true : false,
+      sameSite: ConfigVar.node.env === "prod" ? "none" : "lax",
       httpOnly: true,
     },
     resave: false,

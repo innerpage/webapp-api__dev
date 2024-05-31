@@ -3,7 +3,7 @@ import http from "http";
 import { IncludeModelAssociations } from "./global/helpers";
 import { Sequelize } from "./global/vars";
 import { Server, Socket } from "socket.io";
-import { Vars } from "./global/vars";
+import { ConfigVar } from "./global/vars";
 
 import { writeNewVisit, writeVisitStatus } from "./components/visit/dals";
 
@@ -62,7 +62,7 @@ dotenv.config();
     });
   });
 
-  nodeServer.listen(Vars.node.port, () => {
-    console.log(`✅ Server is running on port: ${Vars.node.port}`);
+  nodeServer.listen(ConfigVar.node.port, () => {
+    console.log(`✅ Server is running on port: ${ConfigVar.node.port}`);
   });
 })();
