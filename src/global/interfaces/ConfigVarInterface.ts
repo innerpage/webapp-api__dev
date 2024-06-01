@@ -21,17 +21,17 @@ export interface ConfigVarInterface {
       privacy: { url: string };
       cancellationAndRefund: { url: string };
     };
+    owner: {
+      name: string;
+      website: {
+        url: string;
+      };
+      contact: {
+        address: string;
+        email: string;
+      };
+    };
     paymentGateway: string;
-  };
-  business: {
-    name: string;
-    website: {
-      url: string;
-    };
-    contact: {
-      address: string;
-      email: string;
-    };
   };
   redis: {
     host: string;

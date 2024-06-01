@@ -26,10 +26,10 @@ export const getAppDetailsController = async (req: Request, res: Response) => {
       paymentGateway: ConfigVar.app.paymentGateway,
     },
     business: {
-      name: ConfigVar.business.name,
-      website: ConfigVar.business.website,
-      address: ConfigVar.business.contact.address,
-      email: ConfigVar.business.contact.email,
+      name: ConfigVar.app.owner.name,
+      website: ConfigVar.app.owner.website,
+      address: ConfigVar.app.owner.contact.address,
+      email: ConfigVar.app.owner.contact.email,
     },
     origin: {
       country: res.locals.originCountry,

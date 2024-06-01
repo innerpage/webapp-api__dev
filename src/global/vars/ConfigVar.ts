@@ -31,18 +31,19 @@ export const ConfigVar: ConfigVarInterface = {
         url: process.env.APP_CANCELLATION_AND_REFUND_POLICY_URL!,
       },
     },
+    owner: {
+      name: process.env.BUSINESS_NAME!,
+      website: {
+        url: process.env.BUSINESS_WEBSITE_URL!,
+      },
+      contact: {
+        address: process.env.BUSINESS_ADDRESS!,
+        email: process.env.BUSINESS_EMAIL!,
+      },
+    },
     paymentGateway: process.env.APP_PAYMENT_GATEWAY!,
   },
-  business: {
-    name: process.env.BUSINESS_NAME!,
-    website: {
-      url: process.env.BUSINESS_WEBSITE_URL!,
-    },
-    contact: {
-      address: process.env.BUSINESS_ADDRESS!,
-      email: process.env.BUSINESS_EMAIL!,
-    },
-  },
+
   redis: {
     host: process.env.REDIS_HOST!,
     port: process.env.REDIS_PORT!,
