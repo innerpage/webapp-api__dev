@@ -1,2 +1,2 @@
-export { ConfigVar } from "./ConfigVar";
+export { AppVar } from "./AppVar";
 export { SequelizeVar as Sequelize } from "./Sequelize";

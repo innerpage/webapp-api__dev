@@ -1,12 +1,12 @@
 import { Sequelize } from "sequelize";
-import { ConfigVar } from "./";
+import { AppVar } from "./";
 
 export const SequelizeVar = new Sequelize(
-  ConfigVar.postgres.database!,
-  ConfigVar.postgres.user!,
-  ConfigVar.postgres.password!,
+  AppVar.postgres.database!,
+  AppVar.postgres.user!,
+  AppVar.postgres.password!,
   {
-    host: ConfigVar.postgres.host,
+    host: AppVar.postgres.host,
     dialect: "postgres",
   }
 );

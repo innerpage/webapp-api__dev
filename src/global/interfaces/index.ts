@@ -1,2 +1,1 @@
-export { ApiVarInterface } from "./ApiVarInterface";
-export { ConfigVarInterface } from "./ConfigVarInterface";
+export { AppVarInterface } from "./AppVarInterface";

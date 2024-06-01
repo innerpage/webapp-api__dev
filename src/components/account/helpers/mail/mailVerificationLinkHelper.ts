@@ -1,5 +1,5 @@
 import * as postmark from "postmark";
-import { ConfigVar } from "../../../../global/vars";
+import { AppVar } from "../../../../global/vars";
 
 export const mailVerificationLinkHelper = async (
   name: string,
@@ -7,34 +7,34 @@ export const mailVerificationLinkHelper = async (
   verificationLink: string,
   mailType: string
 ) => {
-  const postmarkClient = new postmark.Client(ConfigVar.postmark.token);
+  const postmarkClient = new postmark.Client(AppVar.postmark.token);
   let isVerificationLinkSent: boolean = false;
   let payload: any;
   let templateId: number = 0;
 
   if (mailType === "emailVerificationLink") {
-    templateId = ConfigVar.postmark.template.emailVerificationLink.id;
+    templateId = AppVar.postmark.template.emailVerificationLink.id;
   } else if (mailType === "passwordResetLink") {
-    templateId = ConfigVar.postmark.template.passwordResetLink.id;
+    templateId = AppVar.postmark.template.passwordResetLink.id;
   }
 
   await postmarkClient.sendEmailWithTemplate(
     {
-      From: `${ConfigVar.app.name} no-reply@${ConfigVar.app.domain}`,
+      From: `${AppVar.app.name} no-reply@${AppVar.app.domain}`,
       TemplateId: templateId,
       To: email,
       TemplateModel: {
         verificationLink: verificationLink,
         name: name,
         app: {
-          name: ConfigVar.app.name,
+          name: AppVar.app.name,
           url: {
-            website: ConfigVar.app.website.url,
+            website: AppVar.app.website.url,
           },
         },
-        businessName: ConfigVar.app.owner.name,
-        businessAddress: ConfigVar.app.owner.contact.address,
-        appSupportUrl: ConfigVar.app.contact.url,
+        businessName: AppVar.app.owner.name,
+        businessAddress: AppVar.app.owner.contact.address,
+        appSupportUrl: AppVar.app.contact.url,
       },
     },
     (error, success) => {

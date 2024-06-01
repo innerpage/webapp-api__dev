@@ -1,5 +1,5 @@
 import fs from "fs";
-import { ConfigVar } from "../../vars";
+import { AppVar } from "../../vars";
 
 export const IncludeRoutes = async () => {
   let componentPaths: Array<string> = [];
@@ -9,10 +9,10 @@ export const IncludeRoutes = async () => {
   let rootDirectory: string = "";
   let fileIndex: string = "";
 
-  if (ConfigVar.node.env === "dev") {
+  if (AppVar.node.env === "dev") {
     rootDirectory = "src";
     fileIndex = "index.ts";
-  } else if (ConfigVar.node.env === "prod") {
+  } else if (AppVar.node.env === "prod") {
     rootDirectory = ".";
     fileIndex = "index.js";
   }

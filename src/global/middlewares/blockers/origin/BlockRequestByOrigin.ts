@@ -1,13 +1,13 @@
 import { Request, Response, NextFunction } from "express";
-import { ConfigVar } from "../../../../global/vars";
+import { AppVar } from "../../../../global/vars";
 
 export const BlockRequestByOrigin = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  if (ConfigVar.node.env === "prod") {
-    if (res.locals.origin != ConfigVar.app.url.prod) {
+  if (AppVar.node.env === "prod") {
+    if (res.locals.origin != AppVar.app.url.prod) {
       console.log(`❌ ${res.locals.origin} is not an authorized origin`);
       return res.status(200).json({
         success: false,

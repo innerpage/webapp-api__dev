@@ -1,32 +1,32 @@
 import * as postmark from "postmark";
-import { ConfigVar } from "../../../../global/vars";
+import { AppVar } from "../../../../global/vars";
 
 export const mailAccountChangeConfirmationHelper = async (
   email: string,
   field: string,
   name: string
 ) => {
-  const postmarkClient = new postmark.Client(ConfigVar.postmark.token);
+  const postmarkClient = new postmark.Client(AppVar.postmark.token);
   let isAccountChangeConfirmationSent: boolean = false;
   let payload: any;
 
   await postmarkClient.sendEmailWithTemplate(
     {
-      From: `${ConfigVar.app.name} no-reply@${ConfigVar.app.domain}`,
-      TemplateId: ConfigVar.postmark.template.accountChangeConfirmation.id,
+      From: `${AppVar.app.name} no-reply@${AppVar.app.domain}`,
+      TemplateId: AppVar.postmark.template.accountChangeConfirmation.id,
       To: email,
       TemplateModel: {
         name: name,
         field: field,
         app: {
-          name: ConfigVar.app.name,
+          name: AppVar.app.name,
           url: {
-            website: ConfigVar.app.website.url,
+            website: AppVar.app.website.url,
           },
         },
-        businessName: ConfigVar.app.owner.name,
-        businessAddress: ConfigVar.app.owner.contact.address,
-        appSupportUrl: ConfigVar.app.contact.url,
+        businessName: AppVar.app.owner.name,
+        businessAddress: AppVar.app.owner.contact.address,
+        appSupportUrl: AppVar.app.contact.url,
       },
     },
     (error, success) => {
