@@ -43,42 +43,6 @@ export const AppVar: AppVarInterface = {
     },
     paymentGateway: process.env.APP_PAYMENT_GATEWAY!,
   },
-  api: {
-    url: "",
-    endpoint: {
-      account: {
-        details: {
-          get: "",
-          update: "",
-        },
-        auth: {
-          login: "",
-          logout: "",
-          signup: "",
-          oauth: {
-            google: "",
-          },
-        },
-        password: {
-          update: "",
-        },
-      },
-      mail: {
-        verificationLink: "",
-      },
-      payment: {
-        stripe: {
-          session: {
-            create: "",
-            check: "",
-          },
-          price: {
-            get: "",
-          },
-        },
-      },
-    },
-  },
   redis: {
     host: process.env.REDIS_HOST!,
     port: process.env.REDIS_PORT!,
