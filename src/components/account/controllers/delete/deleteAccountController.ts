@@ -13,7 +13,8 @@ export const deleteAccountController = async (req: Request, res: Response) => {
     account.dataValues.name,
     account.dataValues.email,
     account.dataValues.is_email_verified,
-    account.dataValues.is_google_oauth_linked
+    account.dataValues.is_google_oauth_linked,
+    account.dataValues.createdAt
   );
 
   if (!deleteAccountReturnObject.success) {

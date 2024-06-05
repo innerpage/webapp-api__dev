@@ -5,7 +5,8 @@ export const writeDeletedAccount = async (
   name: string,
   email: string,
   isEmailVerified: boolean,
-  isGoogleOauthLinked: boolean
+  isGoogleOauthLinked: boolean,
+  registeredOn: string
 ) => {
   let isWriteSuccessful: boolean = false;
   let payload: any;
@@ -17,6 +18,7 @@ export const writeDeletedAccount = async (
       email: email,
       is_email_verified: isEmailVerified,
       is_google_oauth_linked: isGoogleOauthLinked,
+      registered_on: registeredOn,
     })
     .then((deletedAccount: any) => {
       isWriteSuccessful = true;

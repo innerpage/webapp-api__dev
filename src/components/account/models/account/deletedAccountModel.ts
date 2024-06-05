@@ -17,6 +17,7 @@ const modelAttributes: any = {
   },
   is_email_verified: { type: DataTypes.BOOLEAN, defaultValue: false },
   is_google_oauth_linked: { type: DataTypes.BOOLEAN, defaultValue: false },
+  registered_on: { type: DataTypes.STRING },
 };
 const modelOptions: any = {};
 
