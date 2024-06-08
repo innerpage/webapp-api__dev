@@ -3,7 +3,7 @@
 - `git clone git@github.com-projckt:projckt/starter_webapp-api-dev.git dev`
 - `cd dev`
 
-## Edit repo remote
+## Edit remote of cloned repo
 
 - `git remote set-url origin git@github.com-{username}:{username}/{repo_name}-api-dev.git`
 
