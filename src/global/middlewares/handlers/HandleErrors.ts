@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction, ErrorRequestHandler } from "express";
+import { Var } from "../../var";
 
 export const HandleErrors: ErrorRequestHandler = (
   err: any,
@@ -6,6 +7,6 @@ export const HandleErrors: ErrorRequestHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  console.log(`❌ ${err.stack}`);
-  res.status(500).send("❌ An error occured");
+  console.log(`${Var.app.emoji.failure} ${err.stack}`);
+  res.status(500).send(`${Var.app.emoji.failure} An error occured`);
 };

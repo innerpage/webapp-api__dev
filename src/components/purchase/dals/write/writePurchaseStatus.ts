@@ -1,8 +1,9 @@
+import { Var } from "../../../../global/var";
 import { purchaseModel } from "../../models";
 
 export const writePurchaseStatus = async (sessionId: string) => {
-  let isPurchaseStatusUpdated: boolean = false;
-  let payload: any;
+  let isSuccessful: boolean = false;
+  let returnData: any;
 
   await purchaseModel
     .update(
@@ -14,22 +15,16 @@ export const writePurchaseStatus = async (sessionId: string) => {
       }
     )
     .then((updatedPurchase: any) => {
-      isPurchaseStatusUpdated = true;
-      payload = updatedPurchase;
+      isSuccessful = true;
+      returnData = updatedPurchase;
     })
-    .catch((err) => (payload = err));
+    .catch((err: any) => (returnData = err));
 
-  if (isPurchaseStatusUpdated) {
-    return {
-      success: true,
-      message: "✅ Purchase status updated",
-      payload: payload,
-    };
-  } else {
-    return {
-      success: false,
-      message: "❌ Purchase status not update",
-      payload: payload,
-    };
-  }
+  return {
+    success: isSuccessful,
+    message: isSuccessful
+      ? `${Var.app.emoji.success} Purchase read`
+      : `${Var.app.emoji.failure} Could not read purchase. Please contact ${Var.app.contact.email}`,
+    payload: returnData,
+  };
 };

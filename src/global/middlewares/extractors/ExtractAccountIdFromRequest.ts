@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import { Var } from "../../var";
 
 export const ExtractAccountIdFromRequest = (
   req: Request,
@@ -8,13 +9,14 @@ export const ExtractAccountIdFromRequest = (
   let accountId: string = req.session!.accountId!;
 
   if (!accountId) {
-    console.log("❌ Un-authorised access");
+    console.log(`${Var.app.emoji.failure} Account does not exist`);
     return res.status(400).json({
       success: false,
-      message: "❌ Un-authorised access",
+      message: `${Var.app.emoji.failure} Account does not exist`,
     });
   }
 
+  console.log(`${Var.app.emoji.success} Account exists`);
   res.locals.accountId = accountId;
   next();
 };

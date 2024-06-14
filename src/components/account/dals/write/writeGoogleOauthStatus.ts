@@ -1,8 +1,9 @@
+import { Var } from "../../../../global/var";
 import { accountModel } from "../../models";
 
 export const writeGoogleOauthStatus = async (email: string) => {
-  let isStatusUpdated: boolean = false;
-  let payload: any;
+  let isSuccessful: boolean = false;
+  let returnData: any;
 
   await accountModel
     .update(
@@ -18,22 +19,17 @@ export const writeGoogleOauthStatus = async (email: string) => {
       }
     )
     .then((updatedAccount: any) => {
-      isStatusUpdated = true;
-      payload = updatedAccount;
+      isSuccessful = true;
+      console.log(updatedAccount);
+      returnData = updatedAccount;
     })
-    .catch((err) => (payload = err));
+    .catch((err: any) => (returnData = err));
 
-  if (isStatusUpdated) {
-    return {
-      success: true,
-      message: "✅ Google oauth status updated",
-      payload: payload,
-    };
-  } else {
-    return {
-      success: false,
-      message: "❌ Could not update Google oauth status",
-      payload: payload,
-    };
-  }
+  return {
+    success: isSuccessful,
+    message: isSuccessful
+      ? `${Var.app.emoji.success} Google oauth status updated`
+      : `${Var.app.emoji.failure} Could not update Google oauth status. Please contact ${Var.app.contact.email}`,
+    payload: returnData,
+  };
 };

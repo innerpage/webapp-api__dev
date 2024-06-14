@@ -8,8 +8,8 @@ import {
 } from "../../../../global/middlewares";
 
 import {
-  validateInputsForStripeCheckSession,
-  formatInputsForStripeCheckSession,
+  validateStripeCheckSessionPayload,
+  formatStripeCheckSessionPayload,
 } from "../../middlewares";
 
 import { stripeCheckSessionController } from "../../controllers";
@@ -22,7 +22,7 @@ stripeCheckSessionRoute.post(
   ExtractAccountIdFromRequest,
   ExtractOriginFromRequest,
   BlockNonExistentAccountById,
-  validateInputsForStripeCheckSession,
-  formatInputsForStripeCheckSession,
+  validateStripeCheckSessionPayload,
+  formatStripeCheckSessionPayload,
   stripeCheckSessionController
 );

@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 
 import Stripe from "stripe";
 import { writeNewPurchase } from "../../../purchase/dals";
-import { AppVar } from "../../../../global/vars";
+import { Var } from "../../../../global/var";
 
 export const stripeCreateSessionController = async (
   req: Request,
@@ -11,7 +11,7 @@ export const stripeCreateSessionController = async (
   let tierId: string = "";
   let priceId: string = "";
 
-  const stripe = new Stripe(AppVar.stripe.key.secret, {
+  const stripe = new Stripe(Var.stripe.key.secret, {
     apiVersion: "2022-11-15",
   });
 
@@ -24,14 +24,16 @@ export const stripeCreateSessionController = async (
   });
 
   if (!session.id) {
-    console.log("❌ Could not create Stripe checkout session");
+    console.log(
+      `${Var.app.emoji.failure} Could not create Stripe checkout session`
+    );
     return res.status(400).json({
       success: false,
-      message: "❌ Could not create Stripe checkout session",
+      message: `${Var.app.emoji.failure} Could not create Stripe checkout session`,
     });
   }
 
-  const newPurchaseObject = await writeNewPurchase(
+  const newPurchase = await writeNewPurchase(
     tierId,
     session.id,
     session.currency,
@@ -39,17 +41,17 @@ export const stripeCreateSessionController = async (
     res.locals.accountId
   );
 
-  if (!newPurchaseObject.success) {
-    console.log("❌ Could not save purchase");
+  if (!newPurchase.success) {
+    console.log(`${Var.app.emoji.failure} Could not save purchase`);
     return res.status(400).json({
       success: false,
-      message: "❌ Could not save purchase",
+      message: `${Var.app.emoji.failure} Could not save purchase`,
     });
   }
 
   return res.status(200).json({
     success: true,
-    message: "✅ Stripe checkout session created",
+    message: `${Var.app.emoji.success} Stripe checkout session created`,
     payload: session.id,
   });
 };

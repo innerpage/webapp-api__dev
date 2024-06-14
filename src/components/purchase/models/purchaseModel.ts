@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { Sequelize } from "../../../global/vars";
+import { Sequelize } from "../../../global/var";
 
 const modelName: string = "purchase";
 const modelAttributes: any = {

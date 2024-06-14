@@ -1,5 +1,5 @@
 import { accountModel } from "../../models";
-import { AppVar } from "../../../../global/vars";
+import { Var } from "../../../../global/var";
 
 export const writeNewAccount = async (
   name: string,
@@ -7,8 +7,8 @@ export const writeNewAccount = async (
   hashedPassword: string,
   verificationCode: string
 ) => {
-  let isNewAccountCreated: boolean = false;
-  let payload: any;
+  let isSuccessful: boolean = false;
+  let returnData: any;
 
   await accountModel
     .create({
@@ -18,8 +18,8 @@ export const writeNewAccount = async (
       verification_code: verificationCode,
     })
     .then((newAccount: any) => {
-      isNewAccountCreated = true;
-      payload = {
+      isSuccessful = true;
+      returnData = {
         id: newAccount.dataValues.id,
         name: newAccount.dataValues.name,
         email: newAccount.dataValues.email,
@@ -27,21 +27,15 @@ export const writeNewAccount = async (
         verificationCode: newAccount.dataValues.verification_code,
       };
     })
-    .catch((err) => {
-      payload = err;
+    .catch((err: any) => {
+      returnData = err;
     });
 
-  if (!isNewAccountCreated) {
-    return {
-      success: false,
-      message: `❌ Could not create account. Please contact ${AppVar.app.contact.email}`,
-      payload: payload,
-    };
-  }
-
   return {
-    success: true,
-    message: "✅ New account created",
-    payload: payload,
+    success: isSuccessful,
+    message: isSuccessful
+      ? `${Var.app.emoji.success} New account created`
+      : `${Var.app.emoji.failure} Could not create account. Please contact ${Var.app.contact.email}`,
+    payload: returnData,
   };
 };

@@ -1,5 +1,4 @@
 import { Router } from "express";
-
 import {
   ExtractOriginFromRequest,
   BlockRequestByOrigin,
@@ -8,12 +7,7 @@ import {
   BlockLoggedInAccount,
   BlockExistingAccountByEmail,
 } from "../../../../global/middlewares";
-
-import {
-  validateInputsForSignupMiddleware,
-  formatInputsForSignupMiddleware,
-} from "../../middlewares";
-
+import { validateSignupPayload, formatSignupPayload } from "../../middlewares";
 import { signupController } from "../../controllers";
 
 export const signupRoute = Router();
@@ -25,8 +19,8 @@ signupRoute.post(
   ExtractIPAddressFromOrigin,
   ExtractCountryFromIPAddress,
   BlockLoggedInAccount,
-  validateInputsForSignupMiddleware,
-  formatInputsForSignupMiddleware,
+  validateSignupPayload,
+  formatSignupPayload,
   BlockExistingAccountByEmail,
   signupController
 );

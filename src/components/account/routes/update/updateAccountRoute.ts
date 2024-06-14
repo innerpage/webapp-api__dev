@@ -1,5 +1,4 @@
 import { Router } from "express";
-
 import {
   ExtractOriginFromRequest,
   BlockRequestByOrigin,
@@ -9,12 +8,10 @@ import {
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
 } from "../../../../global/middlewares";
-
 import {
-  validateAccountUpdatePayloadMiddleware,
-  formatAccountUpdatePayloadMiddleware,
+  validateAccountUpdatePayload,
+  formatAccountUpdatePayload,
 } from "../../middlewares";
-
 import { updateAccountController } from "../../controllers";
 
 export const updateAccountRoute = Router();
@@ -28,7 +25,7 @@ updateAccountRoute.put(
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
-  validateAccountUpdatePayloadMiddleware,
-  formatAccountUpdatePayloadMiddleware,
+  validateAccountUpdatePayload,
+  formatAccountUpdatePayload,
   updateAccountController
 );

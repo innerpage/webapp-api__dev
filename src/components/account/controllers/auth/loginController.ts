@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
-import { loginHelper } from "../../helpers";
+import { login } from "../../helpers";
 import { readAccountByEmail } from "../../dals";
-import { verifyPasswordHashHelper } from "../../helpers";
+import { verifyPasswordHash } from "../../helpers";
+import { Var } from "../../../../global/var";
 
 export const loginController = async (req: Request, res: Response) => {
   let { email, password } = res.locals;
@@ -10,27 +11,27 @@ export const loginController = async (req: Request, res: Response) => {
   if (!account.dataValues.password) {
     return res.status(400).json({
       success: false,
-      message: "❌ Invalid password",
+      message: `${Var.app.emoji.failure} Invalid password`,
     });
   }
 
-  let isPasswordValid: boolean = await verifyPasswordHashHelper(
+  let isPasswordValid: boolean = await verifyPasswordHash(
     account?.dataValues.password,
     password
   );
 
   if (!isPasswordValid) {
-    console.log(`${email} password is not valid`);
+    console.log(`${Var.app.emoji.failure} ${email} password is not valid`);
     return res.status(400).json({
       success: false,
-      message: "❌ Invalid password",
+      message: `${Var.app.emoji.failure} Invalid password`,
     });
   }
-  console.log(`${email} password is valid`);
+  console.log(`${Var.app.emoji.success} ${email} password is valid`);
   res.locals.accountId = account?.dataValues.id;
-  loginHelper(req, res, res.locals.accountId);
+  login(req, res, res.locals.accountId);
 
-  let loginResponseObject = {
+  let responseData = {
     name: account.name,
     email: account.email,
     isEmailVerified: account.is_email_verified,
@@ -39,7 +40,7 @@ export const loginController = async (req: Request, res: Response) => {
 
   return res.status(200).json({
     success: true,
-    message: "✅ Logged in",
-    payload: loginResponseObject,
+    message: `${Var.app.emoji.success} Logged in`,
+    payload: responseData,
   });
 };

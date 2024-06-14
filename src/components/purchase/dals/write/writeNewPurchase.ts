@@ -1,3 +1,4 @@
+import { Var } from "../../../../global/var";
 import { purchaseModel } from "../../models";
 
 export const writeNewPurchase = async (
@@ -7,8 +8,8 @@ export const writeNewPurchase = async (
   amount: number,
   accountId: string
 ) => {
-  let isNewPurchaseCreated: boolean = false;
-  let payload: any;
+  let isSuccessful: boolean = false;
+  let returnData: any;
 
   await purchaseModel
     .create({
@@ -19,24 +20,18 @@ export const writeNewPurchase = async (
       accountId: accountId,
     })
     .then((newPurchase: any) => {
-      isNewPurchaseCreated = true;
-      payload = newPurchase;
+      isSuccessful = true;
+      returnData = newPurchase;
     })
-    .catch((err) => {
-      payload = err;
+    .catch((err: any) => {
+      returnData = err;
     });
 
-  if (isNewPurchaseCreated) {
-    return {
-      success: true,
-      message: "✅ New purchase created",
-      payload: payload,
-    };
-  } else {
-    return {
-      success: false,
-      message: "❌ New purchase not created",
-      payload: payload,
-    };
-  }
+  return {
+    success: isSuccessful,
+    message: isSuccessful
+      ? `${Var.app.emoji.success} Purchase read`
+      : `${Var.app.emoji.failure} Could not read purchase. Please contact ${Var.app.contact.email}`,
+    payload: returnData,
+  };
 };

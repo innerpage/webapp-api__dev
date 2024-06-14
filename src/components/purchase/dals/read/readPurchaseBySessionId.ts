@@ -1,7 +1,9 @@
+import { Var } from "../../../../global/var";
 import { purchaseModel } from "../../models";
 
 export const readPurchaseBySessionId = async (sessionId: string) => {
-  let payload: any;
+  let isSuccessful: boolean = false;
+  let returnData: any;
 
   await purchaseModel
     .findOne({
@@ -10,21 +12,16 @@ export const readPurchaseBySessionId = async (sessionId: string) => {
       },
     })
     .then((purchase: any) => {
-      payload = purchase;
+      isSuccessful = true;
+      returnData = purchase;
     })
-    .catch((err) => (payload = err));
+    .catch((err: any) => (returnData = err));
 
-  if (payload) {
-    return {
-      success: true,
-      message: "✅ Purchase read",
-      payload: payload,
-    };
-  } else {
-    return {
-      success: false,
-      message: "❌ Purchase not read",
-      payload: payload,
-    };
-  }
+  return {
+    success: isSuccessful,
+    message: isSuccessful
+      ? `${Var.app.emoji.success} Purchase read`
+      : `${Var.app.emoji.failure} Could not read purchase. Please contact ${Var.app.contact.email}`,
+    payload: returnData,
+  };
 };

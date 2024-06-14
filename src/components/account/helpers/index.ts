@@ -1,13 +1,13 @@
 // Auth
-export { loginHelper } from "./auth/loginHelper";
-export { logoutHelper } from "./auth/logoutHelper";
+export { login } from "./auth/login";
+export { logout } from "./auth/logout";
 
 // Hasher
-export { hashPasswordHelper } from "./hasher/hashPasswordHelper";
+export { hashPassword } from "./hasher/hashPassword";
 
 // Mail
-export { mailVerificationLinkHelper } from "./mail/mailVerificationLinkHelper";
-export { mailAccountChangeConfirmationHelper } from "./mail/mailAccountChangeConfirmationHelper";
+export { mailVerificationLink } from "./mail/mailVerificationLink";
+export { mailAccountChangeConfirmation } from "./mail/mailAccountChangeConfirmation";
 
 // Verification
-export { verifyPasswordHashHelper } from "./verify/verifyPasswordHashHelper";
+export { verifyPasswordHash } from "./verify/verifyPasswordHash";

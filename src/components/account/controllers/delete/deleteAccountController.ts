@@ -4,41 +4,42 @@ import {
   writeDeletedAccount,
   writeAccountDeletion,
 } from "../../dals";
+import { Var } from "../../../../global/var";
 
 export const deleteAccountController = async (req: Request, res: Response) => {
   let account: any = await readAccountById(res.locals.accountId);
 
-  let deleteAccountReturnObject: any = await writeDeletedAccount(
+  let deletedAccount: any = await writeDeletedAccount(
     account.dataValues.id,
     account.dataValues.name,
     account.dataValues.email,
     account.dataValues.is_email_verified,
     account.dataValues.is_google_oauth_linked,
-    account.dataValues.createdAt
+    account.dataValues.createdAt.toString()
   );
 
-  if (!deleteAccountReturnObject.success) {
+  console.log(deletedAccount.message);
+  if (!deletedAccount.success) {
+    console.log(deletedAccount.payload);
     return res.status(400).json({
       success: false,
-      message: deleteAccountReturnObject.message,
+      message: deletedAccount.message,
     });
   }
-  console.log(deleteAccountReturnObject.message);
-  console.log(deleteAccountReturnObject.payload);
 
-  let accountDeletionReturnObject: any = await writeAccountDeletion(
+  let accountDeletionReturnData: any = await writeAccountDeletion(
     account.dataValues.id
   );
-  if (!accountDeletionReturnObject.success) {
+  if (!accountDeletionReturnData.success) {
     return res.status(400).json({
       success: false,
-      message: accountDeletionReturnObject.message,
+      message: accountDeletionReturnData.message,
     });
   }
 
   return res.status(200).json({
     success: true,
-    message: "✅ Account deleted",
+    message: `${Var.app.emoji.success} Account deleted`,
     payload: {},
   });
 };

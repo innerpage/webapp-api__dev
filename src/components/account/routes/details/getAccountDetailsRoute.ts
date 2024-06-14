@@ -1,5 +1,4 @@
 import { Router } from "express";
-
 import {
   ExtractOriginFromRequest,
   BlockRequestByOrigin,
@@ -9,7 +8,6 @@ import {
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
 } from "../../../../global/middlewares";
-
 import { getAccountDetailsController } from "../../controllers";
 
 export const getAccountDetailsRoute = Router();

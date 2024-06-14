@@ -5,23 +5,21 @@ import {
   ExtractIPAddressFromOrigin,
   ExtractCountryFromIPAddress,
 } from "../../../../global/middlewares";
-
 import {
-  validateInputsForEmailVerificationMiddleware,
-  formatInputsForEmailVerificationMiddleware,
+  validateEmailVerificationPayload,
+  formatEmailVerificationPayload,
 } from "../../middlewares";
-
 import { verifyEmailController } from "../../controllers";
 
 export const verifyEmailRoute = Router();
 
 verifyEmailRoute.post(
-  "/verify",
+  "/verify-email",
   ExtractOriginFromRequest,
   BlockRequestByOrigin,
   ExtractIPAddressFromOrigin,
   ExtractCountryFromIPAddress,
-  validateInputsForEmailVerificationMiddleware,
-  formatInputsForEmailVerificationMiddleware,
+  validateEmailVerificationPayload,
+  formatEmailVerificationPayload,
   verifyEmailController
 );

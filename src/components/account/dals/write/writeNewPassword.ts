@@ -1,11 +1,12 @@
+import { Var } from "../../../../global/var";
 import { accountModel } from "../../models";
 
 export const writeNewPassword = async (
   email: string,
   newHashedPassword: string
 ) => {
-  let isPasswordUpdated: boolean = false;
-  let payload: any;
+  let isSuccessful: boolean = false;
+  let returnData: any;
 
   await accountModel
     .update(
@@ -17,22 +18,16 @@ export const writeNewPassword = async (
       }
     )
     .then((updatedAccount: any) => {
-      isPasswordUpdated = true;
-      payload = updatedAccount;
+      isSuccessful = true;
+      returnData = updatedAccount;
     })
-    .catch((err) => (payload = err));
-
-  if (!isPasswordUpdated) {
-    return {
-      success: false,
-      message: "❌ Failed to save new password",
-      payload: payload,
-    };
-  }
+    .catch((err: any) => (returnData = err));
 
   return {
-    success: true,
-    message: "✅ New password saved",
-    payload: {},
+    success: isSuccessful,
+    message: isSuccessful
+      ? `${Var.app.emoji.success} Password updated`
+      : `${Var.app.emoji.failure} Failed to update password. Please contact ${Var.app.contact.email}`,
+    payload: returnData,
   };
 };

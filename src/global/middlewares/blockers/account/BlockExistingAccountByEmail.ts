@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { readAccountByEmail } from "../../../../components/account/dals";
+import { Var } from "../../../var";
 
 export const BlockExistingAccountByEmail = async (
   req: Request,
@@ -9,13 +10,17 @@ export const BlockExistingAccountByEmail = async (
   let account = await readAccountByEmail(res.locals.email);
 
   if (account) {
-    console.log(`❌ ${res.locals.email} already exists`);
+    console.log(
+      `${Var.app.emoji.failure} ${res.locals.email} Account already exists`
+    );
     return res.status(200).json({
       success: false,
-      message: "❌ You are already registered",
+      message: `${Var.app.emoji.failure} Account already exists`,
     });
   }
 
-  console.log(`✅ ${res.locals.email} does not exist`);
+  console.log(
+    `${Var.app.emoji.success} account with ${res.locals.email} does not exist`
+  );
   next();
 };

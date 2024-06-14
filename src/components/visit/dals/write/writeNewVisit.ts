@@ -1,3 +1,4 @@
+import { Var } from "../../../../global/var";
 import { visitModel } from "../../models";
 
 export const writeNewVisit = async (
@@ -13,12 +14,18 @@ export const writeNewVisit = async (
     })
     .then((newVisit: any) => {
       if (!newVisit) {
-        console.log(`❌ Visit not saved: ${email} (${socketId})`);
+        console.log(
+          `${Var.app.emoji.failure} Could not save visit: ${email} (${socketId})`
+        );
       }
-      console.log(`✅ Visit saved: ${email} (${socketId})`);
+      console.log(
+        `${Var.app.emoji.success} Visit saved: ${email} (${socketId})`
+      );
     })
     .catch((err: any) => {
-      console.log(`❌ Visit not saved: ${email} (${socketId})`);
+      console.log(
+        `${Var.app.emoji.failure} Visit not saved: ${email} (${socketId})`
+      );
       console.log(err);
     });
 };

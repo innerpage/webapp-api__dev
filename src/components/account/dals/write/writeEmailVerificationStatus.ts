@@ -1,11 +1,12 @@
+import { Var } from "../../../../global/var";
 import { accountModel } from "../../models";
 
 export const writeEmailVerificationStatus = async (
   email: string,
   isEmailVerified: boolean
 ) => {
-  let isEmailVerificationStatusUpdated: boolean = false;
-  let payload: any;
+  let isSuccessful: boolean = false;
+  let returnData: any;
 
   await accountModel
     .update(
@@ -17,22 +18,16 @@ export const writeEmailVerificationStatus = async (
       }
     )
     .then((updatedAccount: any) => {
-      isEmailVerificationStatusUpdated = true;
-      payload = updatedAccount;
+      isSuccessful = true;
+      returnData = updatedAccount;
     })
-    .catch((err) => (payload = err));
-
-  if (!isEmailVerificationStatusUpdated) {
-    return {
-      success: false,
-      message: "❌ Email verification status not updated",
-      payload: payload,
-    };
-  }
+    .catch((err: any) => (returnData = err));
 
   return {
-    success: true,
-    message: "✅ Email verification status updated",
-    payload: payload,
+    success: isSuccessful,
+    message: isSuccessful
+      ? `${Var.app.emoji.success} Email verification status saved`
+      : `${Var.app.emoji.failure} Could not save email verification status. Please contact ${Var.app.contact.email}`,
+    payload: returnData,
   };
 };

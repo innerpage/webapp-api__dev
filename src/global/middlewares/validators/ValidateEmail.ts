@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import Joi from "joi";
+import { Var } from "../../var";
 
 const emailSchema = Joi.object({
   email: Joi.string()
@@ -21,7 +22,7 @@ export const ValidateEmail = async (
   if (error) {
     return res.status(400).json({
       success: false,
-      message: `❌ ${error.details[0].message}`,
+      message: `${Var.app.emoji.failure} ${error.details[0].message}`,
     });
   }
 

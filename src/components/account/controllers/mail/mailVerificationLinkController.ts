@@ -1,35 +1,41 @@
 import { Request, Response } from "express";
 import { writeVerificationCode, readAccountByEmail } from "../../dals";
-import { mailVerificationLinkHelper } from "../../helpers";
+import { mailVerificationLink } from "../../helpers";
 import { GenerateVerificationCode } from "../../../../global/helpers";
+import { Var } from "../../../../global/var";
 
 export const mailVerificationLinkController = async (
   req: Request,
   res: Response
 ) => {
   let account: any = await readAccountByEmail(res.locals.email);
-  let verificationCode: string = await GenerateVerificationCode();
-
-  let writeVerificationCodeReturnObject: any = await writeVerificationCode(
-    account.email,
-    verificationCode
-  );
-  console.log(writeVerificationCodeReturnObject.message);
-  console.log(writeVerificationCodeReturnObject.payload);
-
-  if (!writeVerificationCodeReturnObject.success) {
-    return res.status(400).json({
+  if (!account) {
+    return res.status(200).json({
       success: false,
-      message: "❌ Could not save verification code",
+      message: `${Var.app.emoji.success} If you have an account with us, you will receive the password reset link in the registered email`,
     });
   }
 
-  let mailVerificationLinkReturnObject: any;
+  let verificationCode: string = await GenerateVerificationCode();
+  let writeVerificationCodeReturnData: any = await writeVerificationCode(
+    account.email,
+    verificationCode
+  );
+  console.log(writeVerificationCodeReturnData.message);
+
+  if (!writeVerificationCodeReturnData.success) {
+    return res.status(400).json({
+      success: false,
+      message: `${Var.app.emoji.failure} Could not save verification code`,
+    });
+  }
+
+  let mailVerificationLinkReturnData: any;
   let verificationLink: string = "";
 
   if (res.locals.mailType === "emailVerificationLink") {
     verificationLink = `${res.locals.origin}/verify/email/${verificationCode}`;
-    mailVerificationLinkReturnObject = await mailVerificationLinkHelper(
+    mailVerificationLinkReturnData = await mailVerificationLink(
       account.name.split(" ")[0],
       account.email,
       verificationLink,
@@ -37,27 +43,26 @@ export const mailVerificationLinkController = async (
     );
   } else if (res.locals.mailType === "passwordResetLink") {
     verificationLink = `${res.locals.origin}/verify/password-reset/${verificationCode}`;
-    mailVerificationLinkReturnObject = await mailVerificationLinkHelper(
+    mailVerificationLinkReturnData = await mailVerificationLink(
       account.name.split(" ")[0],
       account.email,
       verificationLink,
       "passwordResetLink"
     );
   }
-  console.log(mailVerificationLinkReturnObject.message);
-  console.log(mailVerificationLinkReturnObject.payload);
+  console.log(mailVerificationLinkReturnData.message);
 
-  if (!mailVerificationLinkReturnObject.success) {
+  if (!mailVerificationLinkReturnData.success) {
     return res.status(400).json({
       success: false,
-      message: mailVerificationLinkReturnObject.message,
+      message: mailVerificationLinkReturnData.message,
       payload: {},
     });
   }
 
   return res.status(200).json({
     success: true,
-    message: mailVerificationLinkReturnObject.message,
-    payload: {},
+    message: mailVerificationLinkReturnData.message,
+    payload: mailVerificationLinkReturnData.payload,
   });
 };

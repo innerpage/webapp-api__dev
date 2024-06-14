@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import { Var } from "../../var";
 
 export const ExtractOriginFromRequest = (
   req: Request,
@@ -6,6 +7,6 @@ export const ExtractOriginFromRequest = (
   next: NextFunction
 ) => {
   res.locals.origin = req.header("Origin");
-  console.log(`✅ Request origin: ${res.locals.origin}`);
+  console.log(`${Var.app.emoji.success} Request origin: ${res.locals.origin}`);
   next();
 };

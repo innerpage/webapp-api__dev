@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { BlockNonExistentAccountByEmail } from "../../../../global/middlewares";
 import {
-  validateInputsForPasswordConfirmationMiddleware,
-  formatInputsForPasswordConfirmationMiddleware,
+  validatePasswordConfirmationPayload,
+  formatPasswordConfirmationPayload,
 } from "../../middlewares";
 import { confirmPasswordController } from "../../controllers";
 
@@ -10,8 +10,8 @@ export const confirmPasswordRoute = Router();
 
 confirmPasswordRoute.put(
   "/password",
-  validateInputsForPasswordConfirmationMiddleware,
-  formatInputsForPasswordConfirmationMiddleware,
+  validatePasswordConfirmationPayload,
+  formatPasswordConfirmationPayload,
   BlockNonExistentAccountByEmail,
   confirmPasswordController
 );

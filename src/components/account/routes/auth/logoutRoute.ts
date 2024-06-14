@@ -1,5 +1,4 @@
 import { Router } from "express";
-
 import { BlockLoggedOutAccount } from "../../../../global/middlewares";
 import { logoutController } from "../../controllers";
 

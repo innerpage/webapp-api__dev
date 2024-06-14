@@ -6,12 +6,7 @@ import {
   ExtractCountryFromIPAddress,
   BlockNonExistentAccountByEmail,
 } from "../../../../global/middlewares";
-
-import {
-  validateInputsForMailMiddleware,
-  formatInputsForMailMiddleware,
-} from "../../middlewares";
-
+import { validateMailPayload, formatMailPayload } from "../../middlewares";
 import { mailVerificationLinkController } from "../../controllers";
 
 export const mailVerificationLinkRoute = Router();
@@ -22,8 +17,7 @@ mailVerificationLinkRoute.post(
   BlockRequestByOrigin,
   ExtractIPAddressFromOrigin,
   ExtractCountryFromIPAddress,
-  validateInputsForMailMiddleware,
-  formatInputsForMailMiddleware,
-  BlockNonExistentAccountByEmail,
+  validateMailPayload,
+  formatMailPayload,
   mailVerificationLinkController
 );

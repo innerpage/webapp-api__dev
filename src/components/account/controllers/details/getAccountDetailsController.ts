@@ -1,13 +1,21 @@
 import { Request, Response } from "express";
 import { readAccountById } from "../../dals";
+import { Var } from "../../../../global/var";
 
 export const getAccountDetailsController = async (
   req: Request,
   res: Response
 ) => {
   let account: any = await readAccountById(res.locals.accountId);
+  if (!account) {
+    console.log(`${Var.app.emoji.failure} Account does not exist`);
+    return res.status(400).json({
+      success: false,
+      message: `${Var.app.emoji.failure} Account does not exist`,
+    });
+  }
 
-  let accountDetailsPayload: any = {
+  let responseData: any = {
     name: account.name,
     email: account.email,
     isEmailVerified: account.is_email_verified,
@@ -16,7 +24,7 @@ export const getAccountDetailsController = async (
 
   return res.status(200).json({
     success: true,
-    message: "✅ Fetched account & app details",
-    payload: accountDetailsPayload,
+    message: `${Var.app.emoji.success} Account details fetched`,
+    payload: responseData,
   });
 };

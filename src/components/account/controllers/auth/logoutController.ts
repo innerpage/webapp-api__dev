@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { logoutHelper } from "../../helpers";
+import { logout } from "../../helpers";
 
 export const logoutController = (req: Request, res: Response) => {
-  logoutHelper(req, res);
+  logout(req, res);
 };

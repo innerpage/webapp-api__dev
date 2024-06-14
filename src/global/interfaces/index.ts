@@ -1,1 +1,1 @@
-export { AppVarInterface } from "./AppVarInterface";
+export { VarInterface } from "./VarInterface";

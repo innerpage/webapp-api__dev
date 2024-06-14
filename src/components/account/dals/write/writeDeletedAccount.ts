@@ -1,4 +1,5 @@
 import { deletedAccountModel } from "../../models";
+import { Var } from "../../../../global/var";
 
 export const writeDeletedAccount = async (
   id: string,
@@ -8,8 +9,8 @@ export const writeDeletedAccount = async (
   isGoogleOauthLinked: boolean,
   registeredOn: string
 ) => {
-  let isWriteSuccessful: boolean = false;
-  let payload: any;
+  let isSuccessful: boolean = false;
+  let returnData: any;
 
   await deletedAccountModel
     .create({
@@ -21,14 +22,16 @@ export const writeDeletedAccount = async (
       registered_on: registeredOn,
     })
     .then((deletedAccount: any) => {
-      isWriteSuccessful = true;
-      payload = deletedAccount;
+      isSuccessful = true;
+      returnData = deletedAccount;
     })
-    .catch((err) => (payload = err));
+    .catch((err: any) => (returnData = err));
 
   return {
-    success: isWriteSuccessful,
-    message: isWriteSuccessful ? "Account deleted" : "Account not deleted",
-    payload: payload,
+    success: isSuccessful,
+    message: isSuccessful
+      ? `${Var.app.emoji.success} Deleted account saved`
+      : `${Var.app.emoji.failure} Could not save deleted account. Please contact ${Var.app.contact.email}`,
+    payload: returnData,
   };
 };

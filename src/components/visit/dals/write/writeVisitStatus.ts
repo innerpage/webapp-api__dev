@@ -1,3 +1,4 @@
+import { Var } from "../../../../global/var";
 import { visitModel } from "../../models";
 
 export const writeVisitStatus = async (socketId: string) => {
@@ -11,10 +12,12 @@ export const writeVisitStatus = async (socketId: string) => {
       }
     )
     .then(() => {
-      console.log(`✅ Visit status updated: ${socketId}`);
+      console.log(`${Var.app.emoji.success} Visit status updated: ${socketId}`);
     })
     .catch((err: any) => {
-      console.log(`❌ Visit status not updated: ${socketId}`);
+      console.log(
+        `${Var.app.emoji.failure} Visit status not updated: ${socketId}`
+      );
       console.log(err);
     });
 };

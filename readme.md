@@ -27,10 +27,6 @@
   `APP_URL_PROD` <br/>
   `APP_EMAIL` <br/>
   `APP_SUPPORT_URL` <br/>
-  `APP_TOS_URL` <br/>
-  `APP_PRIVACY_POLICY_URL` <br/>
-  `APP_CANCELLATION_AND_REFUND_POLICY_URL` <br/>
-  `APP_SESSION_KEY` <br/>
   `APP_DOMAIN` <br/>
   `BUSINESS_NAME` <br/>
   `BUSINESS_WEBSITE_URL` <br/>
@@ -51,7 +47,6 @@
 
   **Postgres** <br/>
   `POSTGRES_HOST` <br/>
-  `POSTGRES_PORT` <br/>
   `POSTGRES_DATABASE` <br/>
   `POSTGRES_USER` <br/>
   `POSTGRES_PASSWORD` <br/>

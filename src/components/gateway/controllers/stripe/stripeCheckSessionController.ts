@@ -2,13 +2,13 @@ import { Request, Response } from "express";
 
 import Stripe from "stripe";
 import { writePurchaseStatus } from "../../../purchase/dals";
-import { AppVar } from "../../../../global/vars";
+import { Var } from "../../../../global/var";
 
 export const stripeCheckSessionController = async (
   req: Request,
   res: Response
 ) => {
-  const stripe = new Stripe(AppVar.stripe.key.secret, {
+  const stripe = new Stripe(Var.stripe.key.secret, {
     apiVersion: "2022-11-15",
   });
 
@@ -16,9 +16,9 @@ export const stripeCheckSessionController = async (
     .retrieve(res.locals.sessionId)
     .then(async (session) => {
       if (session.payment_status != "paid") {
-        return res.status(200).json({
+        return res.status(400).json({
           success: false,
-          message: "❌ Payment unsuccessful",
+          message: `${Var.app.emoji.failure} Payment unsuccessful`,
           payload: {},
         });
       }
@@ -26,23 +26,23 @@ export const stripeCheckSessionController = async (
       const updatedPurchase = await writePurchaseStatus(res.locals.sessionId);
 
       if (!updatedPurchase.success) {
-        return res.status(200).json({
+        return res.status(400).json({
           success: false,
-          message: "❌ Payment status update failed",
+          message: `${Var.app.emoji.failure} Payment status update failed`,
           payload: {},
         });
       }
 
       return res.status(200).json({
         success: true,
-        message: "✅ Payment successful",
+        message: `${Var.app.emoji.success} Payment successful`,
       });
     })
     .catch((err) => {
       console.log(err);
       return res.status(400).json({
         success: false,
-        message: "❌ Could not check session details",
+        message: `${Var.app.emoji.failure} Could not check session details`,
       });
     });
 };

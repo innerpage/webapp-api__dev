@@ -1,3 +1,4 @@
+import { Var } from "../../../../global/var";
 import { accountModel } from "../../models";
 
 export const writeNewAccountFromGoogleOauth = async (
@@ -6,8 +7,8 @@ export const writeNewAccountFromGoogleOauth = async (
   isEmailVerified: boolean,
   isGoogleOauthLinked: boolean
 ) => {
-  let isNewAccountCreated: boolean = false;
-  let payload: any;
+  let isSuccessful: boolean = false;
+  let returnData: any;
 
   await accountModel
     .create({
@@ -17,29 +18,23 @@ export const writeNewAccountFromGoogleOauth = async (
       is_google_oauth_linked: isGoogleOauthLinked,
     })
     .then((newAccount: any) => {
-      isNewAccountCreated = true;
-      payload = {
+      isSuccessful = true;
+      returnData = {
         id: newAccount.dataValues.id,
         name: newAccount.dataValues.name,
         email: newAccount.dataValues.email,
         isEmailVerified: newAccount.dataValues.is_email_verified,
       };
     })
-    .catch((err) => {
-      payload = err;
+    .catch((err: any) => {
+      returnData = err;
     });
 
-  if (isNewAccountCreated) {
-    return {
-      success: true,
-      message: "✅ New account created",
-      payload: payload,
-    };
-  } else {
-    return {
-      success: false,
-      message: "❌ Could not create new account",
-      payload: payload,
-    };
-  }
+  return {
+    success: isSuccessful,
+    message: isSuccessful
+      ? `${Var.app.emoji.success} New account created from Google Oauth`
+      : `${Var.app.emoji.failure} Could not create account from Google Oauth. Please contact ${Var.app.contact.email}`,
+    payload: returnData,
+  };
 };

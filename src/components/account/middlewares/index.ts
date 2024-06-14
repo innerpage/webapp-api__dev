@@ -1,17 +1,17 @@
 // Formatters
-export { formatInputsForLoginMiddleware } from "./formatters/formatInputsForLoginMiddleware";
-export { formatInputsForPasswordConfirmationMiddleware } from "./formatters/formatInputsForPasswordConfirmationMiddleware";
-export { formatInputsForSignupMiddleware } from "./formatters/formatInputsForSignupMiddleware";
-export { formatInputsForMailMiddleware } from "./formatters/formatInputsForMailMiddleware";
-export { formatInputsForEmailVerificationMiddleware } from "./formatters/formatInputsForEmailVerificationMiddleware";
-export { formatInputsForGoogleOauthMiddleware } from "./formatters/formatInputsForGoogleOauthMiddleware";
-export { formatAccountUpdatePayloadMiddleware } from "./formatters/formatAccountUpdatePayloadMiddleware";
+export { formatLoginPayload } from "./formatters/formatLoginPayload";
+export { formatPasswordConfirmationPayload } from "./formatters/formatPasswordConfirmationPayload";
+export { formatSignupPayload } from "./formatters/formatSignupPayload";
+export { formatMailPayload } from "./formatters/formatMailPayload";
+export { formatEmailVerificationPayload } from "./formatters/formatEmailVerificationPayload";
+export { formatGoogleOauthPayload } from "./formatters/formatGoogleOauthPayload";
+export { formatAccountUpdatePayload } from "./formatters/formatAccountUpdatePayload";
 
 // Validators
-export { validateInputsForLoginMiddleware } from "./validators/validateInputsForLoginMiddleware";
-export { validateInputsForPasswordConfirmationMiddleware } from "./validators/validateInputsForPasswordConfirmationMiddleware";
-export { validateInputsForSignupMiddleware } from "./validators/validateInputsForSignupMiddleware";
-export { validateInputsForMailMiddleware } from "./validators/validateInputsForMailMiddleware";
-export { validateInputsForEmailVerificationMiddleware } from "./validators/validateInputsForEmailVerificationMiddleware";
-export { validateInputsForGoogleOauthMiddleware } from "./validators/validateInputsForGoogleOauthMiddleware";
-export { validateAccountUpdatePayloadMiddleware } from "./validators/validateAccountUpdatePayloadMiddleware";
+export { validateLoginPayload } from "./validators/validateLoginPayload";
+export { validatePasswordConfirmationPayload } from "./validators/validatePasswordConfirmationPayload";
+export { validateSignupPayload } from "./validators/validateSignupPayload";
+export { validateMailPayload } from "./validators/validateMailPayload";
+export { validateEmailVerificationPayload } from "./validators/validateEmailVerificationPayload";
+export { validateGoogleOauthPayload } from "./validators/validateGoogleOauthPayload";
+export { validateAccountUpdatePayload } from "./validators/validateAccountUpdatePayload";

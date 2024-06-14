@@ -1,17 +1,18 @@
 import { Request, Response } from "express";
-import { loginHelper } from "../../helpers";
+import { login } from "../../helpers";
 import {
   readAccountByEmail,
   writeNewAccountFromGoogleOauth,
   writeGoogleOauthStatus,
 } from "../../dals";
 import jwt from "jsonwebtoken";
+import { Var } from "../../../../global/var";
 
 export const googleOauthController = async (req: Request, res: Response) => {
   if (!res.locals.token) {
     return res.status(400).json({
       success: false,
-      message: "❌ Could not complete authorization",
+      message: `${Var.app.emoji.failure} Invalid token`,
     });
   }
 
@@ -25,7 +26,7 @@ export const googleOauthController = async (req: Request, res: Response) => {
   if (!email || !isEmailVerified || !givenName || !familyName) {
     return res.status(400).json({
       success: false,
-      message: "❌ Invalid Google account details",
+      message: `${Var.app.emoji.failure} Invalid Google account details`,
     });
   }
 
@@ -35,37 +36,38 @@ export const googleOauthController = async (req: Request, res: Response) => {
   let name: string = `${givenName} ${familyName}`;
 
   if (!account) {
-    let newAccountReturnObject: any = await writeNewAccountFromGoogleOauth(
+    let newAccount: any = await writeNewAccountFromGoogleOauth(
       name,
       email,
       true,
       true
     );
-    console.log(newAccountReturnObject.message);
-    console.log(newAccountReturnObject.payload);
-    if (!newAccountReturnObject.payload.id) {
+    console.log(newAccount.message);
+    if (!newAccount.payload.id) {
       return res.status(400).json({
         success: false,
-        message: newAccountReturnObject.payload.message,
+        message: newAccount.message,
       });
     }
-    accountId = newAccountReturnObject.payload.id;
+    accountId = newAccount.payload.id;
   } else {
     if (!account.dataValues.is_google_oauth_linked) {
-      let updateAccountReturnObject: any = await writeGoogleOauthStatus(email);
-      if (!updateAccountReturnObject.payload.id) {
+      let updatedAccountReturnData: any = await writeGoogleOauthStatus(email);
+      if (!updatedAccountReturnData.success) {
         return res.status(400).json({
           success: false,
-          message: updateAccountReturnObject.payload.message,
+          message: updatedAccountReturnData.message,
         });
       }
     }
     accountId = account.dataValues.id;
   }
 
-  loginHelper(req, res, accountId);
+  console.log(4);
 
-  let responseObject = {
+  login(req, res, accountId);
+
+  let responseData = {
     name: name,
     email: email,
     isEmailVerified: true,
@@ -74,7 +76,7 @@ export const googleOauthController = async (req: Request, res: Response) => {
 
   return res.status(200).json({
     success: true,
-    message: "✅ Logged in",
-    payload: responseObject,
+    message: `${Var.app.emoji.success} Logged in`,
+    payload: responseData,
   });
 };

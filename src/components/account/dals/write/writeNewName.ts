@@ -1,8 +1,9 @@
+import { Var } from "../../../../global/var";
 import { accountModel } from "../../models";
 
 export const writeNewName = async (email: string, newName: string) => {
-  let isNameUpdated: boolean = false;
-  let payload: any;
+  let isSuccessful: boolean = false;
+  let returnData: any;
 
   await accountModel
     .update(
@@ -14,22 +15,16 @@ export const writeNewName = async (email: string, newName: string) => {
       }
     )
     .then((updatedAccount: any) => {
-      isNameUpdated = true;
-      payload = updatedAccount;
+      isSuccessful = true;
+      returnData = updatedAccount;
     })
-    .catch((err) => (payload = err));
-
-  if (!isNameUpdated) {
-    return {
-      success: false,
-      message: "❌ Failed to update name",
-      payload: payload,
-    };
-  }
+    .catch((err: any) => (returnData = err));
 
   return {
-    success: true,
-    message: "✅ Name updated",
-    payload: { newName: newName },
+    success: isSuccessful,
+    message: isSuccessful
+      ? `${Var.app.emoji.success} Name updated`
+      : `${Var.app.emoji.failure} Failed to update name. Please contact ${Var.app.contact.email}`,
+    payload: isSuccessful ? { newName: newName } : returnData,
   };
 };

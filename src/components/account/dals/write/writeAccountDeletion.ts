@@ -1,22 +1,24 @@
 import { accountModel } from "../../models";
+import { Var } from "../../../../global/var";
 
 export const writeAccountDeletion = async (id: string) => {
-  let isDeletionSuccessful: boolean = false;
-  let payload: any;
-
+  let isSuccessful: boolean = false;
+  let returnData: any;
   await accountModel
     .destroy({
       where: { id: id },
     })
     .then((deletedAccount: any) => {
-      isDeletionSuccessful = true;
-      payload = deletedAccount;
+      isSuccessful = true;
+      returnData = deletedAccount;
     })
-    .catch((err) => (payload = err));
+    .catch((err: any) => (returnData = err));
 
   return {
-    success: isDeletionSuccessful,
-    message: isDeletionSuccessful ? "Account deleted" : "Account not deleted",
-    payload: payload,
+    success: isSuccessful,
+    message: isSuccessful
+      ? `${Var.app.emoji.success} Account deleted`
+      : `${Var.app.emoji.failure} Could not delete account. Please contact ${Var.app.contact.email}`,
+    payload: returnData,
   };
 };

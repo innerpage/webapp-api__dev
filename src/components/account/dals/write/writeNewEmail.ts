@@ -1,12 +1,21 @@
+import { Var } from "../../../../global/var";
 import { accountModel } from "../../models";
 
-export const writeNewEmail = async (email: string, newEmail: string) => {
-  let isEmailUpdated: boolean = false;
-  let payload: any;
+export const writeNewEmail = async (
+  email: string,
+  newEmail: string,
+  verificationCode: string
+) => {
+  let isSuccessful: boolean = false;
+  let returnData: any;
 
   await accountModel
     .update(
-      { email: newEmail },
+      {
+        email: newEmail,
+        is_email_verified: false,
+        verification_code: verificationCode,
+      },
       {
         where: {
           email: email,
@@ -14,24 +23,16 @@ export const writeNewEmail = async (email: string, newEmail: string) => {
       }
     )
     .then((updatedAccount: any) => {
-      isEmailUpdated = true;
-      payload = updatedAccount;
+      isSuccessful = true;
+      returnData = updatedAccount;
     })
-    .catch((err) => (payload = err));
-
-  if (!isEmailUpdated) {
-    return {
-      success: false,
-      message: "❌ Failed to update email",
-      payload: payload,
-    };
-  }
+    .catch((err: any) => (returnData = err));
 
   return {
-    success: true,
-    message: "✅ Email updated",
-    payload: {
-      newEmail: newEmail,
-    },
+    success: isSuccessful,
+    message: isSuccessful
+      ? `${Var.app.emoji.success} Email updated`
+      : `${Var.app.emoji.failure} Failed to update email. Please contact ${Var.app.contact.email}`,
+    payload: returnData,
   };
 };
