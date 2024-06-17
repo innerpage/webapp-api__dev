@@ -1,75 +1,36 @@
 ## Clone repo
 
-- `git clone git@github.com-projckt:projckt/starter_webapp-api-dev.git dev`
-- `cd dev`
+❌ `git clone git@github.com-projckt:projckt/starter_webapp-api-dev.git dev`<br/>
+❌ `cd dev`
+
+<hr/>
 
 ## Edit remote of cloned repo
 
-- `git remote set-url origin git@github.com-{username}:{username}/{repo_name}-api-dev.git`
+❌ `git remote set-url origin git@github.com-{username}:{username}/{repo_name}-api-dev.git`
+
+<hr/>
 
 ## Install dependencies
 
-- `npm install`
+❌ `npm install`
+
+<hr/>
 
 ## Edit ./package.json
 
-- Change `name`
-- Change `repository.url`
+❌ Change `name` <br/>
+❌ Change `repository.url`
+
+<hr/>
 
 ## Edit ./.env
 
-- Copy `.env-bak` to `.env`
-- Edit `.env` values
-  <br/><br/>
-  **App** <br/>
-  `APP_NAME` <br/>
-  `APP_WEBSITE_URL` <br/>
-  `APP_URL_PROD` <br/>
-  `APP_EMAIL` <br/>
-  `APP_SUPPORT_URL` <br/>
-  `APP_DOMAIN` <br/>
-  `BUSINESS_NAME` <br/>
-  `BUSINESS_WEBSITE_URL` <br/>
-  `BUSINESS_ADDRESS` <br/>
-  `BUSINESS_EMAIL` <br/>
-  <hr/>
+❌ Copy `.env-bak` to `.env` <br/>
+❌ Edit `.env` values
 
-  **Express Session** <br/>
-  `EXPRESS_SESSION_NAME` <br/>
-  `EXPRESS_SESSION_SECRET` <br/>
-  `EXPRESS_SESSION_TIMEOUT`
-    <hr/>
-
-  **Node** <br/>
-  `NODE_ENV` <br/>
-  `NODE_PORT` <br/>
-    <hr/>
-
-  **Postgres** <br/>
-  `POSTGRES_HOST` <br/>
-  `POSTGRES_DATABASE` <br/>
-  `POSTGRES_USER` <br/>
-  `POSTGRES_PASSWORD` <br/>
-    <hr/>
-
-  **Postmark** <br/>
-  `POSTMARK_TOKEN` <br/>
-  `POSTMARK_TEMPLATE_EMAIL_VERIFICATION_LINK` <br/>
-  `POSTMARK_TEMPLATE_PASSWORD_RESET_LINK` <br/>
-  `POSTMARK_TEMPLATE_ACCOUNT_CHANGE_CONFIRMATION` <br/>
-    <hr/>
-
-  **Redis** <br/>
-  `REDIS_HOST` <br/>
-  `REDIS_PORT` <br/>
-     <hr/>
-
-  **Stripe** <br/>
-  `STRIPE_PUBLIC_KEY` <br/>
-  `STRIPE_SECRET_KEY` <br/>
-  `STRIPE_WEBHOOK_SECRET` <br/>
-  `STRIPE_PROCESSING_FEE` <br/>
+<hr/>
 
 ## Edit ./build.sh
 
-- Change production repo to `git remote set-url origin git@github.com-{username}:{username}/{repo_name}-api-prod.git`
+❌ Change production repo to `git remote set-url origin git@github.com-{username}:{username}/{repo_name}-api-prod.git`
