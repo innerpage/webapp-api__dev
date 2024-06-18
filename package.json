@@ -1,7 +1,7 @@
 {
-  "name": "webapp_api_starter",
+  "name": "innerpage-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "InnerPage API",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com-projckt:projckt/starter_webapp-api-dev.git"
+    "url": "git@github.com-innerpage:innerpage/webapp-api__dev.git"
   },
   "author": "Tuhin Bhuyan (Projckt)",
   "license": "ISC",

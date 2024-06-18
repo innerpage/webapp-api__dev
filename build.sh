@@ -11,8 +11,7 @@ npm --prefix ../prod install
 
 # Initialize git in /prod
 git init ../prod
-# git -C ../prod remote add origin git@github.com-{username}:{username}/{repo_name}__prod.git
-git -C ../prod remote add origin git@github.com-projckt:projckt/starter_webapp-api-prod.git
+git -C ../prod remote add origin git@github.com-innerpage:innerpage/webapp-api__prod.git
 
 # Push codebase to remote
 git -C ../prod add --all
