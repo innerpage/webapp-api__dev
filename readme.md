@@ -33,4 +33,4 @@
 
 ## Edit ./build.sh
 
-❌ Change production repo to `git remote set-url origin git@github.com-{username}:{username}/webapp-api__prod.git`
+✅ Change production repo to `git@github.com-{username}:{username}/webapp-api__prod.git`
