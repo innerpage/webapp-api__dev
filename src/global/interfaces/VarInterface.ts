@@ -28,7 +28,6 @@ export interface VarInterface {
         email: string;
       };
     };
-    paymentGateway: string;
   };
   redis: {
     host: string;
@@ -40,20 +39,6 @@ export interface VarInterface {
     user: string;
     password: string;
   };
-  postmark: {
-    token: string;
-    template: {
-      accountChangeConfirmation: {
-        id: number;
-      };
-      emailVerificationLink: {
-        id: number;
-      };
-      passwordResetLink: {
-        id: number;
-      };
-    };
-  };
   node: {
     env: string;
     port: number;
@@ -62,20 +47,6 @@ export interface VarInterface {
         secret: string;
         name: string;
         maxAge: string;
-      };
-    };
-  };
-  stripe: {
-    key: {
-      public: string;
-      secret: string;
-    };
-    webhook: {
-      secret: string;
-    };
-    fee: {
-      processing: {
-        percentage: number;
       };
     };
   };

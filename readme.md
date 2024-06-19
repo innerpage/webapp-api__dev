@@ -27,7 +27,7 @@
 ## Edit ./.env
 
 ✅ Copy `.env-bak` to `.env` <br/>
-❌ Edit `.env` values
+✅ Edit `.env` values
 
 <hr/>
 
