@@ -34,3 +34,7 @@
 ## Edit ./build.sh
 
 ✅ Change production repo to `git@github.com-{username}:{username}/webapp-api__prod.git`
+
+## Edit ./src/global/include/IncludeModelAssociations
+
+❌ Change model associations after defining models

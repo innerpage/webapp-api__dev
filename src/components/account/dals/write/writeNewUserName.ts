@@ -1,16 +1,19 @@
 import { Var } from "../../../../global/var";
 import { accountModel } from "../../models";
 
-export const writeNewName = async (email: string, newName: string) => {
+export const writeNewUserName = async (
+  accountId: string,
+  newUserName: string
+) => {
   let isSuccessful: boolean = false;
   let returnData: any;
 
   await accountModel
     .update(
-      { name: newName },
+      { user_name: newUserName },
       {
         where: {
-          email: email,
+          id: accountId,
         },
       }
     )
@@ -25,6 +28,6 @@ export const writeNewName = async (email: string, newName: string) => {
     message: isSuccessful
       ? `${Var.app.emoji.success} Name updated`
       : `${Var.app.emoji.failure} Failed to update name. Please contact ${Var.app.contact.email}`,
-    payload: isSuccessful ? { newName: newName } : returnData,
+    payload: isSuccessful ? { newUserName: newUserName } : returnData,
   };
 };

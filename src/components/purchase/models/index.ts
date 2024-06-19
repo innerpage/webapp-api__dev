@@ -1,1 +1,0 @@
-export { purchaseModel } from "./purchaseModel";

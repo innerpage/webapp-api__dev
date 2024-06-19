@@ -12,14 +12,5 @@ export { deleteAccountController } from "./delete/deleteAccountController";
 // Details
 export { getAccountDetailsController } from "./details/getAccountDetailsController";
 
-// Mail
-export { mailVerificationLinkController } from "./mail/mailVerificationLinkController";
-
-// OAuth
-export { googleOauthController } from "./auth/googleOauthController";
-
 // Update
 export { updateAccountController } from "./update/updateAccountController";
-
-// Verify
-export { verifyEmailController } from "./verify/verifyEmailController";

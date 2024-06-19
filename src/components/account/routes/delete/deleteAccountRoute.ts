@@ -1,9 +1,5 @@
 import { Router } from "express";
 import {
-  ExtractOriginFromRequest,
-  BlockRequestByOrigin,
-  ExtractIPAddressFromOrigin,
-  ExtractCountryFromIPAddress,
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
@@ -14,10 +10,6 @@ export const deleteAccountRoute = Router();
 
 deleteAccountRoute.delete(
   "/account",
-  ExtractOriginFromRequest,
-  BlockRequestByOrigin,
-  ExtractIPAddressFromOrigin,
-  ExtractCountryFromIPAddress,
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,

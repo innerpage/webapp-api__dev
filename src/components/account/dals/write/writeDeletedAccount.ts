@@ -3,10 +3,7 @@ import { Var } from "../../../../global/var";
 
 export const writeDeletedAccount = async (
   id: string,
-  name: string,
-  email: string,
-  isEmailVerified: boolean,
-  isGoogleOauthLinked: boolean,
+  userName: string,
   registeredOn: string
 ) => {
   let isSuccessful: boolean = false;
@@ -15,10 +12,7 @@ export const writeDeletedAccount = async (
   await deletedAccountModel
     .create({
       id: id,
-      name: name,
-      email: email,
-      is_email_verified: isEmailVerified,
-      is_google_oauth_linked: isGoogleOauthLinked,
+      user_name: userName,
       registered_on: registeredOn,
     })
     .then((deletedAccount: any) => {

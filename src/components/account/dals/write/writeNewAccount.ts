@@ -2,29 +2,22 @@ import { accountModel } from "../../models";
 import { Var } from "../../../../global/var";
 
 export const writeNewAccount = async (
-  name: string,
-  email: string,
-  hashedPassword: string,
-  verificationCode: string
+  userName: string,
+  hashedPassword: string
 ) => {
   let isSuccessful: boolean = false;
   let returnData: any;
 
   await accountModel
     .create({
-      name: name,
-      email: email,
+      user_name: userName,
       password: hashedPassword,
-      verification_code: verificationCode,
     })
     .then((newAccount: any) => {
       isSuccessful = true;
       returnData = {
         id: newAccount.dataValues.id,
-        name: newAccount.dataValues.name,
-        email: newAccount.dataValues.email,
-        isEmailVerified: newAccount.dataValues.is_email_verified,
-        verificationCode: newAccount.dataValues.verification_code,
+        userName: newAccount.dataValues.name,
       };
     })
     .catch((err: any) => {

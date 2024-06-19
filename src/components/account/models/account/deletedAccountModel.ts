@@ -9,14 +9,7 @@ const modelAttributes: any = {
     unique: true,
     primaryKey: true,
   },
-  name: { type: DataTypes.STRING, allowNull: false },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: { isEmail: true },
-  },
-  is_email_verified: { type: DataTypes.BOOLEAN, defaultValue: false },
-  is_google_oauth_linked: { type: DataTypes.BOOLEAN, defaultValue: false },
+  user_name: { type: DataTypes.STRING, allowNull: false },
   registered_on: { type: DataTypes.STRING },
 };
 const modelOptions: any = {};

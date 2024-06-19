@@ -2,9 +2,7 @@ import app from "./app";
 import http from "http";
 import { IncludeModelAssociations } from "./global/helpers";
 import { Sequelize } from "./global/var";
-import { Server, Socket } from "socket.io";
 import { Var } from "./global/var";
-import { writeNewVisit, writeVisitStatus } from "./components/visit/dals";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -40,22 +38,6 @@ dotenv.config();
     });
 
   const nodeServer = http.createServer(app);
-
-  const io = new Server(nodeServer, {
-    cors: {
-      origin: "*",
-    },
-  });
-
-  io.on("connection", (socket: Socket) => {
-    const email: any = socket.handshake.query.email;
-    console.log(`${Var.app.emoji.success} ${email} connected via ${socket.id}`);
-    writeNewVisit(email, socket.id, socket.handshake.address);
-    socket.on("disconnect", () => {
-      console.log(`${Var.app.emoji.failure} Client disconnected: ${socket.id}`);
-      writeVisitStatus(socket.id);
-    });
-  });
 
   nodeServer.listen(Var.node.port, () => {
     console.log(

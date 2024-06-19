@@ -1,9 +1,5 @@
 import { Router } from "express";
 import {
-  ExtractOriginFromRequest,
-  BlockRequestByOrigin,
-  ExtractIPAddressFromOrigin,
-  ExtractCountryFromIPAddress,
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
@@ -18,10 +14,6 @@ export const updateAccountRoute = Router();
 
 updateAccountRoute.put(
   "/account",
-  ExtractOriginFromRequest,
-  BlockRequestByOrigin,
-  ExtractIPAddressFromOrigin,
-  ExtractCountryFromIPAddress,
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,

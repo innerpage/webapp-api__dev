@@ -10,19 +10,9 @@ const modelAttributes: any = {
     unique: true,
     primaryKey: true,
   },
-  name: { type: DataTypes.STRING, allowNull: false },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    validate: { isEmail: true },
-  },
+  user_name: { type: DataTypes.STRING, allowNull: false },
   password: { type: DataTypes.STRING, allowNull: true },
-  is_email_verified: { type: DataTypes.BOOLEAN, defaultValue: false },
-  verification_code: {
-    type: DataTypes.STRING,
-  },
-  is_google_oauth_linked: { type: DataTypes.BOOLEAN, defaultValue: false },
+  is_admin: { type: DataTypes.BOOLEAN, defaultValue: false },
 };
 
 const modelOptions: any = {};

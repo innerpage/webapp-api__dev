@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { login } from "../../helpers";
-import { readAccountByEmail } from "../../dals";
+import { readAccountById } from "../../dals";
 import { verifyPasswordHash } from "../../helpers";
 import { Var } from "../../../../global/var";
 
