@@ -11,16 +11,13 @@ export const deleteAccountController = async (req: Request, res: Response) => {
 
   let deletedAccount: any = await writeDeletedAccount(
     account.dataValues.id,
-    account.dataValues.name,
-    account.dataValues.email,
-    account.dataValues.is_email_verified,
-    account.dataValues.is_google_oauth_linked,
+    account.dataValues.user_name,
     account.dataValues.createdAt.toString()
   );
 
   console.log(deletedAccount.message);
   if (!deletedAccount.success) {
-    console.log(deletedAccount.payload);
+    console.log(deletedAccount.message);
     return res.status(400).json({
       success: false,
       message: deletedAccount.message,

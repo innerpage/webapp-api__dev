@@ -5,10 +5,10 @@ export const formatLoginPayload = async (
   res: Response,
   next: NextFunction
 ) => {
-  let { email, password } = req.body;
+  let { userName, password } = req.body;
 
-  res.locals.email = email.trim().toLowerCase();
-  res.locals.password = password;
+  res.locals.userName = userName.trim();
+  res.locals.password = password.trim();
 
   next();
 };

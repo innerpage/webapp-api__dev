@@ -1,17 +1,17 @@
 import { Request, Response } from "express";
 import { login } from "../../helpers";
-import { readAccountById } from "../../dals";
+import { readAccountByUserName } from "../../dals";
 import { verifyPasswordHash } from "../../helpers";
 import { Var } from "../../../../global/var";
 
 export const loginController = async (req: Request, res: Response) => {
-  let { email, password } = res.locals;
-  let account: any = await readAccountByEmail(email);
+  let { userName, password } = res.locals;
+  let account: any = await readAccountByUserName(userName);
 
-  if (!account.dataValues.password) {
+  if (!account) {
     return res.status(400).json({
       success: false,
-      message: `${Var.app.emoji.failure} Invalid password`,
+      message: `${Var.app.emoji.failure} Account not found`,
     });
   }
 
@@ -21,20 +21,18 @@ export const loginController = async (req: Request, res: Response) => {
   );
 
   if (!isPasswordValid) {
-    console.log(`${Var.app.emoji.failure} ${email} password is not valid`);
+    console.log(`${Var.app.emoji.failure} password is not valid`);
     return res.status(400).json({
       success: false,
       message: `${Var.app.emoji.failure} Invalid password`,
     });
   }
-  console.log(`${Var.app.emoji.success} ${email} password is valid`);
+  console.log(`${Var.app.emoji.success} password is valid`);
   res.locals.accountId = account?.dataValues.id;
   login(req, res, res.locals.accountId);
 
   let responseData = {
-    name: account.name,
-    email: account.email,
-    isEmailVerified: account.is_email_verified,
+    userName: account?.dataValues.userName,
     isSessionActive: true,
   };
 

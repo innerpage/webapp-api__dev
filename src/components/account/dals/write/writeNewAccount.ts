@@ -17,7 +17,7 @@ export const writeNewAccount = async (
       isSuccessful = true;
       returnData = {
         id: newAccount.dataValues.id,
-        userName: newAccount.dataValues.name,
+        userName: newAccount.dataValues.user_name,
       };
     })
     .catch((err: any) => {

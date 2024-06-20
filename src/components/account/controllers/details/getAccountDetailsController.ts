@@ -16,9 +16,7 @@ export const getAccountDetailsController = async (
   }
 
   let responseData: any = {
-    name: account.name,
-    email: account.email,
-    isEmailVerified: account.is_email_verified,
+    userName: account.user_name,
     isSessionActive: true,
   };
 

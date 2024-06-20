@@ -3,13 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import { Var } from "../../../../global/var";
 
 const loginPayloadSchema = Joi.object({
-  email: Joi.string()
-    .email({ tlds: { allow: false } })
-    .min(5)
-    .max(128)
-    .lowercase()
-    .trim()
-    .required(),
+  userName: Joi.string().max(1024).required(),
   password: Joi.string().min(8).max(1024).required(),
 });
 
