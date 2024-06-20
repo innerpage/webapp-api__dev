@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { BlockLoggedInAccount } from "../../../../global/middlewares";
+import {
+  BlockLoggedInAccount,
+  BlockNonExistentAccountByUserName,
+} from "../../../../global/middlewares";
 import { validateLoginPayload, formatLoginPayload } from "../../middlewares";
 import { loginController } from "../../controllers";
 
@@ -10,5 +13,6 @@ loginRoute.post(
   BlockLoggedInAccount,
   validateLoginPayload,
   formatLoginPayload,
+  BlockNonExistentAccountByUserName,
   loginController
 );

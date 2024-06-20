@@ -11,6 +11,7 @@ export { deleteAccountController } from "./delete/deleteAccountController";
 
 // Details
 export { getAccountDetailsController } from "./details/getAccountDetailsController";
+export { getUserNameAvailabilityController } from "./details/getUserNameAvailabilityController";
 
 // Update
 export { updateAccountController } from "./update/updateAccountController";

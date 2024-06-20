@@ -4,3 +4,4 @@ export { signupRoute } from "./auth/signupRoute";
 export { getAccountDetailsRoute } from "./details/getAccountDetailsRoute";
 export { deleteAccountRoute } from "./delete/deleteAccountRoute";
 export { updateAccountRoute } from "./update/updateAccountRoute";
+export { getUserNameAvailabilityRoute } from "./details/getUserNameAvailabilityRoute";
