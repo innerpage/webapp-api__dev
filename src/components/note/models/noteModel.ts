@@ -10,8 +10,8 @@ const modelAttributes: any = {
     unique: true,
     primaryKey: true,
   },
-  content: { type: DataTypes.TEXT, allowNull: false },
-  preview: { type: DataTypes.STRING, allowNull: false },
+  content: { type: DataTypes.TEXT, allowNull: true },
+  preview: { type: DataTypes.STRING, allowNull: true },
 };
 
 const modelOptions: any = {};
