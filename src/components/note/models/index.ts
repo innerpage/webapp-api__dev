@@ -1,0 +1,1 @@
+export { noteModel } from "./noteModel";
