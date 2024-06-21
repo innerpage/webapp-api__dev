@@ -1,16 +1,13 @@
 import { Var } from "../../../../global/var";
 import { accountModel } from "../../models";
 
-export const writeNewUserName = async (
-  accountId: string,
-  newUserName: string
-) => {
+export const writeNewPassword = async (accountId: string, password: string) => {
   let isSuccessful: boolean = false;
   let returnData: any;
 
   await accountModel
     .update(
-      { user_name: newUserName },
+      { password: password },
       {
         where: {
           id: accountId,
@@ -26,8 +23,8 @@ export const writeNewUserName = async (
   return {
     success: isSuccessful,
     message: isSuccessful
-      ? `${Var.app.emoji.success} Username updated`
-      : `${Var.app.emoji.failure} Failed to update username. Please contact ${Var.app.contact.email}`,
-    payload: isSuccessful ? { newUserName: newUserName } : returnData,
+      ? `${Var.app.emoji.success} Password updated`
+      : `${Var.app.emoji.failure} Failed to update password. Please contact ${Var.app.contact.email}`,
+    payload: returnData,
   };
 };

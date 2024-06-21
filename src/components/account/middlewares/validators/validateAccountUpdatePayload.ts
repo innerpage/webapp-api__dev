@@ -3,20 +3,10 @@ import { Request, Response, NextFunction } from "express";
 import { Var } from "../../../../global/var";
 
 const accountUpdatePayloadSchema = Joi.object({
-  filter: Joi.string().valid("name", "email", "password").required(),
+  filter: Joi.string().valid("userName", "password").required(),
   value: Joi.when("filter", {
     switch: [
-      { is: "name", then: Joi.string().required() },
-      {
-        is: "email",
-        then: Joi.string()
-          .email({ tlds: { allow: false } })
-          .min(5)
-          .max(128)
-          .lowercase()
-          .trim()
-          .required(),
-      },
+      { is: "userName", then: Joi.string().required() },
       { is: "password", then: Joi.string().min(8).max(1024).required() },
     ],
   }),
