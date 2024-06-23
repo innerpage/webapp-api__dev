@@ -4,6 +4,10 @@ import {
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
 } from "../../../global/middlewares";
+import {
+  formatUpdateNotePayload,
+  validateUpdateNotePayload,
+} from "../middlewares";
 
 import { updateNoteController } from "../controllers";
 
@@ -14,5 +18,7 @@ updateNoteRoute.put(
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
+  validateUpdateNotePayload,
+  formatUpdateNotePayload,
   updateNoteController
 );

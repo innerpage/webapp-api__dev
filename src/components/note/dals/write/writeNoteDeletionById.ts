@@ -1,12 +1,13 @@
 import { noteModel } from "../../models";
 import { Var } from "../../../../global/var";
 
-export const writeNoteDeletionById = async (id: string) => {
+export const writeNoteDeletionById = async (id: string, accountId: string) => {
   let isSuccessful: boolean = false;
   let returnData: any;
+
   await noteModel
     .destroy({
-      where: { id: id },
+      where: { id: id, accountId: accountId },
     })
     .then((deletedNote: any) => {
       isSuccessful = true;

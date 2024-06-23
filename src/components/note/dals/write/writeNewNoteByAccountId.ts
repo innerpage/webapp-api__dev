@@ -6,7 +6,7 @@ export const writeNewNoteByAccountId = async (accountId: string) => {
   let returnData: any;
   await noteModel
     .create({
-      where: { accountId: accountId },
+      accountId: accountId,
     })
     .then((newNote: any) => {
       isSuccessful = true;

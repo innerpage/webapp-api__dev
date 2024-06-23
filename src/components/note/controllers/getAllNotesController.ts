@@ -12,6 +12,8 @@ export const getAllNotesController = async (req: Request, res: Response) => {
     });
   }
 
+  notes = notes.filter((item: any) => item.preview);
+
   return res.status(200).json({
     success: true,
     message: `${Var.app.emoji.success} Notes fetched`,

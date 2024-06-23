@@ -4,6 +4,10 @@ import {
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
 } from "../../../global/middlewares";
+import {
+  formatDeleteNotePayload,
+  validateDeleteNotePayload,
+} from "../middlewares";
 
 import { deleteNoteController } from "../controllers";
 
@@ -14,5 +18,7 @@ deleteNoteRoute.delete(
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
+  validateDeleteNotePayload,
+  formatDeleteNotePayload,
   deleteNoteController
 );

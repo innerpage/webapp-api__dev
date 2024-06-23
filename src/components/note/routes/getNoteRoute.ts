@@ -10,7 +10,7 @@ import { getNoteController } from "../controllers";
 export const getNoteRoute = Router();
 
 getNoteRoute.get(
-  "/note",
+  "/note/:noteId",
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,

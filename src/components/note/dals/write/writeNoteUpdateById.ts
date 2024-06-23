@@ -2,7 +2,8 @@ import { noteModel } from "../../models";
 import { Var } from "../../../../global/var";
 
 export const writeNoteUpdateById = async (
-  id: string,
+  noteId: string,
+  accountId: string,
   content: string,
   preview: string
 ) => {
@@ -14,7 +15,8 @@ export const writeNoteUpdateById = async (
       { content: content, preview: preview },
       {
         where: {
-          id: id,
+          id: noteId,
+          accountId: accountId,
         },
       }
     )
@@ -23,11 +25,12 @@ export const writeNoteUpdateById = async (
       returnData = updatedNote;
     })
     .catch((err: any) => (returnData = err));
+
   return {
     success: isSuccessful,
     message: isSuccessful
       ? `${Var.app.emoji.success} Note updated`
-      : `${Var.app.emoji.failure} Could not update new note. Please contact ${Var.app.contact.email}`,
+      : `${Var.app.emoji.failure} Could not update note. Please contact ${Var.app.contact.email}`,
     payload: returnData,
   };
 };
