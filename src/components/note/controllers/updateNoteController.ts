@@ -3,7 +3,7 @@ import { writeNoteUpdateById } from "../dals";
 import { Var } from "../../../global/var";
 
 export const updateNoteController = async (req: Request, res: Response) => {
-  let preview: string = res.locals.content.substring(0, 100);
+  let preview: string = res.locals.content.substring(0, 75);
   preview = `${preview}...`;
 
   let noteUpdateReturnData: any = await writeNoteUpdateById(
