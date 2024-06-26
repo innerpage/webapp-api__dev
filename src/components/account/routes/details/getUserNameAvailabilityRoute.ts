@@ -1,9 +1,13 @@
 import { Router } from "express";
-import { BlockLoggedInAccount } from "../../../../global/middlewares";
+import {
+  BlockLoggedInAccount,
+  BlockExistingAccountByUserName,
+} from "../../../../global/middlewares";
 import {
   validateUserNameAvailabilityPayload,
   formatUserNameAvailabilityPayload,
 } from "../../middlewares";
+
 import { getUserNameAvailabilityController } from "../../controllers";
 
 export const getUserNameAvailabilityRoute = Router();
@@ -13,5 +17,6 @@ getUserNameAvailabilityRoute.post(
   BlockLoggedInAccount,
   validateUserNameAvailabilityPayload,
   formatUserNameAvailabilityPayload,
+  BlockExistingAccountByUserName,
   getUserNameAvailabilityController
 );
