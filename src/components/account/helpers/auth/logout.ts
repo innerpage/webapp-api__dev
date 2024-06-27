@@ -15,7 +15,6 @@ export const logout = (req: Request, res: Response) => {
         });
       }
       res.clearCookie(process.env.EXPRESS_SESSION_NAME!);
-      res.clearCookie("isLogged");
       resolve();
 
       let responseData = { isSessionActive: false };
