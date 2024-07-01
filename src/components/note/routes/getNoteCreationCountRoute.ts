@@ -5,15 +5,15 @@ import {
   BlockNonExistentAccountById,
   BlockNonAdminAccountById,
 } from "../../../global/middlewares";
-import { getAllNotesCountController } from "../controllers";
+import { getNoteCreationCountController } from "../controllers";
 
-export const getAllNotesCountRoute = Router();
+export const getNoteCreationCountRoute = Router();
 
-getAllNotesCountRoute.get(
-  "/notes-count",
+getNoteCreationCountRoute.get(
+  "/note-creation-count",
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
   BlockNonAdminAccountById,
-  getAllNotesCountController
+  getNoteCreationCountController
 );

@@ -1,6 +1,7 @@
 // Read
 export { readAllNotesByAccountId } from "./read/readAllNotesByAccountId";
 export { readAllNotesCount } from "./read/readAllNotesCount";
+export { readNoteCreationCount } from "./read/readNoteCreationCount";
 export { readNoteById } from "./read/readNoteById";
 
 // Write

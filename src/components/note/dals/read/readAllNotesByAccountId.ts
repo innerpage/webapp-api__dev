@@ -6,11 +6,13 @@ export const readAllNotesByAccountId = async (accountId: string) => {
     attributes: [
       "id",
       "preview",
-      [Sequelize.cast(Sequelize.col("createdAt"), "Date"), "timestamp"],
+      "createdAt",
+      // [Sequelize.cast(Sequelize.col("createdAt"), "Date"), "timestamp"],
     ],
     where: {
       accountId: accountId,
     },
+    order: [["updatedAt", "DESC"]],
   });
 
   return notes;

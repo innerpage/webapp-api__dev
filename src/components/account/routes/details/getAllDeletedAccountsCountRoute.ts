@@ -4,16 +4,16 @@ import {
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
   BlockNonAdminAccountById,
-} from "../../../global/middlewares";
-import { getAllNotesCountController } from "../controllers";
+} from "../../../../global/middlewares";
+import { getAllDeletedAccountsCountController } from "../../controllers";
 
-export const getAllNotesCountRoute = Router();
+export const getAllDeletedAccountsCountRoute = Router();
 
-getAllNotesCountRoute.get(
-  "/notes-count",
+getAllDeletedAccountsCountRoute.get(
+  "/deleted-accounts",
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
   BlockNonAdminAccountById,
-  getAllNotesCountController
+  getAllDeletedAccountsCountController
 );
