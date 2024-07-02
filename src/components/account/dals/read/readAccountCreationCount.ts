@@ -7,8 +7,9 @@ export const readAccountCreationCount = async () => {
       [SequelizeVar.literal(`DATE("createdAt")`), "date"],
       [SequelizeVar.fn("COUNT", SequelizeVar.col("createdAt")), "count"],
     ],
-    group: ["createdAt"],
+    group: ["date"],
     raw: true,
+    order: [["date", "ASC"]],
   });
 
   return accountCreationCount;

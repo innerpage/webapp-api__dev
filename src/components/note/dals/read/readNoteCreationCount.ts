@@ -9,6 +9,7 @@ export const readNoteCreationCount = async () => {
     ],
     group: ["date"],
     raw: true,
+    order: [["date", "ASC"]],
   });
 
   return noteCreationCount;
