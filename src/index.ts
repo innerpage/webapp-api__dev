@@ -3,6 +3,8 @@ import http from "http";
 import { IncludeModelAssociations } from "./global/helpers";
 import { Sequelize } from "./global/var";
 import { Var } from "./global/var";
+import { Server, Socket } from "socket.io";
+
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -38,6 +40,24 @@ dotenv.config();
     });
 
   const nodeServer = http.createServer(app);
+
+  const io = new Server(nodeServer, {
+    cors: {
+      origin: "*",
+    },
+  });
+
+  let activeConnections: number = 0;
+  io.on("connection", (socket: Socket) => {
+    activeConnections = activeConnections + 1;
+    console.log(`Client connected, activeConnections: ${activeConnections}`);
+    socket.on("disconnect", () => {
+      activeConnections = activeConnections - 1;
+      console.log(
+        `Client disconnected, activeConnections: ${activeConnections}`
+      );
+    });
+  });
 
   nodeServer.listen(Var.node.port, () => {
     console.log(
