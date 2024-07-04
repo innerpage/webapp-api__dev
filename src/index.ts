@@ -4,6 +4,7 @@ import { IncludeModelAssociations } from "./global/helpers";
 import { Sequelize } from "./global/var";
 import { Var } from "./global/var";
 import { Server, Socket } from "socket.io";
+import { readAccountByUserName } from "./components/account/dals";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -47,15 +48,31 @@ dotenv.config();
     },
   });
 
-  let activeConnections: number = 0;
-  io.on("connection", (socket: Socket) => {
-    activeConnections = activeConnections + 1;
-    console.log(`Client connected, activeConnections: ${activeConnections}`);
+  let activeUsers: number = 0;
+  io.on("connection", async (socket: Socket) => {
+    activeUsers = activeUsers + 1;
+    console.log(`activeUsers: ${activeUsers}`);
+
     socket.on("disconnect", () => {
-      activeConnections = activeConnections - 1;
-      console.log(
-        `Client disconnected, activeConnections: ${activeConnections}`
-      );
+      activeUsers = activeUsers - 1;
+      console.log(`activeUsers: ${activeUsers}`);
+    });
+
+    let isAdmin: boolean = false;
+    let isAdminChecked: boolean = false;
+    socket.on("getActiveUserCount", async (userName) => {
+      if (!isAdminChecked) {
+        let account: any = await readAccountByUserName(userName);
+        if (account.is_admin) {
+          isAdmin = true;
+        }
+        isAdminChecked = true;
+      }
+
+      if (!isAdmin) {
+        return;
+      }
+      io.to(socket.id).emit("activeUserCount", activeUsers);
     });
   });
 
