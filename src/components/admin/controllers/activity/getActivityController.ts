@@ -1,90 +1,137 @@
 import { Request, Response } from "express";
-import { readAccountCreationCount } from "../../../account/dals";
-import { readNoteCreationCount } from "../../../note/dals";
+import { readAccountCreationsByRange } from "../../../account/dals";
+import { readNoteCreationsByRange } from "../../../note/dals";
 import { Var } from "../../../../global/var";
+import { DateTime, Interval } from "luxon";
 
 export const getActivityController = async (req: Request, res: Response) => {
-  let accountCreationCount: any = await readAccountCreationCount();
-  if (!accountCreationCount) {
+  let intervals: any;
+  let rangeStart: string = "";
+  let rangeEnd: string = DateTime.fromISO(res.locals.endDate)
+    .plus({
+      day: 1,
+    })
+    .toString();
+
+  switch (res.locals.range) {
+    case "1day":
+      rangeStart = DateTime.fromISO(res.locals.endDate)
+        .minus({
+          day: 1,
+        })
+        .toString();
+      break;
+    case "1week":
+      rangeStart = DateTime.fromISO(res.locals.endDate)
+        .minus({
+          week: 1,
+        })
+        .toString();
+      break;
+    case "1month":
+      rangeStart = DateTime.fromISO(res.locals.endDate)
+        .minus({
+          month: 1,
+        })
+        .toString();
+      break;
+    case "3months":
+      rangeStart = DateTime.fromISO(res.locals.endDate)
+        .minus({
+          months: 3,
+        })
+        .toString();
+      break;
+    case "6months":
+      rangeStart = DateTime.fromISO(res.locals.endDate)
+        .minus({
+          months: 6,
+        })
+        .toString();
+      break;
+    case "1year":
+      rangeStart = DateTime.fromISO(res.locals.endDate)
+        .minus({
+          year: 1,
+        })
+        .toString();
+      break;
+    case "custom":
+      rangeStart = DateTime.fromISO(res.locals.startDate).toString();
+      break;
+  }
+
+  intervals = Interval.fromDateTimes(
+    DateTime.fromISO(rangeStart),
+    DateTime.fromISO(rangeEnd)
+  )
+    .splitBy({ day: 1 })
+    .map((date: Interval) => date.start?.toISODate());
+
+  let accountCreations: any = await readAccountCreationsByRange(
+    rangeStart,
+    rangeEnd
+  );
+
+  if (!accountCreations) {
     console.log(
-      `${Var.app.emoji.failure} Could not fetch account creation count`
+      `${Var.app.emoji.failure} Could not fetch account creation details`
     );
     return res.status(400).json({
       success: false,
-      message: `${Var.app.emoji.failure} Could not fetch account creation count`,
+      message: `${Var.app.emoji.failure} Could not fetch account creation details`,
     });
   }
 
-  let noteCreationCount: any = await readNoteCreationCount();
-  if (!noteCreationCount) {
-    console.log(`${Var.app.emoji.failure} Could not fetch note creation count`);
+  let noteCreations: any = await readNoteCreationsByRange(rangeStart, rangeEnd);
+  if (!noteCreations) {
+    console.log(
+      `${Var.app.emoji.failure} Could not fetch note creation details`
+    );
     return res.status(400).json({
       success: false,
-      message: `${Var.app.emoji.failure} Could not fetch note creation count`,
+      message: `${Var.app.emoji.failure} Could not fetch note creation details`,
     });
   }
 
-  let finalAccountCreationCount: any = [];
-  accountCreationCount.map((item: any) => {
-    let date: any = new Date(item.date).getDate();
-    let monthName: string = new Date(item.date).toLocaleString("default", {
-      month: "short",
-    });
-    let year: any = new Date(item.date).getFullYear();
+  let finalAccountCreations: any = [];
+  accountCreations.map((item: any) => {
     let obj: any = {
-      date: `${date} ${monthName} ${year}`,
+      date: item.date,
       count: item.count,
     };
-    finalAccountCreationCount.push(obj);
+    finalAccountCreations.push(obj);
   });
 
-  let finalNoteCreationCount: any = [];
-  noteCreationCount.map((item: any) => {
-    let date: any = new Date(item.date).getDate();
-    let monthName: string = new Date(item.date).toLocaleString("default", {
-      month: "short",
-    });
-    let year: any = new Date(item.date).getFullYear();
+  let finalNoteCreations: any = [];
+  noteCreations.map((item: any) => {
     let obj: any = {
-      date: `${date} ${monthName} ${year}`,
+      date: item.date,
       count: item.count,
     };
-    finalNoteCreationCount.push(obj);
+    finalNoteCreations.push(obj);
   });
 
-  let datesArray: any = [];
-  finalAccountCreationCount.map((obj: any) => {
-    datesArray.push(obj.date);
-  });
-  finalNoteCreationCount.map((obj: any) => {
-    datesArray.push(obj.date);
-  });
-
-  let finalDatesArray: any = [...new Set(datesArray)];
-  let noteCountsArray: any = [];
-  let accountCountsArray: any = [];
-
-  finalDatesArray.map((date: string) => {
-    let isAccountOnDateFound: boolean = false;
-    finalAccountCreationCount.map((accountObj: any) => {
-      if (date === accountObj.date) {
-        accountCountsArray.push(accountObj.count);
-        isAccountOnDateFound = true;
+  let noteCreationsArray: any = [];
+  let accountCreationsArray: any = [];
+  intervals.map((date: any) => {
+    let isAccountFoundOnDate: boolean = false;
+    accountCreations.map((item: any) => {
+      if (date === item.date) {
+        accountCreationsArray.push(item.count);
       }
     });
-    if (!isAccountOnDateFound) {
-      accountCountsArray.push(0);
+    if (!isAccountFoundOnDate) {
+      accountCreationsArray.push(0);
     }
-
-    let isNoteOnDateFound: boolean = false;
-    finalNoteCreationCount.map((noteObj: any) => {
-      if (date === noteObj.date) {
-        noteCountsArray.push(noteObj.count);
-        isNoteOnDateFound = true;
+    let isNoteFoundOnDate: boolean = false;
+    noteCreations.map((item: any) => {
+      if (date === item.date) {
+        noteCreationsArray.push(item.count);
       }
     });
-    if (!isNoteOnDateFound) {
-      noteCountsArray.push(0);
+    if (!isNoteFoundOnDate) {
+      noteCreationsArray.push(0);
     }
   });
 
@@ -92,9 +139,9 @@ export const getActivityController = async (req: Request, res: Response) => {
     success: true,
     message: `${Var.app.emoji.success} Activity details fetched`,
     payload: {
-      label: finalDatesArray,
-      notesCount: noteCountsArray,
-      accountCount: accountCountsArray,
+      label: intervals,
+      notesCount: noteCreationsArray,
+      accountCount: accountCreationsArray,
     },
   });
 };

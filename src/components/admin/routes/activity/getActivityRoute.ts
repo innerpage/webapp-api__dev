@@ -5,16 +5,21 @@ import {
   BlockNonExistentAccountById,
   BlockNonAdminAccountById,
 } from "../../../../global/middlewares";
-
+import {
+  validateActivityPayload,
+  formatActivityPayload,
+} from "../../middlewares";
 import { getActivityController } from "../../controllers";
 
 export const getActivityRoute = Router();
 
-getActivityRoute.get(
+getActivityRoute.post(
   "/activity",
   BlockLoggedOutAccount,
   ExtractAccountIdFromRequest,
   BlockNonExistentAccountById,
   BlockNonAdminAccountById,
+  validateActivityPayload,
+  formatActivityPayload,
   getActivityController
 );

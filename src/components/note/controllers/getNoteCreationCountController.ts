@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { readNoteCreationCount } from "../dals";
+import { readNoteCreationsByRange } from "../dals";
 import { Var } from "../../../global/var";
 
 export const getNoteCreationCountController = async (
   req: Request,
   res: Response
 ) => {
-  let noteCreationCount: any = await readNoteCreationCount();
+  let noteCreationCount: any = await readNoteCreationsByRange();
   if (!noteCreationCount) {
     console.log(`${Var.app.emoji.failure} Could not fetch note creation count`);
     return res.status(400).json({

@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { readAccountCreationCount } from "../../dals";
+import { readAccountCreationsByRange } from "../../dals";
 import { Var } from "../../../../global/var";
 
 export const getAccountCreationCountController = async (
   req: Request,
   res: Response
 ) => {
-  let accountCreationCount: any = await readAccountCreationCount();
+  let accountCreationCount: any = await readAccountCreationsByRange();
   if (!accountCreationCount) {
     console.log(
       `${Var.app.emoji.failure} Could not fetch account creation count`
