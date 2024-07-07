@@ -11,7 +11,6 @@ export { getAccountDetailsController } from "./details/getAccountDetailsControll
 export { getUserNameAvailabilityController } from "./details/getUserNameAvailabilityController";
 export { getAllAccountsCountController } from "./details/getAllAccountsCountController";
 export { getAllDeletedAccountsCountController } from "./details/getAllDeletedAccountsController";
-export { getAccountCreationCountController } from "./details/getAccountCreationCountController";
 
 // Update
 export { updateAccountController } from "./update/updateAccountController";
