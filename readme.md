@@ -26,6 +26,8 @@
 - Copy `.env-bak` to `.env`
 - Update `.env` with your configuration
 
+<br/>
+
 ## Build
 
 - Build the code <br/>
