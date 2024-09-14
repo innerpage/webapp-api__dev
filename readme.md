@@ -1,40 +1,49 @@
-## Clone repo
+## Technologies Used
 
-✅ `git clone git@github.com-projckt:projckt/starter_webapp-api-dev.git dev`<br/>
-✅ `cd dev`
+- [Node](https://nodejs.org/en), [Express](https://expressjs.com/)
+- [Postgres](https://www.postgresql.org/)
+- [Redis](https://redis.io/)
+  <br/>
 
-<hr/>
+## Installation
 
-## Edit remote of cloned repo
+- Clone the repository <br/>
 
-✅ `git remote set-url origin git@github.com-{username}:{username}/webapp-api__dev.git`
+  ```
+    git clone git@github.com:innerpage/webapp-api__dev.git
+    cd webapp-api__dev
+  ```
 
-<hr/>
+- Install dependencies <br/>
+  ```
+    ./init.sh
+  ```
 
-## Install dependencies
+<br/>
 
-✅ `npm install`
+## Configuration
 
-<hr/>
+- Copy `.env-bak` to `.env`
+- Update `.env` with your configuration
 
-## Edit ./package.json
+## Build
 
-✅ Change `name` <br/>
-✅ Change `repository.url`
+- Build the code <br/>
 
-<hr/>
+  ```
+    ./build.sh
+  ```
 
-## Edit ./.env
+<br/>
 
-✅ Copy `.env-bak` to `.env` <br/>
-✅ Edit `.env` values
+## Deployment
 
-<hr/>
+- [Configure Nginx as Reverse Proxy for Node](https://www.digitalocean.com/community/tutorials/nginx-reverse-proxy-node-angular)
+- Use [PM2](https://pm2.keymetrics.io/) to serve the webapp e.g.
+  `pm2 start index.js --name innerpage-webapi --watch`
 
-## Edit ./build.sh
+<br/>
 
-✅ Change production repo to `git@github.com-{username}:{username}/webapp-api__prod.git`
+## Contributing
 
-## Edit ./src/global/include/IncludeModelAssociations
-
-❌ Change model associations after defining models
+Feel free to contribute by opening pull requests or reporting issues.
