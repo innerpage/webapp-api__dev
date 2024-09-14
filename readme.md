@@ -10,7 +10,7 @@
 - Clone the repository <br/>
 
   ```
-    git clone git@github.com:innerpage/webapp-api__dev.git
+    git clone https://github.com/innerpage/webapp-api__dev.git
     cd webapp-api__dev
   ```
 
@@ -24,7 +24,7 @@
 ## Configuration
 
 - Copy `.env-bak` to `.env`
-- Update `.env` with your configuration
+- Update `.env` with your values
 
 <br/>
 
